@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7oqv2lsl0w6q"]
+
+[ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_fwm2g"]
+
+[sub_resource type="Animation" id="Animation_hbjco"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_6rbul"]
+resource_name = "idle"
+length = 0.583338
+step = 0.0416667
+
+[sub_resource type="Animation" id="Animation_7quob"]
+resource_name = "sing-down"
+length = 1.20834
+step = 0.0416667
+
+[sub_resource type="Animation" id="Animation_407k3"]
+resource_name = "sing-left"
+length = 0.583338
+step = 0.0416667
+
+[sub_resource type="Animation" id="Animation_fvoj3"]
+resource_name = "sing-right"
+length = 2.54167
+step = 0.0416667
+
+[sub_resource type="Animation" id="Animation_860w3"]
+resource_name = "sing-up"
+length = 0.583338
+step = 0.0416667
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7quob"]
+_data = {
+&"RESET": SubResource("Animation_hbjco"),
+&"idle": SubResource("Animation_6rbul"),
+&"sing-down": SubResource("Animation_7quob"),
+&"sing-left": SubResource("Animation_407k3"),
+&"sing-right": SubResource("Animation_fvoj3"),
+&"sing-up": SubResource("Animation_860w3")
+}
+
+[node name="null" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_fwm2g")
+player = NodePath("player")
+
+[node name="player" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7quob")
+}

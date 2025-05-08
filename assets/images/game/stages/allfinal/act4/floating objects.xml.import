@@ -1,0 +1,18 @@
+[remap]
+
+importer="com.what-is-a-git.godot-sparrow-importer"
+type="SpriteFrames"
+uid="uid://dyhcxrgc3s6mn"
+path="res://.godot/imported/floating objects.xml-56275ff5f3235cb30f95a51b564ca821.res"
+
+[deps]
+
+source_file="res://assets/images/game/stages/allfinal/act4/floating objects.xml"
+dest_files=["res://.godot/imported/floating objects.xml-56275ff5f3235cb30f95a51b564ca821.res"]
+
+[params]
+
+use_offsets=true
+animation_framerate=24
+animations_looped=false
+store_external_spriteframes=false

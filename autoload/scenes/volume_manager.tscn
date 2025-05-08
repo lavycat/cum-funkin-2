@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://v2t83nychc2l"]
+
+[ext_resource type="Script" uid="uid://idivdf2hd0pk" path="res://autoload/scenes/volume_manager.gd" id="1_67rh1"]
+
+[node name="VolumeManager" type="Node2D"]
+script = ExtResource("1_67rh1")

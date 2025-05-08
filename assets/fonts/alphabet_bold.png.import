@@ -1,0 +1,26 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://mk0tw55urs0e"
+path="res://.godot/imported/alphabet_bold.png-3b6614dbfa6f348cce47736867565edc.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/alphabet_bold.png"
+dest_files=["res://.godot/imported/alphabet_bold.png-3b6614dbfa6f348cce47736867565edc.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\'A\'-\'Z\'", "\' \'")
+kerning_pairs=PackedStringArray()
+columns=6
+rows=5
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[Object(SystemFont,"resource_local_to_scene":false,"resource_name":"","fallbacks":Array[Font]([]),"font_names":PackedStringArray("Cambria"),"font_italic":false,"font_weight":400,"font_stretch":100,"antialiasing":1,"generate_mipmaps":false,"disable_embedded_bitmaps":true,"allow_system_fallback":true,"force_autohinter":false,"hinting":1,"subpixel_positioning":1,"keep_rounding_remainders":true,"multichannel_signed_distance_field":false,"msdf_pixel_range":16,"msdf_size":48,"oversampling":0.0,"script":null)
+]
+compress=true
+scaling_mode=2

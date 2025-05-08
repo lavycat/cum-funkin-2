@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwqhnwfd1xy3d"]
+
+[ext_resource type="Script" uid="uid://bku46g8d38pqw" path="res://scenes/game/stages/stage.gd" id="1_b4768"]
+
+[node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
+script = ExtResource("1_b4768")
+cam = NodePath("cam")
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+position_smoothing_enabled = true
+
+[node name="dad" type="Marker2D" parent="."]
+
+[node name="gf" type="Marker2D" parent="."]
+
+[node name="bf" type="Marker2D" parent="."]

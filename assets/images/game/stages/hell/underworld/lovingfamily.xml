@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="lovingfamily.png">
+	<!-- Created with Adobe Animate version 23.0.2.103 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="breakdown0000" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0001" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0002" x="0" y="1440" width="1280" height="720"/>
+	<SubTexture name="breakdown0003" x="0" y="1440" width="1280" height="720"/>
+	<SubTexture name="breakdown0004" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="breakdown0005" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0006" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0007" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="breakdown0008" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="breakdown0009" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0010" x="0" y="1440" width="1280" height="720"/>
+	<SubTexture name="breakdown0011" x="0" y="1440" width="1280" height="720"/>
+	<SubTexture name="breakdown0012" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0013" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0014" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0015" x="0" y="2160" width="1280" height="720"/>
+	<SubTexture name="breakdown0016" x="0" y="2160" width="1280" height="720"/>
+	<SubTexture name="breakdown0017" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0018" x="0" y="1440" width="1280" height="720"/>
+	<SubTexture name="breakdown0019" x="0" y="2160" width="1280" height="720"/>
+	<SubTexture name="breakdown0020" x="0" y="2160" width="1280" height="720"/>
+	<SubTexture name="breakdown0021" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0022" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0023" x="0" y="1440" width="1280" height="720"/>
+	<SubTexture name="breakdown0024" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0025" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0026" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="breakdown0027" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="breakdown0028" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="breakdown0029" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0030" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="breakdown0031" x="0" y="1440" width="1280" height="720"/>
+	<SubTexture name="breakdown0032" x="0" y="1440" width="1280" height="720"/>
+	<SubTexture name="breakdown0033" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="breakdown0034" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="breakdown0035" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="breakdown0036" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="breakdown0037" x="0" y="0" width="1280" height="720"/>
+</TextureAtlas>
