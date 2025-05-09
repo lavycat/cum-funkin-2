@@ -15,8 +15,6 @@ var sing_suffix:String = ""
 var can_dance:bool = true
 var can_sing:bool = true
 func _ready() -> void:
-	if is_player:
-		scale.x *= -1
 	dance()
 func play_anim(anim:String,force:bool = false):
 	cur_anim = anim

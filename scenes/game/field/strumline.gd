@@ -61,13 +61,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	
 func note_input(note:Note):
-	note_hit.emit(note)
+	play_field.note_hit.emit(note)
 	note.was_hit = true
+	receptors[note.column].play_anim("confirm",true)
+
 	pass
 func _process(delta: float) -> void:
 	for i in notes.get_children():
 		if i.time <= Conductor.time and !i.was_hit and cpu:
-			i.was_hit = true
+			note_input(i)
 func _physics_process(delta: float) -> void:
 	var i:int = 0
 	for dacolumn in receptors:

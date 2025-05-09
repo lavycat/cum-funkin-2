@@ -33,12 +33,12 @@ static func load_psych(data:Dictionary):
 	if raw.events:
 		var evs_arr = raw.events
 		for i in evs_arr:
-			var ev_time = i[0]
+			var ev_time:float = i[0]
 			for ev in i[1]:
 				var ev_name = ev[0]
 				var ev_v1 = ev[1]
 				var ev_v2 = ev[2]
-				add_event(chart,ev_time,ev_name,[ev_v1,ev_v2])
+				add_event(chart,ev_time / 1000.0,ev_name,[ev_v1,ev_v2])
 				
 		
 	var speed = raw.get("speed")

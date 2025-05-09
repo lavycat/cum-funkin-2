@@ -15,13 +15,18 @@ const directions:Array = [
 ]
 ## TODO restructure for a note style system
 var style:NoteStyle = NoteStyle.new()
-var note_field
+var note_field:NoteField
 var sustain:Sustain
+var hold_timer:float = 0.0
 var hit_range = 0.2
 
 var was_hit:bool = false
 var missed:bool = false
 var sprite:AnimatedSprite2D
+## returns the name of the notestyle for the note script defaults to empty string 
+static func get_style():
+	return ""
+
 func _enter_tree() -> void:
 	direction = directions[column]
 	sprite = AnimatedSprite2D.new()
@@ -32,8 +37,6 @@ func _enter_tree() -> void:
 	sustain.note = self
 	add_child(sprite)
 	add_child(sustain,false,Node.INTERNAL_MODE_FRONT)
-func _exit_tree() -> void:
-	game.scripts.erase(self)
 func play_anim(anim:String = ""):
 	sprite.play("%s %s"%[direction,anim])
 func note_hit(note:Note):

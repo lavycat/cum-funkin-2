@@ -30,7 +30,12 @@ func _load():
 	if !FileAccess.file_exists(save_path):
 		save()
 	var p = FileAccess.open(save_path,FileAccess.READ)
+		
 	var buf = p.get_buffer(2)
+	if buf.size() == 0:
+		save()
+		_load()
+		return
 	volume_ln = buf[0] / 100.0
 	volume_mute = buf[1]
 	adjust_volume()

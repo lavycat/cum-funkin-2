@@ -1,12 +1,12 @@
 class_name Game extends Node2D
-static var song_name:String = "aethos"
+static var song_name:String = "no-villains"
 static var song_diff:String = "hard"
 static var song_varaion:String = ""
+static var cache:Array = []
 static var instance:Game = null
 @onready var tracks: Node = %tracks
 @export var play_field: PlayField
 @onready var hud: Control = $CanvasLayer/hud
-var scripts:Array[FunkinScript] = []
 var stage:Stage = null
 var camera:Camera2D = null
 var camera_lerp_zoom:float = 1.0
@@ -27,7 +27,6 @@ var botplay:bool = false:
 		play_field.player_strum.cpu = botplay
 		play_field.player_strum.input = not botplay
 		
-	
 func load_character(p:String) -> String:
 	var path:String = p
 	if ResourceLoader.exists(p):
@@ -41,6 +40,8 @@ var dad_path:String
 var bf_path:String
 var gf_path:String
 
+
+var can_pause:bool = false
 func _enter_tree() -> void:
 	Game.instance = self
 	Conductor.time = 0
@@ -72,27 +73,18 @@ func _enter_tree() -> void:
 	
 	
 func start():
-	scripts.append(gf)
-	scripts.append(bf)
-	scripts.append(dad)
-	scripts.append(stage)
 	tracks.load_song(song_name)
-	print("hi")
-	tracks.player.play()
 	Conductor.player = tracks.player
-	song_started = true
 	
 	
 	Conductor.measure_hit.connect(on_measure_hit)
-	play_field.player_strum.note_hit.connect(note_hit)
-	play_field.player_strum.note_miss.connect(note_miss)
-	play_field.dad_strum.note_hit.connect(note_hit)
+	play_field.note_hit.connect(note_hit)
+	play_field.note_miss.connect(note_miss)
 	play_field.dad_strum.chars = [dad]
 	play_field.player_strum.chars = [bf]
 	
 	add_child(stage)
 	add_child(gf)
-	bf.is_player = true
 	add_child(bf)
 	add_child(dad)
 	
@@ -113,7 +105,6 @@ func start():
 		evv.event_values = ev.values
 		evv.event_time = ev.time
 		evv.event_name = ev.name
-		scripts.append(evv)
 		evv.name = "%s %d"%[ev.name,ev.time*1000]
 		event_man.add_child(evv)
 
@@ -130,33 +121,49 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug_bot_toggle"):
 		botplay = not botplay
 	if Input.is_action_just_pressed("debug_skip_time"):
-		Conductor.time += 10
-		Conductor.player.seek(Conductor.time)
+		Conductor.player.seek(Conductor.time + 10.0)
 		
 	if loading:
+		Conductor.time = -Conductor.beat_length*3.0
 		var stage_status = ResourceLoader.load_threaded_get_status(stage_path)
 		if stage_status == ResourceLoader.THREAD_LOAD_LOADED:
 			loads.append(true)
-			stage = ResourceLoader.load_threaded_get(stage_path).instantiate()
+			var scn = ResourceLoader.load_threaded_get(stage_path)
+			cache.append(scn)
+			stage = scn.instantiate()
 			
 		var dad_status = ResourceLoader.load_threaded_get_status(dad_path)
 		if dad_status == ResourceLoader.THREAD_LOAD_LOADED:
 			loads.append(true)
-			dad = ResourceLoader.load_threaded_get(dad_path).instantiate()
+			var scn = ResourceLoader.load_threaded_get(dad_path)
+			if not cache.has(scn):
+				cache.append(scn)
+			dad = scn.instantiate()
 		
 		var bf_status = ResourceLoader.load_threaded_get_status(bf_path)
 		if bf_status == ResourceLoader.THREAD_LOAD_LOADED:
 			loads.append(true)
-			bf = ResourceLoader.load_threaded_get(bf_path).instantiate()
+			var scn = ResourceLoader.load_threaded_get(bf_path)
+			if not cache.has(scn):
+				cache.append(scn)
+			bf = scn.instantiate()
 		
 		var gf_status = ResourceLoader.load_threaded_get_status(gf_path)
 		if gf_status == ResourceLoader.THREAD_LOAD_LOADED:
 			loads.append(true)
-			gf = ResourceLoader.load_threaded_get(gf_path).instantiate()
+			var scn = ResourceLoader.load_threaded_get(gf_path)
+			if not cache.has(scn):
+				cache.append(scn)
+			gf = scn.instantiate()
 		if loads.size() == 4:
 			loading = false
 			start()
-	
+
+	if not song_started:
+		Conductor.time += delta
+		if Conductor.time >= 0.0:
+			tracks.player.play()
+			song_started = true
 	hud.scale = lerp(hud.scale,Vector2.ONE,3.0 * delta)
 	if camera:
 		camera.zoom = lerp(camera.zoom,Vector2(camera_lerp_zoom,camera_lerp_zoom),delta*3.0)

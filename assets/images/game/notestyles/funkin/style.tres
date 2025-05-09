@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NoteStyle" load_steps=2 format=3 uid="uid://dmr1jhsl6jsvr"]
+
+[ext_resource type="Script" uid="uid://7h4ov0y0q7nj" path="res://scripts/game/data/note_style.gd" id="2_4lc0i"]
+
+[resource]
+script = ExtResource("2_4lc0i")
+note_scale = 0.7
+sustain_width = 50.0
+metadata/_custom_type_script = "uid://7h4ov0y0q7nj"

@@ -25,42 +25,6 @@ var scroll_speed = 1.0:
 	get:
 		return scroll_speed / Conductor.rate
 var down_scroll:bool = true
-func queue_notes():
-	var time_range_sec = 2.0 / scroll_speed
-	
-	for i in range(note_index,note_data.size()):
-		var data = note_data[i]
-		var diff = abs(Conductor.time - data.time)
-		var ids:int = 0
-		if data.time < Conductor.time:
-			note_index += 1
-			continue
-		if diff >= time_range_sec:
-			break
-		
-		note_index += 1
-		var n:Note = Note.new()
-		var note_script_path = "res://scripts/game/notes/%s.gd"%data.type
-		if ResourceLoader.exists(note_script_path):
-			n.set_script(load(note_script_path))
-		else:
-			n.set_script(load("uid://blp8wbqjjdsaf"))
-		n.time = data.time
-		n.column = data.column
-		n.type = data.type
-		n.length = data.length
-		
-		n.note_field = self
-		game.scripts.append(n)
-		
-		add_child(n)
-		n.play_anim("note")
-		n.visible = false
-		note_spawn.emit(n)
-#var max_note_per_update:int = INF
-func _physics_process(delta: float) -> void:
-	pass
-	
 func _process(delta: float) -> void:
 	
 	var count:int = 0
@@ -82,18 +46,23 @@ func _process(delta: float) -> void:
 		
 		if Conductor.time - i.time > i.hit_range * Conductor.rate and not i.was_hit:
 			if not i.missed:
-				strum_line.note_miss.emit(i)
+				strum_line.play_field.note_miss.emit(i)
 				i.missed = true
 		if Conductor.time - (i.time + i.length) > i.hit_range * Conductor.rate:
 			i.queue_free()
 		if i.was_hit:
-			strum_line.note_hit.emit(i)
+			if i.hold_timer > Conductor.step_length*1.5 + delta:
+				strum_line.receptors[i.column].play_anim("confirm",true)
+				strum_line.play_field.note_hit.emit(i)
+				i.hold_timer = 0.0
+			else:
+				i.hold_timer += delta
 			if not strum_line.cpu:
 				if !strum_line.pressed[i.column]:
 					if i.sustain.released_timer > Conductor.step_length and !i.missed:
 						i.missed = true
 						i.was_hit = false
-						strum_line.note_miss.emit(i)
+						strum_line.play_field.note_miss.emit(i)
 					else:
 						if i.sustain:
 							i.sustain.released_timer += delta
@@ -101,7 +70,6 @@ func _process(delta: float) -> void:
 					if i.sustain:
 						i.sustain.released_timer = 0
 						
-			strum_line.receptors[i.column].play_anim("confirm",true)
 			if i.length <= 0.0:
 				i.queue_free()
 				break

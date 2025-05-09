@@ -5,6 +5,7 @@ var length:float = 0.0:
 var note:Note
 var tail:Sprite2D
 var released_timer:float = 0.0
+
 func _enter_tree() -> void:
 	z_index = -1
 	if length <= 0.0:
@@ -13,7 +14,7 @@ func _enter_tree() -> void:
 		add_point(Vector2.ZERO)
 	width = 50
 	var frames = note.style.note_frames
-	texture_repeat = CanvasItem.TEXTURE_REPEAT_MIRROR
+	texture_repeat = CanvasItem.TEXTURE_REPEAT_DISABLED
 	texture_mode = Line2D.LINE_TEXTURE_TILE
 	texture = NoteField.get_cached_hold_texture(note)
 	tail = Sprite2D.new()

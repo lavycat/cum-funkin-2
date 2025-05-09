@@ -4,7 +4,8 @@ var rate:float = 1.0:
 	set(v):
 		rate = v
 		Engine.time_scale = rate
-		player.pitch_scale = rate
+		if player:
+			player.pitch_scale = rate
 
 var changes:Array[Dictionary] = []
 
@@ -62,7 +63,7 @@ func update_song_position():
 	var delta = get_process_delta_time()
 	if player:
 		player.pitch_scale = rate
-		if !player.stream_paused:
+		if player.playing:
 			var music_time:float = player.get_playback_position() - offset
 			if music_time != last_music_time and time <= music_time:
 				time = music_time

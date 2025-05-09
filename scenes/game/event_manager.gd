@@ -6,7 +6,10 @@ func _process(delta: float) -> void:
 	var events = get_children()
 	if events.is_empty():
 		return
-	while cur_event < events.size() and events[cur_event].event_time <= Conductor.time:
-		events[cur_event].trigger()
-		event_trigger.emit(events[cur_event])
-		cur_event += 1
+	for ev in events:
+		if ev.event_time <= Conductor.time:
+			ev.trigger()
+			event_trigger.emit(ev)
+			ev.queue_free()
+		else:
+			break

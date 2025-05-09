@@ -1,24 +1,37 @@
 class_name PlayField extends Node2D
 @onready var strumlines: Node2D = $strumlines
 var strumline_list:Array[StrumLine] = []
-var player_strum:StrumLine
-var dad_strum:StrumLine
+
 var chart:Dictionary
 var note_index:int
+var spawn_distance:float = 2.0
+
+var score:float = 0
+var misses:int = 0
+var acc:float = 1.0
+
+signal note_hit(note:Note)
+signal note_miss(note:Note)
+signal note_spawn(note:Note)
+@onready var player_strum: StrumLine = $strumlines/player_strum
+@onready var dad_strum: StrumLine = $strumlines/dad_strum
+
+
+
 func _ready() -> void:
 	
 	for i:StrumLine in strumlines.get_children():
+		i.play_field = self
 		var use_chart = Save.get_data("gameplay","use_chart_scroll_speed",true)
 		i.notes.scroll_speed = Save.get_data("gameplay","scroll_speed",1.0)
 		if use_chart:
 			i.notes.scroll_speed = chart.scroll_speed
+		
 		strumline_list.append(i)
-	dad_strum = strumline_list[0]
-	player_strum = strumline_list[1]
 func _process(delta: float) -> void:
 	spawn_notes(1.0)
 func spawn_notes(speed:float = 1.0):
-	var time_range_sec = 2.0 / speed
+	var time_range_sec = spawn_distance / speed * Conductor.rate
 	
 	for i in range(note_index,chart.notes.size()):
 		var data = chart.notes[i]
@@ -48,3 +61,4 @@ func spawn_notes(speed:float = 1.0):
 		field.add_child(n)
 		n.play_anim("note")
 		n.visible = false
+		note_spawn.emit(n)
