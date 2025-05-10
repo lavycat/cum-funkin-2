@@ -48,10 +48,13 @@ func _process(delta: float) -> void:
 			if not i.missed:
 				strum_line.play_field.note_miss.emit(i)
 				i.missed = true
+		if not i.missed and i.was_hit:
+			if i.sustain:
+				i.sustain.length = (i.length + i.time) - Conductor.time
 		if Conductor.time - (i.time + i.length) > i.hit_range * Conductor.rate:
 			i.queue_free()
 		if i.was_hit:
-			if i.hold_timer > Conductor.step_length*1.5 + delta:
+			if i.hold_timer > Conductor.step_length + delta:
 				strum_line.receptors[i.column].play_anim("confirm",true)
 				strum_line.play_field.note_hit.emit(i)
 				i.hold_timer = 0.0
@@ -75,16 +78,15 @@ func _process(delta: float) -> void:
 				break
 			#i.position.y = 0
 			
-			if i.sustain.length <= 0:
+			if i.sustain.length - delta <= 0:
 				i.queue_free()
 			else:
 				i.sprite.visible = false
-				if not i.missed:
-					i.sustain.length = (i.length + i.time) - Conductor.time
+				
 		count += 1
 		
 		
 func _exit_tree() -> void:
 	note_data.clear()
 func _enter_tree() -> void:
-	note_hold_cache = {}
+	note_hold_cache.clear()

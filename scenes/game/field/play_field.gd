@@ -22,8 +22,8 @@ func _ready() -> void:
 	
 	for i:StrumLine in strumlines.get_children():
 		i.play_field = self
-		var use_chart = Save.get_data("gameplay","use_chart_scroll_speed",true)
-		i.notes.scroll_speed = Save.get_data("gameplay","scroll_speed",1.0)
+		var use_chart = Save.data.use_chart_scroll_speed
+		i.notes.scroll_speed = Save.data.scroll_speed
 		if use_chart:
 			i.notes.scroll_speed = chart.scroll_speed
 		

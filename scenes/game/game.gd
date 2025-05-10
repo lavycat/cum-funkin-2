@@ -2,7 +2,6 @@ class_name Game extends Node2D
 static var song_name:String = "no-villains"
 static var song_diff:String = "hard"
 static var song_varaion:String = ""
-static var cache:Array = []
 static var instance:Game = null
 @onready var tracks: Node = %tracks
 @export var play_field: PlayField
@@ -43,6 +42,8 @@ var gf_path:String
 
 var can_pause:bool = false
 func _enter_tree() -> void:
+	Save.load_data()
+	
 	Game.instance = self
 	Conductor.time = 0
 	if !chart:
@@ -129,31 +130,24 @@ func _process(delta: float) -> void:
 		if stage_status == ResourceLoader.THREAD_LOAD_LOADED:
 			loads.append(true)
 			var scn = ResourceLoader.load_threaded_get(stage_path)
-			cache.append(scn)
 			stage = scn.instantiate()
 			
 		var dad_status = ResourceLoader.load_threaded_get_status(dad_path)
 		if dad_status == ResourceLoader.THREAD_LOAD_LOADED:
 			loads.append(true)
 			var scn = ResourceLoader.load_threaded_get(dad_path)
-			if not cache.has(scn):
-				cache.append(scn)
 			dad = scn.instantiate()
 		
 		var bf_status = ResourceLoader.load_threaded_get_status(bf_path)
 		if bf_status == ResourceLoader.THREAD_LOAD_LOADED:
 			loads.append(true)
 			var scn = ResourceLoader.load_threaded_get(bf_path)
-			if not cache.has(scn):
-				cache.append(scn)
 			bf = scn.instantiate()
 		
 		var gf_status = ResourceLoader.load_threaded_get_status(gf_path)
 		if gf_status == ResourceLoader.THREAD_LOAD_LOADED:
 			loads.append(true)
 			var scn = ResourceLoader.load_threaded_get(gf_path)
-			if not cache.has(scn):
-				cache.append(scn)
 			gf = scn.instantiate()
 		if loads.size() == 4:
 			loading = false
