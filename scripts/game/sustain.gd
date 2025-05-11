@@ -25,7 +25,7 @@ func _enter_tree() -> void:
 func _process(delta: float) -> void:
 	pass
 	var length_px = (((450.0 * note.note_field.scroll_speed) * length) / note.scale.y)
-	var tail_height = tail.texture.get_height()/2.0 * tail.scale.y
+	var tail_height = tail.texture.get_height() * tail.scale.y / 2
 	length_px -= tail_height
 	tail.flip_v = note.note_field.down_scroll
 	set_point_position(1,Vector2(0,length_px))

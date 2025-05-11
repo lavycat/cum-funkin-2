@@ -2,7 +2,7 @@ extends Node
 var root:Window = null
 
 var paths: PackedStringArray = []
-
+var chart = null
 func _enter_tree() -> void:
 	root = get_tree().get_root()
 	RenderingServer.set_default_clear_color(Color.BLACK)

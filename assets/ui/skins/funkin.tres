@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="UISkin" load_steps=14 format=3 uid="uid://bkbbbs18gijly"]
+
+[ext_resource type="AudioStream" uid="uid://65d53pa1xpg2" path="res://assets/ui/funkin/countdown/sounds/1.ogg" id="1_gbg7l"]
+[ext_resource type="Script" uid="uid://bkm40mgev0ete" path="res://scripts/data/ui_skin.gd" id="1_n7pwu"]
+[ext_resource type="AudioStream" uid="uid://cjij1pr60082y" path="res://assets/ui/funkin/countdown/sounds/2.ogg" id="2_3mlde"]
+[ext_resource type="AudioStream" uid="uid://bhnihuebxyoeo" path="res://assets/ui/funkin/countdown/sounds/3.ogg" id="3_wap4j"]
+[ext_resource type="AudioStream" uid="uid://cflp0q5hmvbv8" path="res://assets/ui/funkin/countdown/sounds/go.ogg" id="4_84m6u"]
+[ext_resource type="Texture2D" uid="uid://c2ofcjdd4jll2" path="res://assets/ui/funkin/countdown/images/ready.png" id="5_84m6u"]
+[ext_resource type="Texture2D" uid="uid://bpnj74e7wy0a0" path="res://assets/ui/funkin/countdown/images/set.png" id="6_ba1vb"]
+[ext_resource type="Texture2D" uid="uid://bpg6s16fa1r0v" path="res://assets/ui/funkin/countdown/images/go.png" id="7_utacy"]
+[ext_resource type="SpriteFrames" uid="uid://ddtvamobj6n66" path="res://assets/ui/funkin/strums.xml" id="8_ba1vb"]
+[ext_resource type="SpriteFrames" uid="uid://cisxlxf3asfbj" path="res://assets/images/game/notestyles/funkin/notes.xml" id="9_lkjl3"]
+[ext_resource type="Script" uid="uid://7h4ov0y0q7nj" path="res://scripts/game/data/note_style.gd" id="10_b2bmt"]
+
+[sub_resource type="Resource" id="Resource_i8s44"]
+script = ExtResource("10_b2bmt")
+note_scale = 0.7
+note_frames = ExtResource("9_lkjl3")
+sustain_width = 50.0
+metadata/_custom_type_script = "uid://7h4ov0y0q7nj"
+
+[sub_resource type="Resource" id="Resource_rqptw"]
+script = ExtResource("10_b2bmt")
+note_scale = 0.7
+note_frames = ExtResource("9_lkjl3")
+sustain_width = 50.0
+metadata/_custom_type_script = "uid://7h4ov0y0q7nj"
+
+[resource]
+script = ExtResource("1_n7pwu")
+countdown_scale = 1.0
+countdown_texs = Array[Texture]([ExtResource("5_84m6u"), ExtResource("6_ba1vb"), ExtResource("7_utacy")])
+countdown_sounds = Array[AudioStream]([ExtResource("3_wap4j"), ExtResource("2_3mlde"), ExtResource("1_gbg7l"), ExtResource("4_84m6u")])
+player_strum_frames = ExtResource("8_ba1vb")
+player_strum_scale = 0.7
+player_style = SubResource("Resource_rqptw")
+dad_strum_frames = ExtResource("8_ba1vb")
+dad_strum_scale = 0.7
+dad_style = SubResource("Resource_i8s44")
+metadata/_custom_type_script = "uid://bkm40mgev0ete"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://f5ebwnwf35tu"]
 
 [ext_resource type="Script" uid="uid://cat18erlgav2c" path="res://scenes/game/field/strumline.gd" id="1_tmmfn"]
-[ext_resource type="SpriteFrames" uid="uid://ddtvamobj6n66" path="res://assets/images/game/skins/fnf/strums.xml" id="2_tsar0"]
+[ext_resource type="SpriteFrames" uid="uid://ddtvamobj6n66" path="res://assets/ui/funkin/strums.xml" id="2_tsar0"]
 [ext_resource type="Script" uid="uid://dx4nabxjsogar" path="res://scenes/game/field/strumarrow.gd" id="3_a0524"]
 [ext_resource type="Script" uid="uid://8lrrpgr2667m" path="res://scenes/game/field/noteField.gd" id="4_fkea3"]
 

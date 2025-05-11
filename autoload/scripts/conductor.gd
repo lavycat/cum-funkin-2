@@ -10,8 +10,10 @@ var rate:float = 1.0:
 var changes:Array[Dictionary] = []
 
 var last_change:Dictionary = {"bpm": 100,"time": 0,"step": 0}
-var offset:float = 0.02
-var time:float = 0.0
+var offset:float = 0.0
+var time:float = 0.0:
+	get:
+		return time
 var play_head:float = 0.0
 var freeze_play_head:bool = false
 var bpm:float = 1
@@ -64,12 +66,12 @@ func update_song_position():
 	if player:
 		player.pitch_scale = rate
 		if player.playing:
-			var music_time:float = player.get_playback_position() - offset
-			if music_time != last_music_time and time <= music_time:
+			var music_time:float = player.get_playback_position()
+			if music_time != last_music_time:
 				time = music_time
 				last_music_time = time
 			else:
 				time += delta
 				
 	if !freeze_play_head:
-		play_head = time
+		play_head = time - offset

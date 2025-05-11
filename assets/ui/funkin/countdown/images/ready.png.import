@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxngd6pq2ey53"
-path="res://.godot/imported/ratings_sheet.png-47f571599632397801e50905f0bbff73.ctex"
+uid="uid://c2ofcjdd4jll2"
+path="res://.godot/imported/ready.png-9a96a7cf875ed152ad7962c38ccc8d73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/game/ui/funkin/ratings_sheet.png"
-dest_files=["res://.godot/imported/ratings_sheet.png-47f571599632397801e50905f0bbff73.ctex"]
+source_file="res://assets/ui/funkin/countdown/images/ready.png"
+dest_files=["res://.godot/imported/ready.png-9a96a7cf875ed152ad7962c38ccc8d73.ctex"]
 
 [params]
 

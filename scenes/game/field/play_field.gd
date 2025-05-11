@@ -1,64 +1,104 @@
+@tool
 class_name PlayField extends Node2D
-@onready var strumlines: Node2D = $strumlines
-var strumline_list:Array[StrumLine] = []
-
-var chart:Dictionary
-var note_index:int
-var spawn_distance:float = 2.0
-
-var score:float = 0
-var misses:int = 0
-var acc:float = 1.0
-
+@export_enum("4k:4","5K:5","6K:6","7K:7") var key_count:int = 4
+@export_enum("dad","player") var id:int = 0
+var directions = ["left","down","up","right"]
+@export var auto_play:bool = false
+var note_field:NoteField = null
+var notes:Array = []
+var strums:Array[Receptor] = []
+var pressed:Array[bool] = [false,false,false,false]
+var actions:Array[String] = ["note_left","note_down","note_up","note_right"]
+signal note_spawned(note:Note)
 signal note_hit(note:Note)
 signal note_miss(note:Note)
-signal note_spawn(note:Note)
-@onready var player_strum: StrumLine = $strumlines/player_strum
-@onready var dad_strum: StrumLine = $strumlines/dad_strum
-
+signal note_free(note:Note)
 
 
 func _ready() -> void:
+	for i in key_count:
+		var r = Receptor.new()
+		add_child(r)
+		r.sprite_frames = load("res://assets/ui/funkin/strums.xml")
+		r.direction = directions[i]
+		r.scale = Vector2(0.7,0.7)
+		r.position.x -= 165
+		r.position.x += 110 * i
+		strums.append(r)
+		r.play_anim("static")
+	note_field = NoteField.new()
+	note_field.play_field = self
+	var sc = Save.data.scroll_speed if not Save.data.use_chart_scroll_speed else Global.chart.scroll_speed
+	note_field.scroll_speed = sc
+	note_field.down_scroll = Save.data.down_scroll
 	
-	for i:StrumLine in strumlines.get_children():
-		i.play_field = self
-		var use_chart = Save.data.use_chart_scroll_speed
-		i.notes.scroll_speed = Save.data.scroll_speed
-		if use_chart:
-			i.notes.scroll_speed = chart.scroll_speed
-		
-		strumline_list.append(i)
-func _process(delta: float) -> void:
-	spawn_notes(1.0)
-func spawn_notes(speed:float = 1.0):
-	var time_range_sec = spawn_distance / speed * Conductor.rate
-	
-	for i in range(note_index,chart.notes.size()):
-		var data = chart.notes[i]
-		var diff = abs(Conductor.time - data.time)
-		var ids:int = 0
-		var field = strumlines.get_child(data.field_id).notes
-		if data.time < Conductor.time:
-			note_index += 1
-			continue
-		if diff >= time_range_sec:
+	add_child(note_field)
+func find_action_index(ev:InputEvent):
+	var ii = 0
+	for i in actions:
+		if ev.is_action(i):
+			return ii
+		ii += 1
+	return -1
+func note_input(note:Note):
+	note_hit.emit(note)
+	note.was_hit = true
+	strums[note.column].play_anim("confirm",true)
+func _input(event: InputEvent) -> void:
+	var p = find_action_index(event)
+	if event.is_echo() or p == -1 or auto_play:
+		return
+	pressed[p] = event.is_pressed()
+	if event.is_pressed():
+		var note_array = note_field.get_children()
+		note_array = note_array.filter(func(note): return note.column == p and not note.missed and abs(note.time - Conductor.time) < note.hit_range)
+		for note:Note in note_array:
+			if note_array.size() > 1:
+				var last_note = null
+				for fucknote in note_array:
+					if last_note != null:
+						if is_equal_approx(last_note.time,fucknote.time):
+							note_input(fucknote)
+					last_note = fucknote
+			note_input(note)
 			break
 		
-		note_index += 1
-		var n:Note = Note.new()
-		var note_script_path = "res://scripts/game/notes/%s.gd"%data.type
-		if ResourceLoader.exists(note_script_path):
-			n.set_script(load(note_script_path))
+		
+	
+func _process(delta: float) -> void:
+	spawn_notes()
+	for i in strums.size():
+		var strum:Receptor = strums[i]
+		if auto_play:
+			if not pressed[i] and strum.animation.contains("confirm"):
+				if not strum.is_playing():
+					strum.play_anim("static")
 		else:
-			n.set_script(load("uid://blp8wbqjjdsaf"))
-		n.time = data.time
-		n.column = data.column
-		n.type = data.type
-		n.length = data.length
+			if not pressed[i]:
+				strum.play_anim("static")
+			if strum.animation.contains("static") and pressed[i] and not strum.is_playing():
+				strum.play_anim("press")
+var note_index:int = 0
+var spawn_range:float = 2.0
+func spawn_notes():
+	for i in range(note_index,notes.size()):
+		var n = notes[i]
+		var true_spawn_range = spawn_range / (note_field.scroll_speed)
+		var diff = abs(Conductor.time - n.time) 
+		if n.time < Conductor.time:
+			note_index += 1
+			continue
+		if diff > true_spawn_range:
+			break
+		var note = Note.new()
+		note.time = n.time
+		note.column = n.column
+		note.length = n.length
+		note.type = n.type
+		note.note_field = note_field
+		note_field.add_child(note)
+		note.play_anim("note")
+		note_spawned.emit(note)
+		note_index += 1
 		
-		n.note_field = field
-		
-		field.add_child(n)
-		n.play_anim("note")
-		n.visible = false
-		note_spawn.emit(n)
+	pass

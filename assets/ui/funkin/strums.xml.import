@@ -3,12 +3,12 @@
 importer="com.what-is-a-git.godot-sparrow-importer"
 type="SpriteFrames"
 uid="uid://ddtvamobj6n66"
-path="res://.godot/imported/strums.xml-3b7f7b1b7e608d9b687512859497ce11.res"
+path="res://.godot/imported/strums.xml-b6994142cb091d1745aa948bd414892a.res"
 
 [deps]
 
-source_file="res://assets/images/game/skins/fnf/strums.xml"
-dest_files=["res://.godot/imported/strums.xml-3b7f7b1b7e608d9b687512859497ce11.res"]
+source_file="res://assets/ui/funkin/strums.xml"
+dest_files=["res://.godot/imported/strums.xml-b6994142cb091d1745aa948bd414892a.res"]
 
 [params]
 

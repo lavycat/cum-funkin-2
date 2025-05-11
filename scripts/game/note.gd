@@ -1,4 +1,4 @@
-class_name Note extends FunkinScript
+class_name Note extends Node2D
 var type:String
 var column:int
 var time:float
@@ -15,18 +15,21 @@ const directions:Array = [
 ]
 ## TODO restructure for a note style system
 var style:NoteStyle = NoteStyle.new()
+var play_field:PlayField
 var note_field:NoteField
+
 var sustain:Sustain
 var hold_timer:float = 0.0
-var hit_range = 0.2
+var hit_range = 0.180
 
 var was_hit:bool = false
 var missed:bool = false
 var sprite:AnimatedSprite2D
 ## returns the name of the notestyle for the note script defaults to empty string 
 static func get_style():
-	return ""
-
+	return "funkin"
+static func load_style():
+	load("res://assets/images/game/notestyles/%s.tres"%get_style())
 func _enter_tree() -> void:
 	direction = directions[column]
 	sprite = AnimatedSprite2D.new()
@@ -42,3 +45,8 @@ func play_anim(anim:String = ""):
 func note_hit(note:Note):
 	pass
 		
+func _process(delta: float) -> void:
+	if Conductor.time - 0.5 > time + length:
+		queue_free()
+	if missed:
+		modulate.v = 0.4
