@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 		set_point_position(1,Vector2(0,-length_px))
 		tail.flip_v = true
 	tail.position.y =  get_point_position(1).y
-	modulate.a = 1.0 - (released_timer / Conductor.step_length) * 0.6
+	modulate.a = max(1.0 - (released_timer / Conductor.step_length*0.5),0.6)
 	
 		
 		

@@ -30,7 +30,7 @@ static func load_psych(data:Dictionary):
 	if ResourceLoader.exists("res://assets/songs/%s/charts/events.json"%[raw.song]):
 		var event_json = load("res://assets/songs/%s/charts/events.json"%[raw.song]).data
 		print(event_json)
-	if raw.events:
+	if raw.get("events",{}):
 		var evs_arr = raw.events
 		for i in evs_arr:
 			var ev_time:float = i[0]

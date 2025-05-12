@@ -2,7 +2,7 @@ class_name Character extends FunkinScript
 @export var player:AnimationPlayer
 @export var sprite:AnimatedSprite2D
 @export var sing_length:float = 4.0
-@export var dance_steps:PackedStringArray = ["idle"]
+@export var dance_steps:Array[String] = ["idle"]
 @export var camera_position:Marker2D
 var is_player:bool = false
 var dance_step:int = 0
@@ -10,7 +10,6 @@ var sing_timer:float = 0.0
 var cur_anim:String = ""
 var auto_dance:bool = true
 var camera_focus = false
-@export var force_dance:bool = false
 var sing_suffix:String = ""
 var can_dance:bool = true
 var can_sing:bool = true
@@ -47,6 +46,6 @@ func _process(delta: float) -> void:
 			if auto_dance:
 				dance()
 func beat_hit(b:int):
-	if not cur_anim.contains("sing") and (not player.is_playing() or force_dance) and auto_dance:
+	if not cur_anim.contains("sing") and (not player.is_playing() or dance_steps.size() > 1) and auto_dance:
 		dance()
 	

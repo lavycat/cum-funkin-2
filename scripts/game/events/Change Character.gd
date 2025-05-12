@@ -28,21 +28,18 @@ func trigger():
 			game.add_child(char_to)
 			char_from.queue_free()
 			game.dad = char_to
-			game.play_field.dad_strum.chars = [game.dad]
 		"bf":
 			char_from = game.bf
 			char_to.position = char_from.position
 			game.add_child(char_to)
 			char_from.queue_free()
 			game.bf = char_to
-			game.play_field.dad_strum.chars = [game.bf]
 		"gf":
 			char_from = game.gf
 			char_to.position = char_from.position
 			game.add_child(char_to)
 			char_from.queue_free()
 			game.gf = char_to
-			game.play_field.dad_strum.chars = [game.gf]
 			
 	
 	

@@ -25,10 +25,11 @@ func _process(delta: float) -> void:
 	for note:Note in get_children():
 		var strum = play_field.strums[note.column]
 		note.scale = Vector2(note.style.note_scale,note.style.note_scale)
+		var length_diff:float = note.length - note.sustain.length if note.length > 0.0 else 0
 		if down_scroll:
-			note.position.y = strum.position.y + (Conductor.time - note.time) * (450.0 * scroll_speed)
+			note.position.y = strum.position.y + (Conductor.time - note.time - length_diff) * (450.0 * scroll_speed)
 		else:
-			note.position.y = strum.position.y + -(Conductor.time - note.time) * (450.0 * scroll_speed)
+			note.position.y = strum.position.y + -(Conductor.time - note.time - length_diff) * (450.0 * scroll_speed)
 		note.position.x = strum.position.x
 		if (note.time - Conductor.time) < 0.0 and not note.was_hit and play_field.auto_play:
 			play_field.pressed[note.column] = true
@@ -37,7 +38,7 @@ func _process(delta: float) -> void:
 		if Conductor.time - (note.time) > note.hit_range * Conductor.rate and not note.was_hit:
 			note.missed = true
 			play_field.note_miss.emit(note)
-		if note.was_hit:
+		if note.was_hit and not note.missed:
 			note.sprite.visible = false
 			note.position.y = 0
 			if not note.sustain:
@@ -46,15 +47,18 @@ func _process(delta: float) -> void:
 				play_field.note_hit.emit(note)
 				note.queue_free()
 			if note.sustain:
+				if note.sustain.released_timer > Conductor.step_length*2:
+					note.missed = true
+				play_field.note_hit.emit(note)
 				note.sustain.length = (note.time + note.length) - Conductor.time
+				if not play_field.pressed[note.column]:
+					note.sustain.released_timer += delta
 				if play_field.pressed[note.column]:
 					note.sustain.released_timer = 0
 					if not strum.animation.contains("confirm"):
 						strum.play_anim("confirm",true)
-					else:
-						if note.sustain.released_timer > Conductor.step_length:
-							note.missed = true
-						note.sustain.released_timer += delta
+					
+
 				
 				if note.sustain.length <= 0:
 					if play_field.auto_play:

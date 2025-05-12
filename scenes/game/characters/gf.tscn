@@ -341,12 +341,11 @@ _data = {
 &"sing-up": SubResource("Animation_860w3")
 }
 
-[node name="Bf" type="Node2D" node_paths=PackedStringArray("player", "sprite")]
+[node name="gf" type="Node2D" node_paths=PackedStringArray("player", "sprite")]
 script = ExtResource("1_qvvq3")
 player = NodePath("player")
 sprite = NodePath("sprite")
 dance_steps = ["dance_left", "dance_right"]
-force_dance = true
 
 [node name="player" type="AnimationPlayer" parent="."]
 libraries = {

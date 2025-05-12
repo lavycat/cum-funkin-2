@@ -22,7 +22,7 @@ texture = ExtResource("2_54lb7")
 centered = false
 
 [node name="Stagefront" type="Sprite2D" parent="09-09"]
-position = Vector2(-650, 600)
+position = Vector2(-790, 576)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("2_i86mg")
 centered = false

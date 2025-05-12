@@ -69,10 +69,9 @@ func _process(delta: float) -> void:
 	spawn_notes()
 	for i in strums.size():
 		var strum:Receptor = strums[i]
-		if auto_play:
-			if not pressed[i] and strum.animation.contains("confirm"):
-				if not strum.is_playing():
-					strum.play_anim("static")
+		if not pressed[i] and strum.animation.contains("confirm"):
+			if not strum.is_playing():
+				strum.play_anim("static")
 		else:
 			if not pressed[i]:
 				strum.play_anim("static")

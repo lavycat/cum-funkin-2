@@ -212,7 +212,7 @@ _data = {
 &"sing_up": SubResource("Animation_3kd42")
 }
 
-[node name="Bf" type="Node2D" node_paths=PackedStringArray("player", "sprite", "camera_position")]
+[node name="sonic" type="Node2D" node_paths=PackedStringArray("player", "sprite", "camera_position")]
 script = ExtResource("1_42rsq")
 player = NodePath("player")
 sprite = NodePath("sprite")

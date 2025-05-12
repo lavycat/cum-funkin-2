@@ -67,7 +67,7 @@ func update_song_position():
 		player.pitch_scale = rate
 		if player.playing:
 			var music_time:float = player.get_playback_position()
-			if music_time != last_music_time:
+			if music_time != last_music_time and music_time > Conductor.time:
 				time = music_time
 				last_music_time = time
 			else:
