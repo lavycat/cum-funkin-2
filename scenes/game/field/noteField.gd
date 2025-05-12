@@ -45,7 +45,8 @@ func _process(delta: float) -> void:
 				if play_field.auto_play:
 					play_field.pressed[note.column] = false
 				play_field.note_hit.emit(note)
-				note.queue_free()
+				note.free()
+				continue
 			if note.sustain:
 				if note.sustain.released_timer > Conductor.step_length*2:
 					note.missed = true
@@ -64,7 +65,7 @@ func _process(delta: float) -> void:
 					if play_field.auto_play:
 						play_field.pressed[note.column] = false
 					play_field.note_hit.emit(note)
-					note.queue_free()
+					note.free()
 
 				
 

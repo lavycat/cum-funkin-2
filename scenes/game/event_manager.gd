@@ -10,6 +10,6 @@ func _process(delta: float) -> void:
 		if ev.event_time <= Conductor.time:
 			ev.trigger()
 			event_trigger.emit(ev)
-			ev.queue_free()
+			ev.free()
 		else:
 			break
