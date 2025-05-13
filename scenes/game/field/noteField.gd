@@ -22,6 +22,8 @@ static func get_cached_hold_texture(n:Note):
 func _ready() -> void: 
 	note_hold_cache = {}
 func _process(delta: float) -> void:
+	if not visible:
+		return
 	for note:Note in get_children():
 		var strum = play_field.strums[note.column]
 		note.scale = Vector2(note.style.note_scale,note.style.note_scale)
