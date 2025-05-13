@@ -2,9 +2,11 @@ class_name Game extends Node2D
 var play_fields:Array[PlayField] = []
 var chart:Dictionary
 @onready var tracks: Node = %tracks
-@onready var dad_field: PlayField = $CanvasLayer/hud/playfields/dad_field
-@onready var player_field: PlayField = $CanvasLayer/hud/playfields/player_field
-@onready var hud: Control = $CanvasLayer/hud
+@onready var dad_field: PlayField = $UI/playfields/dad_field
+@onready var player_field: PlayField = $UI/playfields/player_field
+@onready var playfields: Node2D = $UI/playfields
+@onready var hud: Control = $UI/hud
+@onready var ui: CanvasLayer = %UI
 var song_started:bool = false
 @onready var events: Node = $events
 var camera_lerp_position:Vector2 = Vector2.ZERO
@@ -17,7 +19,12 @@ var gf:Character
 var bf:Character
 
 static var instance:Game
-static var song_name = "no-villains"
+static var song_name = "stress"
+func load_character(p:String,fb:String):
+	if ResourceLoader.exists("res://scenes/game/characters/%s.tscn"%p):
+		return load(p).instantiate()
+	else:
+		return load("res://scenes/game/characters/%s.tscn"%fb).instantiate()
 func _enter_tree() -> void:
 	instance = self
 	if Global.chart != null:
@@ -26,16 +33,13 @@ func _enter_tree() -> void:
 		chart = ChartParser.load_chart(song_name,"hard")
 	Global.chart = chart
 	stage = load("res://scenes/game/stages/stage.tscn").instantiate()
-	gf = load("res://scenes/game/characters/%s.tscn"%chart.gf).instantiate()
-	var dad_p:String = "res://scenes/game/characters/%s.tscn"%chart.dad
-	if ResourceLoader.exists(dad_p):
-		dad = load(dad_p).instantiate()
-	else:
-		dad = load("res://scenes/game/characters/dad.tscn").instantiate()
+	gf = load_character(chart.gf,"gf")
+	dad = load_character(chart.dad,"dad")
+	bf = load_character(chart.bf,"bf")
 		
-	bf = load("res://scenes/game/characters/%s.tscn"%chart.bf).instantiate()
 
 func _ready() -> void:
+	
 	Conductor.measure_hit.connect(measure_hit)
 	Conductor.time = -Conductor.beat_length*5.0
 	Conductor.offset = Save.data.song_offset
@@ -81,6 +85,7 @@ func _ready() -> void:
 		evv.event_name = ev.name
 		evv.name = "%s %d"%[ev.name,ev.time*1000]
 		events.add_child(evv)
+	playfields.reparent(hud,false)
 	var scripts_dir = "res://assets/songs/%s/scripts/"%song_name
 	var scripts = ResourceLoader.list_directory(scripts_dir)
 	print(scripts)
@@ -88,6 +93,7 @@ func _ready() -> void:
 		var script = FunkinScript.new()
 		script.set_script(load(scripts_dir + i))
 		add_child(script)
+	
 	Conductor.time = -Conductor.beat_length*3.0
 	
 		

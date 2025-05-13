@@ -38,8 +38,9 @@ func _enter_tree() -> void:
 	sustain = Sustain.new()
 	sustain.length = length
 	sustain.note = self
+	add_child(sustain)
 	add_child(sprite)
-	add_child(sustain,false,Node.INTERNAL_MODE_FRONT)
+	sustain.z_index = -1
 func play_anim(anim:String = ""):
 	sprite.play("%s %s"%[direction,anim])
 func note_hit(note:Note):

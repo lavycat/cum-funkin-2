@@ -5,12 +5,11 @@ var tail:Sprite2D
 var released_timer:float = 0.0
 
 func _enter_tree() -> void:
-	z_index = -1
+	z_index = 0
 	if length <= 0.0:
 		queue_free()
 	for i in 2:
 		add_point(Vector2.ZERO)
-	width = 50
 	var frames = note.style.note_frames
 	texture_repeat = CanvasItem.TEXTURE_REPEAT_DISABLED
 	texture_mode = Line2D.LINE_TEXTURE_TILE
@@ -19,12 +18,12 @@ func _enter_tree() -> void:
 	var tail_tex = frames.get_frame_texture("%s tail"%note.direction,0)
 	tail.texture = tail_tex
 	add_child(tail)
+	width = tail.texture.get_width()
 	
 func _process(delta: float) -> void:
 	pass
 	var length_px = (((450.0 * note.note_field.scroll_speed) * length) / note.scale.y)
-	var tail_height = tail.texture.get_height() * tail.scale.y / 2
-	length_px -= tail_height
+	var tail_height = tail.texture.get_height() * tail.scale.y
 	tail.flip_v = note.note_field.down_scroll
 	set_point_position(1,Vector2(0,length_px))
 	if note.note_field.down_scroll:

@@ -13,17 +13,71 @@ static var fall_back = {
 
 static func load_chart(song:String,diff:String):
 	var ret = {}
-	var path = "res://assets/songs/%s/charts/%s"%[song,diff]
-	var json = load(path + ".json").data
+	var legacy_path = "res://assets/songs/%s/charts/%s.json"%[song,diff]
+	var vslice_path = "res://assets/songs/%s/charts/%s-chart.json"%[song,song]
+	var vslice_meta_path = "res://assets/songs/%s/charts/%s-metadata.json"%[song,song]
 	
-	if json.has("song"):
-		ret = load_psych(json)
+	print(vslice_path)
+	if ResourceLoader.exists(legacy_path):
+		var json = load(legacy_path).data
+	
+		if json.has("song"):
+			ret = load_psych(json)
+	if ResourceLoader.exists(vslice_path):
+		var meta_json = load(vslice_meta_path)
+		var chart_json = load(vslice_path)
+		ret = load_vslice(meta_json.data,chart_json.data,diff)
+		
+	else:
+		print("failed to find chart")
+		return fall_back
 		
 	
 	return ret
 static func add_event(chart:Dictionary,time:float,name:String,vals:Array):
 	var ev = {"name":name,"time":time,"values":vals}
 	chart.events.append(ev)
+static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
+	var c = fall_back.duplicate()
+	## META PARSE
+	var playdata = meta.playData
+	c.dad = playdata.characters.opponent
+	c.bf = playdata.characters.player
+	c.gf = playdata.characters.girlfriend
+	c.stage = playdata.stage
+	for i in meta.timeChanges:
+		Conductor.add_change(i.t,i.bpm,i.b*4.0)
+	## CHART PARSE
+	
+	## EVENTS
+	for i in json.events:
+		var n:String
+		var v:Array = []
+		if i.e == "FocusCamera":
+			n = "camera_pan"
+			for q in i.v.values():
+				q = int(!q)
+				v.append(q)
+		else:
+			v = i.v.values()
+			n = i.e.to_snake_case()
+		add_event(c,i.t/1000.0,n,v)
+	var notes = json.notes.get(diff)
+	for i in notes:
+		var note_time = i.t/1000.0
+		var note_dir = int(i.d)
+		var note_length = i.l/1000.0
+		var note_field = 1 if note_dir < 4 else 0
+		var note = {
+			"time": note_time,
+			"column": note_dir%4,
+			"length": note_length,
+			"field_id": note_field,
+			"type": "default"
+		}
+		c.notes.append(note)
+	return c
+	pass
 static func load_psych(data:Dictionary):
 	var raw = data.song
 	var chart = fall_back.duplicate()

@@ -78,36 +78,32 @@ func note_update(delta:float):
 		if note.was_hit and not note.missed:
 			if note.sustain:
 					note_hit.emit(note)
-					if pressed[note.column]:
+					if auto_play or pressed[note.column]:
 						if not strum.animation.contains("confirm"):
 							strum.play_anim("confirm",true)
 			if not note.sustain:
-				if auto_play:
-					pressed[note.column] = false
 				note_hit.emit(note)
 				note_free.emit(note)
 				note.free()
 				continue
 			if note.sustain.length <= 0:
-				if auto_play:
-					pressed[note.column] = false
 				note_hit.emit(note)
 				note.free()
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	spawn_notes()
+func _process(delta: float) -> void:
 	note_update(delta)
 	for i in strums.size():
 		var strum:Receptor = strums[i]
-		if not pressed[i] and strum.animation.contains("confirm"):
-			if not strum.is_playing():
-				strum.play_anim("static")
-		else:
+		if not pressed[i] or auto_play and strum.animation.contains("confirm"):
+			strum.play_anim("static")
+		if not auto_play:
 			if not pressed[i]:
 				strum.play_anim("static")
 			if strum.animation.contains("static") and pressed[i] and not strum.is_playing():
 				strum.play_anim("press")
 var note_index:int = 0
-var spawn_range:float = 2.0
+var spawn_range:float = 1.5
 func spawn_notes():
 	for i in range(note_index,notes.size()):
 		var n = notes[i]
