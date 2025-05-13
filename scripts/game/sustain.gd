@@ -1,7 +1,5 @@
 class_name Sustain extends Line2D
-var length:float = 0.0:
-	set(v):
-		length = max(v,0)
+var length:float = 0.0
 var note:Note
 var tail:Sprite2D
 var released_timer:float = 0.0

@@ -30,43 +30,12 @@ func _process(delta: float) -> void:
 			note.position.y = strum.position.y + (Conductor.time - note.time - length_diff) * (450.0 * scroll_speed)
 		else:
 			note.position.y = strum.position.y + -(Conductor.time - note.time - length_diff) * (450.0 * scroll_speed)
+		if note.sustain:
+			if note.was_hit:
+				if not note.missed:
+					note.position.y = min(note.position.y,0)
 		note.position.x = strum.position.x
-		if (note.time - Conductor.time) < 0.0 and not note.was_hit and play_field.auto_play:
-			play_field.pressed[note.column] = true
-			strum.play_anim("confirm",true)
-			note.was_hit = true
-		if Conductor.time - (note.time) > note.hit_range * Conductor.rate and not note.was_hit:
-			note.missed = true
-			play_field.note_miss.emit(note)
+		if note.missed:
+			note.modulate.v = 0.6
 		if note.was_hit and not note.missed:
 			note.sprite.visible = false
-			note.position.y = 0
-			if not note.sustain:
-				if play_field.auto_play:
-					play_field.pressed[note.column] = false
-				play_field.note_hit.emit(note)
-				note.free()
-				continue
-			if note.sustain:
-				if note.sustain.released_timer > Conductor.step_length*2:
-					note.missed = true
-				play_field.note_hit.emit(note)
-				note.sustain.length = (note.time + note.length) - Conductor.time
-				if not play_field.pressed[note.column]:
-					note.sustain.released_timer += delta
-				if play_field.pressed[note.column]:
-					note.sustain.released_timer = 0
-					if not strum.animation.contains("confirm"):
-						strum.play_anim("confirm",true)
-					
-
-				
-				if note.sustain.length <= 0:
-					if play_field.auto_play:
-						play_field.pressed[note.column] = false
-					play_field.note_hit.emit(note)
-					note.free()
-
-				
-
-		

@@ -6,7 +6,6 @@ func _enter_tree() -> void:
 	var v2 = event_values[1]
 	char_path = "res://scenes/game/characters/%s.tscn"%v2
 	if not ResourceLoader.exists(char_path):
-		print("character not found -> %s"%char_path)
 		char_path = "res://scenes/game/characters/dad.tscn"
 	ResourceLoader.load_threaded_request(char_path)
 	loading = true

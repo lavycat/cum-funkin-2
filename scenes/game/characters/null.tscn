@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7oqv2lsl0w6q"]
+[gd_scene load_steps=10 format=3 uid="uid://c7oqv2lsl0w6q"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_fwm2g"]
 
@@ -40,6 +40,8 @@ _data = {
 &"sing-up": SubResource("Animation_860w3")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ap22e"]
+
 [node name="null" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_fwm2g")
 player = NodePath("player")
@@ -48,3 +50,7 @@ player = NodePath("player")
 libraries = {
 &"": SubResource("AnimationLibrary_7quob")
 }
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-426, 368)
+sprite_frames = SubResource("SpriteFrames_ap22e")

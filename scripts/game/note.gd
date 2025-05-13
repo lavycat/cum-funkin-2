@@ -1,4 +1,4 @@
-class_name Note extends Node2D
+class_name Note extends FunkinScript
 var type:String
 var column:int
 var time:float
@@ -46,7 +46,18 @@ func note_hit(note:Note):
 	pass
 		
 func _process(delta: float) -> void:
+	if sustain:
+		if was_hit:
+			sustain.length = (time + length) - Conductor.time
+			if not play_field.pressed[column]:
+				sustain.released_timer += delta
+			if play_field.pressed[column]:
+				sustain.released_timer = 0
+
+			if sustain.released_timer > Conductor.step_length*2:
+				missed = true
+	if Conductor.time - (time) > hit_range * Conductor.rate and not was_hit:
+		missed = true
+		play_field.note_miss.emit(self)
 	if Conductor.time - 0.5 > time + length:
 		queue_free()
-	if missed:
-		modulate.v = 0.4

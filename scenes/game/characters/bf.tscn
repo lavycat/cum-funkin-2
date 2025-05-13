@@ -513,9 +513,8 @@ libraries = {
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-204, -391)
 sprite_frames = ExtResource("2_gaqyx")
-animation = &"BF HEY!!"
+animation = &"bf dodge"
 centered = false
-offset = Vector2(-4.075, -4.39)
 
 [node name="camera_position" type="Marker2D" parent="."]
 position = Vector2(-183, -275)

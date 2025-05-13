@@ -65,8 +65,37 @@ func _input(event: InputEvent) -> void:
 		
 		
 	
+	
+func note_update(delta:float):
+	for note:Note in note_field.get_children():
+		var strum = strums[note.column]
+		if (note.time - Conductor.time) < 0.0 and not note.was_hit and auto_play:
+			pressed[note.column] = true
+			strum.play_anim("confirm",true)
+			note_hit.emit(note)
+			note.was_hit = true
+		
+		if note.was_hit and not note.missed:
+			if note.sustain:
+					note_hit.emit(note)
+					if pressed[note.column]:
+						if not strum.animation.contains("confirm"):
+							strum.play_anim("confirm",true)
+			if not note.sustain:
+				if auto_play:
+					pressed[note.column] = false
+				note_hit.emit(note)
+				note_free.emit(note)
+				note.free()
+				continue
+			if note.sustain.length <= 0:
+				if auto_play:
+					pressed[note.column] = false
+				note_hit.emit(note)
+				note.free()
 func _process(delta: float) -> void:
 	spawn_notes()
+	note_update(delta)
 	for i in strums.size():
 		var strum:Receptor = strums[i]
 		if not pressed[i] and strum.animation.contains("confirm"):
@@ -95,6 +124,7 @@ func spawn_notes():
 		note.length = n.length
 		note.type = n.type
 		note.note_field = note_field
+		note.play_field = self
 		note_field.add_child(note)
 		note.play_anim("note")
 		note_spawned.emit(note)
