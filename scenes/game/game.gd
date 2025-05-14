@@ -19,10 +19,10 @@ var gf:Character
 var bf:Character
 
 static var instance:Game
-static var song_name = "stress"
+static var song_name = "2hot"
 func load_character(p:String,fb:String):
 	if ResourceLoader.exists("res://scenes/game/characters/%s.tscn"%p):
-		return load(p).instantiate()
+		return load("res://scenes/game/characters/%s.tscn"%p).instantiate()
 	else:
 		return load("res://scenes/game/characters/%s.tscn"%fb).instantiate()
 func _enter_tree() -> void:
@@ -107,6 +107,8 @@ func note_hit(note:Note):
 			gf.sing(note.column)
 	
 func _process(delta: float) -> void:
+	Conductor.rate = 1.0 + cos(Conductor.beat*9)*0.05
+
 	hud.scale = lerp(hud.scale,Vector2.ONE,delta*3.0)
 	camera.zoom = lerp(camera.zoom,default_camera_zoom,delta*3.0)
 	

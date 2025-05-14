@@ -46,7 +46,7 @@ static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
 	c.gf = playdata.characters.girlfriend
 	c.stage = playdata.stage
 	for i in meta.timeChanges:
-		Conductor.add_change(i.t,i.bpm,i.b*4.0)
+		Conductor.add_change(i.t,i.bpm,i.get("b",0)*4.0)
 	## CHART PARSE
 	
 	## EVENTS
