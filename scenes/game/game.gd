@@ -18,6 +18,12 @@ var dad:Character
 var gf:Character
 var bf:Character
 
+
+var health:float = 1.0:
+	set(v):
+		health = clamp(v,0,max_health)
+var max_health:float = 2.0
+
 static var instance:Game
 static var song_name = "2hot"
 func load_character(p:String,fb:String):
@@ -85,6 +91,8 @@ func _ready() -> void:
 		evv.event_name = ev.name
 		evv.name = "%s %d"%[ev.name,ev.time*1000]
 		events.add_child(evv)
+	hud = load("res://scenes/game/huds/funkin.tscn").instantiate()
+	ui.add_child(hud)
 	playfields.reparent(hud,false)
 	var scripts_dir = "res://assets/songs/%s/scripts/"%song_name
 	var scripts = ResourceLoader.list_directory(scripts_dir)
@@ -100,14 +108,24 @@ func _ready() -> void:
 func note_hit(note:Note):
 	match note.note_field.play_field.id:
 		0:
-			dad.sing(note.column)
+			if not note.was_hit:
+				health -= 0.02
+				dad.sing(note.column)
+			else:
+				dad.sing_timer = 0
 		1:
-			bf.sing(note.column)
+			if not note.was_hit:
+				health += 0.02
+				bf.sing(note.column)
+			else:
+				bf.sing_timer = 0
 		2:
-			gf.sing(note.column)
+			if not note.was_hit:
+				gf.sing(note.column)
+			else:
+				gf.sing_timer = 0
 	
 func _process(delta: float) -> void:
-	Conductor.rate = 1.0 + cos(Conductor.beat*9)*0.05
 
 	hud.scale = lerp(hud.scale,Vector2.ONE,delta*3.0)
 	camera.zoom = lerp(camera.zoom,default_camera_zoom,delta*3.0)

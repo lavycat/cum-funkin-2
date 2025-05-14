@@ -59,7 +59,7 @@ static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
 				q = int(!q)
 				v.append(q)
 		else:
-			v = i.v.values()
+			v = i.get("v",{}).values()
 			n = i.e.to_snake_case()
 		add_event(c,i.t/1000.0,n,v)
 	var notes = json.notes.get(diff)
@@ -67,13 +67,13 @@ static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
 		var note_time = i.t/1000.0
 		var note_dir = int(i.d)
 		var note_length = i.l/1000.0
-		var note_field = 1 if note_dir < 4 else 0
+		var note_field = 0 if note_dir > 3 else 1
 		var note = {
 			"time": note_time,
 			"column": note_dir%4,
 			"length": note_length,
 			"field_id": note_field,
-			"type": "default"
+			"type": i.get("k","default")
 		}
 		c.notes.append(note)
 	return c

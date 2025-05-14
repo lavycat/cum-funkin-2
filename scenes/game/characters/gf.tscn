@@ -143,6 +143,7 @@ libraries = {
 }
 
 [node name="gf" type="Node2D" parent="."]
+texture_filter = 6
 position = Vector2(-217, -338)
 script = ExtResource("5_7j0ls")
 atlas = "res://assets/images/game/characters/gf/gf"

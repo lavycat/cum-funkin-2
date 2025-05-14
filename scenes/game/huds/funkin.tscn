@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://brcc3ta5oahnp"]
+
+[ext_resource type="Script" uid="uid://cgdky33pfnjvf" path="res://scenes/game/huds/funkin.gd" id="1_wspuj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wspuj"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d8qm"]
+bg_color = Color(0.616, 0.52, 1, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.8, 0.470588, 0.8, 1)
+border_blend = true
+shadow_color = Color(1, 0.638494, 0.805044, 1)
+shadow_size = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3lqy"]
+bg_color = Color(1, 0, 0, 1)
+border_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aelfd"]
+bg_color = Color(0, 1, 0, 1)
+border_color = Color(0, 1, 0, 1)
+
+[node name="Funkin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(640, 360)
+script = ExtResource("1_wspuj")
+metadata/_edit_lock_ = true
+
+[node name="timebar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 1203.0
+offset_top = 443.0
+offset_right = 1232.0
+offset_bottom = 640.0
+theme_override_styles/background = SubResource("StyleBoxFlat_wspuj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5d8qm")
+fill_mode = 3
+
+[node name="healthbar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 60.0
+offset_right = 1024.0
+offset_bottom = 85.0
+theme_override_styles/background = SubResource("StyleBoxFlat_c3lqy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_aelfd")
+max_value = 2.0
+value = 1.0
+fill_mode = 1
+show_percentage = false
+
+[node name="MarginContainer" type="MarginContainer" parent="healthbar"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -8.0
+offset_top = -5.0
+offset_right = 32.0
+offset_bottom = 30.0
+theme_override_constants/margin_right = -744
+
+[node name="ColorRect" type="ColorRect" parent="healthbar/MarginContainer"]
+show_behind_parent = true
+layout_mode = 2
+color = Color(0, 0, 0, 1)
