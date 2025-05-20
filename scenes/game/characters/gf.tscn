@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://qwf8l3lk7l2m"]
+[gd_scene load_steps=8 format=3 uid="uid://qwf8l3lk7l2m"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_qvvq3"]
+[ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_pov85"]
 [ext_resource type="Script" uid="uid://bg76ne1w0cwva" path="res://addons/gdanimate/animate_symbol.gd" id="5_7j0ls"]
 
 [sub_resource type="Animation" id="Animation_pov85"]
@@ -136,6 +137,7 @@ z_as_relative = false
 script = ExtResource("1_qvvq3")
 player = NodePath("player")
 dance_steps = Array[String](["dance_left", "dance_right"])
+icon = ExtResource("2_pov85")
 
 [node name="player" type="AnimationPlayer" parent="."]
 libraries = {
@@ -143,7 +145,6 @@ libraries = {
 }
 
 [node name="gf" type="Node2D" parent="."]
-texture_filter = 6
 position = Vector2(-217, -338)
 script = ExtResource("5_7j0ls")
 atlas = "res://assets/images/game/characters/gf/gf"

@@ -2,6 +2,7 @@
 class_name PlayField extends Node2D
 @export_enum("4k:4","5K:5","6K:6","7K:7") var key_count:int = 4
 @export_enum("dad","player") var id:int = 0
+@export var show_splash:bool = false
 var directions = ["left","down","up","right"]
 @export var auto_play:bool = false
 var note_field:NoteField = null
@@ -67,6 +68,7 @@ func _input(event: InputEvent) -> void:
 	
 	
 func note_update(delta:float):
+	
 	for note:Note in note_field.get_children():
 		var strum = strums[note.column]
 		if (note.time - Conductor.time) < 0.0 and not note.was_hit and auto_play:
@@ -78,16 +80,20 @@ func note_update(delta:float):
 		if note.was_hit and not note.missed:
 			if note.sustain:
 					note_hit.emit(note)
-					if auto_play or pressed[note.column]:
+					if pressed[note.column]:
 						if not strum.animation.contains("confirm"):
 							strum.play_anim("confirm",true)
 			if not note.sustain:
+				if auto_play:
+					pressed[note.column] = false
 				note_hit.emit(note)
 				note_free.emit(note)
 				note.free()
 				continue
 			if note.sustain.length <= 0:
 				note_hit.emit(note)
+				if auto_play:
+					pressed[note.column] = false
 				note.free()
 func _physics_process(delta: float) -> void:
 	spawn_notes()
@@ -95,13 +101,13 @@ func _process(delta: float) -> void:
 	note_update(delta)
 	for i in strums.size():
 		var strum:Receptor = strums[i]
-		if not pressed[i] or auto_play and strum.animation.contains("confirm"):
-			strum.play_anim("static")
-		if not auto_play:
-			if not pressed[i]:
+		if not pressed[i]:
+			if not auto_play:
 				strum.play_anim("static")
-			if strum.animation.contains("static") and pressed[i] and not strum.is_playing():
-				strum.play_anim("press")
+			if strum.animation.contains("confirm") and not strum.is_playing():
+				strum.play_anim("static")
+		if strum.animation.contains("static") and pressed[i]:
+			strum.play_anim("press")
 var note_index:int = 0
 var spawn_range:float = 1.5
 func spawn_notes():
@@ -123,6 +129,7 @@ func spawn_notes():
 		note.play_field = self
 		note_field.add_child(note)
 		note.play_anim("note")
+		note.visible = false
 		note_spawned.emit(note)
 		note_index += 1
 		

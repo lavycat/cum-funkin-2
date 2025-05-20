@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://06r5sps3cmmd"
-path="res://.godot/imported/spritemap1.png-079f28d82f71d8e8c1a8fba86c80ffb8.ctex"
+uid="uid://dft0bm718m3vp"
+path="res://.godot/imported/num-sheet_.png-4ad554b9e0c6cce46ea7224a9ee36cde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/game/characters/darnell/spritemap1.png"
-dest_files=["res://.godot/imported/spritemap1.png-079f28d82f71d8e8c1a8fba86c80ffb8.ctex"]
+source_file="res://assets/ui/funkin/num-sheet_.png"
+dest_files=["res://.godot/imported/num-sheet_.png-4ad554b9e0c6cce46ea7224a9ee36cde.ctex"]
 
 [params]
 

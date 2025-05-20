@@ -42,9 +42,10 @@ _data = {
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ap22e"]
 
-[node name="null" type="Node2D" node_paths=PackedStringArray("player")]
+[node name="null" type="Node2D" node_paths=PackedStringArray("player", "camera_position")]
 script = ExtResource("1_fwm2g")
 player = NodePath("player")
+camera_position = NodePath("Marker2D")
 
 [node name="player" type="AnimationPlayer" parent="."]
 libraries = {
@@ -52,5 +53,7 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-426, 368)
+position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_ap22e")
+
+[node name="Marker2D" type="Marker2D" parent="."]

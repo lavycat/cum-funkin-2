@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dva0jf4gj145w"]
+
+[ext_resource type="Script" uid="uid://bku46g8d38pqw" path="res://scenes/game/stages/stage.gd" id="1_ayaf6"]
+[ext_resource type="Texture2D" uid="uid://c07au7gvh4n1i" path="res://assets/images/game/stages/stage/stageback.png" id="2_bix34"]
+[ext_resource type="Texture2D" uid="uid://c1b7ydnppankh" path="res://assets/images/game/stages/stage/stagefront.png" id="3_fdtgk"]
+[ext_resource type="Texture2D" uid="uid://b1cyqqksnbo5y" path="res://assets/images/game/stages/stage/stagecurtains.png" id="4_no7i5"]
+
+[node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
+script = ExtResource("1_ayaf6")
+cam = NodePath("cam")
+default_cam_zoom = 0.9
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+position_smoothing_enabled = true
+
+[node name="09-09" type="Parallax2D" parent="."]
+
+[node name="Stageback" type="Sprite2D" parent="09-09"]
+position = Vector2(-600, -220)
+texture = ExtResource("2_bix34")
+centered = false
+
+[node name="Stagefront" type="Sprite2D" parent="09-09"]
+position = Vector2(-790, 576)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("3_fdtgk")
+centered = false
+
+[node name="1_3-1_3" type="Parallax2D" parent="."]
+
+[node name="Stagecurtains" type="Sprite2D" parent="1_3-1_3"]
+position = Vector2(-500, -300)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_no7i5")
+centered = false
+
+[node name="dad_position" type="Marker2D" parent="."]
+position = Vector2(314, 776)
+
+[node name="gf_position" type="Marker2D" parent="."]
+position = Vector2(646, 760)
+
+[node name="bf_position" type="Marker2D" parent="."]
+position = Vector2(1069, 776)

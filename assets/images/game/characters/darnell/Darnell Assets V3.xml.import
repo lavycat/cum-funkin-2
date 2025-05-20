@@ -1,0 +1,18 @@
+[remap]
+
+importer="com.what-is-a-git.godot-sparrow-importer"
+type="SpriteFrames"
+uid="uid://07vshdjnravw"
+path="res://.godot/imported/Darnell Assets V3.xml-9dc04c32aaf5071962aeb32e5b25c698.res"
+
+[deps]
+
+source_file="res://assets/images/game/characters/darnell/Darnell Assets V3.xml"
+dest_files=["res://.godot/imported/Darnell Assets V3.xml-9dc04c32aaf5071962aeb32e5b25c698.res"]
+
+[params]
+
+use_offsets=true
+animation_framerate=24
+animations_looped=false
+store_external_spriteframes=false

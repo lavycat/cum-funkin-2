@@ -4,7 +4,9 @@ class_name Character extends FunkinScript
 @export var sing_length:float = 4.0
 @export var dance_steps:Array[String] = ["idle"]
 @export var camera_position:Marker2D
-var is_player:bool = false
+@export var is_player:bool = false
+@export var icon_color:Color = Color.WHITE
+@export var icon:Texture = load("res://assets/images/game/icons/icon-dad.png")
 var dance_step:int = 0
 var sing_timer:float = 0.0
 var cur_anim:String = ""
@@ -15,6 +17,8 @@ var can_dance:bool = true
 var can_sing:bool = true
 func _ready() -> void:
 	dance()
+	if is_player:
+		scale.x *= -1
 func play_anim(anim:String,force:bool = false):
 	cur_anim = anim
 	player.play(anim)

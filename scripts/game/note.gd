@@ -31,6 +31,8 @@ static func get_style():
 static func load_style():
 	load("res://assets/images/game/notestyles/%s.tres"%get_style())
 func _enter_tree() -> void:
+	if length < Conductor.step_length:
+		length = 0
 	direction = directions[column]
 	sprite = AnimatedSprite2D.new()
 	style = NoteStyle.new()
@@ -56,9 +58,12 @@ func _process(delta: float) -> void:
 				sustain.released_timer = 0
 
 			if sustain.released_timer > Conductor.step_length*2:
-				missed = true
-	if Conductor.time - (time) > hit_range * Conductor.rate and not was_hit:
+				if not missed:
+					play_field.note_miss.emit(self)
+					missed = true
+					queue_free()
+	if Conductor.time - (time) > hit_range * Conductor.rate and not was_hit and not missed:
 		missed = true
 		play_field.note_miss.emit(self)
 	if Conductor.time - 0.5 > time + length:
-		queue_free()
+		queue_free() 

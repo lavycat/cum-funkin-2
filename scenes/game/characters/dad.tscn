@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1b6rwrsde7bl"]
+[gd_scene load_steps=10 format=3 uid="uid://d1b6rwrsde7bl"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_ucsk6"]
+[ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_6savo"]
 [ext_resource type="SpriteFrames" uid="uid://c238rto5w1c0f" path="res://assets/images/game/characters/dad/sprite.xml" id="2_ucsk6"]
 
 [sub_resource type="Animation" id="Animation_neebd"]
@@ -218,6 +219,8 @@ player = NodePath("player")
 sprite = NodePath("sprite")
 sing_length = 6.1
 camera_position = NodePath("camera_position")
+icon_color = Color(0.686275, 0.4, 0.807843, 1)
+icon = ExtResource("2_6savo")
 
 [node name="player" type="AnimationPlayer" parent="."]
 libraries = {

@@ -25,7 +25,9 @@ func _process(delta: float) -> void:
 	if not visible:
 		return
 	for note:Note in get_children():
+		
 		var strum = play_field.strums[note.column]
+		note.visible = true
 		note.scale = Vector2(note.style.note_scale,note.style.note_scale)
 		var length_diff:float = note.length - note.sustain.length if note.length > 0.0 else 0
 		if down_scroll:
