@@ -35,6 +35,8 @@ var accuracy:float = -1
 static var instance:Game
 static var song_name = "stress"
 var paused:bool = false
+var pause_menu:PackedScene = load("res://scenes/game/pause_menu.tscn")
+var pause_ui:CanvasLayer = null
 func load_character(p:String,fb:String):
 	if ResourceLoader.exists("res://scenes/game/characters/%s.tscn"%p):
 		return load("res://scenes/game/characters/%s.tscn"%p).instantiate()
@@ -71,12 +73,8 @@ func _ready() -> void:
 	Conductor.player = tracks.player
 	for i in play_fields:
 		i.position.y = hud.size.y*0.15 if not Save.data.down_scroll else hud.size.y*0.85
-		i.position.x = hud.size.x*0.5
-		
-		if i.id == 0:
-			i.position.x += hud.size.x*-0.25
-		else:
-			i.position.x += hud.size.x*0.25
+		i.position.x = hud.size.x*0.25
+		i.position.x += hud.size.x * 0.5 * i.id
 			
 		
 		
@@ -212,7 +210,14 @@ func _process(delta: float) -> void:
 			song_started = true
 			Conductor.player.play()	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_pause"):
+	if event.is_action_pressed("ui_pause") and not paused and song_started:
+		pause_ui = pause_menu.instantiate()
+		pause_ui.set_process_unhandled_input(false)
+		Conductor.player.stop()
+		process_mode = Node.PROCESS_MODE_DISABLED
+		await RenderingServer.frame_post_draw
+		add_child(pause_ui)
+		paused = true
 		pass
 func measure_hit(measure:int):
 	if measure > 0:

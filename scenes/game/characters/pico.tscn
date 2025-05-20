@@ -217,8 +217,8 @@ _data = {
 script = ExtResource("1_m6oc8")
 player = NodePath("player")
 sprite = NodePath("sprite")
-sing_length = 6.1
 camera_position = NodePath("camera_position")
+sing_length = 6.1
 icon = ExtResource("2_mbc7f")
 
 [node name="player" type="AnimationPlayer" parent="."]

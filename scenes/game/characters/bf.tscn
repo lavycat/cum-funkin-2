@@ -436,5 +436,4 @@ position = Vector2(-183, -275)
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -185)
 sprite_frames = ExtResource("3_gaqyx")
-animation = &"BF NOTE UP MISS"
-offset = Vector2(24.14, -14.325)
+animation = &"BF HEY!!"

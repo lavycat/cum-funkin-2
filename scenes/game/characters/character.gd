@@ -1,10 +1,13 @@
 class_name Character extends FunkinScript
+@export_category("nodes")
 @export var player:AnimationPlayer
 @export var sprite:AnimatedSprite2D
+@export var camera_position:Marker2D
+@export_category("character")
 @export var sing_length:float = 4.0
 @export var dance_steps:Array[String] = ["idle"]
-@export var camera_position:Marker2D
 @export var is_player:bool = false
+@export_category("icon")
 @export var icon_color:Color = Color.WHITE
 @export var icon:Texture = load("res://assets/images/game/icons/icon-dad.png")
 var dance_step:int = 0
@@ -45,6 +48,8 @@ func dance():
 	dance_step = wrap(dance_step + 1,0,dance_steps.size())
 func _process(delta: float) -> void:
 	if cur_anim.contains("sing"):
+		if game.paused:
+			return
 		sing_timer += delta
 		if sing_timer > Conductor.step_length * sing_length:
 			if auto_dance:
