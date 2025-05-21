@@ -115,13 +115,13 @@ func spawn_notes():
 		var n = notes[i]
 		var true_spawn_range = spawn_range / (note_field.scroll_speed)
 		var diff = abs(Conductor.time - n.time) 
-		if n.time < Conductor.time:
+		if n.time < Conductor.time + Conductor.offset:
 			note_index += 1
 			continue
 		if diff > true_spawn_range:
 			break
 		var note = Note.new()
-		note.time = n.time
+		note.time = n.time - Conductor.offset
 		note.column = n.column
 		note.length = n.length
 		note.type = n.type

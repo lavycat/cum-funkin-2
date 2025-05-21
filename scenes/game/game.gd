@@ -161,7 +161,17 @@ func note_hit(note:Note):
 var rating_tex = load("res://assets/ui/funkin/ratings_sheet.png")
 var combo_tex = load("res://assets/ui/funkin/num-sheet.png")
 func pop_up_score(rating:Rating):
+	var ms_txt := Label.new()
+	ms_txt.label_settings = LabelSettings.new()
+	ms_txt.label_settings.font_size = 64
+	ms_txt.label_settings.outline_size = 24
+	ms_txt.label_settings.outline_color = Color.BLACK
+	ms_txt.text = "%0.3f MS"%rating.hit_ms
 	var rat := VelocitySprite.new()
+	ms_txt.position.y -= 64*2
+	ms_txt.position.x -= 64*2
+	
+	rat.add_child(ms_txt)
 	rat.texture = rating_tex
 	rat.vframes = 4
 	rat.frame = rating.rank
@@ -171,7 +181,7 @@ func pop_up_score(rating:Rating):
 	rat.acceleration.y = 550;
 	rat.velocity.y -= randi_range(140,175)
 	rat.velocity.x -= randi_range(0, 10);
-	var t =create_tween().set_parallel()
+	var t = create_tween().set_parallel()
 	t.tween_property(rat,"modulate:a",0,0.2).set_trans(Tween.TRANS_SINE).set_delay(Conductor.beat_length)
 	
 	await t.finished

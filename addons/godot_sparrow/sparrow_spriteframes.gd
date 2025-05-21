@@ -72,7 +72,6 @@ func _import(source_file: String, save_path: String, options: Dictionary,
 	
 	var texture = null
 	var image: Image
-	var image_texture: Texture
 	
 	# This is done to prevent reuse of atlas textures.
 	# The actual difference this makes may be unnoticable but it is still done.
@@ -94,11 +93,6 @@ func _import(source_file: String, save_path: String, options: Dictionary,
 			texture = ResourceLoader.load(image_path, 'CompressedTexture2D', ResourceLoader.CACHE_MODE_IGNORE)
 			
 			image = texture.get_image()
-			if image.is_compressed():
-				image_texture = PortableCompressedTexture2D.new()
-				image_texture.create_from_image(image,PortableCompressedTexture2D.COMPRESSION_MODE_BPTC)
-			else:
-				image_texture = ImageTexture.create_from_image(image)
 			continue
 		
 		if node_name != 'subtexture':
@@ -142,7 +136,7 @@ func _import(source_file: String, save_path: String, options: Dictionary,
 			
 			# Just used to not have to reference frame 24/7.
 			var atlas: AtlasTexture = frame.atlas
-			atlas.atlas = image_texture
+			atlas.atlas = texture
 			atlas.filter_clip = true
 			atlas.region = frame.source
 			
