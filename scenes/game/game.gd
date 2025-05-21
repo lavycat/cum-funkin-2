@@ -33,7 +33,7 @@ var accuracy:float = -1
 
 
 static var instance:Game
-static var song_name = "stress"
+static var song_name = "glitcher"
 var paused:bool = false
 var pause_menu:PackedScene = load("res://scenes/game/pause_menu.tscn")
 var pause_ui:CanvasLayer = null

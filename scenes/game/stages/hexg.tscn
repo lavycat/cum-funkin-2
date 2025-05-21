@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0rars137cgs7"]
+
+[ext_resource type="Script" uid="uid://mc3x2iyuu1h1" path="res://scenes/game/stages/hexg.gd" id="1_whabc"]
+[ext_resource type="Texture2D" uid="uid://17y5tuueiqg4" path="res://assets/images/game/stages/hexg/stageback.png" id="2_ft1yu"]
+[ext_resource type="Texture2D" uid="uid://d3kefiuodaqf1" path="res://assets/images/game/stages/hexg/stagefront.png" id="3_i3rd5"]
+[ext_resource type="Texture2D" uid="uid://c3d0gupmx6y04" path="res://assets/images/game/stages/hexg/WIREStageBack.png" id="4_i3rd5"]
+[ext_resource type="PackedScene" uid="uid://bf65idm714wgk" path="res://scenes/game/characters/hex-wire.tscn" id="5_16ur2"]
+[ext_resource type="PackedScene" uid="uid://brasaxt4tk22u" path="res://scenes/game/characters/bf-wire.tscn" id="6_whabc"]
+
+[node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
+script = ExtResource("1_whabc")
+cam = NodePath("cam")
+default_cam_zoom = 0.9
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+position_smoothing_enabled = true
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.9, 0.9)
+
+[node name="Stageback" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(-600, -200)
+texture = ExtResource("2_ft1yu")
+centered = false
+
+[node name="Stagefront" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(-650, 600)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("3_i3rd5")
+centered = false
+
+[node name="wire" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Parallax2D" type="Parallax2D" parent="wire"]
+scroll_scale = Vector2(0.9, 0.9)
+
+[node name="WireStageBack" type="Sprite2D" parent="wire/Parallax2D"]
+position = Vector2(-600, -200)
+texture = ExtResource("4_i3rd5")
+centered = false
+
+[node name="wire_dad" parent="wire" instance=ExtResource("5_16ur2")]
+position = Vector2(314, 776)
+
+[node name="wire_bf" parent="wire" instance=ExtResource("6_whabc")]
+position = Vector2(1069, 776)
+
+[node name="dad_position" type="Marker2D" parent="."]
+position = Vector2(314, 776)
+
+[node name="gf_position" type="Marker2D" parent="."]
+position = Vector2(646, 760)
+
+[node name="bf_position" type="Marker2D" parent="."]
+position = Vector2(1069, 776)

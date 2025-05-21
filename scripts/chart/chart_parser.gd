@@ -23,7 +23,8 @@ static func load_chart(song:String,diff:String):
 	
 		if json.has("song"):
 			ret = load_psych(json)
-	if ResourceLoader.exists(vslice_path):
+	
+	elif ResourceLoader.exists(vslice_path):
 		var meta_json = load(vslice_meta_path)
 		var chart_json = load(vslice_path)
 		ret = load_vslice(meta_json.data,chart_json.data,diff)
@@ -100,11 +101,12 @@ static func load_psych(data:Dictionary):
 	var speed = raw.get("speed")
 	chart.scroll_speed = speed
 	
-	chart.dad = raw.get("player2")
-	chart.bf = raw.get("player1")
-	chart.gf = raw.get("gfVersion")
-	chart.stage = raw.get("stage")
+	chart.dad = raw.get("player2","dad")
+	chart.bf = raw.get("player1","bf")
+	chart.gf = raw.get("gfVersion","gf")
+	chart.stage = raw.get("stage","stage")
 	chart.bpm = raw.get("bpm")
+	print(chart)
 	
 	
 	var section_time:float = 0
