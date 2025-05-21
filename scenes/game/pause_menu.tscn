@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cttb6dyhipplu"]
+[gd_scene load_steps=3 format=3 uid="uid://cttb6dyhipplu"]
 
 [ext_resource type="Script" uid="uid://bbnxm8exieg4i" path="res://scenes/game/pause_menu.gd" id="1_aj248"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aj248"]
+blend_mode = 1
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -24,3 +27,6 @@ offset_top = 360.0
 offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="mod" type="CanvasModulate" parent="."]
+material = SubResource("CanvasItemMaterial_aj248")

@@ -8,7 +8,7 @@ var rate:float = 1.0:
 			player.pitch_scale = rate
 
 var changes:Array[Dictionary] = []
-
+var follow_player:bool = true
 var last_change:Dictionary = {"bpm": 100,"time": 0,"step": 0}
 var offset:float = 0.0
 var time:float = 0.0:
@@ -64,8 +64,8 @@ func _process(delta: float) -> void:
 func update_song_position():
 	var delta = get_process_delta_time()
 	if player:
-		player.pitch_scale = rate
-		if player.playing:
+		if player.playing and follow_player:
+			player.pitch_scale = rate
 			var skibidi:float = player.get_playback_position() + AudioServer.get_time_since_last_mix()
 			if skibidi > Conductor.time or absf(Conductor.time - skibidi) > 25.0 / 1000.0:
 				Conductor.time = skibidi

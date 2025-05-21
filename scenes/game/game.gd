@@ -64,7 +64,7 @@ func _enter_tree() -> void:
 		
 
 func _ready() -> void:
-	
+	Conductor.follow_player = true
 	Conductor.measure_hit.connect(measure_hit)
 	Conductor.time = -Conductor.beat_length*5.0
 	Conductor.offset = Save.data.song_offset
@@ -221,8 +221,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_pause") and not paused:
 		pause_ui = pause_menu.instantiate()
-		pause_ui.set_process_unhandled_input(false)
-		Conductor.player.stop()
+		tracks.process_mode = Node.PROCESS_MODE_ALWAYS
 		process_mode = Node.PROCESS_MODE_DISABLED
 		await RenderingServer.frame_post_draw
 		add_child(pause_ui)

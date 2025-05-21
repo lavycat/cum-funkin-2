@@ -10,5 +10,5 @@ func note_hit(note:Note):
 		if not note.was_hit:
 			Conductor.rate += 0.076 * Conductor.rate
 		else:
-			Conductor.rate += 0.116*get_process_delta_time()
+			Conductor.rate += 0.086*get_process_delta_time()
 	Conductor.rate = max(1.0,Conductor.rate)
