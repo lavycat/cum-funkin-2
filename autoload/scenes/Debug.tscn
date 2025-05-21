@@ -31,3 +31,9 @@ layout_mode = 2
 text = "FPS:60"
 label_settings = SubResource("LabelSettings_3yqj7")
 uppercase = true
+
+[node name="rate" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "FPS:60"
+label_settings = SubResource("LabelSettings_3yqj7")
+uppercase = true

@@ -5,9 +5,10 @@ var name:String = "sick"
 var hit_ms:float = 0
 var rank:int = 0
 static func rate_note(note:Note,cpu:bool = false) -> Rating:
-	var note_diff:float = abs(note.time - Conductor.time)*1000.0
+	var rate = Conductor.rate if Conductor.rate >= 1 else 1
+	var note_diff:float = abs(note.time - Conductor.time)*1000.0 / rate
 	var r := Rating.new()
-	r.hit_ms = note_diff
+	r.hit_ms = (note.time - Conductor.time)*1000.0 / rate
 	if cpu:
 		r.hit_ms = 0
 		return r

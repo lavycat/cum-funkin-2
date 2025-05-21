@@ -25,6 +25,21 @@ func wiretrans2():
 	game.bf = old_bf
 	create_tween().set_parallel().tween_property(wire,"modulate:a",0,0.1)
 func note_hit(note:Note):
+	
+	#if note.play_field.id == 0:
+		#if not note.was_hit:
+			#Conductor.rate -= 0.11 * Conductor.rate * 0.9887112543165990872143
+		#else:
+			#Conductor.rate -= 0.11*get_process_delta_time() * 0.9887112543165990872143
+		#
+	#else:
+		#if not note.was_hit:
+			#Conductor.rate += 0.116 * Conductor.rate
+		#else:
+			#Conductor.rate += 0.116*get_process_delta_time()
+	#Conductor.rate = max(0.5,Conductor.rate)
+			
+		
 	if Conductor.beat > 336 and Conductor.beat < 367:
 		if wire.modulate.a > 0.0:
 			wiretrans2()

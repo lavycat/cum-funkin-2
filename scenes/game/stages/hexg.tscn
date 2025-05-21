@@ -43,6 +43,7 @@ centered = false
 
 [node name="wire_dad" parent="wire" instance=ExtResource("5_16ur2")]
 position = Vector2(314, 776)
+icon = null
 
 [node name="wire_bf" parent="wire" instance=ExtResource("6_whabc")]
 position = Vector2(1069, 776)

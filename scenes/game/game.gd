@@ -136,7 +136,6 @@ func note_hit(note:Note):
 	match note.note_field.play_field.id:
 		0:
 			dad.sing(note.column)
-			dad.sing_timer = 0
 		1:
 			
 			bf.sing(note.column)
@@ -168,8 +167,8 @@ func pop_up_score(rating:Rating):
 	ms_txt.label_settings.outline_color = Color.BLACK
 	ms_txt.text = "%0.3f MS"%rating.hit_ms
 	var rat := VelocitySprite.new()
-	ms_txt.position.y -= 64*2
-	ms_txt.position.x -= 64*2
+	ms_txt.position.y = -128
+	ms_txt.position.x -= ms_txt.size.x / 2
 	
 	rat.add_child(ms_txt)
 	rat.texture = rating_tex
@@ -220,7 +219,7 @@ func _process(delta: float) -> void:
 			song_started = true
 			Conductor.player.play()	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_pause") and not paused and song_started:
+	if event.is_action_pressed("ui_pause") and not paused:
 		pause_ui = pause_menu.instantiate()
 		pause_ui.set_process_unhandled_input(false)
 		Conductor.player.stop()

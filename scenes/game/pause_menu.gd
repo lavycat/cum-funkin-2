@@ -40,7 +40,8 @@ func select_option(o:int):
 		"restart song":
 			get_tree().reload_current_scene()
 		_:
-			Conductor.player.play(Conductor.time)
+			if Game.instance.song_started:
+				Conductor.player.play(Conductor.time)
 			Game.instance.paused = false
 			Game.instance.process_mode = Node.PROCESS_MODE_INHERIT
 			queue_free()

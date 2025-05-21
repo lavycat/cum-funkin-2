@@ -32,6 +32,8 @@ func update_score_txt():
 func note_hit(n:Note):
 	if n.play_field.id == 1:
 		update_score_txt()
+		
+		
 func note_miss(n:Note):
 	if n.play_field.id == 1:
 		print(n.play_field.id)
