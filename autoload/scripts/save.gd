@@ -10,5 +10,5 @@ func load_data():
 	save_data()
 func save_data():
 	ResourceSaver.save(data,SAVE_PATH)
-func _enter_tree() -> void:
+func _ready() -> void:
 	load_data()

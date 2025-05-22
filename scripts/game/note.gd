@@ -25,14 +25,13 @@ var hit_range = 0.180
 var was_hit:bool = false
 var missed:bool = false
 var sprite:AnimatedSprite2D
+var clip:ColorRect
 ## returns the name of the notestyle for the note script defaults to empty string 
 static func get_style():
 	return "funkin"
 static func load_style():
 	load("res://assets/images/game/notestyles/%s.tres"%get_style())
 func _enter_tree() -> void:
-	if length < Conductor.step_length:
-		length = 0
 	direction = directions[column]
 	sprite = AnimatedSprite2D.new()
 	style = NoteStyle.new()
@@ -40,9 +39,17 @@ func _enter_tree() -> void:
 	sustain = Sustain.new()
 	sustain.length = length
 	sustain.note = self
-	add_child(sustain)
+	clip = ColorRect.new()
+	clip.clip_children = CanvasItem.CLIP_CHILDREN_ONLY
+	clip.size.x = 50
+	clip.size.y = 1440
+	if note_field.down_scroll:
+		clip.scale.y = -1
+	clip.position.x -= 25.0
+	
+	add_child(clip)
+	clip.add_child(sustain)
 	add_child(sprite)
-	sustain.z_index = -1
 func play_anim(anim:String = ""):
 	sprite.play("%s %s"%[direction,anim])
 func note_hit(note:Note):
@@ -56,14 +63,15 @@ func _process(delta: float) -> void:
 				sustain.released_timer += delta
 			if play_field.pressed[column]:
 				sustain.released_timer = 0
+			clip.position.y = 0
 
 			if sustain.released_timer > Conductor.step_length*2:
 				if not missed:
 					play_field.note_miss.emit(self)
 					missed = true
 					queue_free()
-	if Conductor.time - (time) > hit_range * Conductor.rate and not was_hit and not missed:
+	if Conductor.time - (time) > hit_range and not was_hit and not missed:
 		missed = true
 		play_field.note_miss.emit(self)
-	if Conductor.time - 0.5 > time + length:
+	if Conductor.time - 0.5 > (time + length):
 		queue_free() 

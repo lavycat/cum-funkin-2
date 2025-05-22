@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://pkw487a2qtfa"]
+[gd_scene load_steps=5 format=3 uid="uid://pkw487a2qtfa"]
 
 [ext_resource type="Script" uid="uid://byx4nxvjlrgg5" path="res://autoload/scenes/debug.gd" id="1_ilaqs"]
 
@@ -7,6 +7,10 @@ font_names = PackedStringArray("Arial")
 multichannel_signed_distance_field = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_3yqj7"]
+font = SubResource("SystemFont_ilaqs")
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ilaqs"]
 font = SubResource("SystemFont_ilaqs")
 outline_color = Color(0, 0, 0, 1)
 
@@ -35,5 +39,5 @@ uppercase = true
 [node name="rate" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "FPS:60"
-label_settings = SubResource("LabelSettings_3yqj7")
+label_settings = SubResource("LabelSettings_ilaqs")
 uppercase = true

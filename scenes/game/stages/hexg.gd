@@ -4,12 +4,14 @@ var old_dad:Character
 var old_bf:Character
 @onready var wire_dad: Character = $wire/wire_dad
 @onready var wire_bf: Character = $wire/wire_bf
-var funni:bool = false
+const FALSE = false
+var funni:bool = FALSE
 func _ready() -> void:
 	old_dad = game.dad
 	old_bf = game.bf
 	wire.z_index += 1
 	#create_tween().set_loops(-1).tween_property(Conductor.player,"pitch_scale",0.5,.3)
+
 func beat_hit(beat:int):
 	if not wire_dad.player.is_playing():
 		wire_dad.sing_timer = 0
@@ -33,15 +35,15 @@ func note_hit(note:Note):
 	if funni:
 		if note.play_field.id == 0:
 			if not note.was_hit:
-				Conductor.rate -= 0.13 * Conductor.rate * 0.9887112543165990872143
+				Conductor.rate -= 0.14 * Conductor.rate * 0.9887112543165990872143
 			else:
-				Conductor.rate -= 0.26*get_process_delta_time() * 0.9887112543165990872143
+				Conductor.rate -= 0.3*get_process_delta_time() * 0.9887112543165990872143
 			
 		else:
 			if not note.was_hit:
-				Conductor.rate += 0.116 * Conductor.rate
+				Conductor.rate += 0.13* Conductor.rate
 			else:
-				Conductor.rate += 0.116*get_process_delta_time()
+				Conductor.rate += 0.865*get_process_delta_time()
 		Conductor.rate = max(1.0,Conductor.rate)
 			
 		

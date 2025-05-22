@@ -32,6 +32,7 @@ func _ready() -> void:
 	var sc = Save.data.scroll_speed if not Save.data.use_chart_scroll_speed else Global.chart.scroll_speed
 	note_field.scroll_speed = sc
 	note_field.down_scroll = Save.data.down_scroll
+	print(note_field.down_scroll)
 	
 	add_child(note_field)
 func find_action_index(ev:InputEvent):
@@ -68,7 +69,6 @@ func _input(event: InputEvent) -> void:
 	
 	
 func note_update(delta:float):
-	
 	for note:Note in note_field.get_children():
 		var strum = strums[note.column]
 		if (note.time - Conductor.time) < 0.0 and not note.was_hit and auto_play:
@@ -90,7 +90,7 @@ func note_update(delta:float):
 				note_free.emit(note)
 				note.free()
 				continue
-			if note.sustain.length <= 0:
+			if note.sustain.length < -delta:
 				note_hit.emit(note)
 				if auto_play:
 					pressed[note.column] = false

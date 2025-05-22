@@ -3,7 +3,7 @@ var play_field:PlayField = null
 var scroll_speed:float = 1.0:
 	get:
 		return scroll_speed / Conductor.rate
-var down_scroll:bool = false
+var down_scroll:bool
 
 
 static var note_hold_cache:Dictionary = {}

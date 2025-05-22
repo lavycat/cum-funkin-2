@@ -25,14 +25,14 @@ func _ready() -> void:
 		
 		i += 1
 	audio_tween = get_tree().create_tween().set_ignore_time_scale()
-	audio_tween.tween_property(Conductor.player,"pitch_scale",0.1,Conductor.beat_length*1.5).set_trans(Tween.TRANS_SPRING)
+	audio_tween.tween_property(Conductor.player,"pitch_scale",.01,Conductor.beat_length*1.5)
 	audio_tween.finished.connect(Conductor.player.stop.bind(),CONNECT_ONE_SHOT)
 	Conductor.follow_player = false
 	var t = create_tween()
 	t.tween_property(bg,"color:a",0.6,0.3).set_trans(Tween.TRANS_CIRC)
 func _process(delta: float) -> void:
 	options_container.position.y = lerpf(options_container.position.y,360 + (160.0 * -cur_option),delta * 9) 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if selecting:
 		return
 	if event.is_action_pressed("ui_down"):
@@ -55,7 +55,7 @@ func select_option(o:int):
 				
 				if audio_tween.is_running():
 					audio_tween.stop()
-				Conductor.player.play(Conductor.time)
+				Conductor.player.play(Conductor.time - Conductor.beat_length)
 				audio_tween = get_tree().create_tween().set_ignore_time_scale().set_parallel()
 				audio_tween.tween_property(Conductor.player,"pitch_scale",Conductor.rate,Conductor.beat_length)
 				audio_tween.tween_property(mod,"color:a",0,Conductor.beat_length)
