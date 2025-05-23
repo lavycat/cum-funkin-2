@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvk4hy2jbxbec"]
+
+[ext_resource type="Script" uid="uid://c78u5ytlo2s0s" path="res://scenes/menus/main_menu.gd" id="1_ovrgc"]
+[ext_resource type="Texture2D" uid="uid://c5p07owa88fil" path="res://assets/images/menus/menuBG.png" id="1_xqga4"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_ovrgc")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="bg" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(640, 360)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_xqga4")
+
+[node name="options" type="Node2D" parent="."]
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+position_smoothing_enabled = true
+position_smoothing_speed = 12.0

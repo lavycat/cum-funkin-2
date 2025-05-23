@@ -24,14 +24,13 @@ func _process(delta: float) -> void:
 	var tail_height = tail.texture.get_height() * tail.scale.y
 
 	#position.x = -size.x / 2
-	tail.flip_v = Save.data.down_scroll
 	#if note.note_field.down_scroll:
 		#scale.y = -1
 	size.y = length_px - tail_height
 	tail.position.y = length_px - tail_height
 	tail.position.x = 0
 	
-	if length_px <= tail_height/2:
+	if length_px < tail_height:
 		self_modulate.a = 0
 		
 		

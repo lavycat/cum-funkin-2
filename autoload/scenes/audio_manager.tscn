@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5wf84l36f476"]
+
+[ext_resource type="Script" uid="uid://donqtoja11kwc" path="res://autoload/scenes/audio_manager.gd" id="1_i1wok"]
+[ext_resource type="AudioStream" uid="uid://w86t0fkoc7sn" path="res://assets/sounds/scrollMenu.ogg" id="2_wbn1j"]
+[ext_resource type="AudioStream" uid="uid://dbhsw7yj0xaop" path="res://assets/sounds/confirmMenu.ogg" id="3_buh7i"]
+[ext_resource type="AudioStream" uid="uid://cajjry2qqwmpp" path="res://assets/sounds/cancelMenu.ogg" id="4_hk1yd"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_i1wok")
+
+[node name="global_music" type="AudioStreamPlayer" parent="."]
+
+[node name="scroll" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wbn1j")
+
+[node name="confirm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_buh7i")
+
+[node name="cancel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hk1yd")
