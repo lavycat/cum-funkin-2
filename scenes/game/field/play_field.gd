@@ -110,27 +110,30 @@ func _process(delta: float) -> void:
 			strum.play_anim("press")
 var note_index:int = 0
 var spawn_range:float = 1.5
+func spawn_data(n:Dictionary):
+	var note = Note.new()
+	note.time = n.time
+	note.column = n.column
+	note.length = n.length
+	note.type = n.type
+	note.note_field = note_field
+	note.play_field = self
+	note_field.add_child(note)
+	note.play_anim("note")
+	note.visible = false
+	note_spawned.emit(note)
+	note_index += 1
 func spawn_notes():
 	for i in range(note_index,notes.size()):
 		var n = notes[i]
 		var true_spawn_range = spawn_range / (note_field.scroll_speed)
 		var diff = abs(Conductor.time - n.time) 
 		if n.time < Conductor.time + Conductor.offset:
-			note_index += 1
+			spawn_data(n)
 			continue
 		if diff > true_spawn_range:
 			break
-		var note = Note.new()
-		note.time = n.time - Conductor.offset
-		note.column = n.column
-		note.length = n.length
-		note.type = n.type
-		note.note_field = note_field
-		note.play_field = self
-		note_field.add_child(note)
-		note.play_anim("note")
-		note.visible = false
-		note_spawned.emit(note)
-		note_index += 1
+		spawn_data(n)
+
 		
 	pass

@@ -65,12 +65,11 @@ func update_song_position():
 	var delta = get_process_delta_time()
 	if player:
 		if player.playing and follow_player:
-			player.pitch_scale = rate
 			var skibidi:float = player.get_playback_position() + AudioServer.get_time_since_last_mix()
-			if skibidi > Conductor.time or absf(Conductor.time - skibidi) > 25.0 / 1000.0:
+			if skibidi * player.pitch_scale > Conductor.time or absf(Conductor.time - skibidi) > 25.0 / 1000.0:
 				Conductor.time = skibidi
 			else:
-				Conductor.time += delta
+				Conductor.time += delta * player.pitch_scale
 				
 	if !freeze_play_head:
 		play_head = time - offset

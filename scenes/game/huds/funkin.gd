@@ -5,6 +5,7 @@ extends Hud
 var health_bar_style_bg:StyleBox
 var health_bar_style_fill:StyleBox
 @onready var scoretxt: Label = $bar/scoretxt
+@onready var bar: Control = $bar
 
 @onready var timebar: ProgressBar = $timebar
 func reload_icons():
@@ -17,10 +18,12 @@ func reload_icons():
 	
 
 func _ready() -> void:
+	
 	health_bar_style_bg = healthbar.get_theme_stylebox("background")
 	health_bar_style_fill = healthbar.get_theme_stylebox("fill")
 	health_bar_style_bg.bg_color = Color.WHITE
 	reload_icons()
+	bar.position.y = 100 if Save.data.down_scroll else 620
 func _process(delta: float) -> void:
 	timebar.value = (Conductor.time / Conductor.player.stream.get_length()) * 100.0
 	healthbar.value = lerp(healthbar.value,game.health,delta*19.0)

@@ -18,10 +18,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 VolumeManager="*res://autoload/scenes/volume_manager.tscn"
-Global="*res://autoload/scripts/global.gd"
-Debug="*res://autoload/scenes/Debug.tscn"
-Conductor="*res://autoload/scripts/conductor.gd"
 Save="*res://autoload/scripts/save.gd"
+Global="*res://autoload/scripts/global.gd"
+Conductor="*res://autoload/scripts/conductor.gd"
+Debug="*res://autoload/scenes/Debug.tscn"
 
 [debug]
 

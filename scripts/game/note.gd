@@ -57,6 +57,7 @@ func note_hit(note:Note):
 		
 func _process(delta: float) -> void:
 	if sustain:
+		clip.size.y = 1440
 		if was_hit:
 			sustain.length = (time + length) - Conductor.time
 			if not play_field.pressed[column]:
