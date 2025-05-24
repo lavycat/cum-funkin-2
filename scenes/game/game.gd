@@ -71,6 +71,8 @@ func _ready() -> void:
 	play_fields = [dad_field,player_field]
 	tracks.load_song(song_name)
 	Conductor.player = tracks.player
+	Conductor.player.pitch_scale = Conductor.rate
+	Engine.time_scale = Conductor.rate
 	for i in play_fields:
 		i.position.y = hud.size.y*0.15 if not Save.data.down_scroll else hud.size.y*0.85
 		i.position.x = hud.size.x*0.25

@@ -25,8 +25,8 @@ func _ready() -> void:
 		
 		i += 1
 	audio_tween = get_tree().create_tween().set_ignore_time_scale().set_parallel()
-	audio_tween.tween_property(Conductor.player,"pitch_scale",.1,Conductor.beat_length).set_trans(Tween.TRANS_SINE)
-	audio_tween.tween_property(Engine,"time_scale",.1,Conductor.beat_length).set_trans(Tween.TRANS_SINE)
+	audio_tween.tween_property(Conductor.player,"pitch_scale",.25,Conductor.step_length*2)
+	audio_tween.tween_property(Engine,"time_scale",.25,Conductor.step_length*2)
 	
 	var t = create_tween()
 	t.tween_property(bg,"color:a",0.6,0.3).set_trans(Tween.TRANS_CIRC)
@@ -58,9 +58,11 @@ func select_option(o:int):
 	match option_str.to_lower():
 		"restart song":
 			Engine.time_scale = Conductor.rate
+			Conductor.player.pitch_scale = Conductor.rate
 			get_tree().reload_current_scene()
 		"exit":
 			Engine.time_scale = Conductor.rate
+			Conductor.player.pitch_scale = Conductor.rate
 			get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
 		_:
 			Game.instance.process_mode = Node.PROCESS_MODE_INHERIT
