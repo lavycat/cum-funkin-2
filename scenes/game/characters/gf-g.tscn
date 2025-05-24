@@ -508,7 +508,6 @@ script = ExtResource("1_re3ir")
 player = NodePath("player")
 sprite = NodePath("sprite")
 dance_steps = Array[String](["dance_left", "dance_right"])
-dance_interval = 0.1
 icon = ExtResource("2_ypjhl")
 
 [node name="player" type="AnimationPlayer" parent="."]

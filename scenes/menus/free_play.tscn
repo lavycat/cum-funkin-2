@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://qvpd1n7acunr"]
+
+[ext_resource type="Script" uid="uid://bkt2kx7lyad8" path="res://scenes/menus/free_play.gd" id="1_8le71"]
+[ext_resource type="Texture2D" uid="uid://00q6vqo4ygeq" path="res://assets/images/menus/menuDesat.png" id="1_y8dq1"]
+[ext_resource type="Script" uid="uid://dduf8sxbbty0v" path="res://scripts/data/free_play_list.gd" id="2_bfb2o"]
+[ext_resource type="Script" uid="uid://boo85g40pq3ts" path="res://scripts/data/free_play_songData.gd" id="3_j6upd"]
+
+[sub_resource type="Resource" id="Resource_j6upd"]
+script = ExtResource("3_j6upd")
+name = "glitcher"
+difficulties = ["easy", "normal", "hard"]
+metadata/_custom_type_script = "uid://boo85g40pq3ts"
+
+[sub_resource type="Resource" id="Resource_j746a"]
+script = ExtResource("3_j6upd")
+name = "manual-blast"
+difficulties = ["easy", "normal", "hard"]
+metadata/_custom_type_script = "uid://boo85g40pq3ts"
+
+[sub_resource type="Resource" id="Resource_lwhca"]
+script = ExtResource("3_j6upd")
+name = "2hot"
+difficulties = ["easy", "normal", "hard"]
+metadata/_custom_type_script = "uid://boo85g40pq3ts"
+
+[sub_resource type="Resource" id="Resource_3t30e"]
+script = ExtResource("3_j6upd")
+name = "glitcher"
+difficulties = ["easy", "normal", "hard"]
+metadata/_custom_type_script = "uid://boo85g40pq3ts"
+
+[sub_resource type="Resource" id="Resource_bfb2o"]
+script = ExtResource("2_bfb2o")
+songs = Array[ExtResource("3_j6upd")]([SubResource("Resource_j6upd"), SubResource("Resource_j746a"), SubResource("Resource_lwhca"), SubResource("Resource_3t30e")])
+metadata/_custom_type_script = "uid://dduf8sxbbty0v"
+
+[node name="FreePlay" type="Node2D"]
+script = ExtResource("1_8le71")
+list = SubResource("Resource_bfb2o")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.06, 0.06)
+repeat_size = Vector2(0, 730)
+repeat_times = 12
+
+[node name="bg" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(640, 360)
+texture = ExtResource("1_y8dq1")
+
+[node name="songs" type="Node2D" parent="."]
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(0, -960)
+offset = Vector2(640, 0)
+position_smoothing_enabled = true
+position_smoothing_speed = 9.0

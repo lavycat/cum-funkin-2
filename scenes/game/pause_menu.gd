@@ -17,7 +17,7 @@ func _ready() -> void:
 		var t := Label.new()
 		t.text = o.to_upper()
 		t.label_settings = LabelSettings.new()
-		t.label_settings.font = load("res://assets/fonts/alphabet_bold.png")
+		t.label_settings.font = preload("res://assets/fonts/bold.png")
 		t.label_settings.font_size = 72
 		options_container.add_child(t)
 		t.position.x += (30 * i) + 90
@@ -63,7 +63,7 @@ func select_option(o:int):
 		"exit":
 			Engine.time_scale = Conductor.rate
 			Conductor.player.pitch_scale = Conductor.rate
-			get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+			get_tree().change_scene_to_file("res://scenes/menus/free_play.tscn")
 		_:
 			Game.instance.process_mode = Node.PROCESS_MODE_INHERIT
 

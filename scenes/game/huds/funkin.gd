@@ -38,8 +38,6 @@ func note_hit(n:Note):
 		
 		
 func note_miss(n:Note):
-	if n.play_field.id == 1:
-		print(n.play_field.id)
 	update_score_txt()
 func beat_hit(b:int):
 	icons.scale = Vector2(1.2,1.2)

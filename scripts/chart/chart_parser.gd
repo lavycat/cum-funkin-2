@@ -17,7 +17,6 @@ static func load_chart(song:String,diff:String):
 	var vslice_path = "res://assets/songs/%s/charts/%s-chart.json"%[song,song]
 	var vslice_meta_path = "res://assets/songs/%s/charts/%s-metadata.json"%[song,song]
 	
-	print(vslice_path)
 	if ResourceLoader.exists(legacy_path):
 		var json = load(legacy_path).data
 	
@@ -39,7 +38,7 @@ static func add_event(chart:Dictionary,time:float,name:String,vals:Array):
 	var ev = {"name":name,"time":time,"values":vals}
 	chart.events.append(ev)
 static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
-	var c = fall_back.duplicate()
+	var c = fall_back.duplicate(true)
 	## META PARSE
 	var playdata = meta.playData
 	c.dad = playdata.characters.opponent
@@ -83,10 +82,10 @@ static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
 	pass
 static func load_psych(data:Dictionary):
 	var raw = data.song
-	var chart = fall_back.duplicate()
+	var chart = fall_back.duplicate(true)
+	print(chart)
 	if ResourceLoader.exists("res://assets/songs/%s/charts/events.json"%[raw.song]):
 		var event_json = load("res://assets/songs/%s/charts/events.json"%[raw.song]).data
-		print(event_json)
 	if raw.get("events",{}):
 		var evs_arr = raw.events
 		for i in evs_arr:
@@ -106,7 +105,6 @@ static func load_psych(data:Dictionary):
 	chart.gf = raw.get("gfVersion","gf")
 	chart.stage = raw.get("stage","stage")
 	chart.bpm = raw.get("bpm")
-	print(chart)
 	
 	
 	var section_time:float = 0

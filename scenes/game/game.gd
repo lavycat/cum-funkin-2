@@ -43,12 +43,8 @@ func load_character(p:String,fb:String):
 	else:
 		return load("res://scenes/game/characters/%s.tscn"%fb).instantiate()
 func _enter_tree() -> void:
+	chart = Global.chart
 	instance = self
-	if Global.chart != null:
-		chart = Global.chart
-	else:
-		chart = ChartParser.load_chart(song_name,"hard")
-	Global.chart = chart
 	var p = "res://scenes/game/stages/%s.tscn"%chart.stage
 	if not ResourceLoader.exists(p):
 		print("stage not found loading default")

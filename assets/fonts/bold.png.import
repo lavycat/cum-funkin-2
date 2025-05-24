@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://dau02n80lgx0q"
+path="res://.godot/imported/bold.png-3b548acd90dd4059e33396accdd68dd5.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/bold.png"
+dest_files=["res://.godot/imported/bold.png-3b548acd90dd4059e33396accdd68dd5.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\'A\'-\'Z\'", "\' \'")
+kerning_pairs=PackedStringArray()
+columns=27
+rows=1
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=0
