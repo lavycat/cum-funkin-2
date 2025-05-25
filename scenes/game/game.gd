@@ -206,16 +206,14 @@ func show_combo(c:int):
 func _process(delta: float) -> void:
 	hud.scale = lerp(hud.scale,Vector2.ONE,delta*3.0)
 	camera.zoom = lerp(camera.zoom,default_camera_zoom,delta*3.0)
-	
-	if Input.is_action_just_pressed("debug_skip_time"):
-		Conductor.player.seek(Conductor.time + 10.0)
 	if camera:
 		camera.position = camera_lerp_position
 	if not song_started:
 		Conductor.time += delta
 		if Conductor.time >= 0.0:
 			song_started = true
-			Conductor.player.play()	
+			Conductor.player.play()
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_pause") and not paused:
 		pause_ui = pause_menu.instantiate()
@@ -223,7 +221,19 @@ func _input(event: InputEvent) -> void:
 		await RenderingServer.frame_post_draw
 		add_child(pause_ui)
 		paused = true
-		pass
+	if OS.is_debug_build():
+		if event.is_action_pressed("debug_skip_time"):
+			Conductor.player.seek(Conductor.time + 10.0)
+			for p:PlayField in playfields.get_children():
+				if p.auto_play:
+					continue
+				p.spawn_notes()
+				await RenderingServer.frame_post_draw
+				for i in p.note_field.get_children():
+					i.free()
+					
+		if event.is_action_pressed("debug_bot_toggle"):
+			player_field.auto_play = not player_field.auto_play
 func measure_hit(measure:int):
 	if measure > 0:
 		hud.scale += Vector2(0.03,0.03)
@@ -233,3 +243,17 @@ func set_up_cache():
 	cache.set("dad",load(dad.scene_file_path))
 	cache.set("bf",load(bf.scene_file_path))
 	cache.set("gf",load(gf.scene_file_path))
+func return_to_menu():
+	AudioManager.fade_in_global_music()
+	get_tree().change_scene_to_file("res://scenes/menus/free_play.tscn")
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+			if not paused and Save.data.auto_pause:
+				pause_ui = pause_menu.instantiate()
+				tracks.process_mode = Node.PROCESS_MODE_ALWAYS
+				await RenderingServer.frame_post_draw
+				add_child(pause_ui)
+				paused = true
+		
+			

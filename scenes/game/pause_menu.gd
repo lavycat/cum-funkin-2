@@ -49,6 +49,8 @@ func _input(event: InputEvent) -> void:
 		select_option(cur_option)
 
 func change_option(p:int):
+	if p != 0:
+		AudioManager.play_sfx(AudioManager.SFX_SCROLL)
 	cur_option = wrap(cur_option + p,0,options.size())
 func select_option(o:int):
 	var option_str = options[o]
@@ -63,7 +65,7 @@ func select_option(o:int):
 		"exit":
 			Engine.time_scale = Conductor.rate
 			Conductor.player.pitch_scale = Conductor.rate
-			get_tree().change_scene_to_file("res://scenes/menus/free_play.tscn")
+			Game.instance.return_to_menu()
 		_:
 			Game.instance.process_mode = Node.PROCESS_MODE_INHERIT
 

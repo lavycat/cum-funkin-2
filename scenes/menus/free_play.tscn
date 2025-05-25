@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://qvpd1n7acunr"]
+[gd_scene load_steps=11 format=3 uid="uid://qvpd1n7acunr"]
 
 [ext_resource type="Script" uid="uid://bkt2kx7lyad8" path="res://scenes/menus/free_play.gd" id="1_8le71"]
 [ext_resource type="Texture2D" uid="uid://00q6vqo4ygeq" path="res://assets/images/menus/menuDesat.png" id="1_y8dq1"]
@@ -9,29 +9,40 @@
 script = ExtResource("3_j6upd")
 name = "glitcher"
 difficulties = ["easy", "normal", "hard"]
+color = Color(0.699195, 2.08165e-06, 6.73831e-07, 1)
 metadata/_custom_type_script = "uid://boo85g40pq3ts"
 
 [sub_resource type="Resource" id="Resource_j746a"]
 script = ExtResource("3_j6upd")
 name = "manual-blast"
 difficulties = ["easy", "normal", "hard"]
+color = Color(3.17663e-06, 0, 0.812659, 1)
 metadata/_custom_type_script = "uid://boo85g40pq3ts"
 
 [sub_resource type="Resource" id="Resource_lwhca"]
 script = ExtResource("3_j6upd")
 name = "2hot"
 difficulties = ["easy", "normal", "hard"]
+color = Color(0.466667, 0.215686, 0.803922, 1)
+metadata/_custom_type_script = "uid://boo85g40pq3ts"
+
+[sub_resource type="Resource" id="Resource_xg2ji"]
+script = ExtResource("3_j6upd")
+name = "stress"
+difficulties = ["easy", "normal", "hard"]
+color = Color(0.197937, 0.197937, 0.197937, 1)
 metadata/_custom_type_script = "uid://boo85g40pq3ts"
 
 [sub_resource type="Resource" id="Resource_3t30e"]
 script = ExtResource("3_j6upd")
-name = "glitcher"
+name = "madness"
 difficulties = ["easy", "normal", "hard"]
+color = Color(0.258768, 0.440967, 8.66354e-07, 1)
 metadata/_custom_type_script = "uid://boo85g40pq3ts"
 
 [sub_resource type="Resource" id="Resource_bfb2o"]
 script = ExtResource("2_bfb2o")
-songs = Array[ExtResource("3_j6upd")]([SubResource("Resource_j6upd"), SubResource("Resource_j746a"), SubResource("Resource_lwhca"), SubResource("Resource_3t30e")])
+songs = Array[ExtResource("3_j6upd")]([SubResource("Resource_j6upd"), SubResource("Resource_j746a"), SubResource("Resource_lwhca"), SubResource("Resource_xg2ji"), SubResource("Resource_3t30e")])
 metadata/_custom_type_script = "uid://dduf8sxbbty0v"
 
 [node name="FreePlay" type="Node2D"]
@@ -45,6 +56,7 @@ repeat_times = 12
 
 [node name="bg" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(640, 360)
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("1_y8dq1")
 
 [node name="songs" type="Node2D" parent="."]
