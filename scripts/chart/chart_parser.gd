@@ -83,7 +83,6 @@ static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
 static func load_psych(data:Dictionary):
 	var raw = data.song
 	var chart = fall_back.duplicate(true)
-	print(chart)
 	if ResourceLoader.exists("res://assets/songs/%s/charts/events.json"%[raw.song]):
 		var event_json = load("res://assets/songs/%s/charts/events.json"%[raw.song]).data
 	if raw.get("events",{}):

@@ -9,6 +9,7 @@ class_name SaveData extends Resource
 @export var use_chart_scroll_speed:bool = true
 @export var down_scroll:bool = false
 @export var song_offset:float = 0.0
+@export var preload_characters:bool = false
 
 @export var key_binds:Dictionary = {
 	"4k_left": ["D","left"],

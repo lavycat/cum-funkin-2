@@ -32,8 +32,6 @@ func _ready() -> void:
 	var sc = Save.data.scroll_speed if not Save.data.use_chart_scroll_speed else Global.chart.scroll_speed
 	note_field.scroll_speed = sc
 	note_field.down_scroll = Save.data.down_scroll
-	print(note_field.down_scroll)
-	
 	add_child(note_field)
 func find_action_index(ev:InputEvent):
 	var ii = 0

@@ -75,7 +75,6 @@ func select_option(o:int):
 			audio_tween.tween_property(Engine,"time_scale",Conductor.rate,Conductor.beat_length)
 			Conductor.follow_player = true
 			if Game.instance.song_started and Conductor.time > 0.03:
-				print(Conductor.player.get_playback_position())
 				Conductor.player.play(Conductor.time)
 			await audio_tween.finished
 			Game.instance.paused = false

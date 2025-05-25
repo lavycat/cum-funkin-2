@@ -2,11 +2,11 @@ class_name Sustain extends TextureRect
 var length:float = 0.0
 var note:Note
 var tail:Sprite2D
-var clip:ColorRect
 var released_timer:float = 0.0
 
 func _enter_tree() -> void:
-	z_index = 0
+	z_index = -1
+	expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	if length <= 0.0:
 		queue_free()
 	var frames = note.style.note_frames
@@ -18,12 +18,14 @@ func _enter_tree() -> void:
 	add_child(tail)
 	
 	size.x = tail.texture.get_width()
+	if note.note_field.down_scroll:
+		scale.y *= -1
 	
 func _process(delta: float) -> void:
 	var length_px = (((450.0 * note.note_field.scroll_speed) * length) / note.scale.y)
 	var tail_height = tail.texture.get_height() * tail.scale.y
 
-	#position.x = -size.x / 2
+	position.x = -size.x / 2
 	#if note.note_field.down_scroll:
 		#scale.y = -1
 	size.y = length_px - tail_height

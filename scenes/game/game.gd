@@ -204,6 +204,8 @@ func show_combo(c:int):
 		count += 1
 		t.finished.connect(spr.queue_free,CONNECT_ONE_SHOT)
 func _process(delta: float) -> void:
+	if Conductor.player.get_playback_position() == 0 and song_started:
+		return_to_menu()
 	hud.scale = lerp(hud.scale,Vector2.ONE,delta*3.0)
 	camera.zoom = lerp(camera.zoom,default_camera_zoom,delta*3.0)
 	if camera:

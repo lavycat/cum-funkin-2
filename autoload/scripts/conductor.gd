@@ -2,7 +2,7 @@ extends Node
 
 var rate:float = 1.0:
 	set(v):
-		rate = v
+		rate = max(0.01,v)
 		Engine.time_scale = rate
 		if player:
 			player.pitch_scale = rate

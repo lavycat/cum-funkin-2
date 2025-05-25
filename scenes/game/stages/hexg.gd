@@ -4,10 +4,10 @@ var old_dad:Character
 var old_bf:Character
 @onready var wire_dad: Character = $wire/wire_dad
 @onready var wire_bf: Character = $wire/wire_bf
-const FALSE = false
-const TRUE = true
+const NO = false
+const YES = true
 
-var funni:bool = FALSE
+var funni:bool = NO
 func _ready() -> void:
 	old_dad = game.dad
 	old_bf = game.bf
