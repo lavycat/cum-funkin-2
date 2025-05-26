@@ -14,7 +14,7 @@ static func rate_note(note:Note,cpu:bool = false) -> Rating:
 	if note_diff > 45:
 		r.name = "good"
 		r.score = 200
-		r.acc = 0.66
+		r.acc = 0.67
 		r.rank = 1
 	if note_diff > 90:
 		r.name = "bad"
@@ -25,7 +25,7 @@ static func rate_note(note:Note,cpu:bool = false) -> Rating:
 	if note_diff > 135:
 		r.name = "shit"
 		r.score = 50
-		r.acc = 0.0
+		r.acc = -3.0
 		r.rank = 3
 
 	return r

@@ -4,23 +4,10 @@ var scroll_speed:float = 1.0:
 	get:
 		return scroll_speed / Conductor.rate
 var down_scroll:bool
-
-
-static var note_hold_cache:Dictionary = {}
-static func get_cached_hold_texture(n:Note):
-	if not note_hold_cache.has(n.type):
-		note_hold_cache.set(n.type,[])
-		var dirs = ["left","down","up","right"]
-		for d in dirs:
-			var tex = n.style.note_frames.get_frame_texture("%s hold"%d,0).get_image()
-			tex.rotate_90(COUNTERCLOCKWISE)
-			var p = ImageTexture.create_from_image(tex)
-			note_hold_cache.get(n.type).append(p)
-	if not note_hold_cache.get(n.type).is_empty():
-		return note_hold_cache.get(n.type)[n.column]
-
-func _ready() -> void: 
-	note_hold_cache = {}
+## used as a default note style for all notes
+var common_note_style:NoteStyle = load("res://assets/images/game/notestyles/funkin/style.tres")
+func _ready() -> void:
+	pass
 func _process(delta: float) -> void:
 	if not visible:
 		return

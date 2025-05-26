@@ -5,3 +5,5 @@ func play_anim(anim:String = "",force:bool = false):
 	if force:
 		frame = 0
 	play("%s %s"%[direction,anim])
+func _ready() -> void:
+	play_anim("static",true)

@@ -17,16 +17,10 @@ signal note_free(note:Note)
 
 
 func _ready() -> void:
-	for i in key_count:
-		var r = Receptor.new()
-		add_child(r)
-		r.sprite_frames = load("res://assets/ui/funkin/strums.xml")
-		r.direction = directions[i]
-		r.scale = Vector2(0.7,0.7)
-		r.position.x -= 165
-		r.position.x += 110 * i
-		strums.append(r)
-		r.play_anim("static")
+	var strumline:Node2D = load("res://scenes/game/field/strum_lines/4k.tscn").instantiate()
+	add_child(strumline)
+	for i:Receptor in strumline.get_children():
+		strums.append(i)
 	note_field = NoteField.new()
 	note_field.play_field = self
 	var sc = Save.data.scroll_speed if not Save.data.use_chart_scroll_speed else Global.chart.scroll_speed
@@ -116,6 +110,7 @@ func spawn_data(n:Dictionary):
 	note.type = n.type
 	note.note_field = note_field
 	note.play_field = self
+	note.style = note.get_style(note)
 	note_field.add_child(note)
 	note.play_anim("note")
 	note.visible = false
