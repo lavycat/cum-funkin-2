@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwgbcfy681kos"]
+
+[ext_resource type="Script" uid="uid://cyyklhyxxqd17" path="res://scenes/game/stages/philly_train.gd" id="1_3n2ji"]
+[ext_resource type="Texture2D" uid="uid://d0erbdwo6l8il" path="res://assets/images/game/stages/philly/sky.png" id="2_3n2ji"]
+[ext_resource type="Texture2D" uid="uid://diyicx66rsm4m" path="res://assets/images/game/stages/philly/city.png" id="3_3c7gy"]
+[ext_resource type="Texture2D" uid="uid://djxis18ju86a7" path="res://assets/images/game/stages/philly/win.png" id="4_savcl"]
+[ext_resource type="Texture2D" uid="uid://bpxxs3ipxihbv" path="res://assets/images/game/stages/philly/behindTrain.png" id="5_nq3hl"]
+[ext_resource type="Texture2D" uid="uid://bqln67n3roii1" path="res://assets/images/game/stages/philly/train.png" id="6_18vdx"]
+[ext_resource type="Texture2D" uid="uid://btxj85cy8ggq8" path="res://assets/images/game/stages/philly/street.png" id="7_6w1xf"]
+[ext_resource type="AudioStream" uid="uid://c030myf651bly" path="res://assets/sounds/train_passes.ogg" id="8_3n2ji"]
+
+[node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
+script = ExtResource("1_3n2ji")
+cam = NodePath("cam")
+default_cam_zoom = 1.1
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+position_smoothing_enabled = true
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="Sky" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(-100, 0)
+texture = ExtResource("2_3n2ji")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.35, 0.35)
+
+[node name="City" type="Sprite2D" parent="Parallax2D2"]
+position = Vector2(-10, 0)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("3_3c7gy")
+centered = false
+
+[node name="Win" type="Sprite2D" parent="Parallax2D2"]
+position = Vector2(-10, 0)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("4_savcl")
+centered = false
+
+[node name="BehindTrain" type="Sprite2D" parent="."]
+position = Vector2(-40, 50)
+texture = ExtResource("5_nq3hl")
+centered = false
+
+[node name="Train" type="Sprite2D" parent="."]
+position = Vector2(2000, 360)
+texture = ExtResource("6_18vdx")
+centered = false
+
+[node name="Street" type="Sprite2D" parent="."]
+position = Vector2(-40, 50)
+texture = ExtResource("7_6w1xf")
+centered = false
+
+[node name="dad_position" type="Marker2D" parent="."]
+position = Vector2(468, 776)
+
+[node name="gf_position" type="Marker2D" parent="."]
+position = Vector2(751, 760)
+
+[node name="bf_position" type="Marker2D" parent="."]
+position = Vector2(990, 776)
+
+[node name="train_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_3n2ji")

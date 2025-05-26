@@ -68,7 +68,7 @@ static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
 	for i in notes:
 		var note_time = i.t/1000.0
 		var note_dir = int(i.d)
-		var note_length = i.l/1000.0
+		var note_length = i.get("l",0)*0.001
 		var note_field = 0 if note_dir > 3 else 1
 		var note = {
 			"time": note_time,

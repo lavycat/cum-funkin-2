@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bl7ef20im00kg"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_m6oc8"]
-[ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_mbc7f"]
+[ext_resource type="Texture2D" uid="uid://dtxj6prip0iy8" path="res://assets/images/game/icons/icon-pico.png" id="2_m6oc8"]
 [ext_resource type="SpriteFrames" uid="uid://c6ckpesae5di0" path="res://assets/images/game/characters/pico/base.xml" id="3_m6oc8"]
 
 [sub_resource type="Animation" id="Animation_m6oc8"]
@@ -219,7 +219,9 @@ player = NodePath("player")
 sprite = NodePath("sprite")
 camera_position = NodePath("camera_position")
 sing_length = 6.1
-icon = ExtResource("2_mbc7f")
+is_player = true
+icon_color = Color(0.717647, 0.847059, 0.333333, 1)
+icon = ExtResource("2_m6oc8")
 
 [node name="player" type="AnimationPlayer" parent="."]
 libraries = {

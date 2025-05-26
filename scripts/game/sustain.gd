@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 	
 	var tail_height = tail.texture.get_height() * tail.scale.y
 	stretch_mode = TextureRect.STRETCH_TILE
+	texture_repeat = CanvasItem.TEXTURE_REPEAT_MIRROR
 	position.y = (length_px - tail_height)
 	scale.y = -1
 	size.y = length_px_true - tail_height

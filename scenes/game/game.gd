@@ -39,7 +39,7 @@ var pause_menu:PackedScene = load("res://scenes/game/pause_menu.tscn")
 var pause_ui:CanvasLayer = null
 func load_character(p:String,fb:String):
 	if ResourceLoader.exists("res://scenes/game/characters/%s.tscn"%p):
-		return load("res://scenes/game/characters/%s.tscn"%p).instantiate()
+		return ResourceLoader.load("res://scenes/game/characters/%s.tscn"%p,"",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
 	else:
 		return load("res://scenes/game/characters/%s.tscn"%fb).instantiate()
 func _enter_tree() -> void:
@@ -122,14 +122,16 @@ func _ready() -> void:
 	Conductor.time = -Conductor.beat_length*3.0
 	
 func note_miss(note:Note):
-	misses += 1
-	accuracy_points_max += 1
-	accuracy = (accuracy_points / accuracy_points_max) * 100.0
-	bf.sing(note.column,true)
-	if combo > 0:
-		combo = 0
-		show_combo(combo)
-	pass
+	
+	if note.play_field.id == 1:
+		health -= 0.08
+		misses += 1
+		accuracy_points_max += 1
+		accuracy = (accuracy_points / accuracy_points_max) * 100.0
+		bf.sing(note.column,true)
+		if combo > 0:
+			combo = 0
+			show_combo(combo)
 func note_hit(note:Note):
 	match note.note_field.play_field.id:
 		0:

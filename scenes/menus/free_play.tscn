@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://qvpd1n7acunr"]
+[gd_scene load_steps=16 format=3 uid="uid://qvpd1n7acunr"]
 
 [ext_resource type="Script" uid="uid://bkt2kx7lyad8" path="res://scenes/menus/free_play.gd" id="1_8le71"]
 [ext_resource type="Texture2D" uid="uid://00q6vqo4ygeq" path="res://assets/images/menus/menuDesat.png" id="1_y8dq1"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://boo85g40pq3ts" path="res://scripts/data/free_play_songData.gd" id="3_j6upd"]
 [ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="4_j746a"]
 [ext_resource type="Texture2D" uid="uid://6qp0tieoenj3" path="res://assets/images/game/icons/icon-darnell.png" id="5_lwhca"]
+[ext_resource type="Texture2D" uid="uid://b0pfjqaqiocad" path="res://assets/images/game/icons/icon-tankman.png" id="6_lwhca"]
+[ext_resource type="Texture2D" uid="uid://dtxj6prip0iy8" path="res://assets/images/game/icons/icon-pico.png" id="7_3t30e"]
 
 [sub_resource type="Resource" id="Resource_j6upd"]
 script = ExtResource("3_j6upd")
@@ -37,7 +39,8 @@ metadata/_custom_type_script = "uid://boo85g40pq3ts"
 script = ExtResource("3_j6upd")
 name = "stress"
 difficulties = ["easy", "normal", "hard"]
-color = Color(0.197937, 0.197937, 0.197937, 1)
+color = Color(0.0728426, 0.0728426, 0.0728426, 1)
+icon = ExtResource("6_lwhca")
 icon_frames = 2
 metadata/_custom_type_script = "uid://boo85g40pq3ts"
 
@@ -49,9 +52,18 @@ color = Color(0.258768, 0.440967, 8.66354e-07, 1)
 icon_frames = 2
 metadata/_custom_type_script = "uid://boo85g40pq3ts"
 
+[sub_resource type="Resource" id="Resource_tbo8m"]
+script = ExtResource("3_j6upd")
+name = "philly-nice"
+difficulties = ["easy", "normal", "hard"]
+color = Color(0.717647, 0.847059, 0.333333, 1)
+icon = ExtResource("7_3t30e")
+icon_frames = 2
+metadata/_custom_type_script = "uid://boo85g40pq3ts"
+
 [sub_resource type="Resource" id="Resource_bfb2o"]
 script = ExtResource("2_bfb2o")
-songs = Array[ExtResource("3_j6upd")]([SubResource("Resource_j6upd"), SubResource("Resource_j746a"), SubResource("Resource_lwhca"), SubResource("Resource_xg2ji"), SubResource("Resource_3t30e")])
+songs = Array[ExtResource("3_j6upd")]([SubResource("Resource_j6upd"), SubResource("Resource_j746a"), SubResource("Resource_lwhca"), SubResource("Resource_xg2ji"), SubResource("Resource_3t30e"), SubResource("Resource_tbo8m")])
 metadata/_custom_type_script = "uid://dduf8sxbbty0v"
 
 [node name="FreePlay" type="Node2D"]

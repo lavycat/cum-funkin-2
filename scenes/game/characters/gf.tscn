@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://qwf8l3lk7l2m"]
+[gd_scene load_steps=10 format=3 uid="uid://qwf8l3lk7l2m"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_qvvq3"]
 [ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_pov85"]
@@ -125,11 +125,81 @@ tracks/2/keys = {
 "values": [14]
 }
 
+[sub_resource type="Animation" id="Animation_7j0ls"]
+resource_name = "hair_blow"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gf:symbol")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["GF Dancing Beat Hair Landing"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gf:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.208333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_pfe2m"]
+resource_name = "hair_fall"
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gf:symbol")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["GF Dancing Beat Hair Landing"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gf:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("gf:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7quob"]
 _data = {
 &"RESET": SubResource("Animation_pov85"),
 &"dance_left": SubResource("Animation_445eb"),
-&"dance_right": SubResource("Animation_chvy6")
+&"dance_right": SubResource("Animation_chvy6"),
+&"hair_blow": SubResource("Animation_7j0ls"),
+&"hair_fall": SubResource("Animation_pfe2m")
 }
 
 [node name="gf" type="Node2D" node_paths=PackedStringArray("player")]
