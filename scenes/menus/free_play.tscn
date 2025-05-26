@@ -1,15 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://qvpd1n7acunr"]
+[gd_scene load_steps=13 format=3 uid="uid://qvpd1n7acunr"]
 
 [ext_resource type="Script" uid="uid://bkt2kx7lyad8" path="res://scenes/menus/free_play.gd" id="1_8le71"]
 [ext_resource type="Texture2D" uid="uid://00q6vqo4ygeq" path="res://assets/images/menus/menuDesat.png" id="1_y8dq1"]
 [ext_resource type="Script" uid="uid://dduf8sxbbty0v" path="res://scripts/data/free_play_list.gd" id="2_bfb2o"]
 [ext_resource type="Script" uid="uid://boo85g40pq3ts" path="res://scripts/data/free_play_songData.gd" id="3_j6upd"]
+[ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="4_j746a"]
+[ext_resource type="Texture2D" uid="uid://6qp0tieoenj3" path="res://assets/images/game/icons/icon-darnell.png" id="5_lwhca"]
 
 [sub_resource type="Resource" id="Resource_j6upd"]
 script = ExtResource("3_j6upd")
 name = "glitcher"
 difficulties = ["easy", "normal", "hard"]
 color = Color(0.699195, 2.08165e-06, 6.73831e-07, 1)
+icon = ExtResource("4_j746a")
+icon_frames = 2
 metadata/_custom_type_script = "uid://boo85g40pq3ts"
 
 [sub_resource type="Resource" id="Resource_j746a"]
@@ -17,13 +21,16 @@ script = ExtResource("3_j6upd")
 name = "manual-blast"
 difficulties = ["easy", "normal", "hard"]
 color = Color(3.17663e-06, 0, 0.812659, 1)
+icon_frames = 2
 metadata/_custom_type_script = "uid://boo85g40pq3ts"
 
 [sub_resource type="Resource" id="Resource_lwhca"]
 script = ExtResource("3_j6upd")
 name = "2hot"
 difficulties = ["easy", "normal", "hard"]
-color = Color(0.466667, 0.215686, 0.803922, 1)
+color = Color(0.45098, 0.368627, 0.690196, 1)
+icon = ExtResource("5_lwhca")
+icon_frames = 2
 metadata/_custom_type_script = "uid://boo85g40pq3ts"
 
 [sub_resource type="Resource" id="Resource_xg2ji"]
@@ -31,6 +38,7 @@ script = ExtResource("3_j6upd")
 name = "stress"
 difficulties = ["easy", "normal", "hard"]
 color = Color(0.197937, 0.197937, 0.197937, 1)
+icon_frames = 2
 metadata/_custom_type_script = "uid://boo85g40pq3ts"
 
 [sub_resource type="Resource" id="Resource_3t30e"]
@@ -38,6 +46,7 @@ script = ExtResource("3_j6upd")
 name = "madness"
 difficulties = ["easy", "normal", "hard"]
 color = Color(0.258768, 0.440967, 8.66354e-07, 1)
+icon_frames = 2
 metadata/_custom_type_script = "uid://boo85g40pq3ts"
 
 [sub_resource type="Resource" id="Resource_bfb2o"]

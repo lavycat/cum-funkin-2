@@ -65,8 +65,8 @@ func _process(delta: float) -> void:
 					play_field.note_miss.emit(self)
 					missed = true
 					queue_free()
-	if Conductor.time - (time) > hit_range and not was_hit and not missed:
+	if Conductor.time - time > hit_range * max(1.0,Conductor.rate)  and not was_hit and not missed:
 		missed = true
 		play_field.note_miss.emit(self)
-	if Conductor.time - 0.5 > (time + length):
+	if Conductor.time - 0.5 * max(1.0,Conductor.rate) > (time + length):
 		queue_free() 

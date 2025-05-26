@@ -163,7 +163,7 @@ func pop_up_score(rating:Rating):
 	ms_txt.label_settings.font_size = 64
 	ms_txt.label_settings.outline_size = 24
 	ms_txt.label_settings.outline_color = Color.BLACK
-	ms_txt.text = "%0.3f MS"%rating.hit_ms
+	ms_txt.text = "%0.3f MS"%(rating.hit_ms)
 	var rat := VelocitySprite.new()
 	ms_txt.position.y = -128
 	ms_txt.position.x -= ms_txt.size.x / 2

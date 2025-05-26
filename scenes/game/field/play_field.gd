@@ -21,6 +21,8 @@ func _ready() -> void:
 	add_child(strumline)
 	for i:Receptor in strumline.get_children():
 		strums.append(i)
+	if Engine.is_editor_hint():
+		return
 	note_field = NoteField.new()
 	note_field.play_field = self
 	var sc = Save.data.scroll_speed if not Save.data.use_chart_scroll_speed else Global.chart.scroll_speed
@@ -90,6 +92,8 @@ func note_update(delta:float):
 func _physics_process(delta: float) -> void:
 	spawn_notes()
 func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
 	note_update(delta)
 	for i in strums.size():
 		var strum:Receptor = strums[i]

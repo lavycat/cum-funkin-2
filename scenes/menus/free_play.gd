@@ -15,7 +15,14 @@ func _ready() -> void:
 		t.label_settings.font = preload("res://assets/fonts/bold.png")
 		t.label_settings.font_size = 72
 		t.position.x += (15 * i) + 90
-		t.position.y += 160*0.7 * i
+		t.position.y += (160 * i) - t.size.y/2
+		var icon := Sprite2D.new()
+		icon.texture = s.icon
+		icon.hframes = s.icon_frames
+		icon.position.x = t.size.x + 75
+		icon.position.y = t.size.y / 1.5
+		
+		t.add_child(icon)
 		songs.add_child(t)
 	change_selected(0)
 		

@@ -7,7 +7,7 @@ var rank:int = 0
 static func rate_note(note:Note,cpu:bool = false) -> Rating:
 	var note_diff:float = abs(note.time - Conductor.time)*1000.0
 	var r := Rating.new()
-	r.hit_ms = (note.time - Conductor.time)*1000.0
+	r.hit_ms = (note.time - Conductor.time) / Conductor.rate*1000.0
 	if cpu:
 		r.hit_ms = 0
 		return r
