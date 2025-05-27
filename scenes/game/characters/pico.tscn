@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bl7ef20im00kg"]
+[gd_scene load_steps=12 format=3 uid="uid://bl7ef20im00kg"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_m6oc8"]
 [ext_resource type="Texture2D" uid="uid://dtxj6prip0iy8" path="res://assets/images/game/icons/icon-pico.png" id="2_m6oc8"]
-[ext_resource type="SpriteFrames" uid="uid://c6ckpesae5di0" path="res://assets/images/game/characters/pico/base.xml" id="3_m6oc8"]
+[ext_resource type="SpriteFrames" uid="uid://du40jo805e7kk" path="res://assets/images/game/characters/pico/base.res" id="3_cj43f"]
+[ext_resource type="Texture2D" uid="uid://c5m0rw38onbl2" path="res://assets/images/game/characters/pico/base.png" id="3_mbc7f"]
+[ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="4_cj43f"]
 
 [sub_resource type="Animation" id="Animation_m6oc8"]
 length = 0.541667
@@ -230,9 +232,11 @@ libraries = {
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-226, -443)
-sprite_frames = ExtResource("3_m6oc8")
+sprite_frames = ExtResource("3_cj43f")
 animation = &"Pico Idle Dance"
 centered = false
+script = ExtResource("4_cj43f")
+tex = ExtResource("3_mbc7f")
 
 [node name="camera_position" type="Marker2D" parent="."]
 position = Vector2(-204, -305)

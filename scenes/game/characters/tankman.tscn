@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cy47xfog65qdg"]
+[gd_scene load_steps=12 format=3 uid="uid://cy47xfog65qdg"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_52ehi"]
 [ext_resource type="Texture2D" uid="uid://b0pfjqaqiocad" path="res://assets/images/game/icons/icon-tankman.png" id="2_52ehi"]
-[ext_resource type="SpriteFrames" uid="uid://dyx62hr8nxgnf" path="res://assets/images/game/characters/tankman/base.xml" id="3_52ehi"]
+[ext_resource type="SpriteFrames" uid="uid://mtc5okc6807x" path="res://assets/images/game/characters/tankman/base.res" id="3_v2ls5"]
+[ext_resource type="Texture2D" uid="uid://d4du3rrraubw8" path="res://assets/images/game/characters/tankman/base.png" id="3_xjced"]
+[ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="4_v2ls5"]
 
 [sub_resource type="Animation" id="Animation_xjced"]
 length = 0.541667
@@ -229,8 +231,10 @@ libraries = {
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -272)
-sprite_frames = ExtResource("3_52ehi")
-animation = &"Tankman Idle Dance"
+sprite_frames = ExtResource("3_v2ls5")
+animation = &"Tankman DOWN note"
+script = ExtResource("4_v2ls5")
+tex = ExtResource("3_xjced")
 
 [node name="camera_position" type="Marker2D" parent="."]
 position = Vector2(-168, -401)

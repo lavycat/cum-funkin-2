@@ -16,7 +16,7 @@ func _ready() -> void:
 	for i in options.size():
 		var o = options[i]
 		var spr := AnimatedSprite2D.new()
-		spr.sprite_frames = load("res://assets/images/menus/main_menu/menu_%s.xml"%o)
+		spr.sprite_frames = load("res://assets/images/menus/main_menu/options.res")
 		spr.position.x = 640
 		spr.position.y += 160*i
 		$options.add_child(spr)

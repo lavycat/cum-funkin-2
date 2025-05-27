@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://26krh48rpwsv"]
+[gd_scene load_steps=12 format=3 uid="uid://26krh48rpwsv"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_huetv"]
 [ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_pq5hv"]
-[ext_resource type="SpriteFrames" uid="uid://bc8m6ogjiiimu" path="res://assets/images/game/characters/hex/glitcherhex-virus.xml" id="4_e6tfu"]
+[ext_resource type="SpriteFrames" uid="uid://dav3w53a5owul" path="res://assets/images/game/characters/hex/glitcherhex-virus.res" id="3_e6tfu"]
+[ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="3_pq5hv"]
+[ext_resource type="Texture2D" uid="uid://cgo5enqe34k2x" path="res://assets/images/game/characters/hex/glitcherhex-virus.png" id="4_e6tfu"]
 
 [sub_resource type="Animation" id="Animation_dhoqr"]
 length = 1.125
@@ -229,9 +231,13 @@ libraries = {
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-153, -638)
-sprite_frames = ExtResource("4_e6tfu")
+sprite_frames = ExtResource("3_e6tfu")
 animation = &"Hex crazy idle"
+frame = 27
+frame_progress = 1.0
 centered = false
+script = ExtResource("3_pq5hv")
+tex = ExtResource("4_e6tfu")
 
 [node name="camera_position" type="Marker2D" parent="."]
 position = Vector2(192, -481)

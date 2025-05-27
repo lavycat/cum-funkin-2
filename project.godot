@@ -44,7 +44,7 @@ project/assembly_name="cum funkin 2"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdanimate/plugin.cfg", "res://addons/godot_sparrow/plugin.cfg")
+enabled=PackedStringArray("res://addons/gdanimate/plugin.cfg")
 
 [importer_defaults]
 

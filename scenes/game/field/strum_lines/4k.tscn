@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://krk3cgc1h8vw"]
 
-[ext_resource type="SpriteFrames" uid="uid://ddtvamobj6n66" path="res://assets/ui/funkin/strums.xml" id="1_2p07j"]
+[ext_resource type="SpriteFrames" uid="uid://bl42m0qtlpluu" path="res://assets/ui/funkin/strums.res" id="1_5t0ju"]
 [ext_resource type="Script" uid="uid://dx4nabxjsogar" path="res://scenes/game/field/strum_arrow.gd" id="2_5t0ju"]
 
 [node name="4k" type="Node2D"]
@@ -8,30 +8,26 @@
 [node name="Left" type="AnimatedSprite2D" parent="."]
 position = Vector2(-168, 0)
 scale = Vector2(0.7, 0.7)
-sprite_frames = ExtResource("1_2p07j")
-animation = &"down static"
+sprite_frames = ExtResource("1_5t0ju")
 script = ExtResource("2_5t0ju")
 
 [node name="Down" type="AnimatedSprite2D" parent="."]
 position = Vector2(-56, 0)
 scale = Vector2(0.7, 0.7)
-sprite_frames = ExtResource("1_2p07j")
-animation = &"down static"
+sprite_frames = ExtResource("1_5t0ju")
 script = ExtResource("2_5t0ju")
 direction = "down"
 
 [node name="Up" type="AnimatedSprite2D" parent="."]
 position = Vector2(56, 0)
 scale = Vector2(0.7, 0.7)
-sprite_frames = ExtResource("1_2p07j")
-animation = &"down static"
+sprite_frames = ExtResource("1_5t0ju")
 script = ExtResource("2_5t0ju")
 direction = "up"
 
 [node name="Right" type="AnimatedSprite2D" parent="."]
 position = Vector2(168, 0)
 scale = Vector2(0.7, 0.7)
-sprite_frames = ExtResource("1_2p07j")
-animation = &"down static"
+sprite_frames = ExtResource("1_5t0ju")
 script = ExtResource("2_5t0ju")
 direction = "right"

@@ -24,15 +24,19 @@ func train_start():
 	train_moving = true
 	train_sound.play()
 func train_reset():
-	game.gf.play_anim("hair_fall")
 	train.position.x = 1480
 	train_moving = false
 	train_finishing = false
 	started_moving = false
+	game.gf.play_anim("hair_fall")
+	await game.gf.player.animation_finished
+	game.gf.auto_dance = true
 func update_train_pos():
 	if train_sound.get_playback_position() >= 4.7:
 		started_moving = true
-		game.gf.play_anim("hair_blow")
+		if not game.gf.cur_anim == "hair_blow":
+			game.gf.play_anim("hair_blow")
+			game.gf.auto_dance = false
 		if train.position.x < -4000 and train_finishing:
 			train_reset()
 	if started_moving:

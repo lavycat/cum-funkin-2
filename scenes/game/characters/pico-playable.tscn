@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_sshej"]
 [ext_resource type="Texture2D" uid="uid://dtxj6prip0iy8" path="res://assets/images/game/icons/icon-pico.png" id="2_sshej"]
-[ext_resource type="SpriteFrames" uid="uid://c6ckpesae5di0" path="res://assets/images/game/characters/pico/base.xml" id="3_kg40s"]
+[ext_resource type="SpriteFrames" uid="uid://du40jo805e7kk" path="res://assets/images/game/characters/pico/base.res" id="3_sshej"]
 
 [sub_resource type="Animation" id="Animation_m6oc8"]
 length = 0.541667
@@ -229,7 +229,7 @@ libraries = {
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-226, -443)
-sprite_frames = ExtResource("3_kg40s")
+sprite_frames = ExtResource("3_sshej")
 animation = &"Pico Idle Dance"
 centered = false
 

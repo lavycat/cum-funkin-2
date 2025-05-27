@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtn15iavsa320"]
+[gd_scene load_steps=17 format=3 uid="uid://dtn15iavsa320"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_21vne"]
 [ext_resource type="Texture2D" uid="uid://b577e36txrjaw" path="res://assets/images/game/icons/icon-bf.png" id="2_dtfmc"]
-[ext_resource type="SpriteFrames" uid="uid://plq4eq51vqpe" path="res://assets/images/game/characters/bf/glitcherbf.xml" id="3_21vne"]
+[ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="3_dtfmc"]
+[ext_resource type="SpriteFrames" uid="uid://m13s3cw86qrh" path="res://assets/images/game/characters/bf/glitcherbf.res" id="3_xp6el"]
+[ext_resource type="Texture2D" uid="uid://d33ld6qlcmeqr" path="res://assets/images/game/characters/bf/glitcherbf.png" id="4_xp6el"]
 
 [sub_resource type="Animation" id="Animation_gwoct"]
 length = 1.04167
@@ -435,5 +437,7 @@ position = Vector2(-183, -275)
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -185)
-sprite_frames = ExtResource("3_21vne")
-animation = &"BF HEY!!"
+sprite_frames = ExtResource("3_xp6el")
+animation = &"BF idle dance"
+script = ExtResource("3_dtfmc")
+tex = ExtResource("4_xp6el")

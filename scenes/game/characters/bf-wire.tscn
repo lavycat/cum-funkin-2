@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://brasaxt4tk22u"]
+[gd_scene load_steps=17 format=3 uid="uid://brasaxt4tk22u"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_c0i2i"]
 [ext_resource type="Texture2D" uid="uid://b577e36txrjaw" path="res://assets/images/game/icons/icon-bf.png" id="2_70vjk"]
-[ext_resource type="SpriteFrames" uid="uid://kob14iglyhbb" path="res://assets/images/game/characters/bf/wirebf.xml" id="3_c0i2i"]
+[ext_resource type="Texture2D" uid="uid://bwb2q2btukj1s" path="res://assets/images/game/characters/bf/wirebf.png" id="3_70vjk"]
+[ext_resource type="SpriteFrames" uid="uid://btf8hqwam2msv" path="res://assets/images/game/characters/bf/wirebf.res" id="3_mws7s"]
+[ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="4_mws7s"]
 
 [sub_resource type="Animation" id="Animation_gwoct"]
 length = 1.04167
@@ -435,5 +437,7 @@ position = Vector2(-183, -275)
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -185)
-sprite_frames = ExtResource("3_c0i2i")
-animation = &"BF HEY!!"
+sprite_frames = ExtResource("3_mws7s")
+animation = &"BF idle dance"
+script = ExtResource("4_mws7s")
+tex = ExtResource("3_70vjk")

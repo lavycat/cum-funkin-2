@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1wfla2a7byns"]
+[gd_scene load_steps=12 format=3 uid="uid://d1wfla2a7byns"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_de24k"]
 [ext_resource type="Texture2D" uid="uid://6qp0tieoenj3" path="res://assets/images/game/icons/icon-darnell.png" id="2_qcxka"]
-[ext_resource type="SpriteFrames" uid="uid://07vshdjnravw" path="res://assets/images/game/characters/darnell/Darnell Assets V3.xml" id="3_h7w1q"]
+[ext_resource type="SpriteFrames" uid="uid://b6ih8sc7ixtne" path="res://assets/images/game/characters/darnell/Darnell Assets V3.res" id="3_71bc6"]
+[ext_resource type="Texture2D" uid="uid://ctw44ufp5gswo" path="res://assets/images/game/characters/darnell/Darnell Assets V3.png" id="3_h7w1q"]
+[ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="4_71bc6"]
 
 [sub_resource type="Animation" id="Animation_qcxka"]
 length = 0.541667
@@ -231,5 +233,7 @@ position = Vector2(192, -321)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(10, -218)
-sprite_frames = ExtResource("3_h7w1q")
+sprite_frames = ExtResource("3_71bc6")
 animation = &"Darnell Idle"
+script = ExtResource("4_71bc6")
+tex = ExtResource("3_h7w1q")

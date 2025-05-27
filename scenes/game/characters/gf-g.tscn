@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://hd41bt2y72id"]
+[gd_scene load_steps=19 format=3 uid="uid://hd41bt2y72id"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_re3ir"]
 [ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_ypjhl"]
-[ext_resource type="SpriteFrames" uid="uid://cqy3gxqrhj5q4" path="res://assets/images/game/characters/gf/glitchergf.xml" id="4_yh7pf"]
+[ext_resource type="SpriteFrames" uid="uid://cgc11wcg4v17l" path="res://assets/images/game/characters/gf/glitchergf.res" id="3_yh7pf"]
+[ext_resource type="Texture2D" uid="uid://dd5cqcxpk87pu" path="res://assets/images/game/characters/gf/glitchergf.png" id="3_ypjhl"]
+[ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="4_yh7pf"]
 
 [sub_resource type="Animation" id="Animation_nvk5q"]
 length = 0.833333
@@ -517,5 +519,7 @@ libraries = {
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -324)
-sprite_frames = ExtResource("4_yh7pf")
+sprite_frames = ExtResource("3_yh7pf")
 animation = &"GF Dancing Beat"
+script = ExtResource("4_yh7pf")
+tex = ExtResource("3_ypjhl")
