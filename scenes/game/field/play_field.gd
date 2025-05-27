@@ -39,6 +39,7 @@ func find_action_index(ev:InputEvent):
 func note_input(note:Note):
 	note_hit.emit(note)
 	note.was_hit = true
+	note.length = (note.time + note.length) - Conductor.time
 	strums[note.column].play_anim("confirm",true)
 func _input(event: InputEvent) -> void:
 	var p = find_action_index(event)
@@ -131,6 +132,3 @@ func spawn_notes():
 		if diff > true_spawn_range:
 			break
 		spawn_data(n)
-
-		
-	pass

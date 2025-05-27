@@ -21,10 +21,6 @@ func _process(delta: float) -> void:
 			note.position.y = strum.position.y + (Conductor.time - note.time - length_diff) * (450.0 * scroll_speed)
 		else:
 			note.position.y = strum.position.y + -(Conductor.time - note.time - length_diff) * (450.0 * scroll_speed)
-		if note.sustain:
-			if note.was_hit:
-				if not note.missed:
-					note.position.y = min(note.position.y,0)
 		note.position.x = strum.position.x
 		if note.missed:
 			note.modulate.v = 0.6
