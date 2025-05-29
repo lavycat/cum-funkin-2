@@ -228,11 +228,11 @@ func _input(event: InputEvent) -> void:
 	if OS.is_debug_build():
 		if event.is_action_pressed("debug_skip_time"):
 			Conductor.player.seek(Conductor.time + 10.0)
+			Conductor.time = Conductor.time + 10.0
 			for p:PlayField in playfields.get_children():
 				if p.auto_play:
 					continue
 				p.spawn_notes()
-				await RenderingServer.frame_post_draw
 				for i in p.note_field.get_children():
 					i.free()
 					
