@@ -1,15 +1,4 @@
 class_name ChartParser extends RefCounted
-static var fall_back = {
-	"dad": "null",
-	"bf": "null",
-	"gf": "null",
-	"bpm": 100,
-	"bpm_changes": [],
-	"scroll_speed": 1.0,
-	"stage": "null",
-	"notes":[],
-	"events":[]
-}
 
 static func load_chart(song:String,diff:String):
 	var ret = {}
@@ -29,16 +18,32 @@ static func load_chart(song:String,diff:String):
 		ret = load_vslice(meta_json.data,chart_json.data,diff)
 		
 	else:
-		print("failed to find chart")
-		return fall_back
+		printerr("failed to find chart")
+		return Chart.new()
 		
 	
 	return ret
-static func add_event(chart:Dictionary,time:float,name:String,vals:Array):
-	var ev = {"name":name,"time":time,"values":vals}
-	chart.events.append(ev)
+static func add_event(chart:Chart,time:float,name:String,vals:Array,names:Array[String] = []):
+	var ev:Chart.EventData = Chart.EventData.new()
+	if names.is_empty():
+		ev = Chart.PsychEventData.new()
+		ev.time = time
+		ev.name = name
+		ev.v1 = vals[0]
+		if vals.size() > 1:
+			ev.v2 = vals[1]
+		else:
+			ev.v2 = null
+	else:
+		ev = Chart.VsliceEventData.new()
+		ev.time = time
+		ev.name = name
+		for i in names.size():
+			var vname:String = names[i]
+			ev.values.set(vname,vals[i])
+		chart.events.append(ev)
 static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
-	var c = fall_back.duplicate(true)
+	var c = Chart.new()
 	## META PARSE
 	var playdata = meta.playData
 	c.dad = playdata.characters.opponent
@@ -70,19 +75,18 @@ static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
 		var note_dir = int(i.d)
 		var note_length = i.get("l",0)*0.001
 		var note_field = 0 if note_dir > 3 else 1
-		var note = {
-			"time": note_time,
-			"column": note_dir%4,
-			"length": note_length,
-			"field_id": note_field,
-			"type": i.get("k","default")
-		}
+		var note := Chart.NoteData.new()
+		note.time = note_time
+		note.column = note_dir%4
+		note.length = note_length
+		note.field_id = note_field
+		note.type = i.get("k","default")
 		c.notes.append(note)
 	return c
 	pass
 static func load_psych(data:Dictionary):
 	var raw = data.song
-	var chart = fall_back.duplicate(true)
+	var chart = Chart.new()
 	if ResourceLoader.exists("res://assets/songs/%s/charts/events.json"%[raw.song]):
 		var event_json = load("res://assets/songs/%s/charts/events.json"%[raw.song]).data
 	if raw.get("events",{}):
@@ -140,13 +144,12 @@ static func load_psych(data:Dictionary):
 			var note_type:String = "default"
 			if note_data.size() == 4:
 				note_type = str(note_data[3])
-			var note = {
-				"time": note_time,
-				"column": note_direction%4,
-				"length": note_length,
-				"field_id": (note_direction / 4)%2,
-				"type": note_type
-			}
+			var note = Chart.NoteData.new()
+			note.time = note_time
+			note.column = note_direction%4
+			note.length = note_length
+			note.field_id = (note_direction / 4)%2
+			note.type = note_type
 			chart.notes.append(note)
 	chart.events.sort_custom(func(a,b):
 		return a.time <  b.time)

@@ -1,12 +1,11 @@
 extends Node
 var root:Window = null
 
-var chart = null
+var chart:Chart = null
 var preloaded_characters:Dictionary = {}
 func preload_all_characters():
 	const characters_folder:String = "res://scenes/game/characters/"
 	for i in ResourceLoader.list_directory(characters_folder):
-		print(i)
 		if i.ends_with("tscn"):
 			preloaded_characters.set(characters_folder + i,load(characters_folder + i))
 func _enter_tree() -> void:

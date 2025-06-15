@@ -107,7 +107,7 @@ func _process(delta: float) -> void:
 			strum.play_anim("press")
 var note_index:int = 0
 var spawn_range:float = 1.5
-func spawn_data(n:Dictionary):
+func spawn_data(n:Chart.NoteData):
 	var note = Note.new()
 	note.time = n.time
 	note.column = n.column

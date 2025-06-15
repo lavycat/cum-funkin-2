@@ -1,6 +1,7 @@
+
 class_name Game extends Node2D
 var play_fields:Array[PlayField] = []
-var chart:Dictionary
+var chart:Chart
 @onready var tracks: Node = %tracks
 @onready var dad_field: PlayField = $UI/playfields/dad_field
 @onready var player_field: PlayField = $UI/playfields/player_field
