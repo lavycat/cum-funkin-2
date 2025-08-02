@@ -50,7 +50,7 @@ func _enter_tree() -> void:
 	var p = "res://scenes/game/stages/%s.tscn"%chart.stage
 	if not ResourceLoader.exists(p):
 		print("stage not found loading default")
-		p = "res://scenes/game/stages/stage.tscn"
+		p = "res://scenes/game/stages/irida.tscn"
 	stage = load(p).instantiate()
 	gf = load_character(chart.gf,"gf")
 	dad = load_character(chart.dad,"dad")
