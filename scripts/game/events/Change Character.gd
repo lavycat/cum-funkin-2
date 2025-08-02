@@ -33,7 +33,12 @@ func _process(delta: float) -> void:
 		elif status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			loading = true
 
+
 func trigger(event_time: float, event_values: Array) -> void:
+	if not preloaded_characters.has(event_values[1]):
+		printerr("Couldn't find character '%s'!" % event_values[1])
+		return
+
 	var char_from: Character = null
 	var char_scene: PackedScene = preloaded_characters[event_values[1]]
 	var char_to: Character = char_scene.instantiate()
@@ -58,3 +63,13 @@ func trigger(event_time: float, event_values: Array) -> void:
 			game.gf = char_to
 
 	game.hud.callv("reload_icons", [])
+
+
+func _exit_tree() -> void:
+	for path: String in requested_paths:
+		var char := path.get_file().get_basename()
+		if not preloaded_characters.has(char):
+			preloaded_characters[char] = ResourceLoader.load_threaded_get(path)
+
+	preloaded_characters.clear()
+	requested_paths.clear()

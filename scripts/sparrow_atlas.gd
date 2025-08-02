@@ -6,13 +6,11 @@ var xml:String:
 @export var tex:Texture2D = null
 @export_range(1,120) var fps:int = 24
 @export var loop:bool = false
-@export var parse:bool = false:
-	set(v):
-		parse_xml()
-		ResourceSaver.save(sprite_frames,tex.resource_path.get_basename() + ".res")
+@export_tool_button("Parse", "Reload") var parse: Callable = parse_button
 func parse_xml():
 	var parser := XMLParser.new()
 	parser.open(xml)
+	sprite_frames = SpriteFrames.new()
 	while parser.read() == OK:
 		var node_type = parser.get_node_type()
 		if node_type == XMLParser.NODE_ELEMENT:
@@ -24,11 +22,9 @@ func parse_xml():
 				var y:int = parser.get_named_attribute_value_safe("y").to_int()
 				var name:String = parser.get_named_attribute_value("name").left(-4)
 				var frame:int = parser.get_named_attribute_value("name").substr(name.length()).to_int()
-				sprite_frames = SpriteFrames.new()
 				## add them frames
 				var atlas_tex := AtlasTexture.new()
-				var atlas := tex
-				atlas_tex.atlas = atlas
+				atlas_tex.atlas = tex
 				atlas_tex.region = Rect2(x,y,w,h)
 				var has_offsets = parser.has_attribute("frameX") or parser.has_attribute("frameY") or\
 				parser.has_attribute("frameWidth") or parser.has_attribute("frameHeight")
@@ -44,5 +40,7 @@ func parse_xml():
 					sprite_frames.set_animation_speed(name,fps)
 				if sprite_frames.get_frame_count(name) > frame - 1:
 					sprite_frames.add_frame(name,atlas_tex,1.0,frame)
-		
-		
+
+func parse_button() -> void:
+	parse_xml()
+	ResourceSaver.save(sprite_frames, tex.resource_path.get_basename() + ".res")
