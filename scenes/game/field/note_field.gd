@@ -6,13 +6,10 @@ var scroll_speed:float = 1.0:
 var down_scroll:bool
 ## used as a default note style for all notes
 var common_note_style:NoteStyle = load("res://assets/images/game/notestyles/funkin/style.tres")
-func _ready() -> void:
-	pass
 func _process(delta: float) -> void:
 	if not visible:
 		return
 	for note:Note in get_children():
-		
 		var strum = play_field.strums[note.column]
 		note.visible = true
 		note.scale = Vector2(note.style.note_scale,note.style.note_scale)

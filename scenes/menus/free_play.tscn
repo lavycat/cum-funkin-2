@@ -5,7 +5,7 @@
 
 [node name="FreePlay" type="Node2D"]
 script = ExtResource("1_8le71")
-list = Array[String](["aethos", "2hot", "glitcher"])
+list = Array[String](["aethos", "2hot", "glitcher", "no-villains", "madness"])
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)

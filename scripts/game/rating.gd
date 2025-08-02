@@ -29,5 +29,5 @@ static func rate_note(note:Note,cpu:bool = false) -> Rating:
 		r.rank = 3
 
 	return r
-	
+
 	pass

@@ -13,8 +13,6 @@ var actions:Array[String] = ["note_left","note_down","note_up","note_right"]
 signal note_spawned(note:Note)
 signal note_hit(note:Note)
 signal note_miss(note:Note)
-signal note_free(note:Note)
-
 
 func _ready() -> void:
 	var strumline:Node2D = load("res://scenes/game/field/strum_lines/4k.tscn").instantiate()
@@ -29,40 +27,50 @@ func _ready() -> void:
 	note_field.scroll_speed = sc
 	note_field.down_scroll = Save.data.down_scroll
 	add_child(note_field)
-func find_action_index(ev:InputEvent):
-	var ii = 0
-	for i in actions:
-		if ev.is_action(i):
-			return ii
-		ii += 1
+func find_action_index(ev: InputEvent) -> int:
+	for i in actions.size():
+		if ev.is_action(actions[i]):
+			return i
+
 	return -1
 func note_input(note:Note):
 	note_hit.emit(note)
+	note.note_hit(note)
 	note.was_hit = true
 	note.length = (note.time + note.length) - Conductor.time
 	strums[note.column].play_anim("confirm",true)
 func _input(event: InputEvent) -> void:
-	var p = find_action_index(event)
-	if event.is_echo() or p == -1 or auto_play:
+	if auto_play:
 		return
+	if event.is_echo():
+		return
+
+	var p: int = find_action_index(event)
+	if p == -1:
+		return
+
 	pressed[p] = event.is_pressed()
-	if event.is_pressed():
-		var note_array = note_field.get_children()
-		note_array = note_array.filter(func(note): return note.column == p and not note.missed and abs(note.time - Conductor.time) < note.hit_range)
-		for note:Note in note_array:
-			if note_array.size() > 1:
-				var last_note = null
-				for fucknote in note_array:
-					if last_note != null:
-						if is_equal_approx(last_note.time,fucknote.time):
-							note_input(fucknote)
-					last_note = fucknote
-			note_input(note)
+	if not event.is_pressed():
+		return
+
+	var start: float = Time.get_ticks_usec()
+	var note_array: Array = note_field.get_children()
+	var last_note: Note = null
+	for note: Note in note_array:
+		if last_note != null and not is_equal_approx(last_note.time, note.time):
 			break
-		
-		
-	
-	
+		if Conductor.time < note.time - note.hit_range:
+			break
+		if note.column != p:
+			continue
+		if note.missed:
+			continue
+		if note.was_hit:
+			continue
+		last_note = note
+		note_input(note)
+
+
 func note_update(delta:float):
 	for note:Note in note_field.get_children():
 		var strum = strums[note.column]
@@ -70,11 +78,13 @@ func note_update(delta:float):
 			pressed[note.column] = true
 			strum.play_anim("confirm",true)
 			note_hit.emit(note)
+			note.note_hit(note)
 			note.was_hit = true
-		
+
 		if note.was_hit and not note.missed:
 			if note.sustain:
 					note_hit.emit(note)
+					note.note_hit(note)
 					if pressed[note.column]:
 						if not strum.animation.contains("confirm"):
 							strum.play_anim("confirm",true)
@@ -82,11 +92,12 @@ func note_update(delta:float):
 				if auto_play:
 					pressed[note.column] = false
 				note_hit.emit(note)
-				note_free.emit(note)
+				note.note_hit(note)
 				note.free()
 				continue
 			if note.sustain.length < -delta:
 				note_hit.emit(note)
+				note.note_hit(note)
 				if auto_play:
 					pressed[note.column] = false
 				note.free()
@@ -125,7 +136,7 @@ func spawn_notes():
 	for i in range(note_index,notes.size()):
 		var n = notes[i]
 		var true_spawn_range = spawn_range / (note_field.scroll_speed)
-		var diff = abs(Conductor.time - n.time) 
+		var diff = abs(Conductor.time - n.time)
 		if n.time < Conductor.time + Conductor.offset:
 			spawn_data(n)
 			continue

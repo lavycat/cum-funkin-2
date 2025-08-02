@@ -13,10 +13,8 @@ var changes:Array[Dictionary] = []
 var follow_player:bool = true
 var last_change:Dictionary = {"bpm": 100,"time": 0,"step": 0}
 var offset:float = 0.0
-var update_type:UpdateType = UpdateType.AUDIO_SERVER 
-var time:float = 0.0:
-	get:
-		return time
+var update_type:UpdateType = UpdateType.AUDIO_SERVER
+var time:float = 0.0
 var play_head:float = 0.0
 var freeze_play_head:bool = false
 var bpm:float = 1
@@ -57,10 +55,10 @@ func _process(delta: float) -> void:
 	if floor(measure) > last_measure:
 		for i in range(last_measure,floor(measure)):
 			measure_hit.emit(floor(measure))
-		
 
-	
-	
+
+
+
 func update_song_position():
 	var delta = get_process_delta_time()
 	if player:
@@ -72,6 +70,6 @@ func update_song_position():
 						Conductor.time = skibidi
 					else:
 						Conductor.time += delta
-				
+
 	if !freeze_play_head:
 		play_head = time - offset

@@ -39,7 +39,7 @@ func sing(dir:int,miss:bool = false):
 	var anim_to_play:String = "sing_%s%s"%[directions[dir],miss_str]
 	if not sing_suffix.is_empty():
 		anim_to_play += "_%s"%sing_suffix
-	
+
 	play_anim(anim_to_play,true)
 func dance():
 	if not can_dance:
@@ -57,4 +57,3 @@ func _process(delta: float) -> void:
 func beat_hit(b:int):
 	if not cur_anim.contains("sing") and (not player.is_playing() or dance_steps.size() > 1) and auto_dance:
 		dance()
-	

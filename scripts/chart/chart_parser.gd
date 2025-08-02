@@ -1,27 +1,29 @@
 class_name ChartParser extends RefCounted
 
 static func load_chart(song:String,diff:String):
-	var ret = {}
+	var ret: Chart = Chart.new()
 	var legacy_path = "res://assets/songs/%s/charts/%s.json"%[song,diff]
 	var vslice_path = "res://assets/songs/%s/charts/%s-chart.json"%[song,song]
 	var vslice_meta_path = "res://assets/songs/%s/charts/%s-metadata.json"%[song,song]
-	
+
 	if ResourceLoader.exists(legacy_path):
 		var json = load(legacy_path).data
-	
 		if json.has("song"):
 			ret = load_psych(json)
-	
+
 	elif ResourceLoader.exists(vslice_path):
 		var meta_json = load(vslice_meta_path)
 		var chart_json = load(vslice_path)
 		ret = load_vslice(meta_json.data,chart_json.data,diff)
-		
+
 	else:
 		printerr("failed to find chart")
-		return Chart.new()
-		
-	
+
+	ret.events.sort_custom(func(a,b):
+		return a.time < b.time)
+	ret.notes.sort_custom(func(a,b):
+		return a.time < b.time)
+
 	return ret
 static func add_event(chart:Chart,time:float,name:String,vals:Array):
 	var ev:Chart.EventData = Chart.EventData.new()
@@ -41,7 +43,7 @@ static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
 	for i in meta.timeChanges:
 		Conductor.add_change(i.t,i.bpm,i.get("b",0)*4.0)
 	## CHART PARSE
-	
+
 	## EVENTS
 	for i in json.events:
 		var n:String
@@ -71,7 +73,6 @@ static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
 		note.type = i.get("k","default")
 		c.notes.append(note)
 	return c
-	pass
 static func load_psych(data:Dictionary):
 	var raw = data.song
 	var chart = Chart.new()
@@ -86,37 +87,37 @@ static func load_psych(data:Dictionary):
 				var ev_v1 = ev[1]
 				var ev_v2 = ev[2]
 				add_event(chart,ev_time / 1000.0,ev_name,[ev_v1,ev_v2])
-				
-		
+
+
 	var speed = raw.get("speed")
 	chart.scroll_speed = speed
-	
+
 	chart.dad = raw.get("player2","dad")
 	chart.bf = raw.get("player1","bf")
 	chart.gf = raw.get("gfVersion","gf")
 	chart.stage = raw.get("stage","stage")
 	chart.bpm = raw.get("bpm")
-	
-	
+
+
 	var section_time:float = 0
 	var section_bpm:float = chart.bpm
 	var bpm_steps:int = 0
 	var bpm_time:float = 0
 	Conductor.add_change(bpm_time,section_bpm,bpm_steps)
-	
+
 	for n in raw.notes:
-		
+
 		var is_bpm_change = n.get("changeBPM")
 		if is_bpm_change:
 			section_bpm = n.bpm
 			Conductor.add_change(bpm_time,section_bpm,bpm_steps)
 		var must_hit_section = n.get("mustHitSection",false)
 		add_event(chart,bpm_time,"camera_pan",[int(must_hit_section)])
-		
+
 		bpm_time += 60.0/section_bpm * 4.0
 		bpm_steps += 16
-			
-		
+
+
 		var section_notes = n.get("sectionNotes")
 		for note_data in section_notes:
 			var note_time:float = note_data[0] /  1000
@@ -139,8 +140,4 @@ static func load_psych(data:Dictionary):
 			note.field_id = (note_direction / 4)%2
 			note.type = note_type
 			chart.notes.append(note)
-	chart.events.sort_custom(func(a,b):
-		return a.time <  b.time)
-	chart.notes.sort_custom(func(a,b):
-		return a.time <  b.time)
 	return chart

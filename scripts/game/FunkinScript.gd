@@ -1,17 +1,21 @@
 class_name FunkinScript extends Node2D
 
-var game:Game:
+var connect_notes: bool = true
+
+var game: Game:
 	get:
 		return Game.instance
+
 func _enter_tree() -> void:
 	Conductor.beat_hit.connect(beat_hit)
 	Conductor.step_hit.connect(step_hit)
 	Conductor.measure_hit.connect(measure_hit)
-	for i in game.play_fields:
-		i.note_hit.connect(note_hit)
-		i.note_miss.connect(note_miss)
+	if connect_notes:
+		for i: PlayField in game.play_fields:
+			i.note_hit.connect(note_hit)
+			i.note_miss.connect(note_miss)
 	game.events.event_trigger.connect(event_triggered)
-		
+
 func step_hit(step:int):
 	pass
 func beat_hit(beat:int):
