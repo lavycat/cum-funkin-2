@@ -1,15 +1,22 @@
 extends Node
-var cur_event:int = 0
+class_name EventManager
+
+
+var index: int = 0
+var event_data: Array[Chart.EventData] = []
+
 signal event_trigger(ev:Event)
+
+
 func _process(delta: float) -> void:
-	# inside of process
-	var events = get_children()
+	var events: Array = get_children()
 	if events.is_empty():
 		return
-	for ev in events:
-		if ev.event_time <= Conductor.time:
-			ev.trigger()
-			event_trigger.emit(ev)
-			ev.free()
-		else:
-			break
+
+	while (index < event_data.size() - 1) and event_data[index].time <= Conductor.time:
+		var event_data: Chart.EventData = event_data[index]
+		for ev: Event in events:
+			if ev.name == event_data.name:
+				ev.trigger(event_data.time, event_data.values)
+				event_trigger.emit(ev)
+		index += 1

@@ -21,11 +21,11 @@ border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3lqy"]
 bg_color = Color(1, 0, 0, 1)
-border_color = Color(0, 1, 0, 1)
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aelfd"]
 bg_color = Color(0, 1, 0, 1)
-border_color = Color(0, 1, 0, 1)
+anti_aliasing = false
 
 [sub_resource type="LabelSettings" id="LabelSettings_fiajd"]
 font = ExtResource("4_aelfd")
@@ -75,7 +75,6 @@ offset_bottom = 14.0
 theme_override_styles/background = SubResource("StyleBoxFlat_c3lqy")
 theme_override_styles/fill = SubResource("StyleBoxFlat_aelfd")
 max_value = 2.0
-step = 0.0
 value = 1.0
 fill_mode = 1
 show_percentage = false

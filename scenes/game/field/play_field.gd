@@ -13,8 +13,6 @@ var actions:Array[String] = ["note_left","note_down","note_up","note_right"]
 signal note_spawned(note:Note)
 signal note_hit(note:Note)
 signal note_miss(note:Note)
-signal note_free(note:Note)
-
 
 func _ready() -> void:
 	var strumline:Node2D = load("res://scenes/game/field/strum_lines/4k.tscn").instantiate()
@@ -37,6 +35,7 @@ func find_action_index(ev: InputEvent) -> int:
 	return -1
 func note_input(note:Note):
 	note_hit.emit(note)
+	note.note_hit(note)
 	note.was_hit = true
 	note.length = (note.time + note.length) - Conductor.time
 	strums[note.column].play_anim("confirm",true)
@@ -79,11 +78,13 @@ func note_update(delta:float):
 			pressed[note.column] = true
 			strum.play_anim("confirm",true)
 			note_hit.emit(note)
+			note.note_hit(note)
 			note.was_hit = true
 
 		if note.was_hit and not note.missed:
 			if note.sustain:
 					note_hit.emit(note)
+					note.note_hit(note)
 					if pressed[note.column]:
 						if not strum.animation.contains("confirm"):
 							strum.play_anim("confirm",true)
@@ -91,11 +92,12 @@ func note_update(delta:float):
 				if auto_play:
 					pressed[note.column] = false
 				note_hit.emit(note)
-				note_free.emit(note)
+				note.note_hit(note)
 				note.free()
 				continue
 			if note.sustain.length < -delta:
 				note_hit.emit(note)
+				note.note_hit(note)
 				if auto_play:
 					pressed[note.column] = false
 				note.free()

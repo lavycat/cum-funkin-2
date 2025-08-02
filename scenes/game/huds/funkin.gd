@@ -2,6 +2,7 @@ extends Hud
 @onready var icons: Node2D = $bar/icons
 @onready var healthbarbg: ColorRect = $bar/healthbarbg
 @onready var healthbar: ProgressBar = $bar/healthbar
+var lerped_health: float = 1.0
 var health_bar_style_bg:StyleBox
 var health_bar_style_fill:StyleBox
 @onready var scoretxt: Label = $bar/scoretxt
@@ -26,7 +27,8 @@ func _ready() -> void:
 	bar.position.y = 100 if Save.data.down_scroll else 620
 func _process(delta: float) -> void:
 	timebar.value = (Conductor.time / Conductor.player.stream.get_length()) * 100.0
-	healthbar.value = lerp(healthbar.value,game.health,1 - exp(-15.0*delta))
+	lerped_health = lerpf(lerped_health, game.health, 1.0 - exp(-15.0 * delta))
+	healthbar.value = lerped_health
 	var percent = 1.0 - (healthbar.value / healthbar.max_value)
 	icons.position.x = percent * healthbarbg.size.x
 	icons.scale = lerp(icons.scale,Vector2.ONE,1 - exp(-9.0*delta))

@@ -13,7 +13,7 @@ var level_data:GameLevelData = null
 @onready var combo_layer: CanvasLayer = $combo
 
 var song_started:bool = false
-@onready var events: Node = $events
+@onready var events: EventManager = $events
 var camera_lerp_position:Vector2 = Vector2.ZERO
 var default_camera_zoom:Vector2 = Vector2.ONE
 static var cache:Dictionary = {}
@@ -26,7 +26,7 @@ var bf:Character
 
 var health:float = 1.0:
 	set(v):
-		health = clamp(v,0,max_health)
+		health = clampf(v, 0.0, max_health)
 var max_health:float = 2.0
 var score:float = 0
 var combo:int = 0
@@ -73,9 +73,6 @@ func _ready() -> void:
 		i.position.y = hud.size.y*0.15 if not Save.data.down_scroll else hud.size.y*0.85
 		i.position.x = hud.size.x*0.25
 		i.position.x += hud.size.x * 0.5 * i.id
-
-
-
 		var n = chart.notes.filter(func(a): return a.field_id == i.id)
 		i.notes = n
 
@@ -98,17 +95,30 @@ func _ready() -> void:
 		i.note_hit.connect(note_hit)
 		i.note_miss.connect(note_miss)
 
-	for ev in chart.events:
-		var evv := Event.new()
-		var ev_path:String = "res://scripts/game/events/%s.gd"%ev.name
-		if ResourceLoader.exists(ev_path):
-			var scriptt = load(ev_path)
-			evv.set_script(scriptt)
-		evv.event_values = ev.values
-		evv.event_time = ev.time
-		evv.event_name = ev.name
-		evv.name = "%s %d"%[ev.name,ev.time*1000]
-		events.add_child(evv)
+	var loaded_event_names: PackedStringArray = []
+	var loaded_events: Dictionary[String, Event]
+	for event_data: Chart.EventData in chart.events:
+		if loaded_event_names.has(event_data.name):
+			continue
+
+		loaded_event_names.push_back(event_data.name)
+		var event_path: String = "res://scripts/game/events/%s.gd" % event_data.name
+		if not ResourceLoader.exists(event_path):
+			continue
+
+		var event: Event = Event.new()
+		var event_script: Script = load(event_path)
+		event.set_script(event_script)
+		event.name = event_data.name
+		events.add_child(event)
+		loaded_events[event.name] = event
+
+	for event_data: Chart.EventData in chart.events:
+		if not loaded_events.has(event_data.name):
+			continue
+		loaded_events[event_data.name].register(event_data.time, event_data.values)
+	events.event_data = chart.events
+
 	hud = load("res://scenes/game/huds/funkin.tscn").instantiate()
 	ui.add_child(hud)
 	playfields.reparent(hud,false)
@@ -122,7 +132,6 @@ func _ready() -> void:
 	Conductor.time = -Conductor.beat_length*3.0
 
 func note_miss(note:Note):
-
 	if note.play_field.id == 1:
 		health -= 0.08
 		misses += 1
@@ -153,38 +162,41 @@ func note_hit(note:Note):
 				show_combo(combo)
 			else:
 				health += 0.08 * get_process_delta_time()
-
 		2:
 				gf.sing(note.column)
 				gf.sing_timer = 0
-var rating_tex = load("res://assets/ui/funkin/ratings_sheet.png")
-var combo_tex = load("res://assets/ui/funkin/num-sheet.png")
+
+@onready var rating_tex = load("res://assets/ui/funkin/ratings_sheet.png")
+@onready var combo_tex = load("res://assets/ui/funkin/num-sheet.png")
+@onready var ms_font = load("res://assets/fonts/funkin_combo.tres")
+
 func pop_up_score(rating:Rating):
-	var ms_txt := Label.new()
+	var ms_txt: Label = Label.new()
 	ms_txt.label_settings = LabelSettings.new()
 	ms_txt.label_settings.font_size = 64
 	ms_txt.label_settings.outline_size = 24
 	ms_txt.label_settings.outline_color = Color.BLACK
-	ms_txt.label_settings.font = preload("res://assets/fonts/funkin_combo.tres")
-
+	ms_txt.label_settings.font = ms_font
 	ms_txt.text = "%0.2f MS"%(rating.hit_ms)
-	var rat := VelocitySprite.new()
 	ms_txt.position.y = -128
 	ms_txt.position.x -= ms_txt.size.x / 2
 
+	var rat := VelocitySprite.new()
 	rat.add_child(ms_txt)
 	rat.texture = rating_tex
 	rat.vframes = 4
 	rat.frame = rating.rank
-	rat.scale = Vector2(0.7,0.7)
-	ratings_layer.add_child(rat)
+	rat.scale = Vector2(0.7, 0.7)
 	rat.position = camera.get_target_position()
 	rat.acceleration.y = 550;
+	rat.velocity.x -= randi_range(0, 10)
 	rat.velocity.y -= randi_range(140,175)
-	rat.velocity.x -= randi_range(0, 10);
-	var t = create_tween()
-	t.tween_property(rat,"modulate:a",0,0.2).set_trans(Tween.TRANS_SINE).set_delay(Conductor.beat_length)
+
+	var t: Tween = create_tween().set_trans(Tween.TRANS_SINE)
+	t.tween_property(rat,"modulate:a",0,0.2).set_delay(Conductor.beat_length)
 	t.tween_callback(rat.queue_free)
+	ratings_layer.add_child(rat)
+
 func show_combo(c:int):
 	var cstr = str(c).pad_zeros(3)
 	var count:int = 0
@@ -201,7 +213,7 @@ func show_combo(c:int):
 		spr.acceleration.y = randi_range(200, 300);
 		spr.velocity.y -= randi_range(140, 160);
 		spr.velocity.x = randf_range(-5, 5);
-		var t = create_tween()
+		var t: Tween = create_tween()
 		t.tween_property(spr,"modulate:a",0,0.2).set_delay(Conductor.beat_length)
 		t.tween_callback(spr.queue_free)
 		count += 1
