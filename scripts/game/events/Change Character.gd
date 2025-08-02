@@ -23,10 +23,13 @@ func _process(delta: float) -> void:
 
 	loading = false
 	for path: String in requested_paths:
+		var char := path.get_file().get_basename()
+		if preloaded_characters.has(char):
+			continue
+
 		var status := ResourceLoader.load_threaded_get_status(path)
 		if status == ResourceLoader.THREAD_LOAD_LOADED:
-			preloaded_characters[path.get_file().get_basename()] = ResourceLoader.load_threaded_get(path)
-			requested_paths.erase(path)
+			preloaded_characters[char] = ResourceLoader.load_threaded_get(path)
 		elif status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			loading = true
 

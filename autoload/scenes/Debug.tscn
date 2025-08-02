@@ -8,10 +8,12 @@ multichannel_signed_distance_field = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_3yqj7"]
 font = SubResource("SystemFont_ilaqs")
+outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ilaqs"]
 font = SubResource("SystemFont_ilaqs")
+outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Debug" type="CanvasLayer"]
