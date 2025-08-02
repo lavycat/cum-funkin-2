@@ -23,7 +23,7 @@ func beat_hit(beat:int):
 			wiretrans()
 		207,334:
 			wiretrans2()
-			
+
 func wiretrans():
 	game.dad = wire_dad
 	game.bf = wire_bf
@@ -40,15 +40,15 @@ func note_hit(note:Note):
 				Conductor.rate -= 0.14 * Conductor.rate
 			else:
 				Conductor.rate -= 0.3*get_process_delta_time()
-			
+
 		else:
 			if not note.was_hit:
 				Conductor.rate += 0.13* Conductor.rate
 			else:
 				Conductor.rate += 0.865*get_process_delta_time()
 		Conductor.rate = max(1.0,Conductor.rate)
-			
-		
+
+
 	if Conductor.beat > 336 and Conductor.beat < 367:
 		if wire.modulate.a > 0.0:
 			wiretrans2()
@@ -58,4 +58,3 @@ func note_hit(note:Note):
 		game.dad = old_dad
 		game.bf = old_bf
 		wire.modulate.a = 0
-			

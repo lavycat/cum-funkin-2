@@ -9,6 +9,9 @@ var level_data:GameLevelData = null
 @onready var playfields: Node2D = $UI/playfields
 @onready var hud: Control = $UI/hud
 @onready var ui: CanvasLayer = %UI
+@onready var ratings_layer: CanvasLayer = $ratings
+@onready var combo_layer: CanvasLayer = $combo
+
 var song_started:bool = false
 @onready var events: Node = $events
 var camera_lerp_position:Vector2 = Vector2.ZERO
@@ -70,12 +73,12 @@ func _ready() -> void:
 		i.position.y = hud.size.y*0.15 if not Save.data.down_scroll else hud.size.y*0.85
 		i.position.x = hud.size.x*0.25
 		i.position.x += hud.size.x * 0.5 * i.id
-			
-		
-		
+
+
+
 		var n = chart.notes.filter(func(a): return a.field_id == i.id)
 		i.notes = n
-		
+
 	add_child(stage)
 	camera = stage.cam
 	camera.zoom = Vector2(stage.default_cam_zoom,stage.default_cam_zoom)
@@ -94,7 +97,7 @@ func _ready() -> void:
 	for i in play_fields:
 		i.note_hit.connect(note_hit)
 		i.note_miss.connect(note_miss)
-		
+
 	for ev in chart.events:
 		var evv := Event.new()
 		var ev_path:String = "res://scripts/game/events/%s.gd"%ev.name
@@ -115,11 +118,11 @@ func _ready() -> void:
 		var script = FunkinScript.new()
 		script.set_script(load(scripts_dir + i))
 		add_child(script)
-	
+
 	Conductor.time = -Conductor.beat_length*3.0
-	
+
 func note_miss(note:Note):
-	
+
 	if note.play_field.id == 1:
 		health -= 0.08
 		misses += 1
@@ -163,32 +166,30 @@ func pop_up_score(rating:Rating):
 	ms_txt.label_settings.outline_size = 24
 	ms_txt.label_settings.outline_color = Color.BLACK
 	ms_txt.label_settings.font = preload("res://assets/fonts/funkin_combo.tres")
-	
+
 	ms_txt.text = "%0.2f MS"%(rating.hit_ms)
 	var rat := VelocitySprite.new()
 	ms_txt.position.y = -128
 	ms_txt.position.x -= ms_txt.size.x / 2
-	
+
 	rat.add_child(ms_txt)
 	rat.texture = rating_tex
 	rat.vframes = 4
 	rat.frame = rating.rank
 	rat.scale = Vector2(0.7,0.7)
-	$ratings.add_child(rat)
+	ratings_layer.add_child(rat)
 	rat.position = camera.get_target_position()
 	rat.acceleration.y = 550;
 	rat.velocity.y -= randi_range(140,175)
 	rat.velocity.x -= randi_range(0, 10);
-	var t = create_tween().set_parallel()
+	var t = create_tween()
 	t.tween_property(rat,"modulate:a",0,0.2).set_trans(Tween.TRANS_SINE).set_delay(Conductor.beat_length)
-	
-	await t.finished
-	rat.free()
+	t.tween_callback(rat.queue_free)
 func show_combo(c:int):
 	var cstr = str(c).pad_zeros(3)
 	var count:int = 0
 	for i in cstr.split():
-		var spr = VelocitySprite.new()
+		var spr: VelocitySprite = VelocitySprite.new()
 		spr.texture = combo_tex
 		spr.hframes = 10
 		spr.frame = int(i)
@@ -196,14 +197,14 @@ func show_combo(c:int):
 		spr.position.y += 90
 		spr.position.x += 50 * count - 50
 		spr.scale = Vector2(0.55,0.55)
-		$combo.add_child(spr)
+		combo_layer.add_child(spr)
 		spr.acceleration.y = randi_range(200, 300);
 		spr.velocity.y -= randi_range(140, 160);
 		spr.velocity.x = randf_range(-5, 5);
-		var t = create_tween().set_parallel()
+		var t = create_tween()
 		t.tween_property(spr,"modulate:a",0,0.2).set_delay(Conductor.beat_length)
+		t.tween_callback(spr.queue_free)
 		count += 1
-		t.finished.connect(spr.queue_free,CONNECT_ONE_SHOT)
 func _process(delta: float) -> void:
 	if Conductor.player.get_playback_position() == 0 and song_started:
 		return_to_menu()
@@ -234,7 +235,7 @@ func _input(event: InputEvent) -> void:
 				p.spawn_notes()
 				for i in p.note_field.get_children():
 					i.free()
-					
+
 		if event.is_action_pressed("debug_bot_toggle"):
 			player_field.auto_play = not player_field.auto_play
 func measure_hit(measure:int):
@@ -253,5 +254,3 @@ func _notification(what: int) -> void:
 				await RenderingServer.frame_post_draw
 				add_child(pause_ui)
 				paused = true
-		
-			

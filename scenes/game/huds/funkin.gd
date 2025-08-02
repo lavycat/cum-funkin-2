@@ -15,10 +15,10 @@ func reload_icons():
 	dad.texture = game.dad.icon
 	health_bar_style_bg.bg_color = game.dad.icon_color
 	health_bar_style_fill.bg_color = game.bf.icon_color
-	
+
 
 func _ready() -> void:
-	
+
 	health_bar_style_bg = healthbar.get_theme_stylebox("background")
 	health_bar_style_fill = healthbar.get_theme_stylebox("fill")
 	health_bar_style_bg.bg_color = Color.WHITE
@@ -35,8 +35,8 @@ func update_score_txt():
 func note_hit(n:Note):
 	if n.play_field.id == 1:
 		update_score_txt()
-		
-		
+
+
 func note_miss(n:Note):
 	update_score_txt()
 func beat_hit(b:int):

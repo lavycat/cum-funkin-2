@@ -10,7 +10,7 @@ func _enter_tree() -> void:
 		i.note_hit.connect(note_hit)
 		i.note_miss.connect(note_miss)
 	game.events.event_trigger.connect(event_triggered)
-		
+
 func step_hit(step:int):
 	pass
 func beat_hit(beat:int):
