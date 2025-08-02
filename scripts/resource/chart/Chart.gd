@@ -8,11 +8,7 @@ class NoteData extends Resource:
 class EventData extends Resource:
 	var name:String = "unknown"
 	var time:float
-class PsychEventData extends EventData:
-	var v1:Variant
-	var v2:Variant
-class VsliceEventData extends EventData:
-	var values:Dictionary[String,Variant]
+	var values:Array[Variant]
 var dad:String = "dad"
 var bf:String = "bf"
 var gf:String = "gf"

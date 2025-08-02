@@ -57,7 +57,7 @@ func _process(delta: float) -> void:
 			sustain.length = (time + length) - Conductor.time
 			if not play_field.pressed[column]:
 				sustain.released_timer += delta
-			if play_field.pressed[column]:
+			if play_field.pressed[column] or play_field.auto_play:
 				sustain.released_timer = 0
 
 			if sustain.released_timer > Conductor.step_length*2:

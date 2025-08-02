@@ -37,9 +37,9 @@ func note_hit(note:Note):
 	if funni:
 		if note.play_field.id == 0:
 			if not note.was_hit:
-				Conductor.rate -= 0.14 * Conductor.rate * 0.9887112543165990872143
+				Conductor.rate -= 0.14 * Conductor.rate
 			else:
-				Conductor.rate -= 0.3*get_process_delta_time() * 0.9887112543165990872143
+				Conductor.rate -= 0.3*get_process_delta_time()
 			
 		else:
 			if not note.was_hit:

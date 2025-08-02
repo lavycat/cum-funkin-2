@@ -26,10 +26,10 @@ func _ready() -> void:
 	bar.position.y = 100 if Save.data.down_scroll else 620
 func _process(delta: float) -> void:
 	timebar.value = (Conductor.time / Conductor.player.stream.get_length()) * 100.0
-	healthbar.value = lerp(healthbar.value,game.health,delta*19.0)
+	healthbar.value = lerp(healthbar.value,game.health,1 - exp(-15.0*delta))
 	var percent = 1.0 - (healthbar.value / healthbar.max_value)
-	icons.position.x = percent * 601
-	icons.scale = lerp(icons.scale,Vector2.ONE,delta*9.0)
+	icons.position.x = percent * healthbarbg.size.x
+	icons.scale = lerp(icons.scale,Vector2.ONE,1 - exp(-9.0*delta))
 func update_score_txt():
 	scoretxt.text = "Score - %d | Accuracy - %0.2f%% | Misses - %d"%[game.score,game.accuracy,game.misses]
 func note_hit(n:Note):

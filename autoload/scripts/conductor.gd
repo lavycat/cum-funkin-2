@@ -1,5 +1,7 @@
 extends Node
-
+enum UpdateType{
+	AUDIO_SERVER
+}
 var rate:float = 1.0:
 	set(v):
 		rate = max(0.01,v)
@@ -11,6 +13,7 @@ var changes:Array[Dictionary] = []
 var follow_player:bool = true
 var last_change:Dictionary = {"bpm": 100,"time": 0,"step": 0}
 var offset:float = 0.0
+var update_type:UpdateType = UpdateType.AUDIO_SERVER 
 var time:float = 0.0:
 	get:
 		return time
@@ -20,7 +23,6 @@ var bpm:float = 1
 var beat:float = 0
 var step:float = 0
 var measure:float = 0
-var cock:float = 0.0
 var beat_length:float = 0.0
 var step_length:float = 0.0
 var last_music_time:float = 0.0
@@ -30,8 +32,6 @@ signal step_hit(step:int)
 signal measure_hit(measure:int)
 
 var player:AudioStreamPlayer = null
-var steps = [0,0,0]
-var beats_index = 0
 func add_change(time:float,bpm:float,step:float):
 	changes.append({"bpm":bpm,"time":time,"step":step})
 func _process(delta: float) -> void:
@@ -65,11 +65,13 @@ func update_song_position():
 	var delta = get_process_delta_time()
 	if player:
 		if player.playing and follow_player:
-			var skibidi:float = player.get_playback_position() + AudioServer.get_time_since_last_mix()
-			if skibidi > Conductor.time or absf(Conductor.time - skibidi) > 25.0 / 1000.0:
-				Conductor.time = skibidi
-			else:
-				Conductor.time += delta
+			match update_type:
+				UpdateType.AUDIO_SERVER:
+					var skibidi:float = player.get_playback_position() + AudioServer.get_time_since_last_mix()
+					if skibidi > Conductor.time or absf(Conductor.time - skibidi) > 25.0 / 1000.0:
+						Conductor.time = skibidi
+					else:
+						Conductor.time += delta
 				
 	if !freeze_play_head:
 		play_head = time - offset

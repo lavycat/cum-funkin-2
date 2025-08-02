@@ -1,7 +1,6 @@
 extends Node2D
-var time:float = 0:
-	get:
-		return Time.get_ticks_msec() / 1000.0
-func _process(delta: float) -> void:
-	$CanvasLayer/ColorRect.material.set_shader_parameter("p",abs(sin(time)*0.9))
-	pass
+@onready var graid: TextureRect = $SubViewportContainer/SubViewport/graid
+var twen:Tween
+func _ready() -> void:
+	twen = create_tween().set_parallel()
+	

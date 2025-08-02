@@ -41,7 +41,7 @@ var pause_menu:PackedScene = load("res://scenes/game/pause_menu.tscn")
 var pause_ui:CanvasLayer = null
 func load_character(p:String,fb:String):
 	if ResourceLoader.exists("res://scenes/game/characters/%s.tscn"%p):
-		return ResourceLoader.load("res://scenes/game/characters/%s.tscn"%p,"",ResourceLoader.CACHE_MODE_REPLACE).instantiate()
+		return ResourceLoader.load("res://scenes/game/characters/%s.tscn"%p,"").instantiate()
 	else:
 		return load("res://scenes/game/characters/%s.tscn"%fb).instantiate()
 func _enter_tree() -> void:
@@ -55,11 +55,6 @@ func _enter_tree() -> void:
 	gf = load_character(chart.gf,"gf")
 	dad = load_character(chart.dad,"dad")
 	bf = load_character(chart.bf,"bf")
-	set_up_cache()
-	
-	
-
-		
 
 func _ready() -> void:
 	Conductor.follow_player = true
@@ -139,9 +134,9 @@ func note_hit(note:Note):
 		0:
 			dad.sing(note.column)
 		1:
-			
-			bf.sing(note.column)
-			bf.sing_timer = 0
+			if bf:
+				bf.sing(note.column)
+				bf.sing_timer = 0
 
 			if not note.was_hit:
 				health += 0.02
@@ -167,7 +162,9 @@ func pop_up_score(rating:Rating):
 	ms_txt.label_settings.font_size = 64
 	ms_txt.label_settings.outline_size = 24
 	ms_txt.label_settings.outline_color = Color.BLACK
-	ms_txt.text = "%0.3f MS"%(rating.hit_ms)
+	ms_txt.label_settings.font = preload("res://assets/fonts/funkin_combo.tres")
+	
+	ms_txt.text = "%0.2f MS"%(rating.hit_ms)
 	var rat := VelocitySprite.new()
 	ms_txt.position.y = -128
 	ms_txt.position.x -= ms_txt.size.x / 2
@@ -210,8 +207,8 @@ func show_combo(c:int):
 func _process(delta: float) -> void:
 	if Conductor.player.get_playback_position() == 0 and song_started:
 		return_to_menu()
-	hud.scale = lerp(hud.scale,Vector2.ONE,delta*3.0)
-	camera.zoom = lerp(camera.zoom,default_camera_zoom,delta*3.0)
+	hud.scale = lerp(hud.scale,Vector2.ONE,1 - exp(-3.0 * delta))
+	camera.zoom = lerp(camera.zoom,default_camera_zoom,1 - exp(-3.0 * delta))
 	if camera:
 		camera.position = camera_lerp_position
 	if not song_started:
@@ -244,11 +241,6 @@ func measure_hit(measure:int):
 	if measure > 0:
 		hud.scale += Vector2(0.03,0.03)
 		camera.zoom += Vector2(0.015,0.015)
-func set_up_cache():
-	cache.set("stage",load(stage.scene_file_path))
-	cache.set("dad",load(dad.scene_file_path))
-	cache.set("bf",load(bf.scene_file_path))
-	cache.set("gf",load(gf.scene_file_path))
 func return_to_menu():
 	AudioManager.fade_in_global_music()
 	get_tree().change_scene_to_file("res://scenes/menus/free_play.tscn")

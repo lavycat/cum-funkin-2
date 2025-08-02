@@ -23,25 +23,13 @@ static func load_chart(song:String,diff:String):
 		
 	
 	return ret
-static func add_event(chart:Chart,time:float,name:String,vals:Array,names:Array[String] = []):
+static func add_event(chart:Chart,time:float,name:String,vals:Array):
 	var ev:Chart.EventData = Chart.EventData.new()
-	if names.is_empty():
-		ev = Chart.PsychEventData.new()
-		ev.time = time
-		ev.name = name
-		ev.v1 = vals[0]
-		if vals.size() > 1:
-			ev.v2 = vals[1]
-		else:
-			ev.v2 = null
-	else:
-		ev = Chart.VsliceEventData.new()
-		ev.time = time
-		ev.name = name
-		for i in names.size():
-			var vname:String = names[i]
-			ev.values.set(vname,vals[i])
-		chart.events.append(ev)
+	ev = Chart.EventData.new()
+	ev.time = time
+	ev.name = name
+	ev.values.append_array(vals)
+	chart.events.append(ev)
 static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
 	var c = Chart.new()
 	## META PARSE

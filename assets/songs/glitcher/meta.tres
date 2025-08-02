@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SongMeta" load_steps=3 format=3 uid="uid://b13sewybmfmr0"]
+
+[ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="1_ubx86"]
+[ext_resource type="Script" uid="uid://0wvgw6kj6j2f" path="res://scripts/data/song_meta.gd" id="2_c3p2a"]
+
+[resource]
+script = ExtResource("2_c3p2a")
+icon = ExtResource("1_ubx86")
+icon_frames = 2
+color = Color(0.605674, 1.66051e-06, 3.85046e-07, 1)
+difficulties = ["easy", "normal", "hard"]
+metadata/_custom_type_script = "uid://0wvgw6kj6j2f"

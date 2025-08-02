@@ -39,7 +39,4 @@ func trigger():
 			game.add_child(char_to)
 			char_from.queue_free()
 			game.gf = char_to
-			
-	
-	
-	pass
+	game.hud.callv("reload_icons",[])

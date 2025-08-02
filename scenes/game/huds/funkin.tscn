@@ -13,14 +13,11 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d8qm"]
 bg_color = Color(0.616, 0.52, 1, 1)
-border_color = Color(0.8, 0.470588, 0.8, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-shadow_color = Color(1, 0.638494, 0.805044, 1)
-shadow_size = 2
+border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3lqy"]
 bg_color = Color(1, 0, 0, 1)

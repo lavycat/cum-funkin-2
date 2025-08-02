@@ -6,15 +6,32 @@ var train_finishing:bool = false
 var started_moving:bool = false
 var train_cars:int = 8
 var train_cooldown:int = 0
+var cur_light:int = 0
+@export var light_colors: Array[Color] = [
+	Color('#31a2fd'),
+	Color('#31fd8c'),
+	Color('#fb33f5'),
+	Color('#fd4531'),
+	Color('#fba633'),
+]
+@onready var win: Sprite2D = $Parallax2D2/Win
 @onready var train: Sprite2D = $Train
 @onready var train_sound: AudioStreamPlayer = $train_sound
 func beat_hit(beat:int):
+	if beat %4 == 0:
+		var rand := RandomNumberGenerator.new()
+		rand.seed = (Conductor.time * 1000) - game.score
+		var rand_num = rand.randi_range(0,light_colors.size()-1)
+		var c = light_colors.get(rand_num)
+		win.modulate = c
+		win.modulate.a = 1
 	if not train_moving:
 		train_cooldown += 1
 	if beat%8 == 4 and randi_range(0,100) > 30 and not train_moving and train_cooldown > 8:
 		train_cooldown = randi_range(-4,0)
 		train_start()
 func _process(delta: float) -> void:
+	win.modulate.a -= delta * Conductor.beat_length*1.5
 	if train_moving:
 		train_timer += delta
 		if train_timer >= TRAIN_TICK:

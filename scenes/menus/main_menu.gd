@@ -21,6 +21,10 @@ func _ready() -> void:
 		spr.position.y += 160*i
 		$options.add_child(spr)
 		option_sprs.append(spr)
+		var tb := TouchScreenButton.new()
+		tb.shape = RectangleShape2D.new()
+		tb.shape.size = Vector2(800,160)
+		spr.add_child(tb)
 	update_camera()
 	camera.reset_smoothing()
 	change_selceted(0)
@@ -34,6 +38,12 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if is_selecting:
 		return
+	if event is InputEventScreenDrag:
+		if event.relative.y > 1:
+			change_selceted(1)
+		if event.relative.y < -1:
+			change_selceted(-1)
+		print(event.relative.y)
 	if event.is_action_pressed("ui_down"):
 		change_selceted(1)
 	if event.is_action_pressed("ui_up"):

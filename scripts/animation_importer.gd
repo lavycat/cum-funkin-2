@@ -27,7 +27,7 @@ extends AnimationPlayer
 			if lib.has_animation(name):
 				anim = lib.get_animation(name);
 				
-			var frameCount = shit.frames.size() - 1;
+			var frameCount = shit.frames.size();
 			var length = frameCount * (1 / shit.speed);
 			anim.step = 1.0/step
 				

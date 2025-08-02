@@ -17,6 +17,7 @@ default_cam_zoom = 1.1
 [node name="cam" type="Camera2D" parent="."]
 position = Vector2(640, 360)
 position_smoothing_enabled = true
+position_smoothing_speed = 3.0
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.1, 0.1)
@@ -36,6 +37,7 @@ texture = ExtResource("3_3c7gy")
 centered = false
 
 [node name="Win" type="Sprite2D" parent="Parallax2D2"]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-10, 0)
 scale = Vector2(0.85, 0.85)
 texture = ExtResource("4_savcl")
@@ -57,13 +59,13 @@ texture = ExtResource("7_6w1xf")
 centered = false
 
 [node name="dad_position" type="Marker2D" parent="."]
-position = Vector2(468, 776)
+position = Vector2(460, 806)
 
 [node name="gf_position" type="Marker2D" parent="."]
 position = Vector2(751, 760)
 
 [node name="bf_position" type="Marker2D" parent="."]
-position = Vector2(990, 776)
+position = Vector2(990, 806)
 
 [node name="train_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_3n2ji")

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="logan.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="logan0000" x="0" y="0" width="80" height="125"/>
+	<SubTexture name="logan0001" x="80" y="0" width="80" height="125"/>
+	<SubTexture name="logan0002" x="160" y="0" width="80" height="125"/>
+	<SubTexture name="logan0003" x="240" y="0" width="80" height="125"/>
+	<SubTexture name="logan0004" x="320" y="0" width="80" height="125"/>
+	<SubTexture name="logan0005" x="400" y="0" width="80" height="125"/>
+	<SubTexture name="logan0006" x="0" y="125" width="80" height="125"/>
+	<SubTexture name="logan0007" x="80" y="125" width="80" height="125"/>
+	<SubTexture name="logan0008" x="160" y="125" width="80" height="125"/>
+	<SubTexture name="logan0009" x="240" y="125" width="80" height="125"/>
+	<SubTexture name="logan0010" x="320" y="125" width="80" height="125"/>
+	<SubTexture name="logan0011" x="400" y="125" width="80" height="125"/>
+	<SubTexture name="logan0012" x="0" y="250" width="80" height="125"/>
+	<SubTexture name="logan0013" x="80" y="250" width="80" height="125"/>
+</TextureAtlas>

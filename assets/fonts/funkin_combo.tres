@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://iey4p6iqyhrh"]
+
+[ext_resource type="FontFile" uid="uid://bnkl77r32hsc5" path="res://assets/fonts/funkin.ttf" id="1_yj124"]
+
+[resource]
+base_font = ExtResource("1_yj124")
+spacing_glyph = 8
