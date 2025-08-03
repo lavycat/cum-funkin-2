@@ -18,11 +18,6 @@ func load_binds():
 			ev.keycode = OS.find_keycode_from_string(v)
 			InputMap.action_add_event(k,ev)
 			
-			print(OS.get_keycode_string(KEY_Z))
-			print(OS.get_keycode_string(KEY_X))
-			print(OS.get_keycode_string(KEY_COMMA))
-			print(OS.get_keycode_string(KEY_PERIOD))
-			
 		
 func save_data():
 	ResourceSaver.save(data,SAVE_PATH)

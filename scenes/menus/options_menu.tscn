@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bygrvve2uo80d"]
+
+[ext_resource type="Texture2D" uid="uid://b7k04rhmeotrs" path="res://assets/images/menus/menuDesat_Invert.png" id="1_bp0ux"]
+
+[node name="OptionsMenu" type="Node2D"]
+
+[node name="MenuDesat" type="Sprite2D" parent="."]
+modulate = Color(0.99241, 0.543829, 0.435316, 1)
+position = Vector2(640, 360)
+texture = ExtResource("1_bp0ux")
