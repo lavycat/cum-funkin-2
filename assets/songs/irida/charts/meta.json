@@ -1,0 +1,17 @@
+{
+	"beatsPerMeasure": 4,
+	"opponentModeAllowed": false,
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"bpm": 180,
+	"difficulties": [
+		"HARD"
+	],
+	"needsVoices": true,
+	"parsedColor": -2120367,
+	"displayName": "irida",
+	"icon": "jimmy real",
+	"name": "irida",
+	"color": "#DFA551",
+	"customValues": {}
+}

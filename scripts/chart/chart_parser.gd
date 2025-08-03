@@ -3,6 +3,7 @@ class_name ChartParser extends RefCounted
 static func load_chart(song:String,diff:String):
 	var ret: Chart = Chart.new()
 	var legacy_path = "res://assets/songs/%s/charts/%s.json"%[song,diff]
+	var cne_meta_path = "res://assets/songs/%s/charts/meta.json"%[song]
 	var vslice_path = "res://assets/songs/%s/charts/%s-chart.json"%[song,song]
 	var vslice_meta_path = "res://assets/songs/%s/charts/%s-metadata.json"%[song,song]
 
@@ -10,6 +11,11 @@ static func load_chart(song:String,diff:String):
 		var json = load(legacy_path).data
 		if json.has("song"):
 			ret = load_psych(json)
+		elif json.has("codenameChart"):
+			var meta_json = load(cne_meta_path).data
+			var chart_json = load(legacy_path).data
+			
+			ret = load_cne(meta_json,chart_json,diff)
 
 	elif ResourceLoader.exists(vslice_path):
 		var meta_json = load(vslice_meta_path)
@@ -32,6 +38,35 @@ static func add_event(chart:Chart,time:float,name:String,vals:Array):
 	ev.name = name
 	ev.values.append_array(vals)
 	chart.events.append(ev)
+static func load_cne(meta:Dictionary,json:Dictionary,diff:String):
+	var c = Chart.new()
+	c.bpm = meta.bpm
+	c.scroll_speed = json.scrollSpeed
+	c.stage = json.stage
+	for i in json.strumLines:
+		var side:int = i.type
+		match side:
+			0:
+				c.dad = i.characters[0]
+			1:
+				c.bf = i.characters[0]
+			2:
+				c.gf = i.characters[0]
+		var note_types:Array = json.noteTypes
+		for n in i.notes:
+			var noteid:int = n.id
+			var notetime:float = n.time * 0.001
+			var noteslen:float = n.sLen * 0.001
+			var notetype:String = "default"
+			if n.type != 0:
+				notetype = note_types[floori(n.type-1)]
+			var ndata = Chart.NoteData.new()
+			ndata.time = notetime
+			ndata.column = noteid
+			ndata.length = noteslen
+			ndata.field_id = side
+			c.notes.append(ndata)
+	return c
 static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
 	var c = Chart.new()
 	## META PARSE

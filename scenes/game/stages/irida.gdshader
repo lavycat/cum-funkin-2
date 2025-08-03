@@ -18,19 +18,21 @@ shader_type canvas_item;
 
 
 #define iterations 17
-#define formuparam 0.53
+#define formuparam 0.52
 
 #define volsteps 20
 #define stepsize 0.1
 
 #define zoom   0.800
 #define tile   0.850
-#define speed  0.000 
+#define speed  0.000
 
 #define brightness 0.0015
 #define darkmatter 0.300
 #define distfading 0.730
 #define saturation 0.850
+
+uniform float qulity:hint_range(0.01, 1.0, 0.01) = 1;
 void mainVR( out vec4 fragColor, in vec2 fragCoord, in vec3 ro, in vec3 rd )
 {
 	//get coords and direction
@@ -71,8 +73,11 @@ float happy_star(vec2 uv, float anim)
 }
 void fragment()
 {
-	//get coords and direction
+	if (COLOR.a < 0.05 || UV.y > 0.47){
+		discard;
+	}
 	vec2 iResolution = 1.0 / SCREEN_PIXEL_SIZE;
+	//get coords and direction
 	vec2 uv=FRAGCOORD.xy/iResolution.xy-.5;
     vec2 uv2=FRAGCOORD.xy/iResolution.xy-.5;
 	uv.y*=iResolution.y/iResolution.x;
@@ -93,7 +98,7 @@ vec2 U =FRAGCOORD.xy;
     
     float sc,dotp,totdist=0., t=.7, tt=TIME/4.;
     
-    for (float i=0.; i<200.; i++) {
+    for (float i=0.; i<200.*qulity; i++) {
         
         vec4 p = vec4( rd*totdist);
             

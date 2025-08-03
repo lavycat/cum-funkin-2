@@ -21,8 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://oqo50rb1e0wq" path="res://assets/images/game/stages/jimmy/real/wires2.png" id="18_7i8iq"]
 [ext_resource type="Texture2D" uid="uid://bw6xtwe5cmdjr" path="res://assets/images/game/stages/jimmy/real/wires.png" id="19_t6640"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4svc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s5a7a"]
 shader = ExtResource("13_s5a7a")
+shader_parameter/qulity = 1.0
 
 [node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
 script = ExtResource("1_adhs8")
@@ -93,8 +94,8 @@ texture = ExtResource("18_7i8iq")
 scroll_scale = Vector2(0, 1)
 
 [node name="Bg" type="Sprite2D" parent="real/0X1"]
-material = SubResource("ShaderMaterial_f4svc")
-position = Vector2(526, 484)
+material = SubResource("ShaderMaterial_s5a7a")
+position = Vector2(526, 480)
 scale = Vector2(3.2, 3.2)
 texture = ExtResource("8_7eqa1")
 
@@ -137,12 +138,9 @@ texture = ExtResource("9_s5a7a")
 
 [node name="dad_position" type="Marker2D" parent="."]
 position = Vector2(314, 776)
-metadata/_edit_lock_ = true
 
 [node name="gf_position" type="Marker2D" parent="."]
-position = Vector2(646, 760)
-metadata/_edit_lock_ = true
+position = Vector2(-6840, -127)
 
 [node name="bf_position" type="Marker2D" parent="."]
 position = Vector2(1069, 776)
-metadata/_edit_lock_ = true

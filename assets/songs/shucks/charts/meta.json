@@ -1,0 +1,17 @@
+{
+	"beatsPerMeasure": 4,
+	"opponentModeAllowed": false,
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"bpm": 195,
+	"difficulties": [
+		"HARD"
+	],
+	"needsVoices": true,
+	"parsedColor": -814289,
+	"displayName": "shucks",
+	"icon": "dbtg",
+	"name": "shucks",
+	"color": "#F3932F",
+	"customValues": {}
+}

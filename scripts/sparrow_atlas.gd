@@ -13,6 +13,7 @@ var xml:String:
 func parse_xml():
 	var parser := XMLParser.new()
 	parser.open(xml)
+	sprite_frames = SpriteFrames.new()
 	while parser.read() == OK:
 		var node_type = parser.get_node_type()
 		if node_type == XMLParser.NODE_ELEMENT:
@@ -24,7 +25,6 @@ func parse_xml():
 				var y:int = parser.get_named_attribute_value_safe("y").to_int()
 				var name:String = parser.get_named_attribute_value("name").left(-4)
 				var frame:int = parser.get_named_attribute_value("name").substr(name.length()).to_int()
-				sprite_frames = SpriteFrames.new()
 				## add them frames
 				var atlas_tex := AtlasTexture.new()
 				var atlas := tex

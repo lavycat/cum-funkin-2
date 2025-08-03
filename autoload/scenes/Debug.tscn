@@ -4,7 +4,9 @@
 
 [sub_resource type="SystemFont" id="SystemFont_ilaqs"]
 font_names = PackedStringArray("Arial")
-multichannel_signed_distance_field = true
+hinting = 2
+subpixel_positioning = 2
+oversampling = 2.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_3yqj7"]
 font = SubResource("SystemFont_ilaqs")
