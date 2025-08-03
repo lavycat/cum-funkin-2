@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://il6dmj3trs5r"]
+
+[ext_resource type="Script" uid="uid://d2habhbootjux" path="res://scenes/game/stages/under_construction.gd" id="1_oswip"]
+[ext_resource type="VideoStream" uid="uid://l220mfbi1gon" path="res://assets/videos/under-construction/uc intro.ogv" id="5_umsp2"]
+
+[node name="Under Construction" type="Node2D" node_paths=PackedStringArray("cam")]
+script = ExtResource("1_oswip")
+cam = NodePath("cam")
+default_cam_zoom = 0.9
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="dad_position" type="Marker2D" parent="."]
+position = Vector2(314, 776)
+
+[node name="gf_position" type="Marker2D" parent="."]
+position = Vector2(646, 760)
+
+[node name="bf_position" type="Marker2D" parent="."]
+position = Vector2(1069, 776)
+
+[node name="videos" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="start" type="ColorRect" parent="videos"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="intro" type="VideoStreamPlayer" parent="videos"]
+unique_name_in_owner = true
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+stream = ExtResource("5_umsp2")
+
+[node name="flash" type="ColorRect" parent="videos"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)

@@ -21,7 +21,7 @@ func note_hit(note:Note):
 	pass
 func note_miss(note:Note):
 	pass
-func event_triggered(event:Event):
+func event_triggered(event:Event, time: float, values: Array):
 	pass
 func song_start():
 	pass
