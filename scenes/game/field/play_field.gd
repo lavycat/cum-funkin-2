@@ -9,7 +9,7 @@ var note_field:NoteField = null
 var notes:Array = []
 var strums:Array[Receptor] = []
 var pressed:Array[bool] = [false,false,false,false]
-var actions:Array[String] = ["note_left","note_down","note_up","note_right"]
+var actions:Array[String] = ["4k_left","4k_down","4k_up","4k_right"]
 signal note_spawned(note:Note)
 signal note_hit(note:Note)
 signal note_miss(note:Note)

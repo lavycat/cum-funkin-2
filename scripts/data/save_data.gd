@@ -13,7 +13,7 @@ class_name SaveData extends Resource
 
 @export var key_binds:Dictionary = {
 	"4k_left": ["D","left"],
-	"4k_down": ["F","left"],
-	"4k_up": ["J","left"],
-	"4k_right": ["K","left"]
+	"4k_down": ["F","down"],
+	"4k_up": ["J","up"],
+	"4k_right": ["K","right"]
 }

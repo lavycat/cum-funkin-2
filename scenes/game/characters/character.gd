@@ -25,7 +25,8 @@ func _ready() -> void:
 func play_anim(anim:String,force:bool = false):
 	cur_anim = anim
 	player.play(anim)
-	player.seek(0,true,true)
+	if force:
+		player.seek(0)
 func sing(dir:int,miss:bool = false):
 	if not can_sing:
 		return
