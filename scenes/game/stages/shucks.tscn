@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://c0hdfh5wadl7k" path="res://scenes/game/stages/shucks.gd" id="1_g6p3p"]
 [ext_resource type="Texture2D" uid="uid://cqj5dkgikp2t0" path="res://assets/images/game/stages/shucks/bg.png" id="2_mgh57"]
-[ext_resource type="Texture2D" uid="uid://do180llm8j6to" path="res://assets/images/game/stages/shucks/extralight.png" id="3_g6p3p"]
 [ext_resource type="VideoStream" uid="uid://cgvxbwvipeu80" path="res://assets/videos/shucks.ogv" id="3_wssmt"]
-[ext_resource type="Texture2D" uid="uid://d344ubpdap8st" path="res://assets/images/game/stages/shucks/lightbase.png" id="4_814bl"]
 [ext_resource type="Texture2D" uid="uid://ce2k7x7ymcnq5" path="res://assets/images/game/stages/shucks/light.png" id="4_uwh8x"]
 [ext_resource type="Texture2D" uid="uid://q4je5gl0cxfq" path="res://assets/images/game/stages/shucks/glow2.png" id="6_j60io"]
 [ext_resource type="Texture2D" uid="uid://c05ia5il0pita" path="res://assets/images/game/stages/shucks/glow.png" id="7_b4fms"]
-[ext_resource type="Texture2D" uid="uid://pr11he26tsqv" path="res://assets/images/game/stages/shucks/glow3.png" id="8_mea5d"]
 [ext_resource type="Texture2D" uid="uid://chf31oj7vpoog" path="res://assets/images/game/stages/shucks/chain.png" id="9_snlug"]
+[ext_resource type="PackedScene" uid="uid://bc07u7j1ox6ei" path="res://scenes/game/characters/dbtgShut.tscn" id="10_mea5d"]
 [ext_resource type="PackedScene" uid="uid://q62pl7iph1as" path="res://scenes/game/characters/dbtgAppear.tscn" id="11_mea5d"]
+[ext_resource type="PackedScene" uid="uid://dmdp6187vgvao" path="res://scenes/game/characters/marvinShut.tscn" id="11_snlug"]
 [ext_resource type="PackedScene" uid="uid://dsfhyxsjoouh5" path="res://scenes/game/characters/marvinAppear.tscn" id="12_snlug"]
+[ext_resource type="PackedScene" uid="uid://bmn2ewjjsarl8" path="res://scenes/game/characters/roseShut.tscn" id="12_wytbl"]
 
 [node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
 script = ExtResource("1_g6p3p")
@@ -28,17 +28,8 @@ position = Vector2(-1800, -1585)
 texture = ExtResource("2_mgh57")
 centered = false
 
-[node name="Extralight" type="Sprite2D" parent="Bg"]
-texture = ExtResource("3_g6p3p")
-centered = false
-
-[node name="Light2" type="Sprite2D" parent="Bg"]
-position = Vector2(-208, 0)
-texture = ExtResource("4_814bl")
-centered = false
-
-[node name="Light" type="Sprite2D" parent="Bg/Light2"]
-position = Vector2(208, 0)
+[node name="Light" type="Sprite2D" parent="."]
+position = Vector2(875, -1200)
 texture = ExtResource("4_uwh8x")
 centered = false
 
@@ -50,12 +41,7 @@ z_index = 1
 position = Vector2(-1800, -1585)
 texture = ExtResource("7_b4fms")
 centered = false
-
-[node name="glow3" type="Sprite2D" parent="Parallax2D"]
-z_index = 1
-position = Vector2(-1800, -1585)
-texture = ExtResource("8_mea5d")
-centered = false
+metadata/_edit_lock_ = true
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.8, 1)
@@ -91,7 +77,16 @@ texture = ExtResource("6_j60io")
 centered = false
 
 [node name="dad" parent="." instance=ExtResource("11_mea5d")]
-position = Vector2(-7392, 4498)
+position = Vector2(-10100, 2020)
 
 [node name="bf" parent="." instance=ExtResource("12_snlug")]
-position = Vector2(-6581, 2373)
+position = Vector2(-14705, 2909)
+
+[node name="dad2" parent="." instance=ExtResource("10_mea5d")]
+position = Vector2(-10834, 2017)
+
+[node name="dad3" parent="." instance=ExtResource("11_snlug")]
+position = Vector2(-14707, 2526)
+
+[node name="dad4" parent="." instance=ExtResource("12_wytbl")]
+position = Vector2(-12249, 1526)

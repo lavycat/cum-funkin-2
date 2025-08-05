@@ -49,7 +49,7 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g2grk"]
 _data = {
-&"Idle": SubResource("Animation_yd6ae")
+&"idle": SubResource("Animation_yd6ae")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p7kdo"]
@@ -212,7 +212,6 @@ position = Vector2(-8, -296)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_iuv4c")
 animation = &"Idle"
-frame = 10
 script = ExtResource("5_ktj8b")
 tex = ExtResource("6_gneqg")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
