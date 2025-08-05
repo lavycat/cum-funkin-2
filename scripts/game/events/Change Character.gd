@@ -42,20 +42,22 @@ func trigger(event_time: float, event_values: Array) -> void:
 	var char_from: Character = null
 	var char_scene: PackedScene = preloaded_characters[event_values[1]]
 	var char_to: Character = char_scene.instantiate()
+	print(event_values)
 	match event_values[0]:
-		"dad":
+		"dad",0.0:
 			char_from = game.dad
 			char_to.position = char_from.position
+			print(char_to.scene_file_path)
 			game.add_child(char_to)
 			char_from.queue_free()
 			game.dad = char_to
-		"bf":
+		"bf",1.0:
 			char_from = game.bf
 			char_to.position = char_from.position
 			game.add_child(char_to)
 			char_from.queue_free()
 			game.bf = char_to
-		"gf":
+		"gf",2.0:
 			char_from = game.gf
 			char_to.position = char_from.position
 			game.add_child(char_to)

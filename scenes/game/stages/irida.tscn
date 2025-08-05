@@ -66,29 +66,16 @@ texture = ExtResource("2_ma5ww")
 [node name="real" type="Node2D" parent="."]
 
 [node name="DarkPurple" type="Sprite2D" parent="real"]
-visible = false
 position = Vector2(526, 484)
 texture = ExtResource("10_f4svc")
 
 [node name="Darkness" type="Sprite2D" parent="real"]
-visible = false
 position = Vector2(526, 484)
 texture = ExtResource("11_uy7yc")
 
-[node name="Flare" type="Sprite2D" parent="real"]
-visible = false
-position = Vector2(526, 484)
-texture = ExtResource("14_84knh")
-
 [node name="LightPurple" type="Sprite2D" parent="real"]
-visible = false
 position = Vector2(526, 484)
 texture = ExtResource("16_dht18")
-
-[node name="Wires2" type="Sprite2D" parent="real"]
-visible = false
-position = Vector2(526, 484)
-texture = ExtResource("18_7i8iq")
 
 [node name="0X1" type="Parallax2D" parent="real"]
 scroll_scale = Vector2(0, 1)
@@ -108,6 +95,15 @@ texture = ExtResource("17_pbimj")
 position = Vector2(526, 484)
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("15_t3br4")
+
+[node name="Flare" type="Sprite2D" parent="real/0X1"]
+position = Vector2(126, -52)
+texture = ExtResource("14_84knh")
+
+[node name="Wires2" type="Sprite2D" parent="real/0X1"]
+visible = false
+position = Vector2(578, 543)
+texture = ExtResource("18_7i8iq")
 
 [node name="02X1" type="Parallax2D" parent="real"]
 scroll_scale = Vector2(0.2, 1)

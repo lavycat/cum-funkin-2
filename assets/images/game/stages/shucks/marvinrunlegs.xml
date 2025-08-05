@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="marvinrunlegs.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="marvin run legs0000" x="0" y="0" width="795" height="540" frameX="0" frameY="-682" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0001" x="0" y="0" width="795" height="540" frameX="0" frameY="-682" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0002" x="795" y="0" width="650" height="543" frameX="-14" frameY="-696" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0003" x="795" y="0" width="650" height="543" frameX="-14" frameY="-696" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0004" x="1445" y="0" width="528" height="531" frameX="-77" frameY="-644" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0005" x="1445" y="0" width="528" height="531" frameX="-77" frameY="-644" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0006" x="1973" y="0" width="500" height="537" frameX="-204" frameY="-642" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0007" x="1973" y="0" width="500" height="537" frameX="-204" frameY="-642" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0008" x="2473" y="0" width="431" height="1227" frameX="-212" frameY="0" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0009" x="2473" y="0" width="431" height="1227" frameX="-212" frameY="0" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0010" x="2904" y="0" width="417" height="546" frameX="-193" frameY="-687" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0011" x="2904" y="0" width="417" height="546" frameX="-193" frameY="-687" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0012" x="3321" y="0" width="596" height="534" frameX="-79" frameY="-691" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0013" x="3321" y="0" width="596" height="534" frameX="-79" frameY="-691" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0014" x="0" y="1227" width="887" height="558" frameX="-30" frameY="-645" frameWidth="917" frameHeight="1239"/>
+	<SubTexture name="marvin run legs0015" x="0" y="1227" width="887" height="558" frameX="-30" frameY="-645" frameWidth="917" frameHeight="1239"/>
+</TextureAtlas>

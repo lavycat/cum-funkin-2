@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="bluddydetg.png" width="6206" height="6420">
+	<SubTexture name="DETG_DOWN_BLUD0000" x="3729" y="3651" width="790" height="618" frameX="-23" frameY="-275" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0001" x="4522" y="4192" width="617" height="790" rotated="true" frameX="-25" frameY="-276" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0002" x="1" y="5064" width="786" height="605" frameX="-34" frameY="-288" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0003" x="790" y="5064" width="786" height="605" frameX="-34" frameY="-288" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0004" x="1579" y="5064" width="771" height="602" frameX="-42" frameY="-291" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0005" x="1579" y="5064" width="771" height="602" frameX="-42" frameY="-291" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0006" x="2353" y="5064" width="764" height="602" frameX="-42" frameY="-291" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0007" x="2353" y="5064" width="764" height="602" frameX="-42" frameY="-291" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0008" x="3120" y="5021" width="764" height="602" frameX="-42" frameY="-291" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0009" x="4653" y="4985" width="762" height="603" frameX="-42" frameY="-290" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0010" x="5602" y="1" width="603" height="762" rotated="true" frameX="-42" frameY="-290" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0011" x="5602" y="1" width="603" height="762" rotated="true" frameX="-42" frameY="-290" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0012" x="3887" y="5013" width="763" height="604" frameX="-41" frameY="-289" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0013" x="3887" y="5013" width="763" height="604" frameX="-41" frameY="-289" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0014" x="3729" y="3651" width="790" height="618" frameX="-23" frameY="-275" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0015" x="4522" y="4192" width="617" height="790" rotated="true" frameX="-25" frameY="-276" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0016" x="1" y="5064" width="786" height="605" frameX="-34" frameY="-288" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0017" x="790" y="5064" width="786" height="605" frameX="-34" frameY="-288" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0018" x="1579" y="5064" width="771" height="602" frameX="-42" frameY="-291" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0019" x="1579" y="5064" width="771" height="602" frameX="-42" frameY="-291" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0020" x="2353" y="5064" width="764" height="602" frameX="-42" frameY="-291" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0021" x="2353" y="5064" width="764" height="602" frameX="-42" frameY="-291" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0022" x="3120" y="5021" width="764" height="602" frameX="-42" frameY="-291" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0023" x="4653" y="4985" width="762" height="603" frameX="-42" frameY="-290" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0024" x="5602" y="1" width="603" height="762" rotated="true" frameX="-42" frameY="-290" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0025" x="5602" y="1" width="603" height="762" rotated="true" frameX="-42" frameY="-290" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0026" x="3887" y="5013" width="763" height="604" frameX="-41" frameY="-289" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_DOWN_BLUD0027" x="3887" y="5013" width="763" height="604" frameX="-41" frameY="-289" frameWidth="984" frameHeight="939"/>
+	<SubTexture name="DETG_IDLE_BLUD0000" x="1275" y="2538" width="929" height="580" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0001" x="3100" y="1" width="579" height="929" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0002" x="3100" y="933" width="579" height="929" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0003" x="3100" y="933" width="579" height="929" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0004" x="2207" y="2531" width="929" height="580" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0005" x="2567" y="1905" width="929" height="579" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0006" x="1" y="3165" width="929" height="579" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0007" x="933" y="3165" width="929" height="579" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0008" x="1865" y="3121" width="929" height="580" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0009" x="3682" y="1" width="579" height="929" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0010" x="3682" y="933" width="579" height="929" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0011" x="2797" y="3114" width="929" height="579" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0012" x="3139" y="2487" width="929" height="579" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0013" x="1" y="3747" width="929" height="579" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0014" x="1865" y="3704" width="929" height="580" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0015" x="933" y="3747" width="929" height="579" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0016" x="2797" y="3696" width="929" height="579" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0017" x="2797" y="3696" width="929" height="579" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0018" x="2797" y="3696" width="929" height="579" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0019" x="4264" y="1" width="579" height="929" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0020" x="4264" y="1" width="579" height="929" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0021" x="4264" y="1" width="579" height="929" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0022" x="4264" y="933" width="579" height="929" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0023" x="4264" y="933" width="579" height="929" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0024" x="3499" y="1865" width="929" height="579" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0025" x="3499" y="1865" width="929" height="579" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0026" x="3729" y="3069" width="929" height="579" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_IDLE_BLUD0027" x="3729" y="3069" width="929" height="579" rotated="true" frameX="-0" frameY="-0" frameWidth="580" frameHeight="930"/>
+	<SubTexture name="DETG_LEFT_BLUD0000" x="4846" y="1" width="753" height="897" frameX="-12" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0001" x="4846" y="1801" width="751" height="896" frameX="-13" frameY="-116" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0002" x="4661" y="2700" width="896" height="743" rotated="true" frameX="-22" frameY="-118" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0003" x="4661" y="3446" width="896" height="743" rotated="true" frameX="-22" frameY="-118" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0004" x="4846" y="901" width="736" height="897" frameX="-30" frameY="-117" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0005" x="4846" y="901" width="736" height="897" frameX="-30" frameY="-117" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0006" x="1" y="4329" width="900" height="732" rotated="true" frameX="-34" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0007" x="1" y="4329" width="900" height="732" rotated="true" frameX="-34" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0008" x="904" y="4329" width="900" height="732" rotated="true" frameX="-33" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0009" x="1807" y="4329" width="899" height="732" rotated="true" frameX="-34" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0010" x="2709" y="4287" width="899" height="731" rotated="true" frameX="-34" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0011" x="2709" y="4287" width="899" height="731" rotated="true" frameX="-34" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0012" x="3611" y="4278" width="899" height="732" rotated="true" frameX="-34" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0013" x="3611" y="4278" width="899" height="732" rotated="true" frameX="-34" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0014" x="4846" y="1" width="753" height="897" frameX="-12" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0015" x="4846" y="1801" width="751" height="896" frameX="-13" frameY="-116" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0016" x="4661" y="2700" width="896" height="743" rotated="true" frameX="-22" frameY="-118" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0017" x="4661" y="3446" width="896" height="743" rotated="true" frameX="-22" frameY="-118" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0018" x="4846" y="901" width="736" height="897" frameX="-30" frameY="-117" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0019" x="4846" y="901" width="736" height="897" frameX="-30" frameY="-117" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0020" x="1" y="4329" width="900" height="732" rotated="true" frameX="-34" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0021" x="1" y="4329" width="900" height="732" rotated="true" frameX="-34" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0022" x="904" y="4329" width="900" height="732" rotated="true" frameX="-33" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0023" x="1807" y="4329" width="899" height="732" rotated="true" frameX="-34" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0024" x="2709" y="4287" width="899" height="731" rotated="true" frameX="-34" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0025" x="2709" y="4287" width="899" height="731" rotated="true" frameX="-34" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0026" x="3611" y="4278" width="899" height="732" rotated="true" frameX="-34" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_LEFT_BLUD0027" x="3611" y="4278" width="899" height="732" rotated="true" frameX="-34" frameY="-114" frameWidth="801" frameHeight="1047"/>
+	<SubTexture name="DETG_RIGHT_BLUD0000" x="5418" y="4192" width="757" height="747" rotated="true" frameX="-37" frameY="-168" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0001" x="1" y="5672" width="757" height="747" rotated="true" frameX="-37" frameY="-168" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0002" x="3120" y="5663" width="732" height="752" frameX="-35" frameY="-173" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0003" x="3120" y="5663" width="732" height="752" frameX="-35" frameY="-173" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0004" x="2277" y="5669" width="724" height="749" frameX="-35" frameY="-176" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0005" x="2277" y="5669" width="724" height="749" frameX="-35" frameY="-176" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0006" x="761" y="5672" width="755" height="721" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0007" x="761" y="5672" width="755" height="721" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0008" x="761" y="5672" width="755" height="721" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0009" x="1519" y="5672" width="755" height="719" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0010" x="1519" y="5672" width="755" height="719" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0011" x="1519" y="5672" width="755" height="719" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0012" x="5418" y="4942" width="755" height="718" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0013" x="5418" y="4942" width="755" height="718" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0014" x="5418" y="4192" width="757" height="747" rotated="true" frameX="-37" frameY="-168" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0015" x="1" y="5672" width="757" height="747" rotated="true" frameX="-37" frameY="-168" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0016" x="3120" y="5663" width="732" height="752" frameX="-35" frameY="-173" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0017" x="3120" y="5663" width="732" height="752" frameX="-35" frameY="-173" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0018" x="2277" y="5669" width="724" height="749" frameX="-35" frameY="-176" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0019" x="2277" y="5669" width="724" height="749" frameX="-35" frameY="-176" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0020" x="761" y="5672" width="755" height="721" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0021" x="761" y="5672" width="755" height="721" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0022" x="761" y="5672" width="755" height="721" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0023" x="1519" y="5672" width="755" height="719" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0024" x="1519" y="5672" width="755" height="719" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0025" x="1519" y="5672" width="755" height="719" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0026" x="5418" y="4942" width="755" height="718" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_RIGHT_BLUD0027" x="5418" y="4942" width="755" height="718" rotated="true" frameX="-34" frameY="-170" frameWidth="1031" frameHeight="963"/>
+	<SubTexture name="DETG_UP_BLUD0000" x="1" y="1" width="613" height="1295" frameX="-43" frameY="-50" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0001" x="617" y="1" width="617" height="1295" frameX="-42" frameY="-50" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0002" x="1852" y="1" width="625" height="1282" frameX="-44" frameY="-63" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0003" x="1" y="1913" width="1282" height="622" rotated="true" frameX="-47" frameY="-63" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0004" x="1" y="2538" width="1271" height="624" rotated="true" frameX="-53" frameY="-74" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0005" x="1" y="2538" width="1271" height="624" rotated="true" frameX="-53" frameY="-74" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0006" x="2480" y="1" width="617" height="1278" frameX="-63" frameY="-67" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0007" x="1286" y="1913" width="1278" height="615" rotated="true" frameX="-66" frameY="-67" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0008" x="1287" y="1288" width="1278" height="614" rotated="true" frameX="-66" frameY="-67" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0009" x="1" y="1299" width="1283" height="611" rotated="true" frameX="-68" frameY="-62" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0010" x="1" y="1299" width="1283" height="611" rotated="true" frameX="-68" frameY="-62" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0011" x="1" y="1299" width="1283" height="611" rotated="true" frameX="-68" frameY="-62" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0012" x="1237" y="1" width="612" height="1284" frameX="-65" frameY="-61" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0013" x="1237" y="1" width="612" height="1284" frameX="-65" frameY="-61" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0014" x="1" y="1" width="613" height="1295" frameX="-43" frameY="-50" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0015" x="617" y="1" width="617" height="1295" frameX="-42" frameY="-50" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0016" x="1852" y="1" width="625" height="1282" frameX="-44" frameY="-63" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0017" x="1" y="1913" width="1282" height="622" rotated="true" frameX="-47" frameY="-63" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0018" x="1" y="2538" width="1271" height="624" rotated="true" frameX="-53" frameY="-74" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0019" x="1" y="2538" width="1271" height="624" rotated="true" frameX="-53" frameY="-74" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0020" x="2480" y="1" width="617" height="1278" frameX="-63" frameY="-67" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0021" x="1286" y="1913" width="1278" height="615" rotated="true" frameX="-66" frameY="-67" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0022" x="1287" y="1288" width="1278" height="614" rotated="true" frameX="-66" frameY="-67" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0023" x="1" y="1299" width="1283" height="611" rotated="true" frameX="-68" frameY="-62" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0024" x="1" y="1299" width="1283" height="611" rotated="true" frameX="-68" frameY="-62" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0025" x="1" y="1299" width="1283" height="611" rotated="true" frameX="-68" frameY="-62" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0026" x="1237" y="1" width="612" height="1284" frameX="-65" frameY="-61" frameWidth="1130" frameHeight="1384"/>
+	<SubTexture name="DETG_UP_BLUD0027" x="1237" y="1" width="612" height="1284" frameX="-65" frameY="-61" frameWidth="1130" frameHeight="1384"/>
+</TextureAtlas>

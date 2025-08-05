@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Running_Door.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Running_Door0000" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="Running_Door0001" x="1280" y="0" width="1280" height="720"/>
+	<SubTexture name="Running_Door0002" x="2560" y="0" width="1280" height="720"/>
+	<SubTexture name="Running_Door0003" x="3840" y="0" width="1280" height="720"/>
+	<SubTexture name="Running_Door0004" x="5120" y="0" width="1280" height="720"/>
+	<SubTexture name="Running_Door0005" x="6400" y="0" width="1280" height="720"/>
+	<SubTexture name="Running_Door0006" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="Running_Door0007" x="1280" y="720" width="1280" height="720"/>
+	<SubTexture name="Running_Door0008" x="2560" y="720" width="1280" height="720"/>
+	<SubTexture name="Running_Door0009" x="3840" y="720" width="1280" height="720"/>
+	<SubTexture name="Running_Door0010" x="5120" y="720" width="1280" height="720"/>
+	<SubTexture name="Running_Door0011" x="6400" y="720" width="1280" height="720"/>
+	<SubTexture name="Running_Door0012" x="0" y="1440" width="1280" height="720"/>
+	<SubTexture name="Running_Door0013" x="1280" y="1440" width="1280" height="720"/>
+	<SubTexture name="Running_Door0014" x="2560" y="1440" width="1280" height="720"/>
+	<SubTexture name="Running_Door0015" x="3840" y="1440" width="1280" height="720"/>
+	<SubTexture name="Running_Door0016" x="5120" y="1440" width="1280" height="720"/>
+	<SubTexture name="Running_Door0017" x="6400" y="1440" width="1280" height="720"/>
+	<SubTexture name="Running_Door0018" x="0" y="2160" width="1280" height="720"/>
+	<SubTexture name="Running_Door0019" x="1280" y="2160" width="1280" height="720"/>
+	<SubTexture name="Running_Door0020" x="2560" y="2160" width="1280" height="720"/>
+	<SubTexture name="Running_Door0021" x="3840" y="2160" width="1280" height="720"/>
+	<SubTexture name="Running_Door0022" x="5120" y="2160" width="1280" height="720"/>
+	<SubTexture name="Running_Door0023" x="6400" y="2160" width="1280" height="720"/>
+</TextureAtlas>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="DETGLEGS.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="DETG LEGS0000" x="0" y="0" width="1303" height="760" frameX="0" frameY="-24" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0001" x="0" y="0" width="1303" height="760" frameX="0" frameY="-24" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0002" x="1303" y="0" width="960" height="925" frameX="-11" frameY="-46" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0003" x="1303" y="0" width="960" height="925" frameX="-11" frameY="-46" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0004" x="2263" y="0" width="725" height="803" frameX="-28" frameY="-62" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0005" x="2263" y="0" width="725" height="803" frameX="-28" frameY="-62" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0006" x="2988" y="0" width="619" height="659" frameX="-182" frameY="-43" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0007" x="2988" y="0" width="619" height="659" frameX="-182" frameY="-43" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0008" x="0" y="925" width="516" height="809" frameX="-235" frameY="0" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0009" x="0" y="925" width="516" height="809" frameX="-235" frameY="0" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0010" x="516" y="925" width="440" height="905" frameX="-169" frameY="-1" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0011" x="516" y="925" width="440" height="905" frameX="-169" frameY="-1" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0012" x="956" y="925" width="575" height="734" frameX="-70" frameY="-52" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0013" x="956" y="925" width="575" height="734" frameX="-70" frameY="-52" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0014" x="1531" y="925" width="1040" height="597" frameX="0" frameY="-49" frameWidth="1303" frameHeight="971"/>
+	<SubTexture name="DETG LEGS0015" x="1531" y="925" width="1040" height="597" frameX="0" frameY="-49" frameWidth="1303" frameHeight="971"/>
+</TextureAtlas>

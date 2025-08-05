@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://o0wpvefcnolg"]
+
+[ext_resource type="Script" uid="uid://c0hdfh5wadl7k" path="res://scenes/game/stages/shucks.gd" id="1_g6p3p"]
+[ext_resource type="Texture2D" uid="uid://cqj5dkgikp2t0" path="res://assets/images/game/stages/shucks/bg.png" id="2_mgh57"]
+[ext_resource type="Texture2D" uid="uid://do180llm8j6to" path="res://assets/images/game/stages/shucks/extralight.png" id="3_g6p3p"]
+[ext_resource type="VideoStream" uid="uid://cgvxbwvipeu80" path="res://assets/videos/shucks.ogv" id="3_wssmt"]
+[ext_resource type="Texture2D" uid="uid://d344ubpdap8st" path="res://assets/images/game/stages/shucks/lightbase.png" id="4_814bl"]
+[ext_resource type="Texture2D" uid="uid://ce2k7x7ymcnq5" path="res://assets/images/game/stages/shucks/light.png" id="4_uwh8x"]
+[ext_resource type="Texture2D" uid="uid://q4je5gl0cxfq" path="res://assets/images/game/stages/shucks/glow2.png" id="6_j60io"]
+[ext_resource type="Texture2D" uid="uid://c05ia5il0pita" path="res://assets/images/game/stages/shucks/glow.png" id="7_b4fms"]
+[ext_resource type="Texture2D" uid="uid://pr11he26tsqv" path="res://assets/images/game/stages/shucks/glow3.png" id="8_mea5d"]
+[ext_resource type="Texture2D" uid="uid://chf31oj7vpoog" path="res://assets/images/game/stages/shucks/chain.png" id="9_snlug"]
+[ext_resource type="PackedScene" uid="uid://q62pl7iph1as" path="res://scenes/game/characters/dbtgAppear.tscn" id="11_mea5d"]
+[ext_resource type="PackedScene" uid="uid://dsfhyxsjoouh5" path="res://scenes/game/characters/marvinAppear.tscn" id="12_snlug"]
+
+[node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
+script = ExtResource("1_g6p3p")
+cam = NodePath("cam")
+default_cam_zoom = 0.5
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(-1800, -1585)
+texture = ExtResource("2_mgh57")
+centered = false
+
+[node name="Extralight" type="Sprite2D" parent="Bg"]
+texture = ExtResource("3_g6p3p")
+centered = false
+
+[node name="Light2" type="Sprite2D" parent="Bg"]
+position = Vector2(-208, 0)
+texture = ExtResource("4_814bl")
+centered = false
+
+[node name="Light" type="Sprite2D" parent="Bg/Light2"]
+position = Vector2(208, 0)
+texture = ExtResource("4_uwh8x")
+centered = false
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.1, 1)
+
+[node name="glow" type="Sprite2D" parent="Parallax2D"]
+z_index = 1
+position = Vector2(-1800, -1585)
+texture = ExtResource("7_b4fms")
+centered = false
+
+[node name="glow3" type="Sprite2D" parent="Parallax2D"]
+z_index = 1
+position = Vector2(-1800, -1585)
+texture = ExtResource("8_mea5d")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 1)
+
+[node name="chain" type="Sprite2D" parent="Parallax2D2"]
+z_index = 1
+position = Vector2(-1800, -1585)
+texture = ExtResource("9_snlug")
+centered = false
+
+[node name="dad_position" type="Marker2D" parent="."]
+position = Vector2(280, 500)
+
+[node name="gf_position" type="Marker2D" parent="."]
+position = Vector2(1085, 0)
+
+[node name="bf_position" type="Marker2D" parent="."]
+position = Vector2(1500, 500)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="cut" type="VideoStreamPlayer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("3_wssmt")
+volume_db = -80.0
+
+[node name="red" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_j60io")
+centered = false
+
+[node name="dad" parent="." instance=ExtResource("11_mea5d")]
+position = Vector2(-7392, 4498)
+
+[node name="bf" parent="." instance=ExtResource("12_snlug")]
+position = Vector2(-6581, 2373)

@@ -21,11 +21,14 @@ func parse_xml():
 				var x:int = parser.get_named_attribute_value_safe("x").to_int()
 				var y:int = parser.get_named_attribute_value_safe("y").to_int()
 				var name:String = parser.get_named_attribute_value("name").left(-4)
+				var is_rotated:bool = parser.get_named_attribute_value_safe("rotated") == "true"
 				var frame:int = parser.get_named_attribute_value("name").substr(name.length()).to_int()
 				## add them frames
 				var atlas_tex := AtlasTexture.new()
 				atlas_tex.atlas = tex
+				
 				atlas_tex.region = Rect2(x,y,w,h)
+				
 				var has_offsets = parser.has_attribute("frameX") or parser.has_attribute("frameY") or\
 				parser.has_attribute("frameWidth") or parser.has_attribute("frameHeight")
 				var offsets := Rect2(parser.get_named_attribute_value_safe("frameX").to_int(),\
@@ -33,7 +36,9 @@ func parse_xml():
 				parser.get_named_attribute_value_safe("frameWidth").to_int(),\
 				parser.get_named_attribute_value_safe("frameHeight").to_int())
 				if has_offsets:
-					atlas_tex.margin = Rect2(-offsets.position,offsets.size - atlas_tex.region.size)
+						atlas_tex.margin = Rect2(-offsets.position,offsets.size - atlas_tex.region.size)
+						
+						
 				if not sprite_frames.has_animation(name):
 					sprite_frames.add_animation(name)
 					sprite_frames.set_animation_loop(name,loop)

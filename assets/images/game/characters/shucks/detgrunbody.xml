@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="detgrun.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="DOWN DETG0000" x="0" y="0" width="841" height="474" frameX="0" frameY="-120" frameWidth="841" frameHeight="652"/>
+	<SubTexture name="DOWN DETG0001" x="841" y="0" width="841" height="464" frameX="0" frameY="-120" frameWidth="841" frameHeight="652"/>
+	<SubTexture name="DOWN DETG0002" x="1682" y="0" width="811" height="541" frameX="-12" frameY="-97" frameWidth="841" frameHeight="652"/>
+	<SubTexture name="DOWN DETG0003" x="2493" y="0" width="811" height="548" frameX="-12" frameY="-97" frameWidth="841" frameHeight="652"/>
+	<SubTexture name="DOWN DETG0004" x="3304" y="0" width="806" height="570" frameX="-13" frameY="-82" frameWidth="841" frameHeight="652"/>
+	<SubTexture name="DOWN DETG0005" x="4110" y="0" width="806" height="569" frameX="-13" frameY="-82" frameWidth="841" frameHeight="652"/>
+	<SubTexture name="DOWN DETG0006" x="4916" y="0" width="804" height="569" frameX="-15" frameY="-70" frameWidth="841" frameHeight="652"/>
+	<SubTexture name="DOWN DETG0007" x="5720" y="0" width="804" height="563" frameX="-15" frameY="-70" frameWidth="841" frameHeight="652"/>
+	<SubTexture name="DOWN DETG0008" x="6524" y="0" width="775" height="602" frameX="-28" frameY="0" frameWidth="841" frameHeight="652"/>
+	<SubTexture name="DOWN DETG0009" x="7299" y="0" width="775" height="600" frameX="-28" frameY="0" frameWidth="841" frameHeight="652"/>
+	<SubTexture name="IDLE DETG0000" x="0" y="602" width="598" height="1009" frameX="-189" frameY="0" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0001" x="0" y="602" width="598" height="1009" frameX="-189" frameY="0" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0002" x="598" y="602" width="606" height="1044" frameX="-176" frameY="-13" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0003" x="598" y="602" width="606" height="1044" frameX="-176" frameY="-13" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0004" x="1204" y="602" width="598" height="864" frameX="-160" frameY="-79" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0005" x="1204" y="602" width="598" height="864" frameX="-160" frameY="-79" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0006" x="1802" y="602" width="678" height="748" frameX="-80" frameY="-65" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0007" x="1802" y="602" width="678" height="748" frameX="-80" frameY="-65" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0008" x="2480" y="602" width="993" height="553" frameX="-11" frameY="-6" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0009" x="2480" y="602" width="993" height="553" frameX="-11" frameY="-6" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0010" x="3473" y="602" width="961" height="621" frameX="0" frameY="-2" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0011" x="3473" y="602" width="961" height="621" frameX="0" frameY="-2" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0012" x="4434" y="602" width="672" height="686" frameX="-77" frameY="-82" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0013" x="4434" y="602" width="672" height="686" frameX="-77" frameY="-82" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0014" x="5106" y="602" width="617" height="825" frameX="-154" frameY="-64" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="IDLE DETG0015" x="5723" y="602" width="617" height="825" frameX="-154" frameY="-64" frameWidth="1004" frameHeight="1057"/>
+	<SubTexture name="LEFT DETG0000" x="6340" y="602" width="830" height="598" frameX="0" frameY="0" frameWidth="991" frameHeight="654"/>
+	<SubTexture name="LEFT DETG0001" x="7170" y="602" width="830" height="598" frameX="0" frameY="0" frameWidth="991" frameHeight="654"/>
+	<SubTexture name="LEFT DETG0002" x="0" y="1646" width="919" height="616" frameX="-10" frameY="-21" frameWidth="991" frameHeight="654"/>
+	<SubTexture name="LEFT DETG0003" x="0" y="1646" width="919" height="616" frameX="-10" frameY="-21" frameWidth="991" frameHeight="654"/>
+	<SubTexture name="LEFT DETG0004" x="919" y="1646" width="779" height="634" frameX="-143" frameY="-20" frameWidth="991" frameHeight="654"/>
+	<SubTexture name="LEFT DETG0005" x="1698" y="1646" width="779" height="634" frameX="-143" frameY="-20" frameWidth="991" frameHeight="654"/>
+	<SubTexture name="LEFT DETG0006" x="2477" y="1646" width="776" height="626" frameX="-147" frameY="-21" frameWidth="991" frameHeight="654"/>
+	<SubTexture name="LEFT DETG0007" x="3253" y="1646" width="776" height="626" frameX="-147" frameY="-21" frameWidth="991" frameHeight="654"/>
+	<SubTexture name="LEFT DETG0008" x="4029" y="1646" width="848" height="627" frameX="-143" frameY="-20" frameWidth="991" frameHeight="654"/>
+	<SubTexture name="LEFT DETG0009" x="4877" y="1646" width="848" height="627" frameX="-143" frameY="-20" frameWidth="991" frameHeight="654"/>
+	<SubTexture name="RIGHT DETG0000" x="5725" y="1646" width="863" height="567" frameX="-48" frameY="-10" frameWidth="911" frameHeight="583"/>
+	<SubTexture name="RIGHT DETG0001" x="5725" y="1646" width="863" height="567" frameX="-48" frameY="-10" frameWidth="911" frameHeight="583"/>
+	<SubTexture name="RIGHT DETG0002" x="6588" y="1646" width="835" height="563" frameX="-36" frameY="-14" frameWidth="911" frameHeight="583"/>
+	<SubTexture name="RIGHT DETG0003" x="6588" y="1646" width="835" height="563" frameX="-36" frameY="-14" frameWidth="911" frameHeight="583"/>
+	<SubTexture name="RIGHT DETG0004" x="0" y="2280" width="837" height="573" frameX="-35" frameY="-10" frameWidth="911" frameHeight="583"/>
+	<SubTexture name="RIGHT DETG0005" x="0" y="2280" width="837" height="573" frameX="-35" frameY="-10" frameWidth="911" frameHeight="583"/>
+	<SubTexture name="RIGHT DETG0006" x="837" y="2280" width="835" height="578" frameX="-33" frameY="0" frameWidth="911" frameHeight="583"/>
+	<SubTexture name="RIGHT DETG0007" x="837" y="2280" width="835" height="578" frameX="-33" frameY="0" frameWidth="911" frameHeight="583"/>
+	<SubTexture name="RIGHT DETG0008" x="1672" y="2280" width="884" height="572" frameX="0" frameY="-5" frameWidth="911" frameHeight="583"/>
+	<SubTexture name="RIGHT DETG0009" x="1672" y="2280" width="884" height="572" frameX="0" frameY="-5" frameWidth="911" frameHeight="583"/>
+	<SubTexture name="UP DETG0000" x="2556" y="2280" width="831" height="797" frameX="-7" frameY="-35" frameWidth="843" frameHeight="832"/>
+	<SubTexture name="UP DETG0001" x="2556" y="2280" width="831" height="797" frameX="-7" frameY="-35" frameWidth="843" frameHeight="832"/>
+	<SubTexture name="UP DETG0002" x="3387" y="2280" width="809" height="819" frameX="-3" frameY="-13" frameWidth="843" frameHeight="832"/>
+	<SubTexture name="UP DETG0003" x="3387" y="2280" width="809" height="819" frameX="-3" frameY="-13" frameWidth="843" frameHeight="832"/>
+	<SubTexture name="UP DETG0004" x="4196" y="2280" width="790" height="832" frameX="0" frameY="0" frameWidth="843" frameHeight="832"/>
+	<SubTexture name="UP DETG0005" x="4196" y="2280" width="790" height="832" frameX="0" frameY="0" frameWidth="843" frameHeight="832"/>
+	<SubTexture name="UP DETG0006" x="4986" y="2280" width="794" height="819" frameX="0" frameY="-13" frameWidth="843" frameHeight="832"/>
+	<SubTexture name="UP DETG0007" x="4986" y="2280" width="794" height="819" frameX="0" frameY="-13" frameWidth="843" frameHeight="832"/>
+	<SubTexture name="UP DETG0008" x="5780" y="2280" width="837" height="720" frameX="-6" frameY="-110" frameWidth="843" frameHeight="832"/>
+	<SubTexture name="UP DETG0009" x="5780" y="2280" width="837" height="720" frameX="-6" frameY="-110" frameWidth="843" frameHeight="832"/>
+</TextureAtlas>

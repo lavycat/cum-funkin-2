@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=3 uid="uid://q62pl7iph1as"]
+
+[ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_718jm"]
+[ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_w2ns3"]
+[ext_resource type="Script" uid="uid://bmbfirbywm1e3" path="res://scripts/animation_importer.gd" id="3_mkxy5"]
+[ext_resource type="Script" uid="uid://diqmdngjb60u2" path="res://addons/gdanimate/animate_symbol.gd" id="6_w2ns3"]
+
+[sub_resource type="Animation" id="Animation_vlqqx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimateSymbol:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimateSymbol:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [171]
+}
+
+[sub_resource type="Animation" id="Animation_7rjcn"]
+length = 7.12501
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimateSymbol:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimateSymbol:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ox2ny"]
+length = 0.583333
+step = 0.0416667
+
+[sub_resource type="Animation" id="Animation_e5jpk"]
+length = 0.583333
+step = 0.0416667
+
+[sub_resource type="Animation" id="Animation_gbwlw"]
+length = 0.583333
+step = 0.0416667
+
+[sub_resource type="Animation" id="Animation_cuf3j"]
+length = 0.583333
+step = 0.0416667
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_icjsi"]
+_data = {
+&"RESET": SubResource("Animation_vlqqx"),
+&"idle": SubResource("Animation_7rjcn"),
+&"sing_down": SubResource("Animation_ox2ny"),
+&"sing_left": SubResource("Animation_e5jpk"),
+&"sing_right": SubResource("Animation_gbwlw"),
+&"sing_up": SubResource("Animation_cuf3j")
+}
+
+[node name="dad" type="Node2D" node_paths=PackedStringArray("player", "camera_position")]
+script = ExtResource("1_718jm")
+player = NodePath("player")
+camera_position = NodePath("camera_position")
+sing_length = 6.1
+icon_color = Color(0.686275, 0.4, 0.807843, 1)
+icon = ExtResource("2_w2ns3")
+
+[node name="player" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_icjsi")
+}
+script = ExtResource("3_mkxy5")
+
+[node name="camera_position" type="Marker2D" parent="."]
+position = Vector2(192, -481)
+
+[node name="AnimateSymbol" type="Node2D" parent="."]
+position = Vector2(-522, -1970)
+script = ExtResource("6_w2ns3")
+atlas = "res://assets/images/game/characters/shucks/detgappear"
+frame = 171
+loop_mode = "Play Once"
+metadata/_custom_type_script = "uid://diqmdngjb60u2"

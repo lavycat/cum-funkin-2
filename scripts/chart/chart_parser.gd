@@ -41,8 +41,17 @@ static func add_event(chart:Chart,time:float,name:String,vals:Array):
 static func load_cne(meta:Dictionary,json:Dictionary,diff:String):
 	var c = Chart.new()
 	c.bpm = meta.bpm
+	Conductor.add_change(0,c.bpm,0)
 	c.scroll_speed = json.scrollSpeed
 	c.stage = json.stage
+	if json.has("events"):
+		for i in json.events:
+			var t = i.time*0.001
+			var n = i.name
+			var p = i.params
+			if n == "Camera Movement":
+				n = "camera_pan"
+			add_event(c,t,n,p)
 	for i in json.strumLines:
 		var side:int = i.type
 		match side:

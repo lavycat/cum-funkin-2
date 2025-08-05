@@ -1,10 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://bygrvve2uo80d"]
+[gd_scene load_steps=4 format=3 uid="uid://bygrvve2uo80d"]
 
 [ext_resource type="Texture2D" uid="uid://b7k04rhmeotrs" path="res://assets/images/menus/menuDesat_Invert.png" id="1_bp0ux"]
+
+[sub_resource type="Shader" id="Shader_bp0ux"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_60mby"]
+shader = SubResource("Shader_bp0ux")
 
 [node name="OptionsMenu" type="Node2D"]
 
 [node name="MenuDesat" type="Sprite2D" parent="."]
-modulate = Color(0.99241, 0.543829, 0.435316, 1)
+modulate = Color(0.54, 0.662667, 1, 1)
+material = SubResource("ShaderMaterial_60mby")
 position = Vector2(640, 360)
 texture = ExtResource("1_bp0ux")

@@ -44,7 +44,7 @@ class_name AnimateSymbol extends Node2D
 ## [br][br]Loop loops the animation forever and Play Once just stops.
 @export_enum('Loop', 'Play Once') var loop_mode: String = 'Loop'
 
-@export_range(0.0, 10.0, 0.01, 'or_greater') var speed: float = 1.0
+@export_range(-1.0, 10.0, 0.01, 'or_greater') var speed: float = 1.0
 
 ## Keeps track of whether or not the sprite is being animated automatically.
 @export var playing: bool = false
