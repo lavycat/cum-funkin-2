@@ -718,7 +718,7 @@ texture = ExtResource("16_53j1c")
 position = Vector2(843, 1218)
 
 [node name="dad_position" type="Marker2D" parent="."]
-position = Vector2(-180, -365)
+position = Vector2(-210, -605)
 
 [node name="gf_position" type="Marker2D" parent="."]
 position = Vector2(1085, 0)
