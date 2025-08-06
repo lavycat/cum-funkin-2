@@ -128,8 +128,8 @@ script = ExtResource("3_gr8du")
 position = Vector2(192, -481)
 
 [node name="AnimateSymbol" type="Node2D" parent="."]
-position = Vector2(-237, -875)
-scale = Vector2(0.8, 0.8)
+position = Vector2(-350, -1291.56)
+scale = Vector2(1.2, 1.2)
 script = ExtResource("4_lc0vv")
 atlas = "res://assets/images/game/characters/shucks/detgHuh/"
 frame = 171

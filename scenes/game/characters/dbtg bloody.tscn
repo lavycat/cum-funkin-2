@@ -937,8 +937,8 @@ script = ExtResource("3_gbphh")
 sprite = NodePath("../sprite")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-295, -963)
-scale = Vector2(1.4, 1.4)
+position = Vector2(-384, -1296)
+scale = Vector2(1.9, 1.9)
 sprite_frames = SubResource("SpriteFrames_37lbr")
 animation = &"idle_BLUD instance 1"
 centered = false

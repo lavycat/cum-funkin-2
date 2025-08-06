@@ -166,46 +166,6 @@ tracks/2/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_8ave0"]
-length = 0.333333
-step = 0.0416667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [&"down"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.333333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 7]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sprite:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_myb0u"]
 length = 0.583333
 step = 0.0416667
@@ -232,6 +192,46 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0, 13]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8ave0"]
+length = 0.333333
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"down"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 7]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1043,10 +1043,11 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="gf" type="Node2D" node_paths=PackedStringArray("player")]
+[node name="gf" type="Node2D" node_paths=PackedStringArray("player", "camera_position")]
 z_as_relative = false
 script = ExtResource("1_hih8d")
 player = NodePath("player")
+camera_position = NodePath("camera_position")
 icon = ExtResource("2_lgb1v")
 
 [node name="player" type="AnimationPlayer" parent="." node_paths=PackedStringArray("sprite")]
@@ -1060,7 +1061,11 @@ sprite = NodePath("../sprite")
 position = Vector2(-8, -296)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_xlvlk")
-animation = &"idle"
+animation = &"BopLookRight"
 script = ExtResource("5_yjff3")
 tex = ExtResource("4_0n4cw")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
+
+[node name="camera_position" type="Marker2D" parent="."]
+position = Vector2(0, -300)
+scale = Vector2(0.998515, 0.843758)

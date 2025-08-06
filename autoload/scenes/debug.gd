@@ -3,7 +3,6 @@ extends CanvasLayer
 @onready var ram: Label = $VBoxContainer/ram
 @onready var rate: Label = $VBoxContainer/rate
 var peak_mem:int = 0
-
 func update_ui():
 	fps.text = "FPS: %d"%Engine.get_frames_per_second()
 	var total_memory = Performance.get_monitor(Performance.RENDER_TEXTURE_MEM_USED)
@@ -13,3 +12,13 @@ func update_ui():
 	rate.label_settings.font_size = 16 * Conductor.rate
 func _physics_process(delta: float) -> void:
 	update_ui()
+
+func _input(event: InputEvent) -> void:
+	if not event is InputEventKey:
+		return
+	event = event as InputEventKey
+	if event.is_pressed() and not event.is_echo():
+		if event.keycode == KEY_F3:
+			visible = !visible
+		pass
+	pass

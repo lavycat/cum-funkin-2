@@ -102,10 +102,11 @@ libraries = {
 script = ExtResource("3_gyo0p")
 
 [node name="camera_position" type="Marker2D" parent="."]
-position = Vector2(192, -481)
+position = Vector2(442, -881)
 
 [node name="AnimateSymbol" type="Node2D" parent="."]
-position = Vector2(-387, -1041)
+position = Vector2(-540.727, -1445.36)
+scale = Vector2(1.4, 1.4)
 script = ExtResource("4_honr0")
 atlas = "res://assets/images/game/characters/shucks/detgShut"
 loop_mode = "Play Once"

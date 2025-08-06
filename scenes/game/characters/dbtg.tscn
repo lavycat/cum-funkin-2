@@ -937,8 +937,8 @@ script = ExtResource("3_ww8fm")
 sprite = NodePath("../sprite")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-303, -984)
-scale = Vector2(1.2, 1.2)
+position = Vector2(-391, -1304)
+scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_eetsc")
 animation = &"Detg_Idle instance 1"
 centered = false
@@ -946,4 +946,4 @@ script = ExtResource("5_alx2v")
 tex = ExtResource("4_cq5hf")
 
 [node name="camera_position" type="Marker2D" parent="."]
-position = Vector2(192, -481)
+position = Vector2(192, -581)

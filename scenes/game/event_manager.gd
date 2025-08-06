@@ -6,7 +6,10 @@ var index: int = 0
 var event_data: Array[Chart.EventData] = []
 
 signal event_trigger(ev: Event, time: float, values: Array)
-
+func disable_event(n:String):
+	get_node(n).is_disabled = true
+func enable_event(n:String):
+	get_node(n).is_disabled = true
 
 func _process(delta: float) -> void:
 	var events: Array = get_children()
@@ -18,8 +21,9 @@ func _process(delta: float) -> void:
 		var found: bool = false
 		for ev: Event in events:
 			if ev.name == event_data.name:
-				ev.trigger(event_data.time, event_data.values)
-				event_trigger.emit(ev, event_data.time, event_data.values)
+				if not ev.is_disabled:
+					ev.trigger(event_data.time, event_data.values)
+					event_trigger.emit(ev, event_data.time, event_data.values)
 				found = true
 				break
 		if not found:
@@ -29,7 +33,8 @@ func _process(delta: float) -> void:
 			else:
 				ev.name = event_data.name
 			add_child(ev)
-			ev.trigger(event_data.time, event_data.values)
-			event_trigger.emit(ev, event_data.time, event_data.values)
+			if not ev.is_disabled:
+				ev.trigger(event_data.time, event_data.values)
+				event_trigger.emit(ev, event_data.time, event_data.values)
 
 		index += 1

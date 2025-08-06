@@ -3,14 +3,32 @@ extends Stage
 #func _process(delta: float) -> void:
 	#light.rotation_degrees = sin(Conductor.time*4.0)*15.0
 	
+@onready var normal: Node2D = $normal
 @onready var cut: VideoStreamPlayer = $CanvasLayer/cut
+@onready var camera_tween = create_tween().set_parallel()
 var gf_notes:Array[Chart.NoteData] = []
 func flixel_tween_to_godot(tween_type:String,tween:Tween) -> Tween:
-	match tween_type:
-		pass
+	var mapping:Dictionary[String,Array] = {
+		"linear": [Tween.TRANS_LINEAR,Tween.EASE_OUT],
+		"backIn": [Tween.TRANS_BACK,Tween.EASE_IN],
+		"backOut": [Tween.TRANS_BACK,Tween.EASE_OUT],
+		"backInOut": [Tween.TRANS_BACK,Tween.EASE_IN_OUT],
+		"expoIn": [Tween.TRANS_EXPO,Tween.EASE_IN],
+		"expoOut": [Tween.TRANS_EXPO,Tween.EASE_OUT],
+		"expoInOut": [Tween.TRANS_EXPO,Tween.EASE_IN_OUT],
+		"cubeIn": [Tween.TRANS_CUBIC,Tween.EASE_IN],
+		"cubeOut": [Tween.TRANS_EXPO,Tween.EASE_OUT],
+		"cubeInOut": [Tween.TRANS_EXPO,Tween.EASE_IN_OUT],
+	}
+	var d = mapping.get(tween_type,[Tween.TRANS_LINEAR,Tween.EASE_IN])
+	if d == [Tween.TRANS_LINEAR,Tween.EASE_IN]:
+		print("UNIMPLMENTED FLIXEL EASE - %s"%tween_type)
+	tween.set_trans(d[0])
+	tween.set_ease(d[1])
+	
 	return tween
 	pass
-	
+
 func event_triggered(event:Event, time: float, values: Array) -> void:
 	match event.name:
 		"CameraZoom":
@@ -18,17 +36,35 @@ func event_triggered(event:Event, time: float, values: Array) -> void:
 			var tweentype:String = values[2]
 			var duration:float = Conductor.step_length * values[1]
 			var t = create_tween()
+			flixel_tween_to_godot(tweentype,t)
 			t.tween_property(game.camera,"zoom",Vector2(amount,amount),duration)
-			
-			t.set_ease(Tween.EASE_OUT)
-			t.set_trans(Tween.TRANS_CUBIC)
+
 			
 			
 			game.default_camera_zoom = Vector2(amount,amount)
 			
+		"CameraTween":
 			
+			var target:int = values[0]
+			var chars:Array[Character] = [game.dad,game.bf]
+			var campos = Vector2(values[1],values[2])
+			var duration:float = Conductor.step_length * values[3]
+			var tween_type:String = values[4]
+			camera_tween.tween_property(cam,"offset",campos,duration)
+			
+			print(campos)
+			pass
 		"Set Camera Zoom":
 			game.default_camera_zoom = values[0]
+		"camera_pan":
+			if values[0] == 0:
+				game.gf.play_anim("BopLookLeft")
+				game.gf.dance_steps = ["idle"]
+			if values[0] == 1:
+				game.gf.play_anim("BopLookRight")
+				game.gf.dance_steps = ["LookingMarvinIdle"]
+				
+			
 		"Camera Flash":
 			var idk = values[0]
 			var col = Color(values[1] as int).inverted()
@@ -58,10 +94,20 @@ func event_triggered(event:Event, time: float, values: Array) -> void:
 			print("%s -> %s"%[event.name,values])
 	pass
 func _ready() -> void:
+	normal.visible = false
+	game.gf.visible = false
+	#game.dad_field.rotation_degrees = 90
+
+	
+	
+	
 	for i in game.chart.notes:
 		if i.field_id == 2:
 				gf_notes.append(i)
 func _process(delta: float) -> void:
+
+	game.dad_field.transform = game.dad_field.transform.looking_at(game.player_field.position)
+	
 	for n in gf_notes:
 		if n.time - Conductor.time < 0.0:
 			game.gf.sing(n.column)
@@ -70,9 +116,10 @@ func _process(delta: float) -> void:
 
 
 func step_hit(step:int):
-	
 	match step:
+		434:
+			normal.visible = true
+			game.gf.visible = true
+			
 		3136:
 			cut.play()
-		pass
-	pass
