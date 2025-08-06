@@ -8,6 +8,7 @@ var directions = ["left","down","up","right"]
 var note_field:NoteField = null
 var notes:Array = []
 var strums:Array[Receptor] = []
+var buttons:Array[TouchScreenButton] = []
 var pressed:Array[bool] = [false,false,false,false]
 var actions:Array[String] = ["4k_left","4k_down","4k_up","4k_right"]
 signal note_spawned(note:Note)
@@ -17,8 +18,14 @@ signal note_miss(note:Note)
 func _ready() -> void:
 	var strumline:Node2D = load("res://scenes/game/field/strum_lines/4k.tscn").instantiate()
 	add_child(strumline)
-	for i:Receptor in strumline.get_children():
-		strums.append(i)
+	for i in strumline.get_children():
+		if i is Receptor:
+			strums.append(i)
+	for i in strumline.get_node("CanvasLayer").get_children():
+		if !auto_play:
+			buttons.append(i)
+		else:
+			i.queue_free()
 	if Engine.is_editor_hint():
 		return
 	note_field = NoteField.new()
@@ -27,6 +34,16 @@ func _ready() -> void:
 	note_field.scroll_speed = sc
 	note_field.down_scroll = Save.data.down_scroll
 	add_child(note_field)
+	var i:int = 0
+	for t:TouchScreenButton in buttons:
+		t.pressed.connect(func():
+			pressed[i] = true
+			print("pre")
+			)
+		t.released.connect(func():
+			pressed[i] = true
+			)
+		i += 1
 func find_action_index(ev: InputEvent) -> int:
 	for i in actions.size():
 		if ev.is_action(actions[i]):

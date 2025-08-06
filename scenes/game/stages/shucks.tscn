@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://o0wpvefcnolg"]
+[gd_scene load_steps=109 format=3 uid="uid://o0wpvefcnolg"]
 
 [ext_resource type="Script" uid="uid://c0hdfh5wadl7k" path="res://scenes/game/stages/shucks.gd" id="1_g6p3p"]
 [ext_resource type="Texture2D" uid="uid://cqj5dkgikp2t0" path="res://assets/images/game/stages/shucks/bg.png" id="2_mgh57"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ce2k7x7ymcnq5" path="res://assets/images/game/stages/shucks/light.png" id="4_uwh8x"]
 [ext_resource type="Texture2D" uid="uid://q4je5gl0cxfq" path="res://assets/images/game/stages/shucks/glow2.png" id="6_j60io"]
 [ext_resource type="Texture2D" uid="uid://c05ia5il0pita" path="res://assets/images/game/stages/shucks/glow.png" id="7_b4fms"]
+[ext_resource type="PackedScene" uid="uid://cnokjhfhqyhmj" path="res://scenes/game/characters/chair dbtg.tscn" id="8_53j1c"]
 [ext_resource type="Texture2D" uid="uid://cjaidkuf7bjyo" path="res://assets/images/dbtg subscribe.png" id="8_snlug"]
 [ext_resource type="Texture2D" uid="uid://chf31oj7vpoog" path="res://assets/images/game/stages/shucks/chain.png" id="9_snlug"]
 [ext_resource type="PackedScene" uid="uid://bc07u7j1ox6ei" path="res://scenes/game/characters/dbtgShut.tscn" id="10_mea5d"]
@@ -13,6 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://dmdp6187vgvao" path="res://scenes/game/characters/marvinShut.tscn" id="11_snlug"]
 [ext_resource type="PackedScene" uid="uid://dsfhyxsjoouh5" path="res://scenes/game/characters/marvinAppear.tscn" id="12_snlug"]
 [ext_resource type="PackedScene" uid="uid://bmn2ewjjsarl8" path="res://scenes/game/characters/roseShut.tscn" id="12_wytbl"]
+[ext_resource type="Texture2D" uid="uid://m8oruesdjek7" path="res://assets/images/game/stages/shucks/chair/bg.png" id="14_akyyi"]
+[ext_resource type="Texture2D" uid="uid://c3ln13sabp5lt" path="res://assets/images/game/stages/shucks/chair/torture.png" id="15_doeor"]
+[ext_resource type="Texture2D" uid="uid://gpn6kyamfi5l" path="res://assets/images/game/stages/shucks/chair/dark.png" id="16_53j1c"]
+[ext_resource type="Texture2D" uid="uid://dw1fqj2htkmn3" path="res://assets/images/game/stages/shucks/chair/glow.png" id="17_bwiev"]
+[ext_resource type="PackedScene" uid="uid://cu4qivbygv8vv" path="res://scenes/game/characters/marvin chair.tscn" id="18_doeor"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2o76q"]
 atlas = ExtResource("8_snlug")
@@ -645,6 +651,7 @@ default_cam_zoom = 0.5
 
 [node name="cam" type="Camera2D" parent="."]
 position = Vector2(640, 360)
+offset = Vector2(0.401, 0)
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 editor_draw_limits = true
@@ -665,7 +672,6 @@ centered = false
 scroll_scale = Vector2(1.1, 1)
 
 [node name="glow" type="Sprite2D" parent="normal/Parallax2D"]
-visible = false
 z_index = 1
 position = Vector2(-1800, -1585)
 texture = ExtResource("7_b4fms")
@@ -681,17 +687,47 @@ position = Vector2(-1800, -1585)
 texture = ExtResource("9_snlug")
 centered = false
 
+[node name="chair" type="Node2D" parent="."]
+visible = false
+
+[node name="Parallax2D" type="Parallax2D" parent="chair"]
+scroll_scale = Vector2(1.1, 1)
+
+[node name="Bg" type="Sprite2D" parent="chair/Parallax2D"]
+position = Vector2(667, 345)
+texture = ExtResource("14_akyyi")
+
+[node name="Glow" type="Sprite2D" parent="chair"]
+position = Vector2(667, 345)
+texture = ExtResource("17_bwiev")
+
+[node name="chair_dstg" parent="chair" instance=ExtResource("8_53j1c")]
+position = Vector2(232, 1000)
+scale = Vector2(2.2, 2.2)
+
+[node name="Torture" type="Sprite2D" parent="chair"]
+position = Vector2(667, 345)
+texture = ExtResource("15_doeor")
+
+[node name="Dark" type="Sprite2D" parent="chair"]
+visible = false
+position = Vector2(667, 345)
+texture = ExtResource("16_53j1c")
+
+[node name="chair marbin" parent="chair" instance=ExtResource("18_doeor")]
+position = Vector2(843, 1218)
+
 [node name="dad_position" type="Marker2D" parent="."]
-position = Vector2(-40, 700)
+position = Vector2(-180, -365)
 
 [node name="gf_position" type="Marker2D" parent="."]
 position = Vector2(1085, 0)
 
 [node name="bf_position" type="Marker2D" parent="."]
-position = Vector2(1500, 500)
+position = Vector2(1500, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 3
+layer = 2
 
 [node name="cut" type="VideoStreamPlayer" parent="CanvasLayer"]
 offset_right = 40.0
@@ -706,7 +742,7 @@ texture = ExtResource("6_j60io")
 centered = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0.025)
+modulate = Color(1, 1, 1, 0.099)
 position = Vector2(640, 405)
 sprite_frames = SubResource("SpriteFrames_wytbl")
 autoplay = "default"
@@ -716,16 +752,16 @@ frame_progress = 0.696119
 position = Vector2(-10100, 2020)
 
 [node name="bf" parent="." instance=ExtResource("12_snlug")]
-position = Vector2(-14705, 2909)
+position = Vector2(-9051, 1348)
 
 [node name="dad2" parent="." instance=ExtResource("10_mea5d")]
-position = Vector2(-10834, 2017)
+position = Vector2(-11192, 1786)
 
 [node name="dad3" parent="." instance=ExtResource("11_snlug")]
-position = Vector2(-14707, 2526)
+position = Vector2(-8960, 1867)
 
 [node name="dad4" parent="." instance=ExtResource("12_wytbl")]
-position = Vector2(-12249, 1526)
+position = Vector2(-10643, 1334)
 
 [node name="dad5" parent="." instance=ExtResource("10_mea5d")]
 visible = false

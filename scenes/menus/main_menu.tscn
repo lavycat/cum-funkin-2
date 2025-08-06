@@ -640,11 +640,11 @@ scale = Vector2(1.1, 1.1)
 texture = ExtResource("1_xqga4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.1)
-position = Vector2(553, 377)
+modulate = Color(1, 1, 1, 0.06)
+position = Vector2(553, 405)
 sprite_frames = SubResource("SpriteFrames_kbegt")
 autoplay = "default"
-frame_progress = 0.505949
+frame_progress = 0.753443
 
 [node name="options" type="Node2D" parent="."]
 

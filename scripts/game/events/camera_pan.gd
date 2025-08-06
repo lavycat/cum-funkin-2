@@ -4,7 +4,6 @@ extends Event
 func trigger(event_time: float, event_values: Array) -> void:
 	var vals: Array = event_values
 	var chars: Array[Character] = [game.dad,game.bf,game.gf]
-	print(vals[0])
 	for i: Character in chars:
 		if not i:
 			return

@@ -101,10 +101,10 @@ libraries = {
 script = ExtResource("3_mkxy5")
 
 [node name="camera_position" type="Marker2D" parent="."]
-position = Vector2(192, -581)
+position = Vector2(599, 494)
 
 [node name="AnimateSymbol" type="Node2D" parent="."]
-position = Vector2(-671.18, -2654.92)
+position = Vector2(-288, -1350)
 scale = Vector2(1.35, 1.35)
 script = ExtResource("6_w2ns3")
 atlas = "res://assets/images/game/characters/shucks/detgappear"

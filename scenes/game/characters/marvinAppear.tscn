@@ -123,10 +123,10 @@ libraries = {
 }
 
 [node name="camera_position" type="Marker2D" parent="."]
-position = Vector2(-183, -275)
+position = Vector2(-95, 230)
 
 [node name="AnimateSymbol" type="Node2D" parent="."]
-position = Vector2(-205, -593)
+position = Vector2(112, 192)
 scale = Vector2(1.2, 1.2)
 script = ExtResource("5_rvrw0")
 atlas = "res://assets/images/game/characters/shucks/marvinAppear/Animation.json"

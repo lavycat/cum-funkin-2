@@ -2,10 +2,14 @@ extends Stage
 #@onready var light: Sprite2D = $Light
 #func _process(delta: float) -> void:
 	#light.rotation_degrees = sin(Conductor.time*4.0)*15.0
-	
+@onready var chair_dstg: Character = $chair/chair_dstg
+
 @onready var normal: Node2D = $normal
 @onready var cut: VideoStreamPlayer = $CanvasLayer/cut
 @onready var camera_tween = create_tween().set_parallel()
+@onready var chair: Node2D = $chair
+@onready var chair_marbin: Character = $"chair/chair marbin"
+@onready var tas:Array = [$dad, $bf, $dad2, $dad3, $dad4, $dad5]
 var gf_notes:Array[Chart.NoteData] = []
 func flixel_tween_to_godot(tween_type:String,tween:Tween) -> Tween:
 	var mapping:Dictionary[String,Array] = {
@@ -58,11 +62,15 @@ func event_triggered(event:Event, time: float, values: Array) -> void:
 			game.default_camera_zoom = values[0]
 		"camera_pan":
 			if values[0] == 0:
-				game.gf.play_anim("BopLookLeft")
-				game.gf.dance_steps = ["idle"]
+				if game.gf.player.has_animation("BopLookLeft"):
+					game.gf.play_anim("BopLookLeft")
+				if game.gf.player.has_animation("idle"):
+					game.gf.dance_steps = ["idle"]
 			if values[0] == 1:
-				game.gf.play_anim("BopLookRight")
-				game.gf.dance_steps = ["LookingMarvinIdle"]
+				if game.gf.player.has_animation("BopLookRight"):
+					game.gf.play_anim("BopLookRight")
+				if game.gf.player.has_animation("LookingMarvinIdle"):
+					game.gf.dance_steps = ["LookingMarvinIdle"]
 				
 			
 		"Camera Flash":
@@ -117,9 +125,39 @@ func _process(delta: float) -> void:
 
 func step_hit(step:int):
 	match step:
+		78:
+			game.bf.can_dance = false
+			game.bf.play_anim("nightmare",true)
+		158:
+			game.bf.can_dance = true
+			
 		434:
 			normal.visible = true
 			game.gf.visible = true
+		2304,2560:
+			create_tween().tween_property(game.hud,"modulate:a",0,Conductor.beat_length*2)
+		2425,2814:
+			create_tween().tween_property(game.hud,"modulate:a",1,Conductor.beat_length)
 			
 		3136:
+			var t := create_tween()
+			t.tween_property(game.hud,"modulate:a",0,2.0)
 			cut.play()
+			for i:Node in tas:
+				i.queue_free()
+			game.bf.queue_free()
+			game.bf = chair_marbin
+			game.dad.queue_free()
+			game.dad = chair_dstg
+			game.gf.hide()
+			normal.queue_free()
+			chair.visible = true
+		3440:
+			var t := create_tween()
+			t.tween_property(game.hud,"modulate:a",1,0.7)
+		
+		3458:
+			cut.hide()
+			
+			
+		

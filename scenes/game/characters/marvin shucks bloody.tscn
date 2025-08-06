@@ -86,7 +86,7 @@ tracks/2/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_j7emq"]
+[sub_resource type="Animation" id="Animation_jobal"]
 length = 0.666667
 step = 0.0416667
 tracks/0/type = "value"
@@ -99,7 +99,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [&"Marvin2 up"]
+"values": [&"Marvin2 down"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -123,11 +123,11 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(21.85, 5.395)]
 }
 
-[sub_resource type="Animation" id="Animation_trqxy"]
-length = 0.666667
+[sub_resource type="Animation" id="Animation_epfg2"]
+length = 0.625
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -139,7 +139,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [&"Marvin2 right"]
+"values": [&"Marvin2 missdirection4"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -148,10 +148,10 @@ tracks/1/path = NodePath("sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.666667),
+"times": PackedFloat32Array(0, 0.625),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0, 15]
+"values": [0, 14]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -206,7 +206,47 @@ tracks/2/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_jobal"]
+[sub_resource type="Animation" id="Animation_0c46q"]
+length = 0.625
+step = 0.0416667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"Marvin2 missdirection3"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.625),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 14]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_trqxy"]
 length = 0.666667
 step = 0.0416667
 tracks/0/type = "value"
@@ -219,7 +259,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [&"Marvin2 down"]
+"values": [&"Marvin2 right"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -232,46 +272,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0, 15]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sprite:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(21.85, 5.395)]
-}
-
-[sub_resource type="Animation" id="Animation_2k8ov"]
-length = 0.583333
-step = 0.0416667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [&"Marvin2 missdirection1"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.583333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 13]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -326,8 +326,8 @@ tracks/2/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_epfg2"]
-length = 0.625
+[sub_resource type="Animation" id="Animation_j7emq"]
+length = 0.666667
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -339,7 +339,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [&"Marvin2 missdirection4"]
+"values": [&"Marvin2 up"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -348,10 +348,10 @@ tracks/1/path = NodePath("sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.625),
+"times": PackedFloat32Array(0, 0.666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0, 14]
+"values": [0, 15]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -366,8 +366,8 @@ tracks/2/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_0c46q"]
-length = 0.625
+[sub_resource type="Animation" id="Animation_2k8ov"]
+length = 0.583333
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -379,7 +379,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [&"Marvin2 missdirection3"]
+"values": [&"Marvin2 missdirection1"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -388,10 +388,10 @@ tracks/1/path = NodePath("sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.625),
+"times": PackedFloat32Array(0, 0.583333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0, 14]
+"values": [0, 13]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1800,12 +1800,13 @@ script = ExtResource("3_j7emq")
 sprite = NodePath("../sprite")
 
 [node name="camera_position" type="Marker2D" parent="."]
-position = Vector2(-183, -275)
+position = Vector2(-95, 230)
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-34, -381)
+position = Vector2(-160, -60)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_katra")
 animation = &"Marvin2 idle"
+centered = false
 script = ExtResource("5_ouns6")
 tex = ExtResource("4_h22dp")

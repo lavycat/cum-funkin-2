@@ -38,12 +38,16 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if is_selecting:
 		return
-	if event is InputEventScreenDrag:
-		if event.relative.y > 1:
+	if event is InputEventScreenTouch:
+		if event.pressed and not event.is_echo():
+			return
+		if event.position.y > 480:
 			change_selceted(1)
-		if event.relative.y < -1:
+		elif event.position.y < 240:
 			change_selceted(-1)
-		print(event.relative.y)
+		else:
+			select_item(options[cur_selected])
+		pass
 	if event.is_action_pressed("ui_down"):
 		change_selceted(1)
 	if event.is_action_pressed("ui_up"):

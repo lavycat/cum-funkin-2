@@ -1999,12 +1999,12 @@ script = ExtResource("3_810fk")
 sprite = NodePath("../sprite")
 
 [node name="camera_position" type="Marker2D" parent="."]
-position = Vector2(-183, -275)
+position = Vector2(-95, 230)
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(42, -325)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_fxog7")
 animation = &"Marvin_Chained Idle"
+centered = false
 script = ExtResource("4_b4ml4")
 tex = ExtResource("3_hcd63")

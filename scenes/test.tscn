@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://clv68g0cuv5nn"]
+[gd_scene load_steps=3 format=3 uid="uid://clv68g0cuv5nn"]
 
 [ext_resource type="Script" uid="uid://jwc0lapsbpj0" path="res://scenes/test.gd" id="1_errlg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_errlg"]
+radius = 234.0
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_errlg")
 
 [node name="Node" type="Node" parent="."]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(631, 351)
+shape = SubResource("CircleShape2D_errlg")
+passby_press = true

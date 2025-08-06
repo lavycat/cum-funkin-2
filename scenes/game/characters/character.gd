@@ -24,6 +24,7 @@ func _ready() -> void:
 		scale.x *= -1
 func play_anim(anim:String,force:bool = false):
 	cur_anim = anim
+	
 	player.play(anim)
 	if force:
 		player.seek(0)

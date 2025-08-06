@@ -102,10 +102,10 @@ libraries = {
 script = ExtResource("3_qdejp")
 
 [node name="camera_position" type="Marker2D" parent="."]
-position = Vector2(-331, -404)
+position = Vector2(-95, 230)
 
 [node name="AnimateSymbol" type="Node2D" parent="."]
-position = Vector2(-2207, -1665)
+position = Vector2(-1870.77, -879.36)
 scale = Vector2(1.2, 1.2)
 script = ExtResource("4_qck5s")
 atlas = "res://assets/images/game/characters/shucks/marvinShut"

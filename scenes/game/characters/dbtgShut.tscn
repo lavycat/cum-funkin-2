@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bc07u7j1ox6ei"]
+[gd_scene load_steps=13 format=3 uid="uid://bc07u7j1ox6ei"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_1dcmb"]
 [ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_d87uo"]
 [ext_resource type="Script" uid="uid://bmbfirbywm1e3" path="res://scripts/animation_importer.gd" id="3_gyo0p"]
 [ext_resource type="Script" uid="uid://diqmdngjb60u2" path="res://addons/gdanimate/animate_symbol.gd" id="4_honr0"]
+[ext_resource type="PackedScene" uid="uid://dqtfel7p4ebex" path="res://scenes/game/characters/dbtg.tscn" id="5_d87uo"]
 
 [sub_resource type="Animation" id="Animation_vlqqx"]
 length = 20.1667
@@ -102,12 +103,14 @@ libraries = {
 script = ExtResource("3_gyo0p")
 
 [node name="camera_position" type="Marker2D" parent="."]
-position = Vector2(442, -881)
+position = Vector2(599, 494)
 
 [node name="AnimateSymbol" type="Node2D" parent="."]
-position = Vector2(-540.727, -1445.36)
-scale = Vector2(1.4, 1.4)
+scale = Vector2(1.1, 1.1)
 script = ExtResource("4_honr0")
 atlas = "res://assets/images/game/characters/shucks/detgShut"
 loop_mode = "Play Once"
 metadata/_custom_type_script = "uid://diqmdngjb60u2"
+
+[node name="dad" parent="." instance=ExtResource("5_d87uo")]
+visible = false
