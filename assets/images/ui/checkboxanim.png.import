@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c05ia5il0pita"
-path="res://.godot/imported/glow.png-9e12bac5a31548df85510f7565f7e826.ctex"
+uid="uid://rpyrtfsdegmg"
+path="res://.godot/imported/checkboxanim.png-4e234aee47b6ee9acccbb31486187531.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/game/stages/shucks/glow.png"
-dest_files=["res://.godot/imported/glow.png-9e12bac5a31548df85510f7565f7e826.ctex"]
+source_file="res://assets/images/ui/checkboxanim.png"
+dest_files=["res://.godot/imported/checkboxanim.png-4e234aee47b6ee9acccbb31486187531.ctex"]
 
 [params]
 
-compress/mode=4
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

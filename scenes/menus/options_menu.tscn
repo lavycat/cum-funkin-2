@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bygrvve2uo80d"]
+[gd_scene load_steps=10 format=3 uid="uid://bygrvve2uo80d"]
 
+[ext_resource type="Script" uid="uid://djgniku7qmhyy" path="res://scenes/menus/options_menu.gd" id="1_7rumi"]
 [ext_resource type="Texture2D" uid="uid://b7k04rhmeotrs" path="res://assets/images/menus/menuDesat_Invert.png" id="1_bp0ux"]
+[ext_resource type="FontFile" uid="uid://bnkl77r32hsc5" path="res://assets/fonts/funkin.ttf" id="8_tiokm"]
 
 [sub_resource type="Shader" id="Shader_bp0ux"]
 code = "shader_type canvas_item;
@@ -22,10 +24,59 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_60mby"]
 shader = SubResource("Shader_bp0ux")
 
+[sub_resource type="LabelSettings" id="LabelSettings_dwjoh"]
+font = ExtResource("8_tiokm")
+font_size = 32
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_ohqpn"]
+script/source = "
+extends Label
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_erhyl"]
+font = ExtResource("8_tiokm")
+font_size = 32
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tiokm"]
+font = ExtResource("8_tiokm")
+font_size = 32
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
 [node name="OptionsMenu" type="Node2D"]
+script = ExtResource("1_7rumi")
+page_scenes = Array[PackedScene]([null])
 
 [node name="MenuDesat" type="Sprite2D" parent="."]
-modulate = Color(0.54, 0.662667, 1, 1)
+modulate = Color(0.792037, 0.684886, 1, 1)
 material = SubResource("ShaderMaterial_60mby")
 position = Vector2(640, 360)
 texture = ExtResource("1_bp0ux")
+
+[node name="pages" type="VBoxContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+alignment = 1
+
+[node name="Gameplay" type="Label" parent="pages"]
+layout_mode = 2
+text = "Gameplay"
+label_settings = SubResource("LabelSettings_dwjoh")
+horizontal_alignment = 1
+script = SubResource("GDScript_ohqpn")
+
+[node name="Performance" type="Label" parent="pages"]
+layout_mode = 2
+text = "Performance"
+label_settings = SubResource("LabelSettings_erhyl")
+horizontal_alignment = 1
+
+[node name="User Interface" type="Label" parent="pages"]
+layout_mode = 2
+text = "User Interface"
+label_settings = SubResource("LabelSettings_tiokm")
+horizontal_alignment = 1

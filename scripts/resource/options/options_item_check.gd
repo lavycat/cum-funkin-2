@@ -1,3 +1,2 @@
-class_name OptionsItemCheckBox extends Resource
-@export var name:StringName
+class_name OptionsItemCheckBox extends OptionsItemSpacer
 @export var linked_data:String = ""

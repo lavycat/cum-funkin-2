@@ -1,2 +1,2 @@
-class_name OptionsItemSpinbox extends OptionsItemCheckBox
+class_name OptionsItemSpinbox extends OptionsItemSpacer
 @export var step:float = 1.0

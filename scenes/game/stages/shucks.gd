@@ -104,6 +104,8 @@ func event_triggered(event:Event, time: float, values: Array) -> void:
 func _ready() -> void:
 	normal.visible = false
 	game.gf.visible = false
+	await RenderingServer.frame_post_draw
+	game.hud.modulate.a = 0
 	#game.dad_field.rotation_degrees = 90
 
 	
@@ -113,28 +115,33 @@ func _ready() -> void:
 		if i.field_id == 2:
 				gf_notes.append(i)
 func _process(delta: float) -> void:
-
 	game.dad_field.transform = game.dad_field.transform.looking_at(game.player_field.position)
 	
 	for n in gf_notes:
 		if n.time - Conductor.time < 0.0:
 			game.gf.sing(n.column)
+			print("gf sing")
 			if (n.time + n.length) < Conductor.time:
 				gf_notes.erase(n)
 
-
+var video_start_time:float = 0
 func step_hit(step:int):
 	match step:
-		78:
+		74:
 			game.bf.can_dance = false
 			game.bf.play_anim("nightmare",true)
 		158:
+			create_tween().tween_property(game.hud,"modulate:a",1,Conductor.beat_length)
 			game.bf.can_dance = true
 			
 		434:
+			create_tween().tween_property(game.hud,"modulate:a",0,Conductor.beat_length*2)
 			normal.visible = true
 			game.gf.visible = true
-		2304,2560:
+		508:
+			create_tween().tween_property(game.hud,"modulate:a",1,Conductor.beat_length)
+			
+		2300,2560:
 			create_tween().tween_property(game.hud,"modulate:a",0,Conductor.beat_length*2)
 		2425,2814:
 			create_tween().tween_property(game.hud,"modulate:a",1,Conductor.beat_length)
@@ -152,6 +159,7 @@ func step_hit(step:int):
 			game.gf.hide()
 			normal.queue_free()
 			chair.visible = true
+			video_start_time = Conductor.time
 		3440:
 			var t := create_tween()
 			t.tween_property(game.hud,"modulate:a",1,0.7)

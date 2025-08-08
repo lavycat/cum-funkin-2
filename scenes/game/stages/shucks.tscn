@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://o0wpvefcnolg"]
+[gd_scene load_steps=110 format=3 uid="uid://o0wpvefcnolg"]
 
 [ext_resource type="Script" uid="uid://c0hdfh5wadl7k" path="res://scenes/game/stages/shucks.gd" id="1_g6p3p"]
 [ext_resource type="Texture2D" uid="uid://cqj5dkgikp2t0" path="res://assets/images/game/stages/shucks/bg.png" id="2_mgh57"]
@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://gpn6kyamfi5l" path="res://assets/images/game/stages/shucks/chair/dark.png" id="16_53j1c"]
 [ext_resource type="Texture2D" uid="uid://dw1fqj2htkmn3" path="res://assets/images/game/stages/shucks/chair/glow.png" id="17_bwiev"]
 [ext_resource type="PackedScene" uid="uid://cu4qivbygv8vv" path="res://scenes/game/characters/marvin chair.tscn" id="18_doeor"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_53j1c"]
+blend_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2o76q"]
 atlas = ExtResource("8_snlug")
@@ -673,6 +676,7 @@ scroll_scale = Vector2(1.1, 1)
 
 [node name="glow" type="Sprite2D" parent="normal/Parallax2D"]
 z_index = 1
+material = SubResource("CanvasItemMaterial_53j1c")
 position = Vector2(-1800, -1585)
 texture = ExtResource("7_b4fms")
 centered = false
@@ -742,11 +746,11 @@ texture = ExtResource("6_j60io")
 centered = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0.099)
+modulate = Color(1, 1, 1, 0.12549)
 position = Vector2(640, 405)
 sprite_frames = SubResource("SpriteFrames_wytbl")
 autoplay = "default"
-frame_progress = 0.696119
+frame_progress = 0.468586
 
 [node name="dad" parent="." instance=ExtResource("11_mea5d")]
 position = Vector2(-10100, 2020)

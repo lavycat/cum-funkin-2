@@ -2,26 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c05ia5il0pita"
-path="res://.godot/imported/glow.png-9e12bac5a31548df85510f7565f7e826.ctex"
+uid="uid://3p7uukkinxos"
+path="res://.godot/imported/circle.png-b3c900aed959afbb3a7a8e986888e132.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/game/stages/shucks/glow.png"
-dest_files=["res://.godot/imported/glow.png-9e12bac5a31548df85510f7565f7e826.ctex"]
+source_file="res://assets/images/ui/circle.png"
+dest_files=["res://.godot/imported/circle.png-b3c900aed959afbb3a7a8e986888e132.ctex"]
 
 [params]
 
-compress/mode=4
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=0
-mipmaps/generate=false
+compress/channel_pack=1
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

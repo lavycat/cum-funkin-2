@@ -8,7 +8,7 @@ var health_bar_style_fill:StyleBox
 @onready var scoretxt: Label = $bar/scoretxt
 @onready var bar: Control = $bar
 
-@onready var timebar: ProgressBar = $timebar
+@onready var timebar: TextureProgressBar = $timebar
 func reload_icons():
 	var bf = icons.get_node("bf")
 	var dad = icons.get_node("dad")

@@ -1,23 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://brcc3ta5oahnp"]
+[gd_scene load_steps=9 format=3 uid="uid://brcc3ta5oahnp"]
 
 [ext_resource type="Script" uid="uid://cgdky33pfnjvf" path="res://scenes/game/huds/funkin.gd" id="1_wspuj"]
 [ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_5d8qm"]
 [ext_resource type="Texture2D" uid="uid://b577e36txrjaw" path="res://assets/images/game/icons/icon-bf.png" id="2_c3lqy"]
+[ext_resource type="Texture2D" uid="uid://3p7uukkinxos" path="res://assets/images/ui/circle.png" id="2_fiajd"]
 [ext_resource type="FontFile" uid="uid://c5chw3mxyist4" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="4_aelfd"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wspuj"]
-bg_color = Color(0.64, 0.46, 1, 1)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d8qm"]
-bg_color = Color(0.616, 0.52, 1, 1)
-border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3lqy"]
 bg_color = Color(1, 0, 0, 1)
@@ -44,16 +31,18 @@ pivot_offset = Vector2(640, 360)
 script = ExtResource("1_wspuj")
 metadata/_edit_lock_ = true
 
-[node name="timebar" type="ProgressBar" parent="."]
+[node name="timebar" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_left = 1248.0
-offset_top = 107.0
-offset_right = 1260.0
-offset_bottom = 707.0
-theme_override_styles/background = SubResource("StyleBoxFlat_wspuj")
-theme_override_styles/fill = SubResource("StyleBoxFlat_5d8qm")
-fill_mode = 3
-show_percentage = false
+offset_left = 592.0
+offset_top = 572.0
+offset_right = 688.0
+offset_bottom = 668.0
+step = 0.1
+fill_mode = 5
+nine_patch_stretch = true
+texture_under = ExtResource("2_fiajd")
+texture_progress = ExtResource("2_fiajd")
+tint_progress = Color(0.501407, 0.501406, 0.501406, 1)
 
 [node name="bar" type="Control" parent="."]
 layout_mode = 1
