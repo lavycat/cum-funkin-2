@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bygrvve2uo80d"]
+[gd_scene load_steps=9 format=3 uid="uid://bygrvve2uo80d"]
 
 [ext_resource type="Script" uid="uid://djgniku7qmhyy" path="res://scenes/menus/options_menu.gd" id="1_7rumi"]
 [ext_resource type="Texture2D" uid="uid://b7k04rhmeotrs" path="res://assets/images/menus/menuDesat_Invert.png" id="1_bp0ux"]
@@ -29,11 +29,6 @@ font = ExtResource("8_tiokm")
 font_size = 32
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="GDScript" id="GDScript_ohqpn"]
-script/source = "
-extends Label
-"
 
 [sub_resource type="LabelSettings" id="LabelSettings_erhyl"]
 font = ExtResource("8_tiokm")
@@ -67,7 +62,6 @@ layout_mode = 2
 text = "Gameplay"
 label_settings = SubResource("LabelSettings_dwjoh")
 horizontal_alignment = 1
-script = SubResource("GDScript_ohqpn")
 
 [node name="Performance" type="Label" parent="pages"]
 layout_mode = 2

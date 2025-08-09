@@ -1,10 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://brcc3ta5oahnp"]
+[gd_scene load_steps=10 format=3 uid="uid://brcc3ta5oahnp"]
 
 [ext_resource type="Script" uid="uid://cgdky33pfnjvf" path="res://scenes/game/huds/funkin.gd" id="1_wspuj"]
 [ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_5d8qm"]
 [ext_resource type="Texture2D" uid="uid://b577e36txrjaw" path="res://assets/images/game/icons/icon-bf.png" id="2_c3lqy"]
 [ext_resource type="Texture2D" uid="uid://3p7uukkinxos" path="res://assets/images/ui/circle.png" id="2_fiajd"]
 [ext_resource type="FontFile" uid="uid://c5chw3mxyist4" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="4_aelfd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kpg24"]
+font = ExtResource("4_aelfd")
+font_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 12
+shadow_color = Color(0.092397, 0.0923971, 0.092397, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3lqy"]
 bg_color = Color(1, 0, 0, 1)
@@ -32,17 +39,38 @@ script = ExtResource("1_wspuj")
 metadata/_edit_lock_ = true
 
 [node name="timebar" type="TextureProgressBar" parent="."]
-layout_mode = 0
-offset_left = 592.0
-offset_top = 572.0
-offset_right = 688.0
-offset_bottom = 668.0
+texture_filter = 4
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -148.0
+offset_right = 48.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
 step = 0.1
-fill_mode = 5
+fill_mode = 4
 nine_patch_stretch = true
 texture_under = ExtResource("2_fiajd")
 texture_progress = ExtResource("2_fiajd")
-tint_progress = Color(0.501407, 0.501406, 0.501406, 1)
+tint_under = Color(0, 0, 0, 1)
+
+[node name="time_text" type="Label" parent="timebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_kpg24")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="bar" type="Control" parent="."]
 layout_mode = 1

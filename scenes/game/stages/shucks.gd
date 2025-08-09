@@ -6,7 +6,7 @@ extends Stage
 
 @onready var normal: Node2D = $normal
 @onready var cut: VideoStreamPlayer = $CanvasLayer/cut
-@onready var camera_tween = create_tween().set_parallel()
+@onready var camera_tween:Tween
 @onready var chair: Node2D = $chair
 @onready var chair_marbin: Character = $"chair/chair marbin"
 @onready var tas:Array = [$dad, $bf, $dad2, $dad3, $dad4, $dad5]
@@ -48,14 +48,15 @@ func event_triggered(event:Event, time: float, values: Array) -> void:
 			game.default_camera_zoom = Vector2(amount,amount)
 			
 		"CameraTween":
-			
 			var target:int = values[0]
 			var chars:Array[Character] = [game.dad,game.bf]
 			var campos = Vector2(values[1],values[2])
 			var duration:float = Conductor.step_length * values[3]
 			var tween_type:String = values[4]
-			camera_tween.tween_property(cam,"offset",campos,duration)
-			
+			if !camera_tween:
+				camera_tween = create_tween().set_parallel()
+			camera_tween = flixel_tween_to_godot(tween_type,camera_tween)
+			#camera_tween.tween_property(game.camera,"offset",campos,duration)
 			print(campos)
 			pass
 		"Set Camera Zoom":
@@ -99,11 +100,12 @@ func event_triggered(event:Event, time: float, values: Array) -> void:
 			
 			pass
 		_:
-			print("%s -> %s"%[event.name,values])
+			pass
+			#print("%s -> %s"%[event.name,values])
 	pass
 func _ready() -> void:
 	normal.visible = false
-	game.gf.visible = false
+	game.gf.modulate.a = 0
 	await RenderingServer.frame_post_draw
 	game.hud.modulate.a = 0
 	#game.dad_field.rotation_degrees = 90
@@ -116,13 +118,12 @@ func _ready() -> void:
 				gf_notes.append(i)
 func _process(delta: float) -> void:
 	game.dad_field.transform = game.dad_field.transform.looking_at(game.player_field.position)
-	
-	for n in gf_notes:
-		if n.time - Conductor.time < 0.0:
-			game.gf.sing(n.column)
-			print("gf sing")
-			if (n.time + n.length) < Conductor.time:
-				gf_notes.erase(n)
+	if not gf_notes.is_empty():
+		for n in gf_notes:
+			if n.time - Conductor.time < 0.0:
+				game.gf.sing(n.column)
+				if (n.time + n.length) < Conductor.time:
+					gf_notes.erase(n)
 
 var video_start_time:float = 0
 func step_hit(step:int):
@@ -131,10 +132,17 @@ func step_hit(step:int):
 			game.bf.can_dance = false
 			game.bf.play_anim("nightmare",true)
 		158:
-			create_tween().tween_property(game.hud,"modulate:a",1,Conductor.beat_length)
+			var t = create_tween().set_parallel()
+			game.gf.modulate = Color.AQUA
+			game.gf.modulate.a = 0
+			t.tween_property(game.gf,"modulate:a",0.99,Conductor.beat_length).set_delay(Conductor.step_length*2)
+			
+			t.tween_property(game.hud,"modulate:a",1,Conductor.beat_length)
 			game.bf.can_dance = true
 			
 		434:
+			game.gf.modulate = Color.WHITE
+			
 			create_tween().tween_property(game.hud,"modulate:a",0,Conductor.beat_length*2)
 			normal.visible = true
 			game.gf.visible = true
@@ -147,9 +155,13 @@ func step_hit(step:int):
 			create_tween().tween_property(game.hud,"modulate:a",1,Conductor.beat_length)
 			
 		3136:
-			var t := create_tween()
-			t.tween_property(game.hud,"modulate:a",0,2.0)
+			cut.modulate.a = 0
 			cut.play()
+			var t := create_tween().set_parallel()
+			t.tween_property(game.hud,"modulate:a",0,3.5)
+			t.tween_property(cut,"modulate:a",1,0.8).set_delay(2.7)
+			await t.finished
+			
 			for i:Node in tas:
 				i.queue_free()
 			game.bf.queue_free()
@@ -163,6 +175,7 @@ func step_hit(step:int):
 		3440:
 			var t := create_tween()
 			t.tween_property(game.hud,"modulate:a",1,0.7)
+			game.camera.reset_smoothing()
 		
 		3458:
 			cut.hide()

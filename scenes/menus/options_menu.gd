@@ -5,6 +5,7 @@ extends Node2D
 
 var in_page:bool = false
 var cur_page:int = 0
+var page:Node
 var cur_option:int = 0
 var option_count:int = 0
 func get_page_name(i:int):
@@ -14,10 +15,19 @@ func _ready() -> void:
 	change_selection()
 	pass
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_down",true):
-		change_selection(1)
-	if event.is_action_pressed("ui_up",true):
-		change_selection(-1)
+	if not in_page:
+		if event.is_action_pressed("ui_down",true):
+			change_selection(1)
+		if event.is_action_pressed("ui_up",true):
+			change_selection(-1)
+		if event.is_action_pressed("ui_accept"):
+			select_page(cur_page)
+func select_page(i:int):
+	if i > page_scenes.size():
+		return
+	page = page_scenes[i].instantiate()
+	in_page = true
+	
 func change_selection(i:int = 0):
 	if in_page:
 		cur_option = wrapf(cur_option + i,0,option_count)

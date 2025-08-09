@@ -1,7 +1,7 @@
 extends Node2D
 var volume_ln:float = 1.0
 var volume_mute:bool = false
-const volume_inc:float = 0.05
+const volume_inc:float = 0.1
 
 const save_path:String = "user://volume.bin"
 
@@ -19,7 +19,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("volume_mute"):
 		volume_mute = !volume_mute
 	volume_ln = clampf(volume_ln,0.0,1.0)
-	volume_ln = snappedf(volume_ln,0.05)
+	volume_ln = snappedf(volume_ln,volume_inc)
 	adjust_volume()
 func save() -> void:
 	var p = FileAccess.open(save_path,FileAccess.WRITE)
