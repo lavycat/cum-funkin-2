@@ -30,12 +30,24 @@ func _ready() -> void:
 					if real_val.to_int() == e.to_int():
 						enum_value = e
 						break
+				enum_value = real_val
 			else:
 				for e in enum_values:
 					if e == real_val:
 						var index = enum_values.find(e)
 						enum_value = enum_values[index]
+						break
+				enum_value = real_val
+					
 			update()
+		"range":
+			print(Save.json.get(option))
+			if Save.json.get(option) != null:
+				var real_val:float = clamp(snapped(Save.json.get(option),range_step),range_min,range_max)
+				range_value = real_val
+			update()
+			
+			
 			pass
 			
 			
@@ -50,6 +62,12 @@ func change_value(i:int = 0):
 			enum_value = enum_values[wrap(enum_values.find(enum_value) + i,0,enum_values.size())]
 			var t = typeof(Save.json.get(option))
 			Save.json.set(option,type_convert(enum_value,t))
+			update()
+			Save.update_data()
+		"range":
+			range_value = clamp(snapped(range_value + range_step*i,range_step),range_min,range_max)
+			var t = typeof(Save.json.get(option))
+			Save.json.set(option,type_convert(range_value,t))
 			update()
 			Save.update_data()
 			
@@ -68,6 +86,8 @@ func update():
 					check_box_spr.play("checkbox anim reverse")
 			"enum":
 				label.text = "%s <%s>"%[name,enum_value]
+			"range":
+				label.text = "%s <%s>"%[name,range_value]
 				
 	
 	pass

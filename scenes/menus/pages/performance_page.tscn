@@ -197,7 +197,6 @@ position_smoothing_speed = 6.0
 [node name="options" type="Node2D" parent="."]
 
 [node name="fps" type="Node2D" parent="options"]
-position = Vector2(0, 120)
 script = ExtResource("1_updg8")
 option_type = "enum"
 option = "fps"
@@ -211,7 +210,7 @@ label_settings = SubResource("LabelSettings_updg8")
 uppercase = true
 
 [node name="vsync" type="Node2D" parent="options"]
-position = Vector2(0, 240)
+position = Vector2(0, 120)
 script = ExtResource("1_updg8")
 option_type = "check_box"
 option = "vsync"
@@ -232,7 +231,7 @@ label_settings = SubResource("LabelSettings_updg8")
 uppercase = true
 
 [node name="shaders" type="Node2D" parent="options"]
-position = Vector2(0, 360)
+position = Vector2(0, 240)
 script = ExtResource("1_updg8")
 option_type = "enum"
 option = "shaders"
@@ -246,7 +245,7 @@ label_settings = SubResource("LabelSettings_updg8")
 uppercase = true
 
 [node name="scale mode" type="Node2D" parent="options"]
-position = Vector2(0, 480)
+position = Vector2(0, 360)
 script = ExtResource("1_updg8")
 option_type = "enum"
 option = "scaling_mode"

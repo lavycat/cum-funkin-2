@@ -47,7 +47,7 @@ func load_binds():
 		
 func save_data():
 	var f = FileAccess.open(SAVE_PATH,FileAccess.WRITE)
-	f.store_string(JSON.stringify(json))
+	f.store_string(JSON.stringify(json,"\t"))
 	f.flush()
 func update_data():
 	Engine.max_fps = json.fps

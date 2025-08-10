@@ -216,6 +216,40 @@ text = "checkbox"
 label_settings = SubResource("LabelSettings_updg8")
 uppercase = true
 
+[node name="chart scroll speed" type="Node2D" parent="options"]
+position = Vector2(0, 120)
+script = ExtResource("2_epf2m")
+option_type = "check_box"
+option = "use_chart_scroll_speed"
+
+[node name="check_box" type="AnimatedSprite2D" parent="options/chart scroll speed"]
+position = Vector2(468, 50)
+sprite_frames = SubResource("SpriteFrames_n1u5k")
+animation = &"checkbox finish"
+script = ExtResource("4_igo4a")
+tex = ExtResource("3_r1go2")
+metadata/_custom_type_script = "uid://nqu72cn7ch25"
+
+[node name="text" type="Label" parent="options/chart scroll speed"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "checkbox"
+label_settings = SubResource("LabelSettings_updg8")
+uppercase = true
+
+[node name="scroll speed" type="Node2D" parent="options"]
+position = Vector2(0, 240)
+script = ExtResource("2_epf2m")
+option = "scroll_speed"
+range_max = 10.0
+
+[node name="text" type="Label" parent="options/scroll speed"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "range"
+label_settings = SubResource("LabelSettings_updg8")
+uppercase = true
+
 [node name="templates" type="Node2D" parent="."]
 position = Vector2(-1280, 0)
 
