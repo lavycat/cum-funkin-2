@@ -69,6 +69,9 @@ func select_item(option:String):
 	match option:
 		"freeplay":
 			get_tree().change_scene_to_file("res://scenes/menus/free_play.tscn")
+		"options":
+			get_tree().change_scene_to_file("res://scenes/menus/options_menu.tscn")
+			
 		_:
 			get_tree().reload_current_scene()
 func change_selceted(d:int):

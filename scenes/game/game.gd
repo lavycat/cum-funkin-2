@@ -63,14 +63,14 @@ func _ready() -> void:
 	Conductor.follow_player = true
 	Conductor.measure_hit.connect(measure_hit)
 	Conductor.time = -Conductor.beat_length*5.0
-	Conductor.offset = Save.data.song_offset
+	Conductor.offset = Save.json.offset
 	play_fields = [dad_field,player_field]
 	tracks.load_song(song_name)
 	Conductor.player = tracks.player
 	Conductor.player.pitch_scale = Conductor.rate
 	Engine.time_scale = Conductor.rate
 	for i in play_fields:
-		i.position.y = hud.size.y*0.15 if not Save.data.down_scroll else hud.size.y*0.85
+		i.position.y = hud.size.y*0.15 if not Save.json.down_scroll else hud.size.y*0.85
 		i.position.x = hud.size.x*0.25
 		i.position.x += hud.size.x * 0.5 * i.id
 		var n = chart.notes.filter(func(a): return a.field_id == i.id)
@@ -260,7 +260,7 @@ func return_to_menu():
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_WM_WINDOW_FOCUS_OUT:
-			if not paused and Save.data.auto_pause:
+			if not paused and Save.json.auto_pause:
 				pause_ui = pause_menu.instantiate()
 				tracks.process_mode = Node.PROCESS_MODE_ALWAYS
 				await RenderingServer.frame_post_draw

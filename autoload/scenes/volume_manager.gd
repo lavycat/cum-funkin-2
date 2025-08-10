@@ -7,7 +7,7 @@ const save_path:String = "user://volume.bin"
 
 
 
-func _enter_tree() -> void:
+func _ready() -> void:
 	_load()
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("volume_down"):
@@ -22,22 +22,11 @@ func _input(event: InputEvent) -> void:
 	volume_ln = snappedf(volume_ln,volume_inc)
 	adjust_volume()
 func save() -> void:
-	var p = FileAccess.open(save_path,FileAccess.WRITE)
-	p.store_buffer([int(volume_ln * 100.0),int(volume_mute)])
-	p.flush()
-	p.close()
+	Save.json.set("volume",volume_ln)
+	Save.save_data()
 func _load():
-	if !FileAccess.file_exists(save_path):
-		save()
-	var p = FileAccess.open(save_path,FileAccess.READ)
-		
-	var buf = p.get_buffer(2)
-	if buf.size() == 0:
-		save()
-		_load()
-		return
-	volume_ln = buf[0] / 100.0
-	volume_mute = buf[1]
+	await Save.ready
+	volume_ln = Save.json.volume
 	adjust_volume()
 func adjust_volume():
 	AudioServer.set_bus_volume_linear(0,volume_ln)

@@ -10,20 +10,17 @@ func preload_all_characters():
 		if i.ends_with("tscn"):
 			preloaded_characters.set(characters_folder + i,load(characters_folder + i))
 func _enter_tree() -> void:
-	#RenderingServer.render_loop_enabled = false
-	print("Audio Driver -> %s" % AudioServer.get_driver_name())
 	root = get_tree().get_root()
 	RenderingServer.set_default_clear_color(Color.BLACK)
-	await Save.ready
-	Engine.max_fps = Save.data.frame_rate
+	print("Audio Driver -> %s" % AudioServer.get_driver_name())
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_APPLICATION_FOCUS_OUT:
-			if Save.data.auto_pause:
+			if Save.json.auto_pause:
 				Engine.max_fps = 5
 		NOTIFICATION_APPLICATION_FOCUS_IN:
-			if Save.data.auto_pause:
-				Engine.max_fps = Save.data.frame_rate
+			if Save.json.auto_pause:
+				Engine.max_fps = Save.json.fps
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_reload"):
 		get_tree().reload_current_scene()

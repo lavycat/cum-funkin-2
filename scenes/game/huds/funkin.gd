@@ -24,8 +24,9 @@ func _ready() -> void:
 	health_bar_style_bg = healthbar.get_theme_stylebox("background")
 	health_bar_style_fill = healthbar.get_theme_stylebox("fill")
 	health_bar_style_bg.bg_color = Color.WHITE
+	timebar.position.y = 572.0 if Save.json.down_scroll else 52.0
 	reload_icons()
-	bar.position.y = 100 if Save.data.down_scroll else 620
+	bar.position.y = 100 if Save.json.down_scroll else 620
 func time_convert(time_in_sec:int) -> String:
 	var seconds = time_in_sec%60
 	var minutes = (time_in_sec/60)%60

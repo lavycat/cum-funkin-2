@@ -30,9 +30,9 @@ func _ready() -> void:
 		return
 	note_field = NoteField.new()
 	note_field.play_field = self
-	var sc = Save.data.scroll_speed if not Save.data.use_chart_scroll_speed else Global.chart.scroll_speed
+	var sc = Save.json.scroll_speed if not Save.json.use_chart_scroll_speed else Global.chart.scroll_speed
 	note_field.scroll_speed = sc
-	note_field.down_scroll = Save.data.down_scroll
+	note_field.down_scroll = Save.json.down_scroll
 	add_child(note_field)
 	var i:int = 0
 	for t:TouchScreenButton in buttons:
