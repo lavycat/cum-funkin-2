@@ -768,6 +768,5 @@ position = Vector2(-8960, 1867)
 position = Vector2(-10643, 1334)
 
 [node name="dad5" parent="." instance=ExtResource("10_mea5d")]
-visible = false
 z_index = 4
-position = Vector2(-40, 700)
+position = Vector2(-9295, 1939)

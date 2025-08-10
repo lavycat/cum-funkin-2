@@ -27,6 +27,7 @@ Debug="*res://autoload/scenes/Debug.tscn"
 Conductor="*res://autoload/scripts/conductor.gd"
 Save="*res://autoload/scripts/save.gd"
 AudioManager="*res://autoload/scenes/audio_manager.tscn"
+HighScore="*res://autoload/scripts/high_score.gd"
 
 [debug]
 

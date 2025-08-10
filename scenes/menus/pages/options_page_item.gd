@@ -30,7 +30,7 @@ func _ready() -> void:
 					if real_val.to_int() == e.to_int():
 						enum_value = e
 						break
-				enum_value = real_val
+				enum_value = str(real_val.to_int())
 			else:
 				for e in enum_values:
 					if e == real_val:
@@ -41,7 +41,6 @@ func _ready() -> void:
 					
 			update()
 		"range":
-			print(Save.json.get(option))
 			if Save.json.get(option) != null:
 				var real_val:float = clamp(snapped(Save.json.get(option),range_step),range_min,range_max)
 				range_value = real_val

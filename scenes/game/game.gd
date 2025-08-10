@@ -219,6 +219,8 @@ func show_combo(c:int):
 		count += 1
 func _process(delta: float) -> void:
 	if Conductor.player.get_playback_position() == 0 and song_started:
+		if score > HighScore.get_song_score(song_name,"hard"):
+			HighScore.save_song_score(score,song_name,"hard")
 		return_to_menu()
 	hud.scale = lerp(hud.scale,Vector2.ONE,1 - exp(-3.0 * delta))
 	camera.zoom = lerp(camera.zoom,default_camera_zoom,1 - exp(-3.0 * delta))

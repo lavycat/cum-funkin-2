@@ -21,6 +21,10 @@ const default_json = {
 		"4k_up": ["J","up"],
 		"4k_right": ["K","right"]
 	},
+	"scores": {
+		"song_scores":{},
+		"level_scores":{}
+	}
 }
 func load_data():
 		
