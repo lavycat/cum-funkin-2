@@ -2,7 +2,6 @@
 class_name Game extends Node2D
 var play_fields:Array[PlayField] = []
 var chart:Chart
-var level_data:GameLevelData = null
 @onready var tracks: Node = %tracks
 @onready var dad_field: PlayField = $UI/playfields/dad_field
 @onready var player_field: PlayField = $UI/playfields/player_field
@@ -39,6 +38,11 @@ var accuracy:float = -1
 
 static var instance:Game
 static var song_name = "glitcher"
+static var level_songs:Array[StringName] = []
+static var level_index:int = 0
+static var level_name:StringName = ""
+static var level_score:int = 0
+static var is_story_mode:bool = false
 var paused:bool = false
 var pause_menu:PackedScene = load("res://scenes/game/pause_menu.tscn")
 var pause_ui:CanvasLayer = null
@@ -49,6 +53,9 @@ func load_character(p:String,fb:String):
 		return load("res://scenes/game/characters/%s.tscn"%fb).instantiate()
 func _enter_tree() -> void:
 	chart = Global.chart
+	if is_story_mode:
+		song_name = level_songs[level_index]
+		chart = ChartParser.load_chart(level_songs[level_index],"hard")
 	instance = self
 	var p = "res://scenes/game/stages/%s.tscn"%chart.stage
 	if not ResourceLoader.exists(p):
@@ -69,6 +76,7 @@ func _ready() -> void:
 	Conductor.player = tracks.player
 	Conductor.player.pitch_scale = Conductor.rate
 	Engine.time_scale = Conductor.rate
+	print(is_story_mode)
 	for i in play_fields:
 		i.position.y = hud.size.y*0.15 if not Save.json.down_scroll else hud.size.y*0.85
 		i.position.x = hud.size.x*0.25
@@ -218,10 +226,21 @@ func show_combo(c:int):
 		t.tween_callback(spr.queue_free)
 		count += 1
 func _process(delta: float) -> void:
+	if is_equal_approx(health,0):
+		get_tree().reload_current_scene()
 	if Conductor.player.get_playback_position() == 0 and song_started:
 		if score > HighScore.get_song_score(song_name,"hard"):
 			HighScore.save_song_score(score,song_name,"hard")
-		return_to_menu()
+		if is_story_mode:
+			level_score += score
+			if level_index == level_songs.size() - 1:
+				HighScore.save_level_score(level_score,level_name,"hard")
+				return_to_menu()
+			else:
+				get_tree().reload_current_scene()
+				level_index += 1
+		else:
+			return_to_menu()
 	hud.scale = lerp(hud.scale,Vector2.ONE,1 - exp(-3.0 * delta))
 	camera.zoom = lerp(camera.zoom,default_camera_zoom,1 - exp(-3.0 * delta))
 	if camera:
@@ -257,8 +276,13 @@ func measure_hit(measure:int):
 		hud.scale += Vector2(0.03,0.03)
 		camera.zoom += Vector2(0.015,0.015)
 func return_to_menu():
-	AudioManager.fade_in_global_music()
-	get_tree().change_scene_to_file("res://scenes/menus/free_play.tscn")
+	if not is_story_mode:
+		AudioManager.fade_in_global_music()
+		get_tree().change_scene_to_file("res://scenes/menus/free_play.tscn")
+	if is_story_mode:
+		AudioManager.fade_in_global_music()
+		get_tree().change_scene_to_file("res://scenes/menus/story_menu.tscn")
+		pass
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_WM_WINDOW_FOCUS_OUT:

@@ -61,6 +61,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
 		change_selected(-1)
 	if event.is_action_pressed("ui_accept"):
+		Game.is_story_mode = false
 		Game.song_name = cur_song
 		Global.chart = null
 		Global.chart = ChartParser.load_chart(cur_song,"hard")
