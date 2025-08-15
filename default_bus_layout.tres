@@ -1,17 +1,11 @@
-[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://cyojqdty1xt7r"]
-
-[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_j3pel"]
-resource_name = "HardLimiter"
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://cyojqdty1xt7r"]
 
 [sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_j3pel"]
 resource_name = "Compressor"
-threshold = -40.0
 
 [resource]
-bus/0/effect/0/effect = SubResource("AudioEffectHardLimiter_j3pel")
+bus/0/effect/0/effect = SubResource("AudioEffectCompressor_j3pel")
 bus/0/effect/0/enabled = true
-bus/0/effect/1/effect = SubResource("AudioEffectCompressor_j3pel")
-bus/0/effect/1/enabled = true
 bus/1/name = &"music"
 bus/1/solo = false
 bus/1/mute = false

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wfjopqeaplxt"
-path="res://.godot/imported/darkness red.png-c2af68199a6a92099e88e3dfa49fa15c.ctex"
+uid="uid://cienxm42shfjj"
+path="res://.godot/imported/erect.png-2b333578f8e2ef4d1b5cd4f50a9fe95f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/game/stages/shucks/darkness red.png"
-dest_files=["res://.godot/imported/darkness red.png-c2af68199a6a92099e88e3dfa49fa15c.ctex"]
+source_file="res://assets/images/menus/difficulties/erect.png"
+dest_files=["res://.godot/imported/erect.png-2b333578f8e2ef4d1b5cd4f50a9fe95f.ctex"]
 
 [params]
 
-compress/mode=4
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

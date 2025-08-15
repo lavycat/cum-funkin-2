@@ -10,6 +10,14 @@ extends Stage
 @onready var chair: Node2D = $chair
 @onready var chair_marbin: Character = $"chair/chair marbin"
 @onready var tas:Array = [$dad, $bf, $dad2, $dad3, $dad4, $dad5]
+
+@onready var darkness_alt: Sprite2D = $CanvasLayer/DarknessAlt
+@onready var darkness_red: Sprite2D = $CanvasLayer/DarknessRed
+@onready var red: Sprite2D = $CanvasLayer/red
+
+
+
+
 var gf_notes:Array[Chart.NoteData] = []
 func flixel_tween_to_godot(tween_type:String,tween:Tween) -> Tween:
 	var mapping:Dictionary[String,Array] = {
@@ -105,6 +113,7 @@ func event_triggered(event:Event, time: float, values: Array) -> void:
 	pass
 func _ready() -> void:
 	normal.visible = false
+	darkness_alt.visible = true
 	game.gf.modulate.a = 0
 	await RenderingServer.frame_post_draw
 	game.hud.modulate.a = 0
@@ -132,6 +141,8 @@ func step_hit(step:int):
 			game.bf.can_dance = false
 			game.bf.play_anim("nightmare",true)
 		158:
+
+			
 			var t = create_tween().set_parallel()
 			game.gf.modulate = Color.AQUA
 			game.gf.modulate.a = 0
@@ -141,6 +152,8 @@ func step_hit(step:int):
 			game.bf.can_dance = true
 			
 		434:
+			darkness_alt.visible = false
+			darkness_red.visible = true
 			game.gf.modulate = Color.WHITE
 			
 			create_tween().tween_property(game.hud,"modulate:a",0,Conductor.beat_length*2)
@@ -159,6 +172,9 @@ func step_hit(step:int):
 			cut.play()
 			var t := create_tween().set_parallel()
 			t.tween_property(game.hud,"modulate:a",0,3.5)
+			t.tween_property(darkness_red,"modulate:a",0,3.5)
+			
+			
 			t.tween_property(cut,"modulate:a",1,0.8).set_delay(2.7)
 			await t.finished
 			

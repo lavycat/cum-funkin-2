@@ -148,7 +148,6 @@ func note_miss(note:Note):
 		bf.sing(note.column,true)
 		if combo > 0:
 			combo = 0
-			show_combo(combo)
 func note_hit(note:Note):
 	match note.note_field.play_field.id:
 		0:
@@ -161,13 +160,11 @@ func note_hit(note:Note):
 			if not note.was_hit:
 				health += 0.02
 				var r = Rating.rate_note(note,note.play_field.auto_play)
-				pop_up_score(r)
 				score += r.score
 				combo += 1
 				accuracy_points_max += 1
 				accuracy_points += r.acc
 				accuracy = (accuracy_points / accuracy_points_max) * 100.0
-				show_combo(combo)
 			else:
 				health += 0.08 * get_process_delta_time()
 		2:
@@ -205,26 +202,7 @@ func pop_up_score(rating:Rating):
 	t.tween_callback(rat.queue_free)
 	ratings_layer.add_child(rat)
 
-func show_combo(c:int):
-	var cstr = str(c).pad_zeros(3)
-	var count:int = 0
-	for i in cstr.split():
-		var spr: VelocitySprite = VelocitySprite.new()
-		spr.texture = combo_tex
-		spr.hframes = 10
-		spr.frame = int(i)
-		spr.position = camera.get_target_position()
-		spr.position.y += 90
-		spr.position.x += 50 * count - 50
-		spr.scale = Vector2(0.55,0.55)
-		combo_layer.add_child(spr)
-		spr.acceleration.y = randi_range(200, 300);
-		spr.velocity.y -= randi_range(140, 160);
-		spr.velocity.x = randf_range(-5, 5);
-		var t: Tween = create_tween()
-		t.tween_property(spr,"modulate:a",0,0.2).set_delay(Conductor.beat_length)
-		t.tween_callback(spr.queue_free)
-		count += 1
+
 func _process(delta: float) -> void:
 	if is_equal_approx(health,0):
 		get_tree().reload_current_scene()

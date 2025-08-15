@@ -30,11 +30,6 @@ script = ExtResource("1_adhs8")
 cam = NodePath("cam")
 default_cam_zoom = 0.3
 
-[node name="cam" type="Camera2D" parent="."]
-position = Vector2(640, 360)
-position_smoothing_enabled = true
-position_smoothing_speed = 3.0
-
 [node name="plush" type="Node2D" parent="."]
 visible = false
 
@@ -97,7 +92,7 @@ scale = Vector2(1.6, 1.6)
 texture = ExtResource("15_t3br4")
 
 [node name="Flare" type="Sprite2D" parent="real/0X1"]
-position = Vector2(126, -52)
+position = Vector2(477, 16)
 texture = ExtResource("14_84knh")
 
 [node name="Wires2" type="Sprite2D" parent="real/0X1"]
@@ -140,3 +135,9 @@ position = Vector2(-6840, -127)
 
 [node name="bf_position" type="Marker2D" parent="."]
 position = Vector2(1069, 776)
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+zoom = Vector2(0.3, 0.3)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0

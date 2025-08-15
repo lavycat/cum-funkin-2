@@ -3,14 +3,19 @@ class_name PlayField extends Node2D
 @export_enum("4k:4","5K:5","6K:6","7K:7") var key_count:int = 4
 @export_enum("dad","player") var id:int = 0
 @export var show_splash:bool = false
-var directions = ["left","down","up","right"]
+@export var display_rating:bool = false
 @export var auto_play:bool = false
+
+var directions = ["left","down","up","right"]
 var note_field:NoteField = null
 var notes:Array = []
 var strums:Array[Receptor] = []
 var buttons:Array[TouchScreenButton] = []
 var pressed:Array[bool] = [false,false,false,false]
 var actions:Array[String] = ["4k_left","4k_down","4k_up","4k_right"]
+var combo_tex = load("res://assets/ui/funkin/num-sheet.png")
+var rating_tex = load("res://assets/ui/funkin/ratings_sheet.png")
+var ms_font = load("res://assets/fonts/funkin_combo.tres")
 signal note_spawned(note:Note)
 signal note_hit(note:Note)
 signal note_miss(note:Note)
@@ -53,9 +58,60 @@ func find_action_index(ev: InputEvent) -> int:
 func note_input(note:Note):
 	note_hit.emit(note)
 	note.note_hit(note)
+	if display_rating and not note.was_hit:
+		show_combo(Game.instance.combo)
+		var r = Rating.rate_note(note,note.play_field.auto_play)
+		pop_up_score(r)
+		pass
 	note.was_hit = true
 	note.length = (note.time + note.length) - Conductor.time
 	strums[note.column].play_anim("confirm",true)
+func pop_up_score(rating:Rating):
+	var ms_txt: Label = Label.new()
+	ms_txt.label_settings = LabelSettings.new()
+	ms_txt.label_settings.font_size = 64
+	ms_txt.label_settings.outline_size = 24
+	ms_txt.label_settings.outline_color = Color.BLACK
+	ms_txt.label_settings.font = ms_font
+	ms_txt.text = "%0.2f MS"%(rating.hit_ms)
+	ms_txt.position.y = -128
+	ms_txt.position.x -= ms_txt.size.x / 2
+
+	var rat := VelocitySprite.new()
+	rat.add_child(ms_txt)
+	rat.texture = rating_tex
+	rat.vframes = 4
+	rat.frame = rating.rank
+	rat.scale = Vector2(0.7, 0.7)
+	rat.position = Vector2(0,-360)
+	rat.acceleration.y = 550;
+	rat.velocity.x -= randi_range(0, 10)
+	rat.velocity.y -= randi_range(140,175)
+
+	var t: Tween = create_tween().set_trans(Tween.TRANS_SINE)
+	t.tween_property(rat,"modulate:a",0,0.2).set_delay(Conductor.beat_length)
+	t.tween_callback(rat.queue_free)
+	add_child(rat)
+func show_combo(c:int):
+	var cstr = str(c).pad_zeros(3)
+	var count:int = 0
+	for i in cstr.split():
+		var spr: VelocitySprite = VelocitySprite.new()
+		spr.texture = combo_tex
+		spr.hframes = 10
+		spr.frame = int(i)
+		spr.position = Vector2(0,-360)
+		spr.position.y += 90
+		spr.position.x += 50 * count - 50
+		spr.scale = Vector2(0.55,0.55)
+		add_child(spr)
+		spr.acceleration.y = randi_range(200, 300);
+		spr.velocity.y -= randi_range(140, 160);
+		spr.velocity.x = randf_range(-5, 5);
+		var t: Tween = create_tween()
+		t.tween_property(spr,"modulate:a",0,0.2).set_delay(Conductor.beat_length)
+		t.tween_callback(spr.queue_free)
+		count += 1
 func _input(event: InputEvent) -> void:
 	if auto_play:
 		return
@@ -94,6 +150,7 @@ func note_update(delta:float):
 		if (note.time - Conductor.time) < 0.0 and not note.was_hit and auto_play:
 			pressed[note.column] = true
 			strum.play_anim("confirm",true)
+			note_input(note)
 			note_hit.emit(note)
 			note.note_hit(note)
 			note.was_hit = true
@@ -101,6 +158,7 @@ func note_update(delta:float):
 		if note.was_hit and not note.missed:
 			if note.sustain:
 					note_hit.emit(note)
+					
 					note.note_hit(note)
 					if pressed[note.column]:
 						if not strum.animation.contains("confirm"):

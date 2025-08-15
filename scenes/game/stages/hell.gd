@@ -159,6 +159,11 @@ func beat_hit(beat:int):
 			game.hud.healthbar.visible = false
 			create_tween().tween_property(game.hud,"modulate:a",1,1.25)
 			game.player_field.position.x = 640
+			if Save.json.down_scroll:
+				game.hud.timebar.position.y -= 90
+			else:
+				game.hud.timebar.position.y += 90
+				
 			game.dad_field.position.x = -1280
 		679:
 			flash(0.75)

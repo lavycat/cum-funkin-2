@@ -1,11 +1,70 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1h2dvxqbncl0"]
+[gd_scene load_steps=13 format=3 uid="uid://c1h2dvxqbncl0"]
 
 [ext_resource type="Script" uid="uid://kfyohvvt3qqq" path="res://scenes/menus/story_menu.gd" id="1_3fasx"]
 [ext_resource type="FontFile" uid="uid://c5chw3mxyist4" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="1_y3ttr"]
+[ext_resource type="Texture2D" uid="uid://bagud2mv6gml0" path="res://assets/images/menus/difficulties/normal.png" id="3_1o4ee"]
+[ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="4_mjxy8"]
+[ext_resource type="Texture2D" uid="uid://bxjq3unvo3uer" path="res://assets/images/menus/arrows.png" id="4_wudwk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3fasx"]
 font = ExtResource("1_y3ttr")
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_1o4ee"]
+font = ExtResource("1_y3ttr")
+font_size = 32
+font_color = Color(0.898039, 0.341176, 0.466667, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txabj"]
+atlas = ExtResource("4_wudwk")
+region = Rect2(107, 4, 42, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g17tg"]
+atlas = ExtResource("4_wudwk")
+region = Rect2(4, 4, 48, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmm1m"]
+atlas = ExtResource("4_wudwk")
+region = Rect2(153, 4, 41, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydbwh"]
+atlas = ExtResource("4_wudwk")
+region = Rect2(56, 4, 47, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f18yv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txabj")
+}],
+"loop": false,
+"name": &"leftConfirm",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g17tg")
+}],
+"loop": false,
+"name": &"leftIdle",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmm1m")
+}],
+"loop": false,
+"name": &"rightConfirm",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydbwh")
+}],
+"loop": false,
+"name": &"rightIdle",
+"speed": 24.0
+}]
 
 [node name="StoryMenu" type="Node2D"]
 script = ExtResource("1_3fasx")
@@ -23,20 +82,53 @@ offset_right = 1280.0
 offset_bottom = 456.0
 color = Color(0.976471, 0.811765, 0.317647, 1)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 896.0
+[node name="week" type="Label" parent="."]
+texture_filter = 1
+offset_left = 256.0
 offset_right = 1280.0
 offset_bottom = 56.0
 text = "WEEK-NAME"
 label_settings = SubResource("LabelSettings_3fasx")
 horizontal_alignment = 2
 vertical_alignment = 1
+clip_text = true
+
+[node name="score" type="Label" parent="."]
+texture_filter = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 394.0
+offset_bottom = 66.0
+text = "WEEK SCORE: 0"
+label_settings = SubResource("LabelSettings_3fasx")
 
 [node name="tracks" type="Label" parent="."]
+texture_filter = 1
 offset_left = 64.0
 offset_top = 500.0
 offset_right = 364.0
 offset_bottom = 700.0
-label_settings = SubResource("LabelSettings_3fasx")
+label_settings = SubResource("LabelSettings_1o4ee")
 horizontal_alignment = 1
 clip_text = true
+
+[node name="difficulty" type="TextureRect" parent="."]
+offset_left = 924.0
+offset_top = 547.0
+offset_right = 1231.0
+offset_bottom = 613.0
+texture = ExtResource("3_1o4ee")
+
+[node name="left" type="AnimatedSprite2D" parent="difficulty"]
+position = Vector2(-24, 35)
+sprite_frames = SubResource("SpriteFrames_f18yv")
+animation = &"leftIdle"
+script = ExtResource("4_mjxy8")
+tex = ExtResource("4_wudwk")
+
+[node name="right" type="AnimatedSprite2D" parent="difficulty"]
+position = Vector2(332, 35)
+sprite_frames = SubResource("SpriteFrames_f18yv")
+animation = &"rightIdle"
+script = ExtResource("4_mjxy8")
+tex = ExtResource("4_wudwk")

@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckh7pqtljkdq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xowi"]
+albedo_color = Color(0.722713, 0.769089, 1, 1)
+subsurf_scatter_strength = 0.7
+refraction_scale = 0.64
+point_size = 27.1
+distance_fade_max_distance = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_a202f"]
+material = SubResource("StandardMaterial3D_4xowi")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_noarx"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_4xowi"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 1.1
+dof_blur_amount = 1.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.841991, 0, 0.539491, 0.420281, 0.626985, -0.655938, -0.338253, 0.779032, 0.527916, -0.117229, 0, 0)
+mesh = SubResource("BoxMesh_a202f")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2, 0, 0, 0, -1.81535, -0.839348, 0, 0.839348, -1.81535, -1.84789, 0.429829, 1.70517)
+mesh = SubResource("CapsuleMesh_noarx")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.91863, 0.236857, -0.512607, 0, -1.81555, -0.838904, 0.564683, -0.804772, 1.74169, -1.84789, 0.429829, -1.19066)
+mesh = SubResource("CapsuleMesh_noarx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.0445959, 0, 0.999005, 0, 1, 0, -0.999005, 0, -0.0445959, 1.94659, 0, 0)
+attributes = SubResource("CameraAttributesPractical_4xowi")
+fov = 45.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.957807, 0.140107, 0.250948, -0.266707, 0.758663, 0.594388, -0.107108, -0.636239, 0.764021, 0, 0, 7.90267)

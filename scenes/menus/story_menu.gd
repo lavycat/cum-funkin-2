@@ -1,8 +1,12 @@
 extends Node2D
+@onready var level_titles: Node2D = $level_titles
+@onready var score: Label = $score
+@onready var week: Label = $week
 const levels_folder:StringName = &"res://assets/levels/"
 var levels:Array[Level] = []
 var cur_level:int = 0
-@onready var level_titles: Node2D = $level_titles
+var week_score:int = 0
+var week_score_lerped:int = 0
 
 func _ready() -> void:
 	for l in ResourceLoader.list_directory(levels_folder):
@@ -24,6 +28,8 @@ func select_level(i:int):
 	Game.level_songs = levels[i].songs
 	Game.is_story_mode = true
 	Game.level_name = levels[i].name
+	Game.level_index = 0
+	
 	get_tree().change_scene_to_packed(load("res://scenes/game/game.scn"))
 	pass
 func _process(delta: float) -> void:
@@ -36,8 +42,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		select_level(cur_level)
 func change_level(i:int = 0):
+	week.text = levels[cur_level].name
 	cur_level = wrap(cur_level + i,0,levels.size())
-	tracks.text = ""
+	tracks.text = "TRACKS\n\n"
 	for s in levels[cur_level].songs:
 		tracks.text += "%s\n"%s
 		
