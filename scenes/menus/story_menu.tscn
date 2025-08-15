@@ -114,9 +114,9 @@ clip_text = true
 
 [node name="difficulty" type="TextureRect" parent="."]
 offset_left = 924.0
-offset_top = 547.0
+offset_top = 514.0
 offset_right = 1231.0
-offset_bottom = 613.0
+offset_bottom = 580.0
 texture = ExtResource("3_1o4ee")
 
 [node name="left" type="AnimatedSprite2D" parent="difficulty"]

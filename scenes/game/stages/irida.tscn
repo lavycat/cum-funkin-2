@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://bmajhrge22s3t"]
 
-[ext_resource type="Script" uid="uid://bku46g8d38pqw" path="res://scenes/game/stages/stage.gd" id="1_adhs8"]
+[ext_resource type="Script" uid="uid://wj7kctekw5f5" path="res://scenes/game/stages/irida.gd" id="1_s5a7a"]
 [ext_resource type="Texture2D" uid="uid://4yryskgfwjpl" path="res://assets/images/game/stages/jimmy/plush/cat_pino.png" id="2_ma5ww"]
 [ext_resource type="Texture2D" uid="uid://c01c46gtl873f" path="res://assets/images/game/stages/jimmy/plush/city.png" id="3_bxgem"]
 [ext_resource type="Texture2D" uid="uid://y62pyiuci3ie" path="res://assets/images/game/stages/jimmy/plush/da_skyy.png" id="4_tu57t"]
@@ -26,7 +26,7 @@ shader = ExtResource("13_s5a7a")
 shader_parameter/qulity = 1.0
 
 [node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
-script = ExtResource("1_adhs8")
+script = ExtResource("1_s5a7a")
 cam = NodePath("cam")
 default_cam_zoom = 0.3
 
@@ -75,7 +75,22 @@ texture = ExtResource("16_dht18")
 [node name="0X1" type="Parallax2D" parent="real"]
 scroll_scale = Vector2(0, 1)
 
-[node name="Bg" type="Sprite2D" parent="real/0X1"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="real/0X1"]
+texture_filter = 4
+offset_left = -1501.0
+offset_top = -1331.0
+offset_right = 2764.0
+offset_bottom = 740.0
+stretch = true
+stretch_shrink = 4
+
+[node name="SubViewport" type="SubViewport" parent="real/0X1/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1066, 517)
+render_target_clear_mode = 2
+render_target_update_mode = 4
+
+[node name="Bg" type="Sprite2D" parent="real/0X1/SubViewportContainer/SubViewport"]
 material = SubResource("ShaderMaterial_s5a7a")
 position = Vector2(526, 480)
 scale = Vector2(3.2, 3.2)

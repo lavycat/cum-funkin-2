@@ -67,6 +67,8 @@ func select_item(option:String):
 		create_tween().tween_property(q,"modulate:a",0,0.33).set_delay(0.33)
 	await get_tree().create_timer(0.9).timeout
 	match option:
+		"story_mode":
+			get_tree().change_scene_to_file("res://scenes/menus/story_menu.tscn")
 		"freeplay":
 			get_tree().change_scene_to_file("res://scenes/menus/free_play.tscn")
 		"options":

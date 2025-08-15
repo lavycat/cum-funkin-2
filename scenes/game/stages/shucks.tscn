@@ -740,7 +740,7 @@ position = Vector2(1085, 0)
 position = Vector2(1500, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
+layer = 0
 
 [node name="cut" type="VideoStreamPlayer" parent="CanvasLayer"]
 offset_right = 40.0

@@ -70,9 +70,6 @@ float happy_star(vec2 uv, float anim)
 }
 void fragment()
 {
-	if (COLOR.a < 0.05 || UV.y > 0.47 || UV.x < 0.05){
-		discard;
-	}
 	vec2 iResolution = 1.0 / SCREEN_PIXEL_SIZE;
 	//get coords and direction
 	vec2 uv=FRAGCOORD.xy/iResolution.xy-.5;

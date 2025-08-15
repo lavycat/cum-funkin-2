@@ -29,6 +29,7 @@ func select_level(i:int):
 	Game.is_story_mode = true
 	Game.level_name = levels[i].name
 	Game.level_index = 0
+	AudioManager.fade_out_global_music()
 	
 	get_tree().change_scene_to_packed(load("res://scenes/game/game.scn"))
 	pass
