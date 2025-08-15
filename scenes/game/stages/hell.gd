@@ -125,6 +125,8 @@ func beat_hit(beat:int):
 			game.dad.free()
 			game.dad = jerry
 			game.hud.reload_icons()
+			for i in game.play_fields:
+				i.reset_characters()
 			flash(0.5)
 		541:
 			var t = create_tween().set_parallel()
@@ -143,6 +145,8 @@ func beat_hit(beat:int):
 			game.bf = marv_3
 			cut.play()
 			hell_2.queue_free()
+			for i in game.play_fields:
+				i.reset_characters()
 			
 			Conductor.rate = 1
 		597:
@@ -207,6 +211,8 @@ func beat_hit(beat:int):
 			game.dad_field.note_field.down_scroll = false
 			game.dad_field.spawn_range = 5
 			subtitle.text = ""
+			for i in game.play_fields:
+				i.reset_characters()
 		892:
 			flash_rect.color = Color.BLACK
 			flash_rect.color.a = 0

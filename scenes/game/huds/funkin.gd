@@ -41,15 +41,15 @@ func _process(delta: float) -> void:
 	var percent = 1.0 - (healthbar.value / healthbar.max_value)
 	icons.position.x = percent * healthbarbg.size.x
 	icons.scale = lerp(icons.scale,Vector2.ONE,1 - exp(-9.0*delta))
-	time_text.text = "%s - %s"%[time_convert(Conductor.time),time_convert(Conductor.player.stream.get_length())]
-func update_score_txt():
-	scoretxt.text = "Score - %d | Accuracy - %0.2f%% | Misses - %d"%[game.score,game.accuracy,game.misses]
+	time_text.text = "%s - %s"%[time_convert(max(Conductor.time,0)),time_convert(Conductor.player.stream.get_length())]
+func update_score_txt(stats:Stats):
+	scoretxt.text = "Score - %d | Accuracy - %0.2f%% | Misses - %d"%[stats.score,stats.get_accuracy(),stats.misses]
 func note_hit(n:Note):
 	if n.play_field.id == 1:
-		update_score_txt()
+		update_score_txt(n.play_field.stats)
 
 
 func note_miss(n:Note):
-	update_score_txt()
+	update_score_txt(n.play_field.stats)
 func beat_hit(b:int):
 	icons.scale = Vector2(1.2,1.2)

@@ -2,17 +2,24 @@
 class_name PlayField extends Node2D
 @export_enum("4k:4","5K:5","6K:6","7K:7") var key_count:int = 4
 @export_enum("dad","player") var id:int = 0
+
 @export var show_splash:bool = false
 @export var display_rating:bool = false
 @export var auto_play:bool = false
 
+var stats:Stats = Stats.new()
+
 var directions = ["left","down","up","right"]
+
 var note_field:NoteField = null
 var notes:Array = []
 var strums:Array[Receptor] = []
+
 var buttons:Array[TouchScreenButton] = []
 var pressed:Array[bool] = [false,false,false,false]
 var actions:Array[String] = ["4k_left","4k_down","4k_up","4k_right"]
+var characters:Array[Character] = []
+
 var combo_tex = load("res://assets/ui/funkin/num-sheet.png")
 var rating_tex = load("res://assets/ui/funkin/ratings_sheet.png")
 var ms_font = load("res://assets/fonts/funkin_combo.tres")
@@ -58,14 +65,21 @@ func find_action_index(ev: InputEvent) -> int:
 func note_input(note:Note):
 	note_hit.emit(note)
 	note.note_hit(note)
+	var r = Rating.rate_note(note,note.play_field.auto_play)
+	stats.notes_hit += 1
+	stats.accuracy_points += r.acc
+	stats.score += r.score
+	stats.ratings.set(r.name,stats.ratings.get(r.name,0))
+	stats.combo += 1
 	if display_rating and not note.was_hit:
-		show_combo(Game.instance.combo)
-		var r = Rating.rate_note(note,note.play_field.auto_play)
+		show_combo(stats.combo)
 		pop_up_score(r)
-		pass
 	note.was_hit = true
 	note.length = (note.time + note.length) - Conductor.time
 	strums[note.column].play_anim("confirm",true)
+	for i in characters:
+		i.sing(note.column)
+	
 func pop_up_score(rating:Rating):
 	var ms_txt: Label = Label.new()
 	ms_txt.label_settings = LabelSettings.new()
@@ -112,6 +126,15 @@ func show_combo(c:int):
 		t.tween_property(spr,"modulate:a",0,0.2).set_delay(Conductor.beat_length)
 		t.tween_callback(spr.queue_free)
 		count += 1
+func reset_characters():
+	match id:
+		0:
+			characters = [Game.instance.dad]
+		1:
+			characters = [Game.instance.bf]
+		_:
+			characters = [Game.instance.gf]
+	
 func _input(event: InputEvent) -> void:
 	if auto_play:
 		return
@@ -150,15 +173,41 @@ func note_update(delta:float):
 		if (note.time - Conductor.time) < 0.0 and not note.was_hit and auto_play:
 			pressed[note.column] = true
 			strum.play_anim("confirm",true)
-			note_input(note)
+			for i in characters:
+				if i:
+					i.sing(note.column)
 			note_hit.emit(note)
 			note.note_hit(note)
+			var r = Rating.rate_note(note,note.play_field.auto_play)
+			stats.score += r.score
+			stats.accuracy_points += r.acc
+			stats.notes_hit += 1
+			stats.ratings.set(r.name,stats.ratings.get(r.name,0))
+			stats.combo += 1
 			note.was_hit = true
-
+		if Conductor.time - note.time > note.hit_range * max(1.0, Conductor.rate):
+			
+			if note.sustain and note.was_hit:
+				if note.sustain.released_timer > Conductor.step_length*2:
+					note_miss.emit(note)
+					note.note_miss(note)
+					note.missed = true
+					stats.misses += 1
+					note.queue_free()
+			
+			if not note.was_hit:
+				note.missed = true
+				stats.misses += 1
+				note_miss.emit(note)
+				note.note_miss(note)
+				note.queue_free()
 		if note.was_hit and not note.missed:
 			if note.sustain:
 					note_hit.emit(note)
-					
+					for i in characters:
+						if i:
+							if i.sing_timer > Conductor.step_length:
+								i.sing(note.column)
 					note.note_hit(note)
 					if pressed[note.column]:
 						if not strum.animation.contains("confirm"):

@@ -51,12 +51,15 @@ func trigger(event_time: float, event_values: Array) -> void:
 			game.add_child(char_to)
 			char_from.queue_free()
 			game.dad = char_to
+			game.dad_field.reset_characters()
 		"bf",1.0:
+			
 			char_from = game.bf
 			char_to.position = char_from.position
 			game.add_child(char_to)
 			char_from.queue_free()
 			game.bf = char_to
+			game.player_field.reset_characters()
 		"gf",2.0:
 			char_from = game.gf
 			char_to.position = char_from.position

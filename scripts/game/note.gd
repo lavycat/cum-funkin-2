@@ -63,18 +63,3 @@ func _process(delta: float) -> void:
 
 	if missed:
 		return
-
-	if Conductor.time - time > hit_range * max(1.0, Conductor.rate):
-		if sustain and was_hit:
-			if sustain.released_timer > Conductor.step_length*2:
-				play_field.note_miss.emit(self)
-				note_miss(self)
-				missed = true
-				queue_free()
-			return
-
-		if (not was_hit):
-			missed = true
-			play_field.note_miss.emit(self)
-			note_miss(self)
-			queue_free()

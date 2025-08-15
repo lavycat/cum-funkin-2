@@ -186,6 +186,8 @@ func step_hit(step:int):
 			game.dad = chair_dstg
 			game.gf.hide()
 			normal.queue_free()
+			for i in game.play_fields:
+				i.reset_characters()
 			chair.visible = true
 			video_start_time = Conductor.time
 		3440:

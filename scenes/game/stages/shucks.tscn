@@ -762,7 +762,6 @@ autoplay = "default"
 frame_progress = 0.468586
 
 [node name="DarknessAlt" type="Sprite2D" parent="CanvasLayer"]
-visible = false
 material = SubResource("CanvasItemMaterial_1gwyy")
 scale = Vector2(0.666667, 0.666667)
 texture = ExtResource("15_bwiev")

@@ -5,11 +5,11 @@ var chart:Chart
 @onready var tracks: Node = %tracks
 @onready var dad_field: PlayField = $UI/playfields/dad_field
 @onready var player_field: PlayField = $UI/playfields/player_field
-@onready var playfields: Node2D = $UI/playfields
-@onready var hud: Control = $UI/hud
-@onready var ui: CanvasLayer = %UI
+@onready var playfields: Node2D = %UI/playfields
+@onready var hud: Control = %UI/hud
 @onready var ratings_layer: CanvasLayer = $ratings
 @onready var combo_layer: CanvasLayer = $combo
+@onready var ui: CanvasLayer = %UI
 
 var song_started:bool = false
 @onready var events: EventManager = $events
@@ -27,9 +27,6 @@ var health:float = 1.0:
 	set(v):
 		health = clampf(v, 0.0, max_health)
 var max_health:float = 2.0
-var score:float = 0
-var combo:int = 0
-var misses:int = 0
 var accuracy_points:float = 0
 var accuracy_points_max:float = 0
 
@@ -96,6 +93,9 @@ func _ready() -> void:
 	bf.position = stage.bf_position.position
 	dad.position = stage.dad_position.position
 	gf.position = stage.gf_position.position
+	player_field.characters.append(bf)
+	dad_field.characters.append(dad)
+	
 	camera_lerp_position = dad.camera_position.global_position
 	camera.position = camera_lerp_position
 	camera.reset_smoothing()
@@ -136,35 +136,21 @@ func _ready() -> void:
 		var script = FunkinScript.new()
 		script.set_script(load(scripts_dir + i))
 		add_child(script)
+	
 
 	Conductor.time = -Conductor.beat_length*3.0
 
 func note_miss(note:Note):
 	if note.play_field.id == 1:
 		health -= 0.08
-		misses += 1
 		accuracy_points_max += 1
 		accuracy = (accuracy_points / accuracy_points_max) * 100.0
 		bf.sing(note.column,true)
-		if combo > 0:
-			combo = 0
 func note_hit(note:Note):
 	match note.note_field.play_field.id:
-		0:
-			dad.sing(note.column)
 		1:
-			if bf:
-				bf.sing(note.column)
-				bf.sing_timer = 0
-
 			if not note.was_hit:
 				health += 0.02
-				var r = Rating.rate_note(note,note.play_field.auto_play)
-				score += r.score
-				combo += 1
-				accuracy_points_max += 1
-				accuracy_points += r.acc
-				accuracy = (accuracy_points / accuracy_points_max) * 100.0
 			else:
 				health += 0.08 * get_process_delta_time()
 		2:
@@ -204,13 +190,14 @@ func pop_up_score(rating:Rating):
 
 
 func _process(delta: float) -> void:
+	queue_redraw()
 	if is_equal_approx(health,0):
 		get_tree().reload_current_scene()
 	if Conductor.player.get_playback_position() == 0 and song_started:
-		if score > HighScore.get_song_score(song_name,"hard"):
-			HighScore.save_song_score(score,song_name,"hard")
+		if player_field.stats.score > HighScore.get_song_score(song_name,"hard"):
+			HighScore.save_song_score(player_field.stats.score,song_name,"hard")
 		if is_story_mode:
-			level_score += score
+			level_score += player_field.stats.score
 			if level_index == level_songs.size() - 1:
 				HighScore.save_level_score(level_score,level_name,"hard")
 				return_to_menu()
