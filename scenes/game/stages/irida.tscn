@@ -76,18 +76,19 @@ texture = ExtResource("16_dht18")
 scroll_scale = Vector2(0, 1)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="real/0X1"]
-texture_filter = 4
-offset_left = -1501.0
-offset_top = -1331.0
-offset_right = 2764.0
-offset_bottom = 740.0
+texture_filter = 1
+offset_left = -1548.0
+offset_top = -2766.0
+offset_right = -108.0
+offset_bottom = -1326.0
+scale = Vector2(3, 3)
 stretch = true
-stretch_shrink = 4
+stretch_shrink = 3
 
 [node name="SubViewport" type="SubViewport" parent="real/0X1/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(1066, 517)
-render_target_clear_mode = 2
+size = Vector2i(480, 480)
+render_target_clear_mode = 1
 render_target_update_mode = 4
 
 [node name="Bg" type="Sprite2D" parent="real/0X1/SubViewportContainer/SubViewport"]
@@ -95,6 +96,7 @@ material = SubResource("ShaderMaterial_s5a7a")
 position = Vector2(526, 480)
 scale = Vector2(3.2, 3.2)
 texture = ExtResource("8_7eqa1")
+metadata/_edit_lock_ = true
 
 [node name="Path" type="Sprite2D" parent="real/0X1"]
 position = Vector2(526, 484)
