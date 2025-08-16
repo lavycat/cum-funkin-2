@@ -31,7 +31,7 @@ func time_convert(time_in_sec:int) -> String:
 	var seconds = time_in_sec%60
 	var minutes = (time_in_sec/60)%60
 
-	
+
 	#returns a string with the format "HH:MM:SS"
 	return "%01d:%02d" % [minutes, seconds]
 func _process(delta: float) -> void:
@@ -53,3 +53,7 @@ func note_miss(n:Note):
 	update_score_txt(n.play_field.stats)
 func beat_hit(b:int):
 	icons.scale = Vector2(1.2,1.2)
+
+
+func _on_touch_screen_button_pressed() -> void:
+	print("SUCK MY DICK WITH A SMILE FOR HOURS AT A TIME")

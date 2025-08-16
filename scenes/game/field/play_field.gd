@@ -74,7 +74,7 @@ func note_input(note:Note):
 	strums[note.column].play_anim("confirm",true)
 	for i in characters:
 		i.sing(note.column)
-	
+
 func pop_up_score(rating:Rating):
 	var ms_txt: Label = Label.new()
 	ms_txt.label_settings = LabelSettings.new()
@@ -129,7 +129,7 @@ func reset_characters():
 			characters = [Game.instance.bf]
 		_:
 			characters = [Game.instance.gf]
-	
+
 func _input(event: InputEvent) -> void:
 	if auto_play:
 		return
@@ -184,7 +184,7 @@ func note_update(delta:float):
 				show_combo(stats.combo)
 			note.was_hit = true
 		if Conductor.time - note.time > note.hit_range * max(1.0, Conductor.rate):
-			
+
 			if note.sustain and note.was_hit:
 				if note.sustain.released_timer > Conductor.step_length*2:
 					note_miss.emit(note)
@@ -192,9 +192,9 @@ func note_update(delta:float):
 					note.missed = true
 					stats.misses += 1
 					stats.combo = 0
-					
+
 					note.queue_free()
-			
+
 			if not note.was_hit:
 				note.missed = true
 				stats.misses += 1

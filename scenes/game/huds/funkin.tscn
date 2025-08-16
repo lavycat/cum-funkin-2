@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://brcc3ta5oahnp"]
+[gd_scene load_steps=19 format=3 uid="uid://brcc3ta5oahnp"]
 
 [ext_resource type="Script" uid="uid://cgdky33pfnjvf" path="res://scenes/game/huds/funkin.gd" id="1_wspuj"]
 [ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_5d8qm"]
@@ -38,9 +38,6 @@ width = 320
 height = 720
 fill_from = Vector2(1, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpg24"]
-size = Vector2(320, 720)
-
 [sub_resource type="Gradient" id="Gradient_kpg24"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(0, 1, 1, 1)
@@ -53,7 +50,7 @@ fill_from = Vector2(1, 1)
 
 [sub_resource type="Gradient" id="Gradient_pdveg"]
 offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.0705882, 0.980392, 0.0196078, 1)
+colors = PackedColorArray(0.0530612, 1, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hj1x7"]
 gradient = SubResource("Gradient_pdveg")
@@ -63,7 +60,7 @@ fill_from = Vector2(1, 1)
 
 [sub_resource type="Gradient" id="Gradient_hj1x7"]
 offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.976471, 0.223529, 0.247059, 1)
+colors = PackedColorArray(1, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_mwavb"]
 gradient = SubResource("Gradient_hj1x7")
@@ -79,7 +76,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(640, 360)
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource("1_wspuj")
 metadata/_edit_lock_ = true
 
@@ -150,6 +147,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
@@ -177,26 +175,31 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="touch_buttons" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.2)
+z_index = 4096
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="touch_buttons"]
 texture_normal = SubResource("GradientTexture2D_kpg24")
-shape = SubResource("RectangleShape2D_kpg24")
+passby_press = true
 action = "4k_left"
 
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="touch_buttons"]
 position = Vector2(320, 0)
 texture_normal = SubResource("GradientTexture2D_pdveg")
-shape = SubResource("RectangleShape2D_kpg24")
+passby_press = true
+action = "4k_down"
 
 [node name="TouchScreenButton3" type="TouchScreenButton" parent="touch_buttons"]
 position = Vector2(640, 0)
 texture_normal = SubResource("GradientTexture2D_hj1x7")
-shape = SubResource("RectangleShape2D_kpg24")
+passby_press = true
+action = "4k_up"
 
 [node name="TouchScreenButton4" type="TouchScreenButton" parent="touch_buttons"]
 position = Vector2(960, 0)
 texture_normal = SubResource("GradientTexture2D_mwavb")
-shape = SubResource("RectangleShape2D_kpg24")
+passby_press = true
+action = "4k_right"
 
 [node name="Notes" type="Sprite2D" parent="touch_buttons"]
 position = Vector2(1667, 247)

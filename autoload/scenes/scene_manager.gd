@@ -1,5 +1,5 @@
 extends Node2D
-@onready var graid: TextureRect = $SubViewportContainer/SubViewport/graid
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func change_scene(scene:PackedScene):
@@ -7,4 +7,3 @@ func change_scene(scene:PackedScene):
 	await animation_player.animation_finished
 	get_tree().change_scene_to_packed(scene)
 	animation_player.play("trans_out")
-	
