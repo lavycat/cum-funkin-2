@@ -68,11 +68,11 @@ func select_item(option:String):
 	await get_tree().create_timer(0.9).timeout
 	match option:
 		"story_mode":
-			get_tree().change_scene_to_file("res://scenes/menus/story_menu.tscn")
+			SceneManager.change_scene(load("res://scenes/menus/story_menu.tscn"))
 		"freeplay":
-			get_tree().change_scene_to_file("res://scenes/menus/free_play.tscn")
+			SceneManager.change_scene(load("res://scenes/menus/free_play.tscn"))
 		"options":
-			get_tree().change_scene_to_file("res://scenes/menus/options_menu.tscn")
+			SceneManager.change_scene(load("res://scenes/menus/options_menu.tscn"))
 			
 		_:
 			get_tree().reload_current_scene()

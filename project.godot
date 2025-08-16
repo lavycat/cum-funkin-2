@@ -13,11 +13,8 @@ config_version=5
 config/name="cum funkin 2"
 run/main_scene="uid://cvk4hy2jbxbec"
 config/features=PackedStringArray("4.4", "Mobile")
+run/delta_smoothing=false
 config/icon="res://icon.svg"
-
-[audio]
-
-driver/driver="XAudio2"
 
 [autoload]
 
@@ -28,6 +25,7 @@ Conductor="*res://autoload/scripts/conductor.gd"
 Save="*res://autoload/scripts/save.gd"
 AudioManager="*res://autoload/scenes/audio_manager.tscn"
 HighScore="*res://autoload/scripts/high_score.gd"
+SceneManager="*res://autoload/scenes/scene_manager.tscn"
 
 [debug]
 
@@ -40,7 +38,6 @@ window/size/viewport_height=720
 window/size/sharp_corners=true
 window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
-window/per_pixel_transparency/allowed=true
 window/vsync/vsync_mode=0
 
 [dotnet]
@@ -50,6 +47,10 @@ project/assembly_name="cum funkin 2"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/gdanimate/plugin.cfg")
+
+[global_group]
+
+funkin_script="group for scripting"
 
 [importer_defaults]
 
@@ -147,6 +148,10 @@ ui_pause={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [physics]
 
 2d/physics_engine="Dummy"
@@ -154,4 +159,6 @@ ui_pause={
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true

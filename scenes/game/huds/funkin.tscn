@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://brcc3ta5oahnp"]
+[gd_scene load_steps=20 format=3 uid="uid://brcc3ta5oahnp"]
 
 [ext_resource type="Script" uid="uid://cgdky33pfnjvf" path="res://scenes/game/huds/funkin.gd" id="1_wspuj"]
 [ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_5d8qm"]
 [ext_resource type="Texture2D" uid="uid://b577e36txrjaw" path="res://assets/images/game/icons/icon-bf.png" id="2_c3lqy"]
 [ext_resource type="Texture2D" uid="uid://3p7uukkinxos" path="res://assets/images/ui/circle.png" id="2_fiajd"]
 [ext_resource type="FontFile" uid="uid://c5chw3mxyist4" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="4_aelfd"]
+[ext_resource type="Texture2D" uid="uid://cp2xbouajrv7f" path="res://assets/images/game/notestyles/funkin/notes.png" id="6_kpg24"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kpg24"]
 font = ExtResource("4_aelfd")
@@ -27,6 +28,49 @@ font_size = 20
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Gradient" id="Gradient_fiajd"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.760784, 0.294118, 0.6, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kpg24"]
+gradient = SubResource("Gradient_fiajd")
+width = 320
+height = 720
+fill_from = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpg24"]
+size = Vector2(320, 720)
+
+[sub_resource type="Gradient" id="Gradient_kpg24"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pdveg"]
+gradient = SubResource("Gradient_kpg24")
+width = 320
+height = 720
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_pdveg"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.0705882, 0.980392, 0.0196078, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hj1x7"]
+gradient = SubResource("Gradient_pdveg")
+width = 320
+height = 720
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_hj1x7"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.976471, 0.223529, 0.247059, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mwavb"]
+gradient = SubResource("Gradient_hj1x7")
+width = 320
+height = 720
+fill_from = Vector2(1, 1)
+
 [node name="Funkin" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -35,6 +79,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(640, 360)
+mouse_filter = 2
 script = ExtResource("1_wspuj")
 metadata/_edit_lock_ = true
 
@@ -82,6 +127,7 @@ offset_left = -0.480011
 offset_top = -0.0800095
 offset_right = 0.199951
 offset_bottom = -0.0800018
+mouse_filter = 2
 
 [node name="healthbar" type="ProgressBar" parent="bar"]
 layout_mode = 2
@@ -129,3 +175,29 @@ text = "Score - 0 | Accuracy - N/A | Misses - 0"
 label_settings = SubResource("LabelSettings_fiajd")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="touch_buttons" type="Node2D" parent="."]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="touch_buttons"]
+texture_normal = SubResource("GradientTexture2D_kpg24")
+shape = SubResource("RectangleShape2D_kpg24")
+action = "4k_left"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="touch_buttons"]
+position = Vector2(320, 0)
+texture_normal = SubResource("GradientTexture2D_pdveg")
+shape = SubResource("RectangleShape2D_kpg24")
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="touch_buttons"]
+position = Vector2(640, 0)
+texture_normal = SubResource("GradientTexture2D_hj1x7")
+shape = SubResource("RectangleShape2D_kpg24")
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="touch_buttons"]
+position = Vector2(960, 0)
+texture_normal = SubResource("GradientTexture2D_mwavb")
+shape = SubResource("RectangleShape2D_kpg24")
+
+[node name="Notes" type="Sprite2D" parent="touch_buttons"]
+position = Vector2(1667, 247)
+texture = ExtResource("6_kpg24")

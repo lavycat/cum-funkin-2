@@ -51,11 +51,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			Game.song_name = cur_song
 			Global.chart = null
 			Global.chart = ChartParser.load_chart(cur_song,"hard")
-			get_tree().change_scene_to_file("res://scenes/game/game.scn")
+			SceneManager.change_scene(load("res://scenes/game/game.scn"))
 			AudioManager.fade_out_global_music()
 	if event.is_action_pressed("ui_cancel"):
 		AudioManager.play_sfx(AudioManager.SFX_CANCEL)
-		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+		SceneManager.change_scene(load("res://scenes/menus/main_menu.tscn"))
 	if event.is_action_pressed("ui_down"):
 		change_selected(1)
 	if event.is_action_pressed("ui_up"):
@@ -65,7 +65,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Game.song_name = cur_song
 		Global.chart = null
 		Global.chart = ChartParser.load_chart(cur_song,"hard")
-		get_tree().change_scene_to_file("res://scenes/game/game.scn")
+		SceneManager.change_scene(load("res://scenes/game/game.scn"))
 		AudioManager.fade_out_global_music()
 		
 func change_selected(p:int):

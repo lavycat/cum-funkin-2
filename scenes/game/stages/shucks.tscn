@@ -654,7 +654,6 @@ blend_mode = 3
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q0w8m"]
 blend_mode = 1
-light_mode = 1
 
 [node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
 script = ExtResource("1_g6p3p")

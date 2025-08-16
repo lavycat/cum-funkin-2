@@ -33,11 +33,6 @@ func _ready() -> void:
 	for i in strumline.get_children():
 		if i is Receptor:
 			strums.append(i)
-	for i in strumline.get_node("CanvasLayer").get_children():
-		if !auto_play:
-			buttons.append(i)
-		else:
-			i.queue_free()
 	if Engine.is_editor_hint():
 		return
 	note_field = NoteField.new()
@@ -184,6 +179,9 @@ func note_update(delta:float):
 			stats.notes_hit += 1
 			stats.ratings.set(r.name,stats.ratings.get(r.name,0))
 			stats.combo += 1
+			if display_rating:
+				pop_up_score(r)
+				show_combo(stats.combo)
 			note.was_hit = true
 		if Conductor.time - note.time > note.hit_range * max(1.0, Conductor.rate):
 			
@@ -193,11 +191,14 @@ func note_update(delta:float):
 					note.note_miss(note)
 					note.missed = true
 					stats.misses += 1
+					stats.combo = 0
+					
 					note.queue_free()
 			
 			if not note.was_hit:
 				note.missed = true
 				stats.misses += 1
+				stats.combo = 0
 				note_miss.emit(note)
 				note.note_miss(note)
 				note.queue_free()
