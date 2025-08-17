@@ -39,20 +39,6 @@ func _ready() -> void:
 		
 		
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventScreenTouch:
-		if event.pressed and not event.is_echo():
-			return
-		if event.position.y > 480:
-			change_selected(1)
-		elif event.position.y < 240:
-			change_selected(-1)
-		else:
-			cur_song = list[cur_selected]
-			Game.song_name = cur_song
-			Global.chart = null
-			Global.chart = ChartParser.load_chart(cur_song,"hard")
-			SceneManager.change_scene(load("res://scenes/game/game.scn"))
-			AudioManager.fade_out_global_music()
 	if event.is_action_pressed("ui_cancel"):
 		AudioManager.play_sfx(AudioManager.SFX_CANCEL)
 		SceneManager.change_scene(load("res://scenes/menus/main_menu.tscn"))

@@ -64,6 +64,7 @@ func _enter_tree() -> void:
 	bf = load_character(chart.bf,"bf")
 
 func _ready() -> void:
+	MobileControls.controls_shown = MobileControls.CONTROLS_SHOWN_GAME
 	Conductor.follow_player = true
 	Conductor.measure_hit.connect(measure_hit)
 	Conductor.time = -Conductor.beat_length*5.0
@@ -241,6 +242,7 @@ func measure_hit(measure:int):
 		hud.scale += Vector2(0.03,0.03)
 		camera.zoom += Vector2(0.015,0.015)
 func return_to_menu():
+	MobileControls.controls_shown = MobileControls.CONTROLS_SHOWN_MENU
 	if not is_story_mode:
 		AudioManager.fade_in_global_music()
 		get_tree().change_scene_to_file("res://scenes/menus/free_play.tscn")

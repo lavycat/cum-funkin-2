@@ -36,6 +36,8 @@ func select_level(i:int):
 func _process(delta: float) -> void:
 	level_titles.position.y = lerpf(level_titles.position.y,-cur_level*120,1.0 - exp(-6.0 * delta))
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		SceneManager.change_scene(load("res://scenes/menus/main_menu.tscn"))
 	if event.is_action_pressed("ui_down"):
 		change_level(1)
 	if event.is_action_pressed("ui_up"):

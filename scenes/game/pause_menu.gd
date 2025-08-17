@@ -12,6 +12,7 @@ var selecting:bool = false
 @onready var mod: CanvasModulate = $mod
 
 func _ready() -> void:
+	MobileControls.controls_shown = MobileControls.CONTROLS_SHOWN_MENU
 	var i = 0
 	for o in options:
 		var t := Label.new()
@@ -45,7 +46,7 @@ func _input(event: InputEvent) -> void:
 		change_option(1)
 	if event.is_action_pressed("ui_up"):
 		change_option(-1)
-	if event.is_action_pressed("ui_pause"):
+	if event.is_action_pressed("ui_accept"):
 		select_option(cur_option)
 
 func change_option(p:int):
@@ -78,6 +79,7 @@ func select_option(o:int):
 				Conductor.player.play(Conductor.time)
 			await audio_tween.finished
 			Game.instance.paused = false
+			MobileControls.controls_shown = MobileControls.CONTROLS_SHOWN_GAME
 			queue_free()
 			
 	pass

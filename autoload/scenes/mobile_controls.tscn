@@ -1,0 +1,136 @@
+[gd_scene load_steps=14 format=3 uid="uid://cg7oa8qx6csad"]
+
+[ext_resource type="Texture2D" uid="uid://xfh8faaymqgd" path="res://assets/images/ui/touchscreen/directnal button.webp" id="1_3o0jx"]
+[ext_resource type="Script" uid="uid://mgou3toksnx" path="res://autoload/scenes/mobile_controls.gd" id="1_lkkj2"]
+[ext_resource type="Texture2D" uid="uid://rkmyyxf1i8jl" path="res://assets/images/ui/touchscreen/green button.webp" id="2_xa823"]
+[ext_resource type="Texture2D" uid="uid://b6oiwffq0nja8" path="res://assets/images/ui/touchscreen/red button.webp" id="3_lkkj2"]
+[ext_resource type="Texture2D" uid="uid://dwlxlwawo5ef7" path="res://assets/images/ui/touchscreen/pause button.webp" id="5_r1eyu"]
+
+[sub_resource type="Gradient" id="Gradient_fiajd"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.760784, 0.294118, 0.6, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xa823"]
+gradient = SubResource("Gradient_fiajd")
+width = 320
+height = 720
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_kpg24"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lkkj2"]
+gradient = SubResource("Gradient_kpg24")
+width = 320
+height = 720
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_pdveg"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.0530612, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r1eyu"]
+gradient = SubResource("Gradient_pdveg")
+width = 320
+height = 720
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_hj1x7"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ysgbg"]
+gradient = SubResource("Gradient_hj1x7")
+width = 320
+height = 720
+fill_from = Vector2(1, 1)
+
+[node name="MobileControls" type="Node2D"]
+script = ExtResource("1_lkkj2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="menu" type="Node2D" parent="CanvasLayer"]
+
+[node name="up" type="TouchScreenButton" parent="CanvasLayer/menu"]
+position = Vector2(111, 487)
+rotation = -1.5708
+texture_normal = ExtResource("1_3o0jx")
+action = "ui_up"
+visibility_mode = 1
+
+[node name="left" type="TouchScreenButton" parent="CanvasLayer/menu"]
+position = Vector2(131, 472)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture_normal = ExtResource("1_3o0jx")
+action = "ui_left"
+visibility_mode = 1
+
+[node name="right" type="TouchScreenButton" parent="CanvasLayer/menu"]
+position = Vector2(219, 472)
+texture_normal = ExtResource("1_3o0jx")
+action = "ui_right"
+visibility_mode = 1
+
+[node name="down" type="TouchScreenButton" parent="CanvasLayer/menu"]
+position = Vector2(243, 579)
+rotation = 1.5708
+texture_normal = ExtResource("1_3o0jx")
+action = "ui_down"
+visibility_mode = 1
+
+[node name="accept" type="TouchScreenButton" parent="CanvasLayer/menu"]
+position = Vector2(1135, 592)
+rotation = 1.5708
+texture_normal = ExtResource("2_xa823")
+action = "ui_accept"
+visibility_mode = 1
+
+[node name="back" type="TouchScreenButton" parent="CanvasLayer/menu"]
+position = Vector2(1280, 592)
+rotation = 1.5708
+texture_normal = ExtResource("3_lkkj2")
+action = "ui_cancel"
+visibility_mode = 1
+
+[node name="game" type="Node2D" parent="CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0.2)
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/game"]
+texture_normal = SubResource("GradientTexture2D_xa823")
+passby_press = true
+action = "4k_left"
+visibility_mode = 1
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="CanvasLayer/game"]
+position = Vector2(320, 0)
+texture_normal = SubResource("GradientTexture2D_lkkj2")
+passby_press = true
+action = "4k_down"
+visibility_mode = 1
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="CanvasLayer/game"]
+position = Vector2(640, 0)
+texture_normal = SubResource("GradientTexture2D_r1eyu")
+passby_press = true
+action = "4k_up"
+visibility_mode = 1
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="CanvasLayer/game"]
+position = Vector2(960, 0)
+texture_normal = SubResource("GradientTexture2D_ysgbg")
+passby_press = true
+action = "4k_right"
+visibility_mode = 1
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="CanvasLayer/game"]
+position = Vector2(1216, 0)
+scale = Vector2(0.125, 0.125)
+texture_normal = ExtResource("5_r1eyu")
+passby_press = true
+action = "ui_pause"
+visibility_mode = 1
