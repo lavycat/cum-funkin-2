@@ -20,7 +20,6 @@ func reload_icons():
 
 
 func _ready() -> void:
-
 	health_bar_style_bg = healthbar.get_theme_stylebox("background")
 	health_bar_style_fill = healthbar.get_theme_stylebox("fill")
 	health_bar_style_bg.bg_color = Color.WHITE

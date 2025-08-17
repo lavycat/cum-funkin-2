@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/dbtg subscribe.png-1de151c83d07cd7a5f8f1fa0c7
 
 [params]
 
-compress/mode=0
+compress/mode=4
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

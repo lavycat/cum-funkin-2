@@ -9,9 +9,8 @@
 [sub_resource type="LabelSettings" id="LabelSettings_kpg24"]
 font = ExtResource("4_aelfd")
 font_size = 20
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 12
-shadow_color = Color(0.092397, 0.0923971, 0.092397, 1)
+outline_size = 12
+outline_color = Color(0.092397, 0.0923971, 0.092397, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3lqy"]
 bg_color = Color(1, 0, 0, 1)

@@ -29,7 +29,6 @@ shader_type canvas_item;
 #define distfading 0.730
 #define saturation 0.850
 
-uniform float qulity:hint_range(0.01, 1.0, 0.01) = 1;
 void mainVR( out vec4 fragColor, in vec2 fragCoord, in vec3 ro, in vec3 rd )
 {
 	//get coords and direction
@@ -91,8 +90,8 @@ vec2 U =FRAGCOORD.xy;
     vec4 rd = normalize( vec4(U-.5*iResolution.xy, iResolution.y, iResolution.y*2.))*80.;
 
     float sc,dotp,totdist=0., t=.7, tt=TIME/4.;
-
-    for (float i=0.; i<200.*qulity; i++) {
+	
+    for (float i=0.; i<200.; i++) {
 
         vec4 p = vec4( rd*totdist);
 

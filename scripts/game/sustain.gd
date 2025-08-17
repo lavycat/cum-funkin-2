@@ -22,7 +22,7 @@ func _enter_tree() -> void:
 func _process(delta: float) -> void:
 	var length_px = (((450.0 * note.note_field.scroll_speed) * length) / note.scale.y)
 	var length_px_true = (((450.0 * note.note_field.scroll_speed) * note.length) / note.scale.y)
-
+	flip_h = true
 	var tail_height = tail.texture.get_height() * tail.scale.y
 	stretch_mode = TextureRect.STRETCH_TILE
 	texture_repeat = CanvasItem.TEXTURE_REPEAT_MIRROR
@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 	size.y = length_px_true - tail_height
 	tail.position.y = -tail_height
 	tail.flip_v = true
+	
 
 
 
