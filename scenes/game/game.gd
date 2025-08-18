@@ -23,15 +23,12 @@ var gf:Character
 var bf:Character
 
 
+var game_modifiers:GameModifiers = GameModifiers.new()
+var opponent_mode:bool = false
 var health:float = 1.0:
 	set(v):
 		health = clampf(v, 0.0, max_health)
 var max_health:float = 2.0
-var accuracy_points:float = 0
-var accuracy_points_max:float = 0
-
-var accuracy:float = -1
-
 
 static var instance:Game
 static var song_name = "glitcher"
@@ -62,8 +59,24 @@ func _enter_tree() -> void:
 	gf = load_character(chart.gf,"gf")
 	dad = load_character(chart.dad,"dad")
 	bf = load_character(chart.bf,"bf")
-
+func apply_game_mods():
+	var mods = game_modifiers
+	opponent_mode = mods.opponent_mode
+	Conductor.rate = mods.play_back_rate
+	if opponent_mode:
+		player_field.auto_play = true
+		player_field.display_rating = false
+		dad_field.auto_play = mods.bot_play
+		dad_field.display_rating = true
+	else:
+		player_field.auto_play = mods.bot_play
+		
+	pass
 func _ready() -> void:
+	game_modifiers = Global.game_modifiers
+	if is_story_mode:
+		game_modifiers = GameModifiers.new()
+	apply_game_mods()
 	MobileControls.controls_shown = MobileControls.CONTROLS_SHOWN_GAME
 	Conductor.follow_player = true
 	Conductor.measure_hit.connect(measure_hit)
@@ -142,52 +155,26 @@ func _ready() -> void:
 	Conductor.time = -Conductor.beat_length*3.0
 
 func note_miss(note:Note):
-	if note.play_field.id == 1:
-		health -= 0.08
-		accuracy_points_max += 1
-		accuracy = (accuracy_points / accuracy_points_max) * 100.0
-		bf.sing(note.column,true)
+	if not opponent_mode:
+		if note.play_field.id == 1:
+			health -= 0.08
+	else:
+		if note.play_field.id == 0:
+			health -= 0.08
 func note_hit(note:Note):
 	match note.note_field.play_field.id:
+		0:
+			if opponent_mode:
+				if not note.was_hit:
+					health += 0.02
+				else:
+					health += 0.08 * get_process_delta_time()
 		1:
-			if not note.was_hit:
-				health += 0.02
-			else:
-				health += 0.08 * get_process_delta_time()
-		2:
-				gf.sing(note.column)
-				gf.sing_timer = 0
-
-@onready var rating_tex = load("res://assets/ui/funkin/ratings_sheet.png")
-@onready var combo_tex = load("res://assets/ui/funkin/num-sheet.png")
-@onready var ms_font = load("res://assets/fonts/funkin_combo.tres")
-
-func pop_up_score(rating:Rating):
-	var ms_txt: Label = Label.new()
-	ms_txt.label_settings = LabelSettings.new()
-	ms_txt.label_settings.font_size = 64
-	ms_txt.label_settings.outline_size = 24
-	ms_txt.label_settings.outline_color = Color.BLACK
-	ms_txt.label_settings.font = ms_font
-	ms_txt.text = "%0.2f MS"%(rating.hit_ms)
-	ms_txt.position.y = -128
-	ms_txt.position.x -= ms_txt.size.x / 2
-
-	var rat := VelocitySprite.new()
-	rat.add_child(ms_txt)
-	rat.texture = rating_tex
-	rat.vframes = 4
-	rat.frame = rating.rank
-	rat.scale = Vector2(0.7, 0.7)
-	rat.position = camera.get_target_position()
-	rat.acceleration.y = 550;
-	rat.velocity.x -= randi_range(0, 10)
-	rat.velocity.y -= randi_range(140,175)
-
-	var t: Tween = create_tween().set_trans(Tween.TRANS_SINE)
-	t.tween_property(rat,"modulate:a",0,0.2).set_delay(Conductor.beat_length)
-	t.tween_callback(rat.queue_free)
-	ratings_layer.add_child(rat)
+			if not opponent_mode:
+				if not note.was_hit:
+					health += 0.02
+				else:
+					health += 0.08 * get_process_delta_time()
 
 
 func _process(delta: float) -> void:
@@ -195,8 +182,11 @@ func _process(delta: float) -> void:
 	if is_equal_approx(health,0):
 		get_tree().reload_current_scene()
 	if Conductor.player.get_playback_position() == 0 and song_started:
-		if player_field.stats.score > HighScore.get_song_score(song_name,"hard"):
-			HighScore.save_song_score(player_field.stats.score,song_name,"hard")
+		var save_stats = player_field.stats
+		if opponent_mode:
+			save_stats = dad_field.stats
+		if save_stats.score > HighScore.get_song_score(song_name,"hard"):
+			HighScore.save_song_score(save_stats.score.score,song_name,"hard")
 		if is_story_mode:
 			level_score += player_field.stats.score
 			if level_index == level_songs.size() - 1:
@@ -224,6 +214,8 @@ func _input(event: InputEvent) -> void:
 		await RenderingServer.frame_post_draw
 		add_child(pause_ui)
 		paused = true
+	if event.is_action_pressed("ui_cancel"):
+		return_to_menu()
 	if OS.is_debug_build():
 		if event.is_action_pressed("debug_skip_time"):
 			Conductor.player.seek(Conductor.time + 10.0)
@@ -236,7 +228,10 @@ func _input(event: InputEvent) -> void:
 					i.free()
 
 		if event.is_action_pressed("debug_bot_toggle"):
-			player_field.auto_play = not player_field.auto_play
+			if opponent_mode:
+				dad_field.auto_play = not dad_field.auto_play
+			else:
+				player_field.auto_play = not player_field.auto_play
 func measure_hit(measure:int):
 	if measure > 0:
 		hud.scale += Vector2(0.03,0.03)
@@ -245,11 +240,10 @@ func return_to_menu():
 	MobileControls.controls_shown = MobileControls.CONTROLS_SHOWN_MENU
 	if not is_story_mode:
 		AudioManager.fade_in_global_music()
-		get_tree().change_scene_to_file("res://scenes/menus/free_play.tscn")
+		SceneManager.change_scene(load("res://scenes/menus/free_play.tscn"))
 	if is_story_mode:
 		AudioManager.fade_in_global_music()
-		get_tree().change_scene_to_file("res://scenes/menus/story_menu.tscn")
-		pass
+		SceneManager.change_scene(load("res://scenes/menus/story_menu.tscn"))
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_WM_WINDOW_FOCUS_OUT:

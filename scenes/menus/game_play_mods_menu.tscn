@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvuw6rvmca41n"]
+
+[ext_resource type="Script" uid="uid://be5mo4mlhyld" path="res://scenes/menus/game_mod_ui_item.gd" id="1_h365g"]
+[ext_resource type="Script" uid="uid://cvi8yjend6ef8" path="res://scenes/menus/game_play_mods_menu.gd" id="1_t63y3"]
+[ext_resource type="FontFile" uid="uid://bnkl77r32hsc5" path="res://assets/fonts/funkin.ttf" id="1_x3elp"]
+[ext_resource type="SpriteFrames" uid="uid://pau2g7hfjl4r" path="res://assets/images/ui/checkboxanim.res" id="4_4lwi4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h365g"]
+font = ExtResource("1_x3elp")
+font_size = 72
+outline_size = 24
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GamePlayModsMenu" type="Node2D"]
+script = ExtResource("1_t63y3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(640, 360)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.33)
+
+[node name="mods" type="Node2D" parent="CanvasLayer"]
+
+[node name="playback rate" type="Node2D" parent="CanvasLayer/mods"]
+script = ExtResource("1_h365g")
+game_mod = &"play_back_rate"
+range_max = 3.0
+
+[node name="text" type="Label" parent="CanvasLayer/mods/playback rate"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "playback rate < 1.0 >"
+label_settings = SubResource("LabelSettings_h365g")
+uppercase = true
+
+[node name="bot play" type="Node2D" parent="CanvasLayer/mods"]
+position = Vector2(0, 120)
+script = ExtResource("1_h365g")
+game_mod = &"bot_play"
+mod_type = "bool"
+range_max = 3.0
+
+[node name="text" type="Label" parent="CanvasLayer/mods/bot play"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "botplay"
+label_settings = SubResource("LabelSettings_h365g")
+uppercase = true
+
+[node name="check" type="AnimatedSprite2D" parent="CanvasLayer/mods/bot play"]
+position = Vector2(418, 32)
+sprite_frames = ExtResource("4_4lwi4")
+animation = &"checkbox anim reverse"
+
+[node name="opponent mode" type="Node2D" parent="CanvasLayer/mods"]
+position = Vector2(0, 120)
+script = ExtResource("1_h365g")
+game_mod = &"opponent_mode"
+mod_type = "bool"
+range_max = 3.0
+
+[node name="text" type="Label" parent="CanvasLayer/mods/opponent mode"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "botplay"
+label_settings = SubResource("LabelSettings_h365g")
+uppercase = true
+
+[node name="check" type="AnimatedSprite2D" parent="CanvasLayer/mods/opponent mode"]
+position = Vector2(418, 32)
+sprite_frames = ExtResource("4_4lwi4")
+animation = &"checkbox anim reverse"

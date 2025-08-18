@@ -4,6 +4,9 @@ var root:Window = null
 var chart:Chart = null
 var preloaded_characters:Dictionary = {}
 var in_menu:bool = false
+# NOTE -> made for freeplay to override them for a gameplay intance use Game class!
+var game_modifiers:GameModifiers = GameModifiers.new()
+
 func preload_all_characters():
 	const characters_folder:String = "res://scenes/game/characters/"
 	for i in ResourceLoader.list_directory(characters_folder):

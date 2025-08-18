@@ -11,12 +11,16 @@ var health_bar_style_fill:StyleBox
 
 @onready var timebar: TextureProgressBar = $timebar
 func reload_icons():
-	var bf = icons.get_node("bf")
-	var dad = icons.get_node("dad")
-	bf.texture = game.bf.icon
-	dad.texture = game.dad.icon
-	health_bar_style_bg.bg_color = game.dad.icon_color
-	health_bar_style_fill.bg_color = game.bf.icon_color
+		var bf = icons.get_node("bf")
+		var dad = icons.get_node("dad")
+		bf.texture = game.bf.icon
+		dad.texture = game.dad.icon
+		if game.opponent_mode:
+			health_bar_style_bg.bg_color = game.bf.icon_color
+			health_bar_style_fill.bg_color = game.dad.icon_color
+		else:
+			health_bar_style_bg.bg_color = game.dad.icon_color
+			health_bar_style_fill.bg_color = game.bf.icon_color
 
 
 func _ready() -> void:
@@ -37,15 +41,23 @@ func _process(delta: float) -> void:
 	timebar.value = (Conductor.time / Conductor.player.stream.get_length()) * 100.0
 	lerped_health = lerpf(lerped_health, game.health, 1.0 - exp(-15.0 * delta))
 	healthbar.value = lerped_health
+	if game.opponent_mode:
+		healthbar.fill_mode = ProgressBar.FillMode.FILL_BEGIN_TO_END
+	
 	var percent = 1.0 - (healthbar.value / healthbar.max_value)
+	if game.opponent_mode:
+		percent = (healthbar.value / healthbar.max_value)
 	icons.position.x = percent * healthbarbg.size.x
 	icons.scale = lerp(icons.scale,Vector2.ONE,1 - exp(-9.0*delta))
 	time_text.text = "%s - %s"%[time_convert(max(Conductor.time,0)),time_convert(Conductor.player.stream.get_length())]
 func update_score_txt(stats:Stats):
 	scoretxt.text = "Score - %d | Accuracy - %0.2f%% | Misses - %d"%[stats.score,stats.get_accuracy(),stats.misses]
 func note_hit(n:Note):
-	if n.play_field.id == 1:
-		update_score_txt(n.play_field.stats)
+	if game.opponent_mode:
+		update_score_txt(game.dad_field.stats)
+	else:
+		update_score_txt(game.player_field.stats)
+	pass
 
 
 func note_miss(n:Note):

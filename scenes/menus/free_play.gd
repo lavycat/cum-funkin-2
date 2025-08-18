@@ -4,11 +4,12 @@ extends Node2D
 @onready var camera: Camera2D = $camera
 @onready var bg: Sprite2D = $Parallax2D/bg
 @onready var label: Label = $Parallax2D/ColorRect/Label
-
+var gamemods_scene:PackedScene = load("res://scenes/menus/game_play_mods_menu.tscn")
+var gamemods:Node2D = null
 var cur_song:String = ""
 var cur_selected:int = 0
 var cur_color:Color = Color.WHITE
-
+var game_mods_open:bool = false
 func get_song_meta(i:int) -> SongMeta:
 	const songs_folder = "res://assets/songs/"
 	var meta_path:String = songs_folder + list[i] + "/meta.tres"
@@ -43,6 +44,17 @@ func _ready() -> void:
 		
 		
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_open_gamemods"):
+		if not game_mods_open:
+			gamemods = gamemods_scene.instantiate()
+			add_child(gamemods)
+			game_mods_open = true
+		else:
+			game_mods_open = false
+			
+			gamemods.queue_free()
+	if game_mods_open:
+		return
 	if event.is_action_pressed("ui_cancel"):
 		AudioManager.play_sfx(AudioManager.SFX_CANCEL)
 		SceneManager.change_scene(load("res://scenes/menus/main_menu.tscn"))
