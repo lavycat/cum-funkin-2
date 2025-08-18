@@ -10,6 +10,7 @@ func preload_all_characters():
 		if i.ends_with("tscn"):
 			preloaded_characters.set(characters_folder + i,load(characters_folder + i))
 func _enter_tree() -> void:
+	Input.use_accumulated_input = false
 	root = get_tree().get_root()
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	print("Audio Driver -> %s" % AudioServer.get_driver_name())

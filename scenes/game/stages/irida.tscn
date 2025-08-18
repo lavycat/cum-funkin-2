@@ -80,7 +80,6 @@ texture = ExtResource("16_dht18")
 scroll_scale = Vector2(0, 1)
 
 [node name="SubViewport" type="SubViewport" parent="real/0X1"]
-canvas_item_default_texture_filter = 0
 render_target_update_mode = 4
 
 [node name="ColorRect" type="ColorRect" parent="real/0X1/SubViewport"]

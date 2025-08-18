@@ -1,7 +1,7 @@
 extends Stage
 @onready var sub_viewport: SubViewport = $"real/0X1/SubViewport"
 @onready var bg: TextureRect = $"real/0X1/Bg"
-const BG_RENDER_SIZE = 4096
+const BG_RENDER_SIZE = 1440
 var performance_mode:bool = true
 
 func _ready() -> void:

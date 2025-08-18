@@ -15,6 +15,7 @@ func _ready() -> void:
 	print(levels)
 	for l in levels.size():
 		add_level(l)
+	change_level()
 @onready var tracks: Label = $tracks
 
 func add_level(i:int):
