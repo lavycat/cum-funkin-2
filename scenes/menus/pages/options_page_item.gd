@@ -49,7 +49,7 @@ func _ready() -> void:
 				range_value = real_val
 			update()
 		"input":
-			if OS.has_feature("mobile"):
+			if OS.has_feature("mobile") and is_instance_valid(controls_text):
 				controls_text.queue_free()
 				queue_free()
 			if not input_action.is_empty():
