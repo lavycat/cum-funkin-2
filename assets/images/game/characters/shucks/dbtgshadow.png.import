@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/dbtgshadow.png-836623788415edce2d2a7fa0b2205a
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -1,30 +1,19 @@
 extends Node2D
-var options:Array[String] = ["story_mode","freeplay","options","credits"]
-var option_sprs:Array[AnimatedSprite2D] = []
+var option_sprs:Array[Node] = []
 var cur_selected:int = 0
 var flicker_speed:float = 0.045
 var is_flickering:bool = false
 var flicker_time:float = 0
 var is_selecting:bool = false
 @onready var camera: Camera2D = $camera
+@onready var options: Node2D = $options
 
 func _ready() -> void:
+	option_sprs = options.get_children()
 	Engine.time_scale = 1
 	AudioManager.fade_in_global_music()
 	if not AudioManager.global_music.playing:
 		AudioManager.play_global_music()
-	for i in options.size():
-		var o = options[i]
-		var spr := AnimatedSprite2D.new()
-		spr.sprite_frames = load("res://assets/images/menus/main_menu/options.res")
-		spr.position.x = 640
-		spr.position.y += 160*i
-		$options.add_child(spr)
-		option_sprs.append(spr)
-		var tb := TouchScreenButton.new()
-		tb.shape = RectangleShape2D.new()
-		tb.shape.size = Vector2(800,160)
-		spr.add_child(tb)
 	update_camera()
 	camera.reset_smoothing()
 	change_selceted(0)
@@ -43,10 +32,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
 		change_selceted(-1)
 	if event.is_action_pressed("ui_accept"):
-		select_item(options[cur_selected])
+		select_item(options.get_child(cur_selected).name)
 	
 func update_camera():
-	camera.position = option_sprs[cur_selected].position
+	camera.position = options.get_child(cur_selected).position
 func select_item(option:String):
 	is_flickering = true
 	is_selecting = true
@@ -57,7 +46,7 @@ func select_item(option:String):
 		create_tween().tween_property(q,"modulate:a",0,0.33).set_delay(0.33)
 	await get_tree().create_timer(0.9).timeout
 	match option:
-		"story_mode":
+		"story":
 			SceneManager.change_scene(load("res://scenes/menus/story_menu.tscn"))
 		"freeplay":
 			SceneManager.change_scene(load("res://scenes/menus/free_play.tscn"))
@@ -69,9 +58,9 @@ func select_item(option:String):
 func change_selceted(d:int):
 	if d != 0:
 		AudioManager.play_sfx(AudioManager.SFX_SCROLL)
-	cur_selected = wrap(cur_selected + d,0,options.size())
+	cur_selected = wrap(cur_selected + d,0,options.get_child_count())
 	for i in option_sprs.size():
 		var spr = option_sprs[i]
-		spr.play(options[i] + " basic")
-	option_sprs[cur_selected].play(options[cur_selected] + " white")
+		spr.play(options.get_child(i).name + " basic")
+	options.get_child(cur_selected).play(options.get_child(cur_selected).name + " white")
 	update_camera()

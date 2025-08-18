@@ -25,7 +25,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("ui_accept"):
 			select_page(cur_page)
 		if event.is_action_pressed("ui_cancel"):
-			get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+			SceneManager.change_scene(load("res://scenes/menus/main_menu.tscn"))
 	if in_page:
 		if event.is_action_pressed("ui_cancel"):
 			return_to_main()

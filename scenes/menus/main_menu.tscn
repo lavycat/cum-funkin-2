@@ -1,8 +1,9 @@
-[gd_scene load_steps=93 format=3 uid="uid://cvk4hy2jbxbec"]
+[gd_scene load_steps=94 format=3 uid="uid://cvk4hy2jbxbec"]
 
 [ext_resource type="Script" uid="uid://c78u5ytlo2s0s" path="res://scenes/menus/main_menu.gd" id="1_ovrgc"]
 [ext_resource type="Texture2D" uid="uid://c5p07owa88fil" path="res://assets/images/menus/menuBG.png" id="1_xqga4"]
 [ext_resource type="Texture2D" uid="uid://cjaidkuf7bjyo" path="res://assets/images/dbtg subscribe.png" id="3_2o76q"]
+[ext_resource type="SpriteFrames" uid="uid://ce0yx5gs7h022" path="res://assets/images/menus/main_menu/options.res" id="4_6bivr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2o76q"]
 atlas = ExtResource("3_2o76q")
@@ -647,6 +648,26 @@ autoplay = "default"
 frame_progress = 0.753443
 
 [node name="options" type="Node2D" parent="."]
+
+[node name="story" type="AnimatedSprite2D" parent="options"]
+position = Vector2(640, 160)
+sprite_frames = ExtResource("4_6bivr")
+animation = &"story white"
+
+[node name="freeplay" type="AnimatedSprite2D" parent="options"]
+position = Vector2(640, 320)
+sprite_frames = ExtResource("4_6bivr")
+animation = &"freeplay basic"
+
+[node name="options" type="AnimatedSprite2D" parent="options"]
+position = Vector2(640, 480)
+sprite_frames = ExtResource("4_6bivr")
+animation = &"options basic"
+
+[node name="credits" type="AnimatedSprite2D" parent="options"]
+position = Vector2(640, 640)
+sprite_frames = ExtResource("4_6bivr")
+animation = &"credits basic"
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(640, 360)

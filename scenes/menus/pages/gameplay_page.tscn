@@ -271,6 +271,66 @@ text = "range"
 label_settings = SubResource("LabelSettings_updg8")
 uppercase = true
 
+[node name="4k_left" type="Node2D" parent="options"]
+position = Vector2(60, 600)
+script = ExtResource("2_epf2m")
+option_type = "input"
+input_action = &"4k_left"
+
+[node name="text" type="Label" parent="options/4k_left"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "action [A,K]"
+label_settings = SubResource("LabelSettings_updg8")
+uppercase = true
+
+[node name="4k_down" type="Node2D" parent="options"]
+position = Vector2(60, 720)
+script = ExtResource("2_epf2m")
+option_type = "input"
+input_action = &"4k_down"
+
+[node name="text" type="Label" parent="options/4k_down"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "action [A,K]"
+label_settings = SubResource("LabelSettings_updg8")
+uppercase = true
+
+[node name="4k_up" type="Node2D" parent="options"]
+position = Vector2(60, 840)
+script = ExtResource("2_epf2m")
+option_type = "input"
+input_action = &"4k_up"
+
+[node name="text" type="Label" parent="options/4k_up"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "action [A,K]"
+label_settings = SubResource("LabelSettings_updg8")
+uppercase = true
+
+[node name="4k_right" type="Node2D" parent="options"]
+position = Vector2(60, 960)
+script = ExtResource("2_epf2m")
+option_type = "input"
+input_action = &"4k_right"
+
+[node name="text" type="Label" parent="options/4k_right"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "action [A,K]"
+label_settings = SubResource("LabelSettings_updg8")
+uppercase = true
+
+[node name="controls_text" type="Label" parent="."]
+offset_top = 480.0
+offset_right = 372.0
+offset_bottom = 563.0
+text = "CONTROLS:"
+label_settings = SubResource("LabelSettings_updg8")
+uppercase = true
+
 [node name="templates" type="Node2D" parent="."]
 position = Vector2(-1280, 0)
 
@@ -313,5 +373,17 @@ script = ExtResource("2_epf2m")
 offset_right = 40.0
 offset_bottom = 23.0
 text = "range"
+label_settings = SubResource("LabelSettings_updg8")
+uppercase = true
+
+[node name="input" type="Node2D" parent="templates"]
+position = Vector2(0, 360)
+script = ExtResource("2_epf2m")
+option_type = "input"
+
+[node name="text" type="Label" parent="templates/input"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "action [A,K]"
 label_settings = SubResource("LabelSettings_updg8")
 uppercase = true

@@ -150,6 +150,10 @@ ui_pause={
 ]
 }
 
+[internationalization]
+
+rendering/text_driver="ICU / HarfBuzz / Graphite (Built-in)"
+
 [physics]
 
 2d/physics_engine="Dummy"

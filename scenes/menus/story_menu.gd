@@ -31,8 +31,7 @@ func select_level(i:int):
 	Game.level_name = levels[i].name
 	Game.level_index = 0
 	AudioManager.fade_out_global_music()
-	
-	get_tree().change_scene_to_packed(load("res://scenes/game/game.scn"))
+	SceneManager.change_scene(load("res://scenes/game/game.scn"))
 	pass
 func _process(delta: float) -> void:
 	level_titles.position.y = lerpf(level_titles.position.y,-cur_level*120,1.0 - exp(-6.0 * delta))

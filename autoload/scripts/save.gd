@@ -58,6 +58,7 @@ func update_data():
 	var v_mode = DisplayServer.VSYNC_ADAPTIVE if json.vsync else DisplayServer.VSYNC_DISABLED
 	DisplayServer.window_set_vsync_mode(v_mode)
 	var window = get_window()
+	load_binds()
 	match json.scaling_mode:
 		"canvas_item":
 			window.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS

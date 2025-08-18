@@ -22,8 +22,12 @@ func _ready() -> void:
 		var t := Label.new()
 		t.text = s.to_upper()
 		t.label_settings = LabelSettings.new()
-		t.label_settings.font = preload("res://assets/fonts/bold.png")
+		t.label_settings.font = preload("res://assets/fonts/funkin.ttf")
 		t.label_settings.font_size = 72
+		t.label_settings.outline_size = 24
+		t.label_settings.outline_color = Color.BLACK
+		
+		
 		t.position.x += (15 * i) + 90
 		t.position.y += (160 * i) - t.size.y/2
 		var icon := Sprite2D.new()
