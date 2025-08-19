@@ -59,7 +59,7 @@ sprite_frames = ExtResource("4_4lwi4")
 animation = &"checkbox anim reverse"
 
 [node name="opponent mode" type="Node2D" parent="CanvasLayer/mods"]
-position = Vector2(0, 120)
+position = Vector2(0, 240)
 script = ExtResource("1_h365g")
 game_mod = &"opponent_mode"
 mod_type = "bool"
@@ -68,11 +68,11 @@ range_max = 3.0
 [node name="text" type="Label" parent="CanvasLayer/mods/opponent mode"]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "botplay"
+text = "opponent mode"
 label_settings = SubResource("LabelSettings_h365g")
 uppercase = true
 
 [node name="check" type="AnimatedSprite2D" parent="CanvasLayer/mods/opponent mode"]
-position = Vector2(418, 32)
+position = Vector2(666, 32)
 sprite_frames = ExtResource("4_4lwi4")
 animation = &"checkbox anim reverse"

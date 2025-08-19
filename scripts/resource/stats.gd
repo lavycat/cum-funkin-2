@@ -15,5 +15,7 @@ class_name Stats extends Resource
 }
 ## returns accuracy as a percent
 func get_accuracy() -> float:
-	return (accuracy_points / (notes_hit + misses)) * 100.0
-	return -1
+	if accuracy_points != 0:
+		return (accuracy_points / (notes_hit + misses)) * 100.0
+	else:
+		return 0

@@ -87,7 +87,6 @@ func _ready() -> void:
 	Conductor.player = tracks.player
 	Conductor.player.pitch_scale = Conductor.rate
 	Engine.time_scale = Conductor.rate
-	print(is_story_mode)
 	for i in play_fields:
 		i.position.y = hud.size.y*0.15 if not Save.json.down_scroll else hud.size.y*0.85
 		i.position.x = hud.size.x*0.25
@@ -186,7 +185,7 @@ func _process(delta: float) -> void:
 		if opponent_mode:
 			save_stats = dad_field.stats
 		if save_stats.score > HighScore.get_song_score(song_name,"hard"):
-			HighScore.save_song_score(save_stats.score.score,song_name,"hard")
+			HighScore.save_song_score(save_stats.score,song_name,"hard")
 		if is_story_mode:
 			level_score += player_field.stats.score
 			if level_index == level_songs.size() - 1:
@@ -237,6 +236,7 @@ func measure_hit(measure:int):
 		hud.scale += Vector2(0.03,0.03)
 		camera.zoom += Vector2(0.015,0.015)
 func return_to_menu():
+	Conductor.rate = 1
 	MobileControls.controls_shown = MobileControls.CONTROLS_SHOWN_MENU
 	if not is_story_mode:
 		AudioManager.fade_in_global_music()

@@ -115,6 +115,7 @@ func _ready() -> void:
 func beat_hit(beat:int):
 	match beat:
 		206:
+			print(game.dad.scene_file_path)
 			axe.play("chop")
 		415:
 			hell_2.visible = true

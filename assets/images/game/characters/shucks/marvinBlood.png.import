@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/marvinBlood.png-b5fa8ede25a34e5c48e5e19dd0b8c
 
 [params]
 
-compress/mode=0
+compress/mode=4
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

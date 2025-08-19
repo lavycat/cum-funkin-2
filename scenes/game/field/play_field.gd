@@ -92,7 +92,8 @@ func pop_up_score(rating:Rating):
 	rat.vframes = 4
 	rat.frame = rating.rank
 	rat.scale = Vector2(0.7, 0.7)
-	rat.position = Vector2(0,-360)
+	var down_scroll_mult = -1.0 if note_field.down_scroll else 1.0
+	rat.global_position = Vector2(0,360 * down_scroll_mult )
 	rat.acceleration.y = 550;
 	rat.velocity.x -= randi_range(0, 10)
 	rat.velocity.y -= randi_range(140,175)

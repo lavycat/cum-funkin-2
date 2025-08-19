@@ -22,7 +22,7 @@ func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_APPLICATION_FOCUS_OUT:
 			if Save.json.auto_pause:
-				Engine.max_fps = 5
+				Engine.max_fps = 30
 		NOTIFICATION_APPLICATION_FOCUS_IN:
 			if Save.json.auto_pause:
 				Engine.max_fps = Save.json.fps

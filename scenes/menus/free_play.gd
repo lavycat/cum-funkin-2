@@ -83,7 +83,7 @@ func update_label():
 func update_color():
 	cur_color = get_song_meta(cur_selected).color
 func _process(delta: float) -> void:
-	bg.modulate = lerp(bg.modulate,cur_color,delta*9.0)
+	bg.modulate = lerp(bg.modulate,cur_color,1.0 - exp(-delta*9.0))
 func update_camera():
 	camera.position.y = songs.get_child(cur_selected).position.y + songs.get_child(cur_selected).size.y / 2
 	pass

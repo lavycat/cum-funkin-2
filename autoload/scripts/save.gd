@@ -31,7 +31,12 @@ func load_data():
 	if not ResourceLoader.exists(SAVE_PATH):
 		json = default_json.duplicate(true)
 	else:
-		json = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))
+		print(FileAccess.get_file_as_string(SAVE_PATH))
+		if not FileAccess.get_file_as_string(SAVE_PATH).is_empty():
+			json = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))
+		else:
+			print("save was empty?????")
+			json = default_json.duplicate(true)
 		for i in default_json:
 			if not json.has(i):
 				json.set(i,default_json.get(i))
