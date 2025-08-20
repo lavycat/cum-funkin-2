@@ -50,3 +50,5 @@ offset_bottom = 136.0
 position = Vector2(640, 0)
 position_smoothing_enabled = true
 position_smoothing_speed = 9.0
+
+[connection signal="button_down" from="Parallax2D/Button" to="." method="open_game_mods_menu"]

@@ -32,6 +32,7 @@ var max_health:float = 2.0
 
 static var instance:Game
 static var song_name = "glitcher"
+static var song_difficulty:StringName = "hard"
 static var level_songs:Array[StringName] = []
 static var level_index:int = 0
 static var level_name:StringName = ""
@@ -184,12 +185,12 @@ func _process(delta: float) -> void:
 		var save_stats = player_field.stats
 		if opponent_mode:
 			save_stats = dad_field.stats
-		if save_stats.score > HighScore.get_song_score(song_name,"hard"):
-			HighScore.save_song_score(save_stats.score,song_name,"hard")
+		if save_stats.score > HighScore.get_song_score(song_name,song_difficulty):
+			HighScore.save_song_score(save_stats.score,song_name,song_difficulty)
 		if is_story_mode:
 			level_score += player_field.stats.score
 			if level_index == level_songs.size() - 1:
-				HighScore.save_level_score(level_score,level_name,"hard")
+				HighScore.save_level_score(level_score,level_name,song_difficulty)
 				return_to_menu()
 			else:
 				get_tree().reload_current_scene()

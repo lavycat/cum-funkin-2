@@ -4,9 +4,12 @@ extends Node2D
 @onready var camera: Camera2D = $camera
 @onready var bg: Sprite2D = $Parallax2D/bg
 @onready var label: Label = $Parallax2D/ColorRect/Label
+@onready var button: Button = $Parallax2D/Button
 var gamemods_scene:PackedScene = load("res://scenes/menus/game_play_mods_menu.tscn")
 var gamemods:Node2D = null
 var cur_song:String = ""
+var cur_diff:String = "hard"
+
 var cur_selected:int = 0
 var cur_color:Color = Color.WHITE
 var game_mods_open:bool = false
@@ -42,18 +45,25 @@ func _ready() -> void:
 		songs.add_child(t)
 	change_selected(0)
 		
-		
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_open_gamemods"):
+func open_game_mods_menu():
+	
 		if not game_mods_open:
-			gamemods = gamemods_scene.instantiate()
-			add_child(gamemods)
 			game_mods_open = true
+			gamemods = gamemods_scene.instantiate()
+			button.hide()
+			add_child(gamemods)
 		else:
 			game_mods_open = false
+			button.show()
 			
 			gamemods.queue_free()
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_open_gamemods"):
+		open_game_mods_menu()
+		
 	if game_mods_open:
+		if event.is_action_pressed("ui_cancel"):
+			open_game_mods_menu()
 		return
 	if event.is_action_pressed("ui_cancel"):
 		AudioManager.play_sfx(AudioManager.SFX_CANCEL)
@@ -63,10 +73,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
 		change_selected(-1)
 	if event.is_action_pressed("ui_accept"):
-		Game.is_story_mode = false
+		print(game_mods_open)
+		Game.is_story_mode =	 false
 		Game.song_name = cur_song
 		Global.chart = null
-		Global.chart = ChartParser.load_chart(cur_song,"hard")
+		Global.chart = ChartParser.load_chart(cur_song,cur_diff)
 		SceneManager.change_scene(load("res://scenes/game/game.scn"))
 		AudioManager.fade_out_global_music()
 		
@@ -78,7 +89,7 @@ func change_selected(p:int):
 	update_color()
 	update_label()
 func update_label():
-	label.text = "%s\nHighScore -> %d"%[cur_song,HighScore.get_song_score(cur_song,"hard")]
+	label.text = "%s\nHighScore -> %d\n < %s >"%[cur_song,HighScore.get_song_score(cur_song,cur_diff),cur_diff]
 	pass
 func update_color():
 	cur_color = get_song_meta(cur_selected).color
