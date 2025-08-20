@@ -8,6 +8,7 @@ extends Node2D
 var gamemods_scene:PackedScene = load("res://scenes/menus/game_play_mods_menu.tscn")
 var gamemods:Node2D = null
 var cur_song:String = ""
+var diffculties:PackedStringArray = []
 var cur_diff:String = "hard"
 
 var cur_selected:int = 0
@@ -68,23 +69,34 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		AudioManager.play_sfx(AudioManager.SFX_CANCEL)
 		SceneManager.change_scene(load("res://scenes/menus/main_menu.tscn"))
+	if event.is_action_pressed("ui_right"):
+		change_diff(1)
+	if event.is_action_pressed("ui_left"):
+		change_diff(-1)
+	
 	if event.is_action_pressed("ui_down"):
 		change_selected(1)
 	if event.is_action_pressed("ui_up"):
 		change_selected(-1)
 	if event.is_action_pressed("ui_accept"):
 		print(game_mods_open)
-		Game.is_story_mode =	 false
+		Game.is_story_mode = false
 		Game.song_name = cur_song
 		Global.chart = null
 		Global.chart = ChartParser.load_chart(cur_song,cur_diff)
 		SceneManager.change_scene(load("res://scenes/game/game.scn"))
 		AudioManager.fade_out_global_music()
-		
+func change_diff(p:int):
+	cur_diff = diffculties[wrap(diffculties.find(cur_diff) + p,0,diffculties.size())]
+	update_label()
 func change_selected(p:int):
 	AudioManager.play_sfx(AudioManager.SFX_SCROLL)
 	cur_selected = wrap(cur_selected + p,0,songs.get_child_count())
 	cur_song = list[cur_selected]
+	diffculties = get_song_meta(cur_selected).difficulties
+	change_diff(0)
+	if diffculties.has("normal"):
+		cur_diff = diffculties[diffculties.find("normal")]
 	update_camera()
 	update_color()
 	update_label()

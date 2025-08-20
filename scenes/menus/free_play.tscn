@@ -40,9 +40,9 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Parallax2D"]
 offset_left = 824.0
-offset_top = 8.0
 offset_right = 952.0
-offset_bottom = 136.0
+offset_bottom = 150.0
+text = "open modifiers"
 
 [node name="songs" type="Node2D" parent="."]
 
