@@ -18,7 +18,7 @@ func _ready() -> void:
 		var t := Label.new()
 		t.text = o.to_upper()
 		t.label_settings = LabelSettings.new()
-		t.label_settings.font = preload("res://assets/fonts/bold.png")
+		t.label_settings.font = load("res://assets/fonts/bold.png")
 		t.label_settings.font_size = 72
 		options_container.add_child(t)
 		t.position.x += (30 * i) + 90

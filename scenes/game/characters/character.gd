@@ -32,7 +32,7 @@ func play_anim(anim:String,force:bool = false):
 	player.play(cur_anim)
 	if force:
 		player.seek(0)
-func sing(dir:int,miss:bool = false):
+func sing(dir:int,miss:bool = false,alt:bool = false):
 	if not can_sing:
 		return
 	sing_timer = 0
@@ -40,9 +40,12 @@ func sing(dir:int,miss:bool = false):
 	if is_player:
 		directions = ["right","down","up","left"]
 	var miss_str = "_miss"
+	var alt_str = "_alt"
 	if not miss:
 		miss_str = ""
-	var anim_to_play:String = "sing_%s%s"%[directions[dir],miss_str]
+	if not alt:
+		alt_str = ""
+	var anim_to_play:String = "sing_%s%s%s"%[directions[dir],miss_str,alt_str]
 	if not sing_suffix.is_empty():
 		anim_to_play += "_%s"%sing_suffix
 

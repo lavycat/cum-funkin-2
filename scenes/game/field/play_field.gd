@@ -49,8 +49,6 @@ func find_action_index(ev: InputEvent) -> int:
 
 	return -1
 func note_input(note:Note):
-	note_hit.emit(note)
-	note.note_hit(note)
 	var r = Rating.rate_note(note,note.play_field.auto_play)
 	stats.notes_hit += 1
 	stats.accuracy_points += r.acc
@@ -65,6 +63,9 @@ func note_input(note:Note):
 	strums[note.column].play_anim("confirm",true)
 	for i in characters:
 		i.sing(note.column)
+	note_hit.emit(note)
+	note.note_hit(note)
+	
 
 func pop_up_score(rating:Rating):
 	var ms_txt: Label = Label.new()
@@ -196,11 +197,11 @@ func note_update(delta:float):
 				note.queue_free()
 		if note.was_hit and not note.missed:
 			if note.sustain:
-					note_hit.emit(note)
 					for i in characters:
 						if i:
 							if i.sing_timer > Conductor.step_length:
 								i.sing(note.column)
+					note_hit.emit(note)
 					note.note_hit(note)
 					if pressed[note.column]:
 						if not strum.animation.contains("confirm"):
@@ -242,7 +243,15 @@ func _process(delta: float) -> void:
 var note_index:int = 0
 var spawn_range:float = 1.5
 func spawn_data(n:Chart.NoteData):
+	if n.type.is_empty():
+		n.type = "default"
 	var note = Note.new()
+	if n.type != "default":
+		var notes_folder:StringName = "res://scripts/game/notes/"
+		if ResourceLoader.exists("%s%s.gd"%[notes_folder,n.type]):
+			var note_script = load("%s%s.gd"%[notes_folder,n.type])
+			print(note_script)
+			note.set_script(note_script)
 	note.time = n.time
 	note.column = n.column
 	note.length = n.length
@@ -250,8 +259,6 @@ func spawn_data(n:Chart.NoteData):
 	note.note_field = note_field
 	note.play_field = self
 	note.style = note.get_style(note)
-	if note.type == "default":
-		note.style = note_style
 	note_field.add_child(note)
 	note.play_anim("note")
 	note.visible = false

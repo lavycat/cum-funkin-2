@@ -47,6 +47,7 @@ func _enter_tree() -> void:
 	clipper.add_child(sustain)
 	clipper.scale.y = -1.0 if note_field.down_scroll else 1.0
 	add_child(sprite)
+	
 func play_anim(anim:String = ""):
 	sprite.play("%s %s"%[direction,anim])
 func note_hit(note:Note):

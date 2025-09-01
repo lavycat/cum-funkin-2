@@ -114,22 +114,22 @@ horizontal_alignment = 1
 clip_text = true
 
 [node name="difficulty" type="TextureRect" parent="."]
-offset_left = 924.0
-offset_top = 514.0
-offset_right = 1231.0
-offset_bottom = 580.0
+offset_left = 912.0
+offset_top = 506.0
+offset_right = 1219.0
+offset_bottom = 572.0
 texture = ExtResource("3_1o4ee")
 stretch_mode = 5
 
 [node name="left" type="AnimatedSprite2D" parent="."]
-position = Vector2(900, 549)
+position = Vector2(888, 541)
 sprite_frames = SubResource("SpriteFrames_f18yv")
 animation = &"leftIdle"
 script = ExtResource("4_mjxy8")
 tex = ExtResource("4_wudwk")
 
 [node name="right" type="AnimatedSprite2D" parent="."]
-position = Vector2(1256, 549)
+position = Vector2(1244, 541)
 sprite_frames = SubResource("SpriteFrames_f18yv")
 animation = &"rightIdle"
 script = ExtResource("4_mjxy8")

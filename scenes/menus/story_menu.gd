@@ -12,8 +12,10 @@ var cur_diff:int = 1
 var difficulties:Array[StringName] = ["easy","normal","hard"]
 @onready var difficulty: TextureRect = $difficulty
 @onready var tracks: Label = $tracks
+var y_pos:float
 
 func _ready() -> void:
+	y_pos = difficulty.position.y
 	for l in weeks:
 		var lv = load(levels_folder + l + ".tres")
 		levels.append(lv)
@@ -67,6 +69,6 @@ func change_diff(p:int = 0):
 	difficulty.modulate.a = 0
 	
 	var tw = create_tween().set_parallel()
-	tw.tween_property(difficulty,"position:y",514,0.3).set_trans(Tween.TRANS_EXPO)
+	tw.tween_property(difficulty,"position:y",y_pos,0.3).set_trans(Tween.TRANS_EXPO)
 	tw.tween_property(difficulty,"modulate:a",1,0.15)
 	pass

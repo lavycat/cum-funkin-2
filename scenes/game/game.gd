@@ -52,6 +52,8 @@ func _enter_tree() -> void:
 	if is_story_mode:
 		song_name = level_songs[level_index]
 		chart = ChartParser.load_chart(level_songs[level_index],song_difficulty)
+		Global.chart = chart
+		
 	instance = self
 	var p = "res://scenes/game/stages/%s.tscn"%chart.stage
 	if not ResourceLoader.exists(p):
