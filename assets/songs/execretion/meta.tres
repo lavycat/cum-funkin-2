@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SongMeta" load_steps=8 format=3 uid="uid://olahaqh3gl6n"]
 
 [ext_resource type="Script" uid="uid://d2g48im643vyh" path="res://scripts/game/data/strum_style.gd" id="1_5b3c7"]
-[ext_resource type="SpriteFrames" uid="uid://bw6es6hqy4ejl" path="res://assets/ui/irida/default.res" id="1_k5keu"]
+[ext_resource type="SpriteFrames" uid="uid://i53jdmdl0vn4" path="res://assets/ui/irida/default.res" id="1_k5keu"]
 [ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="1_mfhty"]
 [ext_resource type="Script" uid="uid://7h4ov0y0q7nj" path="res://scripts/game/data/note_style.gd" id="2_2jeli"]
 [ext_resource type="Script" uid="uid://0wvgw6kj6j2f" path="res://scripts/data/song_meta.gd" id="2_5b3c7"]

@@ -68,6 +68,7 @@ animations = [{
 
 [node name="StoryMenu" type="Node2D"]
 script = ExtResource("1_3fasx")
+weeks = Array[StringName]([&"week3", &"irida2"])
 
 [node name="bg" type="ColorRect" parent="."]
 offset_right = 1280.0

@@ -1,4 +1,5 @@
 extends Node2D
+@export var weeks:Array[StringName]
 @onready var level_titles: Node2D = $level_titles
 @onready var score: Label = $score
 @onready var week: Label = $week
@@ -13,8 +14,8 @@ var difficulties:Array[StringName] = ["easy","normal","hard"]
 @onready var tracks: Label = $tracks
 
 func _ready() -> void:
-	for l in ResourceLoader.list_directory(levels_folder):
-		var lv = load(levels_folder + l)
+	for l in weeks:
+		var lv = load(levels_folder + l + ".tres")
 		levels.append(lv)
 	print(levels)
 	for l in levels.size():

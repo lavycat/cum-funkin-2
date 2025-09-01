@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/jeffy_front.png-65629f299c11bc4ed5024012c0277
 
 compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=1.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0

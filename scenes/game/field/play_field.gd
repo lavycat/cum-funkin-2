@@ -17,7 +17,6 @@ var note_field:NoteField = null
 var notes:Array = []
 var strums:Array[Receptor] = []
 
-var buttons:Array[TouchScreenButton] = []
 var pressed:Array[bool] = [false,false,false,false]
 var actions:Array[String] = ["4k_left","4k_down","4k_up","4k_right"]
 var characters:Array[Character] = []
@@ -43,16 +42,6 @@ func _ready() -> void:
 	note_field.scroll_speed = sc
 	note_field.down_scroll = Save.json.down_scroll
 	add_child(note_field)
-	var i:int = 0
-	for t:TouchScreenButton in buttons:
-		t.pressed.connect(func():
-			pressed[i] = true
-			print("pre")
-			)
-		t.released.connect(func():
-			pressed[i] = true
-			)
-		i += 1
 func find_action_index(ev: InputEvent) -> int:
 	for i in actions.size():
 		if ev.is_action(actions[i]):
@@ -262,7 +251,7 @@ func spawn_data(n:Chart.NoteData):
 	note.play_field = self
 	note.style = note.get_style(note)
 	if note.type == "default":
-		note.style = note_style 
+		note.style = note_style
 	note_field.add_child(note)
 	note.play_anim("note")
 	note.visible = false

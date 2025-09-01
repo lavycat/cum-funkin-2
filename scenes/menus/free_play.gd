@@ -80,12 +80,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
 		change_selected(-1)
 	if event.is_action_pressed("ui_accept"):
-		print(game_mods_open)
 		Game.is_story_mode = false
 		Game.song_name = cur_song
 		Global.chart = null
 		Global.chart = ChartParser.load_chart(cur_song,cur_diff)
-		Global.game_meta = get_song_meta(cur_selected)
 		SceneManager.change_scene(load("res://scenes/game/game.scn"))
 		AudioManager.fade_out_global_music()
 func change_diff(p:int):

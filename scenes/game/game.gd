@@ -74,7 +74,17 @@ func apply_game_mods():
 		player_field.auto_play = mods.bot_play
 		
 	pass
+var meta:SongMeta
+func load_meta(song:String) -> SongMeta:
+	const songs_folder = "res://assets/songs/"
+	var meta_path:String = songs_folder + song + "/meta.tres"
+	if ResourceLoader.exists(meta_path):
+		return load(meta_path)
+	else:
+		return SongMeta.new()
 func _ready() -> void:
+	meta = load_meta(song_name)
+	Global.game_meta = meta
 	game_modifiers = Global.game_modifiers
 	if is_story_mode:
 		game_modifiers = GameModifiers.new()

@@ -872,3 +872,5 @@ z_index = -1
 offset_right = 40.0
 offset_bottom = 40.0
 stream = ExtResource("55_ykiwa")
+
+[node name="shaders" type="CanvasLayer" parent="."]

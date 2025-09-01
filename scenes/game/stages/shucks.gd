@@ -199,11 +199,12 @@ func step_hit(step:int):
 			game.gf.visible = true
 		508:
 			create_tween().tween_property(game.hud,"modulate:a",1,Conductor.beat_length)
-		768:
-			var pt = create_tween().set_trans(Tween.TRANS_QUART)
+		764:
+			var pt = create_tween().set_trans(Tween.TRANS_QUINT)
 			
-			pt.tween_property(shucks_logo,"position:x",640,1)
-			pt.tween_property(shucks_logo,"position:x",1920,1.5)
+			pt.tween_property(shucks_logo,"position:x",640,0.8)
+			
+			pt.set_trans(Tween.TRANS_BACK).tween_property(shucks_logo,"position:x",1920,1.5).set_delay(0.1)
 			
 			
 		2300,2560:

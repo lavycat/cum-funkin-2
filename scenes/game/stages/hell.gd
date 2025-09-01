@@ -40,8 +40,10 @@ func note_hit(note:Note):
 			var d = note.sprite.duplicate()
 			add_child(d)
 			d.position.x = randf_range(600,2400)
-			d.position.y = randf_range(700,1000)
-			create_tween().tween_property(d,"modulate:a",0,0.4).set_trans(Tween.TRANS_EXPO).finished.connect(d.queue_free)
+			d.position.y = randf_range(700,800)
+			create_tween().tween_property(d,"modulate:a",0,0.6).set_trans(Tween.TRANS_EXPO).finished.connect(d.queue_free)
+			create_tween().tween_property(d,"position:y",d.position.y + 900,0.8).set_trans(Tween.TRANS_EXPO).finished.connect(d.queue_free)
+			
 			
 			
 			
@@ -215,7 +217,9 @@ func beat_hit(beat:int):
 			game.dad_field.position.x = 320
 			game.dad_field.reparent(hell_3)
 			game.dad_field.position.x = 1080
-			game.dad_field.position.y = -800
+			game.dad_field.position.y = 650
+			for i in game.dad_field.strums:
+				i.hide()
 			game.dad_field.z_index = -1
 			game.hud.bar.visible = false
 			
