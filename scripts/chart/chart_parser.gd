@@ -119,7 +119,12 @@ static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
 		c.notes.append(note)
 	return c
 static func load_psych(data:Dictionary):
+	var is_psych_1:bool = false
 	var raw = data.song
+	if data.has("song"):
+		if data.song is String:
+			is_psych_1 = true
+			raw = data
 	var chart = Chart.new()
 	if ResourceLoader.exists("res://assets/songs/%s/charts/events.json"%[raw.song]):
 		var event_json = load("res://assets/songs/%s/charts/events.json"%[raw.song]).data
@@ -170,7 +175,7 @@ static func load_psych(data:Dictionary):
 			if note_direction == -1:
 				add_event(chart,note_time,note_data[2],[note_data[3],note_data[4]])
 				continue
-			if n.get("mustHitSection"):
+			if n.get("mustHitSection") and !is_psych_1:
 				note_direction += 4
 			if note_data[2] is String:
 				continue
@@ -183,6 +188,8 @@ static func load_psych(data:Dictionary):
 			note.column = note_direction%4
 			note.length = note_length
 			note.field_id = (note_direction / 4)%2
+			if is_psych_1:
+				note.field_id = 0 if note_direction > 3 else 1
 			note.type = note_type
 			chart.notes.append(note)
 	return chart
