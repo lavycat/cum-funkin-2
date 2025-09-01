@@ -11,7 +11,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="FreePlay" type="Node2D"]
 script = ExtResource("1_8le71")
-list = Array[String](["aethos", "2hot", "glitcher", "no-villains", "madness", "irida", "shucks", "under-construction"])
+list = Array[String](["pico", "philly-nice", "blammed", "aethos", "2hot", "glitcher", "no-villains", "madness", "irida", "shucks", "execretion", "under-construction"])
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)

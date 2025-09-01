@@ -118,16 +118,17 @@ offset_top = 514.0
 offset_right = 1231.0
 offset_bottom = 580.0
 texture = ExtResource("3_1o4ee")
+stretch_mode = 5
 
-[node name="left" type="AnimatedSprite2D" parent="difficulty"]
-position = Vector2(-24, 35)
+[node name="left" type="AnimatedSprite2D" parent="."]
+position = Vector2(900, 549)
 sprite_frames = SubResource("SpriteFrames_f18yv")
 animation = &"leftIdle"
 script = ExtResource("4_mjxy8")
 tex = ExtResource("4_wudwk")
 
-[node name="right" type="AnimatedSprite2D" parent="difficulty"]
-position = Vector2(332, 35)
+[node name="right" type="AnimatedSprite2D" parent="."]
+position = Vector2(1256, 549)
 sprite_frames = SubResource("SpriteFrames_f18yv")
 animation = &"rightIdle"
 script = ExtResource("4_mjxy8")

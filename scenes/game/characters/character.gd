@@ -16,6 +16,7 @@ var cur_anim:String = ""
 var auto_dance:bool = true
 var camera_focus = false
 var sing_suffix:String = ""
+var anim_suffix:String = ""
 var can_dance:bool = true
 var can_sing:bool = true
 func _ready() -> void:
@@ -23,9 +24,12 @@ func _ready() -> void:
 	if is_player:
 		scale.x *= -1
 func play_anim(anim:String,force:bool = false):
-	cur_anim = anim
+	if anim_suffix.is_empty():
+		cur_anim = anim
+	else:
+		cur_anim = anim + "_" + anim_suffix
 	
-	player.play(anim)
+	player.play(cur_anim)
 	if force:
 		player.seek(0)
 func sing(dir:int,miss:bool = false):

@@ -27,7 +27,7 @@ var missed:bool = false
 var sprite:AnimatedSprite2D
 ## returns the name of the notestyle for the note script defaults to empty string
 static func get_style(note:Note) -> NoteStyle:
-	return note.note_field.common_note_style
+	return note.play_field.note_style
 func _enter_tree() -> void:
 	connect_notes = false
 	super()

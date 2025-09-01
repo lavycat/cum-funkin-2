@@ -3,6 +3,7 @@ extends Stage
 #func _process(delta: float) -> void:
 	#light.rotation_degrees = sin(Conductor.time*4.0)*15.0
 @onready var chair_dstg: Character = $chair/chair_dstg
+@onready var shucks_logo: Sprite2D = $CanvasLayer/Shucks_logo
 
 @onready var normal: Node2D = $normal
 @onready var cut: VideoStreamPlayer = $CanvasLayer/cut
@@ -10,11 +11,15 @@ extends Stage
 @onready var chair: Node2D = $chair
 @onready var chair_marbin: Character = $"chair/chair marbin"
 @onready var tas:Array = [$dad, $bf, $dad2, $dad3, $dad4, $dad5]
+@onready var shucks: SparrowAtlas = $CanvasLayer/shucks
 
 @onready var darkness_alt: Sprite2D = $CanvasLayer/DarknessAlt
 @onready var darkness_red: Sprite2D = $CanvasLayer/DarknessRed
 @onready var red: Sprite2D = $CanvasLayer/red
+@onready var running: Node2D = $running
 
+@onready var run_detg: Character = $"running/run detg"
+@onready var marv_run: Character = $running/marv_run
 
 
 
@@ -135,7 +140,40 @@ func _process(delta: float) -> void:
 					gf_notes.erase(n)
 
 var video_start_time:float = 0
+func add_trail(note:Note,time_sec:float = 0.4,use_dir:bool = false):
+	if note.was_hit or note.play_field.id != 0:
+		return
+	var p:Character = game.dad.duplicate()
+	p.z_as_relative = false
+	game.add_child(p)
+	p.sing_timer = 0
+	p.sing(note.column)
+	p.player.seek(0)
+	p.modulate = Color.ORANGE_RED
+	p.modulate.a = 0.2
+	p.set_process(false)
+	var t = create_tween().set_parallel()
+	t.finished.connect(p.queue_free)
+	var delay:float = 0
+	if note.sustain:
+		time_sec = max(note.length,time_sec)
+	var dir_map:Array = [Vector2(-200,0),Vector2(0,200),Vector2(0,-200),Vector2(200,0)]
+	var pos:Vector2 = p.position + Vector2(200,0)
+	if use_dir:
+		pos = p.position + dir_map[note.column]
+	t.tween_property(p,"position",pos,time_sec).set_trans(Tween.TRANS_CUBIC)
+	t.tween_property(p,"modulate:a",0,time_sec*1.5).set_trans(Tween.TRANS_EXPO)
+	
+	print("p")
+func note_hit(note:Note):
+	var step = floor(Conductor.step)
+	if step > 820 and step < 920:
+		add_trail(note,0.8,true)
+	if step > 4216 and step < 4440:
+		add_trail(note,0.65,true)
+	
 func step_hit(step:int):
+
 	match step:
 		74:
 			game.bf.can_dance = false
@@ -148,7 +186,7 @@ func step_hit(step:int):
 			game.gf.modulate.a = 0
 			t.tween_property(game.gf,"modulate:a",0.99,Conductor.beat_length).set_delay(Conductor.step_length*2)
 			
-			t.tween_property(game.hud,"modulate:a",1,Conductor.beat_length)
+			t.tween_property(game.hud,"modulate:a",1,Conductor.beat_length).set_delay(Conductor.step_length*2)
 			game.bf.can_dance = true
 			
 		434:
@@ -161,6 +199,12 @@ func step_hit(step:int):
 			game.gf.visible = true
 		508:
 			create_tween().tween_property(game.hud,"modulate:a",1,Conductor.beat_length)
+		768:
+			var pt = create_tween().set_trans(Tween.TRANS_QUART)
+			
+			pt.tween_property(shucks_logo,"position:x",640,1)
+			pt.tween_property(shucks_logo,"position:x",1920,1.5)
+			
 			
 		2300,2560:
 			create_tween().tween_property(game.hud,"modulate:a",0,Conductor.beat_length*2)
@@ -193,10 +237,28 @@ func step_hit(step:int):
 		3440:
 			var t := create_tween()
 			t.tween_property(game.hud,"modulate:a",1,0.7)
+			game.camera.zoom = Vector2(2,2)
+			game.default_camera_zoom = Vector2(2,2)
+			var tt := create_tween()
+			tt.tween_property(game,"default_camera_zoom",Vector2(0.4,0.4),1.5).set_delay(0.7).set_trans(Tween.TRANS_EXPO)
+			
+			
 			game.camera.reset_smoothing()
 		
 		3458:
 			cut.hide()
+			shucks.play("ShucksText ShucksText")
+		3710:
+			chair.queue_free()
+			running.show()
+			game.dad = run_detg
+			game.bf = marv_run
 			
-			
+			for i in game.play_fields:
+				i.reset_characters()
+			game.camera.zoom = Vector2(2,2)
+			game.default_camera_zoom = Vector2(2,2)
+			var tt := create_tween()
+			tt.tween_property(game,"default_camera_zoom",Vector2(0.4,0.4),.5).set_delay(0.1).set_trans(Tween.TRANS_EXPO)
+			game.camera_lerp_position = game.bf.camera_position.global_position
 		

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/bigjerry.png-b688eda36ba1a3cde59de9170689a4f5
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

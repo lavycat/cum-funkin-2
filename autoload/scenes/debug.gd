@@ -1,15 +1,15 @@
 extends CanvasLayer
 @onready var fps: Label = $VBoxContainer/fps
 @onready var ram: Label = $VBoxContainer/ram
-@onready var rate: Label = $VBoxContainer/rate
 var peak_mem:int = 0
+func to_hum(s:int):
+	return String.humanize_size(s)
 func update_ui():
-	fps.text = "FPS: %d"%Engine.get_frames_per_second()
+	var conductor_info:String = "time: %0.2f -- step: %d -- beat: %d -- bpm: %0.2f"%[Conductor.time,Conductor.step,Conductor.beat,Conductor.bpm]
+	fps.text = "FPS: %d -- %0.2f ms\n%s"%[Engine.get_frames_per_second(),get_process_delta_time()*1000.0,conductor_info]
 	var total_memory = Performance.get_monitor(Performance.RENDER_TEXTURE_MEM_USED)
 	peak_mem = max(total_memory,peak_mem)
-	ram.text = "MEMORY: %s/%s"%[String.humanize_size(total_memory),String.humanize_size(peak_mem)]
-	rate.text = "RATE: %0.2f"%Conductor.rate
-	rate.label_settings.font_size = 16 * Conductor.rate
+	ram.text = "mem: %s / %s"%[to_hum(total_memory),to_hum(peak_mem)]
 func _physics_process(delta: float) -> void:
 	update_ui()
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://dqiace2h264py"]
+
+[ext_resource type="Script" uid="uid://candpblad8chk" path="res://scripts/resource/level.gd" id="1_6xce8"]
+[ext_resource type="Texture2D" uid="uid://b4c8yekqqx48a" path="res://assets/images/menus/weeks/week3.png" id="1_usuyn"]
+
+[resource]
+script = ExtResource("1_6xce8")
+name = &"go pico yeah yeah go pico yeah"
+level_image = ExtResource("1_usuyn")
+songs = Array[StringName]([&"pico", &"philly-nice", &"blammed"])
+metadata/_custom_type_script = "uid://candpblad8chk"

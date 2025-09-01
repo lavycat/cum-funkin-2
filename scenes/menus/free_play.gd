@@ -10,7 +10,7 @@ var gamemods:Node2D = null
 var cur_song:String = ""
 var diffculties:PackedStringArray = []
 var cur_diff:String = "hard"
-
+var song_metas:Array[SongMeta] = []
 var cur_selected:int = 0
 var cur_color:Color = Color.WHITE
 var game_mods_open:bool = false
@@ -23,6 +23,7 @@ func get_song_meta(i:int) -> SongMeta:
 		return SongMeta.new()
 func _ready() -> void:
 	for i in list.size():
+		song_metas.append(get_song_meta(i))
 		var s = list[i]
 		var t := Label.new()
 		t.text = s.to_upper()
@@ -84,6 +85,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Game.song_name = cur_song
 		Global.chart = null
 		Global.chart = ChartParser.load_chart(cur_song,cur_diff)
+		Global.game_meta = get_song_meta(cur_selected)
 		SceneManager.change_scene(load("res://scenes/game/game.scn"))
 		AudioManager.fade_out_global_music()
 func change_diff(p:int):

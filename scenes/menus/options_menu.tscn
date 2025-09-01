@@ -46,7 +46,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="OptionsMenu" type="Node2D"]
 script = ExtResource("1_7rumi")
-page_scenes = Array[PackedScene]([ExtResource("2_7rumi"), ExtResource("2_3aff8"), ExtResource("2_3aff8")])
+page_scenes = Array[PackedScene]([ExtResource("2_7rumi"), ExtResource("2_3aff8"), null])
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
@@ -64,19 +64,19 @@ alignment = 1
 
 [node name="Gameplay" type="Label" parent="pages"]
 layout_mode = 2
-text = "Gameplay (WIP)"
+text = "Gameplay"
 label_settings = SubResource("LabelSettings_dwjoh")
 horizontal_alignment = 1
 
 [node name="Performance" type="Label" parent="pages"]
 layout_mode = 2
-text = "Performance (WIP)"
+text = "Performance"
 label_settings = SubResource("LabelSettings_erhyl")
 horizontal_alignment = 1
 
 [node name="User Interface" type="Label" parent="pages"]
 layout_mode = 2
-text = "User Interface (NOT DONE)"
+text = "User Interface (NOT AVALIBLE YET)"
 label_settings = SubResource("LabelSettings_tiokm")
 horizontal_alignment = 1
 

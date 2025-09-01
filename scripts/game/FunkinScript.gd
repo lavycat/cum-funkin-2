@@ -15,6 +15,7 @@ func _enter_tree() -> void:
 			i.note_hit.connect(note_hit)
 			i.note_miss.connect(note_miss)
 	game.events.event_trigger.connect(event_triggered)
+	game.song_start.connect(song_start)
 
 func step_hit(step:int):
 	pass

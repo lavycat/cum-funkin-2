@@ -6,6 +6,7 @@ var preloaded_characters:Dictionary = {}
 var in_menu:bool = false
 # NOTE -> made for freeplay to override them for a gameplay intance use Game class!
 var game_modifiers:GameModifiers = GameModifiers.new()
+var game_meta:SongMeta = SongMeta.new()
 
 func preload_all_characters():
 	const characters_folder:String = "res://scenes/game/characters/"

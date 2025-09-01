@@ -9,6 +9,11 @@ func get_option(i:int) -> Node2D:
 	return options.get_child(cur_option)
 func _process(delta: float) -> void:
 	camera.position.y = get_option(cur_option).position.y
+	for i in options.get_children():
+		if i != get_option(cur_option):
+			i.modulate.a = lerpf(i.modulate.a,0.4,delta*19.0)
+		else:
+			i.modulate.a = lerpf(i.modulate.a,1,delta*19.0)
 func _ready() -> void:
 	templates.queue_free()
 	for i in options.get_children():
@@ -20,7 +25,6 @@ func change_option(i:int = 0) -> void:
 	cur_option = wrap(cur_option + i,0,options.get_child_count())
 func _input(event: InputEvent) -> void:
 	if get_option(cur_option).input_waiting:
-		print("p")
 		return
 	if event.is_action_pressed("ui_down"):
 		AudioManager.play_sfx(0)

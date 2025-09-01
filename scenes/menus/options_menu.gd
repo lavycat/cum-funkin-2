@@ -32,6 +32,8 @@ func _input(event: InputEvent) -> void:
 func select_page(i:int):
 	if i > page_scenes.size():
 		return
+	if page_scenes[i] == null:
+		return
 	page = page_scenes[i].instantiate()
 	var t = create_tween().set_parallel()
 	var q:int = 0

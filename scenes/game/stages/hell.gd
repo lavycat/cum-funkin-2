@@ -34,7 +34,17 @@ func gen_rand_string(length:int) -> String:
 		str += lets[randi_range(0,lets.length()-1)]
 		
 	return str
-	
+func note_hit(note:Note):
+	if final:
+		if !note.was_hit and note.play_field.id == 0:
+			var d = note.sprite.duplicate()
+			add_child(d)
+			d.position.x = randf_range(600,2400)
+			d.position.y = randf_range(700,1000)
+			create_tween().tween_property(d,"modulate:a",0,0.4).set_trans(Tween.TRANS_EXPO).finished.connect(d.queue_free)
+			
+			
+			
 func _process(delta: float) -> void:
 	if in_the_void:
 		if game.bf:
@@ -91,7 +101,7 @@ func _ready() -> void:
 	lyric(2380,2392,"Aethos")
 	
 	lyric(2392,2412,"I Slap")
-	lyric(2412,2428,"My Dipper")
+	lyric(2412,2428,"My Diaper")
 	lyric(2428,2448,"With Woe")
 	lyric(2448,2448+12,"Ohhhhh")
 	

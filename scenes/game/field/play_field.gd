@@ -8,6 +8,8 @@ class_name PlayField extends Node2D
 @export var auto_play:bool = false
 
 var stats:Stats = Stats.new()
+var strum_style:StrumStyle = StrumStyle.new()
+var note_style:NoteStyle = NoteStyle.new()
 
 var directions = ["left","down","up","right"]
 
@@ -229,9 +231,15 @@ func note_update(delta:float):
 				note.free()
 func _physics_process(delta: float) -> void:
 	spawn_notes()
+func reload_strum_style():
+	if strum_style:
+		print(strum_style.frames.resource_path)
+		for i in strums:
+			i.sprite_frames = strum_style.frames
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
+
 	note_update(delta)
 	for i in strums.size():
 		var strum:Receptor = strums[i]
@@ -253,6 +261,8 @@ func spawn_data(n:Chart.NoteData):
 	note.note_field = note_field
 	note.play_field = self
 	note.style = note.get_style(note)
+	if note.type == "default":
+		note.style = note_style 
 	note_field.add_child(note)
 	note.play_anim("note")
 	note.visible = false

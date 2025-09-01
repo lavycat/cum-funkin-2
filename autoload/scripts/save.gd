@@ -21,6 +21,12 @@ const default_json = {
 		"4k_up": ["J","up"],
 		"4k_right": ["K","right"]
 	},
+	## ui/visual
+	"cam_bumps": true,
+	"animation_speed": 1.0,
+	"health_bar_opacity": 1.0,
+	"show_timebar": true,
+	
 	"scores": {
 		"song_scores":{},
 		"level_scores":{}
@@ -31,7 +37,6 @@ func load_data():
 	if not ResourceLoader.exists(SAVE_PATH):
 		json = default_json.duplicate(true)
 	else:
-		print(FileAccess.get_file_as_string(SAVE_PATH))
 		if not FileAccess.get_file_as_string(SAVE_PATH).is_empty():
 			json = JSON.parse_string(FileAccess.get_file_as_string(SAVE_PATH))
 		else:

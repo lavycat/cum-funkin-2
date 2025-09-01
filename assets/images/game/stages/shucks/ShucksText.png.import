@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/ShucksText.png-80de645418721bf856a7153d4fba98
 
 [params]
 
-compress/mode=0
+compress/mode=4
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

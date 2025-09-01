@@ -27,11 +27,16 @@ func beat_hit(beat:int):
 func wiretrans():
 	game.dad = wire_dad
 	game.bf = wire_bf
+	for i in game.play_fields:
+		i.reset_characters()
+		
 	create_tween().set_parallel().tween_property(wire,"modulate:a",1,0.1)
 	pass
 func wiretrans2():
 	game.dad = old_dad
 	game.bf = old_bf
+	for i in game.play_fields:
+		i.reset_characters()
 	create_tween().set_parallel().tween_property(wire,"modulate:a",0,0.1)
 func note_hit(note:Note):
 	if funni:

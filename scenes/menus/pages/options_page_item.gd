@@ -113,6 +113,7 @@ func update():
 				
 	
 	pass
+var controler_mode:bool = true
 func _process(delta: float) -> void:
 	pass
 func _input(event: InputEvent) -> void:

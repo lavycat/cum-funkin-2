@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="wave.png" width="2339" height="6334">
+	<SubTexture name="wave0000" x="0" y="3200" width="2339" height="1574" frameX="-0" frameY="-127" frameWidth="2339" frameHeight="1701"/>
+	<SubTexture name="wave0001" x="0" y="0" width="2339" height="1603" frameX="-0" frameY="-98" frameWidth="2339" frameHeight="1701"/>
+	<SubTexture name="wave0002" x="0" y="1608" width="2339" height="1587" frameX="-0" frameY="-114" frameWidth="2339" frameHeight="1701"/>
+	<SubTexture name="wave0003" x="0" y="4779" width="2339" height="1555" frameX="-0" frameY="-146" frameWidth="2339" frameHeight="1701"/>
+</TextureAtlas>

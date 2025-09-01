@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="SongMeta" load_steps=8 format=3 uid="uid://olahaqh3gl6n"]
+
+[ext_resource type="Script" uid="uid://d2g48im643vyh" path="res://scripts/game/data/strum_style.gd" id="1_5b3c7"]
+[ext_resource type="SpriteFrames" uid="uid://bw6es6hqy4ejl" path="res://assets/ui/irida/default.res" id="1_k5keu"]
+[ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="1_mfhty"]
+[ext_resource type="Script" uid="uid://7h4ov0y0q7nj" path="res://scripts/game/data/note_style.gd" id="2_2jeli"]
+[ext_resource type="Script" uid="uid://0wvgw6kj6j2f" path="res://scripts/data/song_meta.gd" id="2_5b3c7"]
+
+[sub_resource type="Resource" id="Resource_qjcq4"]
+script = ExtResource("2_2jeli")
+note_scale = 0.7
+note_frames = ExtResource("1_k5keu")
+sustain_width = 50.0
+metadata/_custom_type_script = "uid://7h4ov0y0q7nj"
+
+[sub_resource type="Resource" id="Resource_k5keu"]
+script = ExtResource("1_5b3c7")
+scale = Vector2(0.7, 0.7)
+frames = ExtResource("1_k5keu")
+splash_scale = Vector2(1, 1)
+metadata/_custom_type_script = "uid://d2g48im643vyh"
+
+[resource]
+script = ExtResource("2_5b3c7")
+icon = ExtResource("1_mfhty")
+icon_frames = 2
+color = Color(0.85707, 0.931993, 3.08037e-05, 1)
+difficulties = ["easy", "normal", "hard"]
+player_strum_style = SubResource("Resource_k5keu")
+player_note_style = SubResource("Resource_qjcq4")
+cpu_strum_style = SubResource("Resource_k5keu")
+cpu_note_style = SubResource("Resource_qjcq4")
+metadata/_custom_type_script = "uid://0wvgw6kj6j2f"

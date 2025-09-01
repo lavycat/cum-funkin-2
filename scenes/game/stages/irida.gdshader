@@ -90,7 +90,7 @@ vec2 U =FRAGCOORD.xy;
     vec4 rd = normalize( vec4(U-.5*iResolution.xy, iResolution.y, iResolution.y*2.))*80.;
 
     float sc,dotp,totdist=0., t=.7, tt=TIME/4.;
-	
+
     for (float i=0.; i<200.; i++) {
 
         vec4 p = vec4( rd*totdist);

@@ -1,5 +1,6 @@
 
 class_name Game extends Node2D
+signal song_start
 var play_fields:Array[PlayField] = []
 var chart:Chart
 @onready var tracks: Node = %tracks
@@ -50,7 +51,7 @@ func _enter_tree() -> void:
 	chart = Global.chart
 	if is_story_mode:
 		song_name = level_songs[level_index]
-		chart = ChartParser.load_chart(level_songs[level_index],"hard")
+		chart = ChartParser.load_chart(level_songs[level_index],song_difficulty)
 	instance = self
 	var p = "res://scenes/game/stages/%s.tscn"%chart.stage
 	if not ResourceLoader.exists(p):
@@ -144,6 +145,19 @@ func _ready() -> void:
 	hud = load("res://scenes/game/huds/funkin.tscn").instantiate()
 	ui.add_child(hud)
 	playfields.reparent(hud,false)
+	
+	if Global.game_meta.player_strum_style:
+		player_field.strum_style = Global.game_meta.player_strum_style
+		player_field.reload_strum_style()
+	if Global.game_meta.cpu_strum_style:
+		dad_field.strum_style = Global.game_meta.cpu_strum_style
+		dad_field.reload_strum_style()
+	## note_styles
+	if Global.game_meta.player_note_style:
+		player_field.note_style = Global.game_meta.player_note_style
+	if Global.game_meta.cpu_note_style:
+		dad_field.note_style = Global.game_meta.cpu_note_style
+		
 	var scripts_dir = "res://assets/songs/%s/scripts/"%song_name
 	var scripts = ResourceLoader.list_directory(scripts_dir)
 	for i in scripts:
@@ -153,8 +167,9 @@ func _ready() -> void:
 	
 
 	Conductor.time = -Conductor.beat_length*3.0
-
+var filter_audio:AudioEffectFilter = AudioServer.get_bus_effect(0,1) as AudioEffectFilter
 func note_miss(note:Note):
+	filter_audio.resonance = 1
 	if not opponent_mode:
 		if note.play_field.id == 1:
 			health -= 0.08
@@ -176,8 +191,13 @@ func note_hit(note:Note):
 				else:
 					health += 0.08 * get_process_delta_time()
 
-
 func _process(delta: float) -> void:
+	if filter_audio:
+		filter_audio.resonance = lerpf(filter_audio.resonance,0,delta * 9.0)
+		if filter_audio.resonance > 0:
+			AudioServer.set_bus_effect_enabled(0,1,true)
+		if filter_audio.resonance < 0.1:
+			AudioServer.set_bus_effect_enabled(0,1,false)
 	queue_redraw()
 	if is_equal_approx(health,0):
 		get_tree().reload_current_scene()
@@ -204,6 +224,7 @@ func _process(delta: float) -> void:
 	if not song_started:
 		Conductor.time += delta
 		if Conductor.time >= 0.0:
+			song_start.emit()
 			song_started = true
 			Conductor.player.play()
 
@@ -239,6 +260,7 @@ func measure_hit(measure:int):
 func return_to_menu():
 	Conductor.rate = 1
 	MobileControls.controls_shown = MobileControls.CONTROLS_SHOWN_MENU
+	AudioServer.set_bus_effect_enabled(0,1,false)
 	if not is_story_mode:
 		AudioManager.fade_in_global_music()
 		SceneManager.change_scene(load("res://scenes/menus/free_play.tscn"))

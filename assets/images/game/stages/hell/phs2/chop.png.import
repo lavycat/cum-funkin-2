@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/chop.png-62114b4bb155505d569fed8c6db5db76.cte
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

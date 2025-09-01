@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="waterfall2.png" width="427" height="3381" spritePadding="3" borderPadding="1">
+	<SubTexture name="waterfall20000" x="1" y="1133" width="425" height="1122" frameX="-2814" frameY="-370" frameWidth="4000" frameHeight="1701"/>
+	<SubTexture name="waterfall20001" x="1" y="1133" width="425" height="1122" frameX="-2814" frameY="-370" frameWidth="4000" frameHeight="1701"/>
+	<SubTexture name="waterfall20002" x="1" y="1" width="425" height="1129" frameX="-2814" frameY="-370" frameWidth="4000" frameHeight="1701"/>
+	<SubTexture name="waterfall20003" x="1" y="1" width="425" height="1129" frameX="-2814" frameY="-370" frameWidth="4000" frameHeight="1701"/>
+	<SubTexture name="waterfall20004" x="1" y="2258" width="425" height="1122" frameX="-2814" frameY="-370" frameWidth="4000" frameHeight="1701"/>
+	<SubTexture name="waterfall20005" x="1" y="2258" width="425" height="1122" frameX="-2814" frameY="-370" frameWidth="4000" frameHeight="1701"/>
+</TextureAtlas>

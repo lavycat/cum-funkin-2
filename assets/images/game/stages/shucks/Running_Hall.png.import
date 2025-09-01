@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/Running_Hall.png-b65296276a0a5f11e2ebb865dda6
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

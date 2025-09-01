@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="ultimate-rose.png" width="5656" height="6034">
+	<SubTexture name="Rose_Stylized0000" x="840" y="5435" width="548" height="595" frameX="-0" frameY="-1" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0001" x="840" y="5435" width="548" height="595" frameX="-0" frameY="-1" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0002" x="840" y="5435" width="548" height="595" frameX="-0" frameY="-1" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0003" x="3006" y="5419" width="398" height="586" frameX="-93" frameY="-2" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0004" x="3006" y="5419" width="398" height="586" frameX="-93" frameY="-2" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0005" x="5304" y="639" width="191" height="601" frameX="-175" frameY="-0" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0006" x="5304" y="639" width="191" height="601" frameX="-175" frameY="-0" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0007" x="5304" y="639" width="191" height="601" frameX="-175" frameY="-0" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0008" x="1391" y="5434" width="330" height="595" frameX="-112" frameY="-6" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0009" x="1391" y="5434" width="330" height="595" frameX="-112" frameY="-6" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0010" x="2057" y="5421" width="548" height="594" frameX="-0" frameY="-1" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0011" x="2057" y="5421" width="548" height="594" frameX="-0" frameY="-1" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0012" x="2057" y="5421" width="548" height="594" frameX="-0" frameY="-1" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0013" x="1724" y="5433" width="330" height="595" frameX="-110" frameY="-6" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0014" x="1724" y="5433" width="330" height="595" frameX="-110" frameY="-6" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0015" x="4563" y="2652" width="191" height="601" frameX="-189" frameY="-5" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0016" x="4563" y="2652" width="191" height="601" frameX="-189" frameY="-5" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0017" x="4563" y="2652" width="191" height="601" frameX="-189" frameY="-5" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0018" x="2608" y="5420" width="395" height="589" frameX="-53" frameY="-4" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Rose_Stylized0019" x="2608" y="5420" width="395" height="589" frameX="-53" frameY="-4" frameWidth="548" frameHeight="606"/>
+	<SubTexture name="Ew0000" x="4551" y="4036" width="263" height="643" frameX="-38" frameY="-0" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0001" x="4551" y="4036" width="263" height="643" frameX="-38" frameY="-0" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0002" x="4572" y="4682" width="278" height="635" frameX="-24" frameY="-8" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0003" x="4572" y="4682" width="278" height="635" frameX="-24" frameY="-8" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0004" x="5307" y="1883" width="307" height="600" frameX="-0" frameY="-37" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0005" x="5307" y="1883" width="307" height="600" frameX="-0" frameY="-37" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0006" x="5307" y="2486" width="307" height="600" frameX="-0" frameY="-37" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0007" x="1874" y="1721" width="296" height="597" frameX="-19" frameY="-40" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0008" x="5301" y="3692" width="296" height="597" frameX="-19" frameY="-40" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0009" x="0" y="5437" width="277" height="597" frameX="-38" frameY="-40" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0010" x="0" y="5437" width="277" height="597" frameX="-38" frameY="-40" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0011" x="280" y="5437" width="277" height="597" frameX="-38" frameY="-40" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0012" x="560" y="5437" width="277" height="597" frameX="-38" frameY="-40" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0013" x="560" y="5437" width="277" height="597" frameX="-38" frameY="-40" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0014" x="560" y="5437" width="277" height="597" frameX="-38" frameY="-40" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0015" x="560" y="5437" width="277" height="597" frameX="-38" frameY="-40" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0016" x="560" y="5437" width="277" height="597" frameX="-38" frameY="-40" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0017" x="560" y="5437" width="277" height="597" frameX="-38" frameY="-40" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0018" x="560" y="5437" width="277" height="597" frameX="-38" frameY="-40" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0019" x="560" y="5437" width="277" height="597" frameX="-38" frameY="-40" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="Ew0020" x="560" y="5437" width="277" height="597" frameX="-38" frameY="-40" frameWidth="316" frameHeight="643"/>
+	<SubTexture name="ROSE_POOPED RIGHT0000" x="2790" y="4147" width="494" height="606" frameX="-0" frameY="-0" frameWidth="494" frameHeight="608"/>
+	<SubTexture name="ROSE_POOPED RIGHT0001" x="2790" y="4147" width="494" height="606" frameX="-0" frameY="-0" frameWidth="494" frameHeight="608"/>
+	<SubTexture name="ROSE_POOPED RIGHT0002" x="5199" y="4468" width="456" height="602" frameX="-2" frameY="-6" frameWidth="494" frameHeight="608"/>
+	<SubTexture name="ROSE_POOPED RIGHT0003" x="5199" y="4468" width="456" height="602" frameX="-2" frameY="-6" frameWidth="494" frameHeight="608"/>
+	<SubTexture name="ROSE_POOPED RIGHT0004" x="5199" y="4468" width="456" height="602" frameX="-2" frameY="-6" frameWidth="494" frameHeight="608"/>
+	<SubTexture name="ROSE_POOPED RIGHT0005" x="5199" y="4468" width="456" height="602" frameX="-2" frameY="-6" frameWidth="494" frameHeight="608"/>
+	<SubTexture name="ROSE_POOPED0000" x="0" y="4774" width="413" height="660" frameX="-0" frameY="-0" frameWidth="413" frameHeight="660"/>
+	<SubTexture name="ROSE_POOPED0001" x="0" y="4774" width="413" height="660" frameX="-0" frameY="-0" frameWidth="413" frameHeight="660"/>
+	<SubTexture name="ROSE_POOPED0002" x="0" y="4774" width="413" height="660" frameX="-0" frameY="-0" frameWidth="413" frameHeight="660"/>
+	<SubTexture name="ROSE_POOPED0003" x="0" y="4774" width="413" height="660" frameX="-0" frameY="-0" frameWidth="413" frameHeight="660"/>
+	<SubTexture name="ROSE_POOPED0004" x="1465" y="4774" width="413" height="656" frameX="-0" frameY="-0" frameWidth="413" frameHeight="660"/>
+	<SubTexture name="ROSE_POOPED0005" x="1465" y="4774" width="413" height="656" frameX="-0" frameY="-0" frameWidth="413" frameHeight="660"/>
+	<SubTexture name="ROSE_POOPED0006" x="1465" y="4774" width="413" height="656" frameX="-0" frameY="-0" frameWidth="413" frameHeight="660"/>
+	<SubTexture name="ROSE_POOPED0007" x="1465" y="4774" width="413" height="656" frameX="-0" frameY="-0" frameWidth="413" frameHeight="660"/>
+	<SubTexture name="ROSE_POOPED0008" x="727" y="4774" width="413" height="658" frameX="-0" frameY="-0" frameWidth="413" frameHeight="660"/>
+	<SubTexture name="ROSE_POOPED0009" x="727" y="4774" width="413" height="658" frameX="-0" frameY="-0" frameWidth="413" frameHeight="660"/>
+	<SubTexture name="ROSE_POOPED0010" x="727" y="4774" width="413" height="658" frameX="-0" frameY="-0" frameWidth="413" frameHeight="660"/>
+	<SubTexture name="ROSE_POOPED0011" x="727" y="4774" width="413" height="658" frameX="-0" frameY="-0" frameWidth="413" frameHeight="660"/>
+	<SubTexture name="ROSE_POOPED_DOWN0000" x="3757" y="5418" width="444" height="510" frameX="-6" frameY="-12" frameWidth="450" frameHeight="523"/>
+	<SubTexture name="ROSE_POOPED_DOWN0001" x="3757" y="5418" width="444" height="510" frameX="-6" frameY="-12" frameWidth="450" frameHeight="523"/>
+	<SubTexture name="ROSE_POOPED_DOWN0002" x="5199" y="5073" width="438" height="523" frameX="-1" frameY="-0" frameWidth="450" frameHeight="523"/>
+	<SubTexture name="ROSE_POOPED_DOWN0003" x="5199" y="5073" width="438" height="523" frameX="-1" frameY="-0" frameWidth="450" frameHeight="523"/>
+	<SubTexture name="ROSE_POOPED_DOWN0004" x="5199" y="5073" width="438" height="523" frameX="-1" frameY="-0" frameWidth="450" frameHeight="523"/>
+	<SubTexture name="ROSE_POOPED_DOWN0005" x="5199" y="5073" width="438" height="523" frameX="-1" frameY="-0" frameWidth="450" frameHeight="523"/>
+	<SubTexture name="ROSE_POOPED_LEFT0000" x="5301" y="3089" width="333" height="600" frameX="-0" frameY="-0" frameWidth="334" frameHeight="604"/>
+	<SubTexture name="ROSE_POOPED_LEFT0001" x="5301" y="3089" width="333" height="600" frameX="-0" frameY="-0" frameWidth="334" frameHeight="604"/>
+	<SubTexture name="ROSE_POOPED_LEFT0002" x="5285" y="1278" width="307" height="602" frameX="-19" frameY="-2" frameWidth="334" frameHeight="604"/>
+	<SubTexture name="ROSE_POOPED_LEFT0003" x="5285" y="1278" width="307" height="602" frameX="-19" frameY="-2" frameWidth="334" frameHeight="604"/>
+	<SubTexture name="ROSE_POOPED_LEFT0004" x="5285" y="1278" width="307" height="602" frameX="-19" frameY="-2" frameWidth="334" frameHeight="604"/>
+	<SubTexture name="ROSE_POOPED_LEFT0005" x="5285" y="1278" width="307" height="602" frameX="-19" frameY="-2" frameWidth="334" frameHeight="604"/>
+	<SubTexture name="ROSE_POOPED_UP0000" x="416" y="4774" width="308" height="660" frameX="-11" frameY="-0" frameWidth="328" frameHeight="675"/>
+	<SubTexture name="ROSE_POOPED_UP0001" x="416" y="4774" width="308" height="660" frameX="-11" frameY="-0" frameWidth="328" frameHeight="675"/>
+	<SubTexture name="ROSE_POOPED_UP0002" x="1143" y="4774" width="319" height="657" frameX="-9" frameY="-18" frameWidth="328" frameHeight="675"/>
+	<SubTexture name="ROSE_POOPED_UP0003" x="1143" y="4774" width="319" height="657" frameX="-9" frameY="-18" frameWidth="328" frameHeight="675"/>
+	<SubTexture name="ROSE_POOPED_UP0004" x="1143" y="4774" width="319" height="657" frameX="-9" frameY="-18" frameWidth="328" frameHeight="675"/>
+	<SubTexture name="ROSE_POOPED_UP0005" x="1143" y="4774" width="319" height="657" frameX="-9" frameY="-18" frameWidth="328" frameHeight="675"/>
+	<SubTexture name="Rose Down Miss0000" x="3407" y="5419" width="347" height="522" frameX="-43" frameY="-133" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0001" x="4853" y="4468" width="343" height="605" frameX="-41" frameY="-54" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0002" x="4853" y="4468" width="343" height="605" frameX="-41" frameY="-54" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0003" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0004" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0005" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0006" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0007" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0008" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0009" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0010" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0011" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0012" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0013" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0014" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0015" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0016" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0017" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0018" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0019" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0020" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down Miss0021" x="5311" y="0" width="345" height="603" frameX="-40" frameY="-56" frameWidth="427" frameHeight="746"/>
+	<SubTexture name="Rose Down0000" x="3300" y="4104" width="414" height="667" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Down0001" x="3717" y="4104" width="414" height="667" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Down0002" x="4134" y="4104" width="414" height="667" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Down0003" x="4134" y="4104" width="414" height="667" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Down0004" x="4022" y="2027" width="414" height="667" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Down0005" x="4022" y="2027" width="414" height="667" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Down0006" x="4403" y="0" width="414" height="668" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Down0007" x="4403" y="0" width="414" height="668" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Down0008" x="4403" y="671" width="414" height="668" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Down0009" x="4403" y="671" width="414" height="668" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Down0010" x="4403" y="1342" width="414" height="668" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Down0011" x="4403" y="1342" width="414" height="668" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Down0012" x="4146" y="2697" width="414" height="667" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Down0013" x="4146" y="2697" width="414" height="667" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Down0014" x="4146" y="3367" width="414" height="666" frameX="-1" frameY="-1" frameWidth="416" frameHeight="669"/>
+	<SubTexture name="Rose Execretion0000" x="3181" y="705" width="272" height="687" frameX="-1" frameY="-1" frameWidth="273" frameHeight="689"/>
+	<SubTexture name="Rose Execretion0001" x="3181" y="705" width="272" height="687" frameX="-1" frameY="-1" frameWidth="273" frameHeight="689"/>
+	<SubTexture name="Rose Execretion0002" x="2624" y="1409" width="265" height="688" frameX="-4" frameY="-1" frameWidth="273" frameHeight="689"/>
+	<SubTexture name="Rose Execretion0003" x="2624" y="1409" width="265" height="688" frameX="-4" frameY="-1" frameWidth="273" frameHeight="689"/>
+	<SubTexture name="Rose Execretion0004" x="2892" y="1409" width="263" height="688" frameX="-5" frameY="-1" frameWidth="273" frameHeight="689"/>
+	<SubTexture name="Rose Execretion0005" x="2892" y="1409" width="263" height="688" frameX="-5" frameY="-1" frameWidth="273" frameHeight="689"/>
+	<SubTexture name="Rose Execretion0006" x="2607" y="2100" width="263" height="688" frameX="-5" frameY="-1" frameWidth="273" frameHeight="689"/>
+	<SubTexture name="Rose Execretion0007" x="2607" y="2100" width="263" height="688" frameX="-5" frameY="-1" frameWidth="273" frameHeight="689"/>
+	<SubTexture name="Rose Execretion0008" x="2873" y="2100" width="263" height="688" frameX="-5" frameY="-1" frameWidth="273" frameHeight="689"/>
+	<SubTexture name="Rose Execretion0009" x="2873" y="2100" width="263" height="688" frameX="-5" frameY="-1" frameWidth="273" frameHeight="689"/>
+	<SubTexture name="Rose Execretion0010" x="3256" y="0" width="263" height="688" frameX="-5" frameY="-1" frameWidth="273" frameHeight="689"/>
+	<SubTexture name="Rose Execretion0011" x="3256" y="0" width="263" height="688" frameX="-5" frameY="-1" frameWidth="273" frameHeight="689"/>
+	<SubTexture name="Rose Execretion0012" x="3256" y="0" width="263" height="688" frameX="-5" frameY="-1" frameWidth="273" frameHeight="689"/>
+	<SubTexture name="Rose Execretion0013" x="3256" y="0" width="263" height="688" frameX="-5" frameY="-1" frameWidth="273" frameHeight="689"/>
+	<SubTexture name="Rose Left Miss0000" x="1010" y="2666" width="499" height="709" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0001" x="0" y="2698" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0002" x="0" y="2698" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0003" x="505" y="2697" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0004" x="505" y="2697" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0005" x="505" y="2697" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0006" x="505" y="2697" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0007" x="505" y="2697" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0008" x="505" y="2697" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0009" x="505" y="2697" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0010" x="505" y="2697" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0011" x="505" y="2697" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0012" x="505" y="2697" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0013" x="505" y="2697" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0014" x="505" y="2697" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left Miss0015" x="505" y="2697" width="502" height="712" frameX="-1" frameY="-101" frameWidth="899" frameHeight="839"/>
+	<SubTexture name="Rose Left0000" x="3522" y="0" width="437" height="673" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Left0001" x="3522" y="676" width="437" height="673" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Left0002" x="3139" y="2100" width="438" height="673" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Left0003" x="3139" y="2100" width="438" height="673" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Left0004" x="3158" y="1409" width="438" height="673" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Left0005" x="3158" y="1409" width="438" height="673" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Left0006" x="3240" y="2776" width="438" height="673" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Left0007" x="3240" y="2776" width="438" height="673" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Left0008" x="3962" y="0" width="438" height="673" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Left0009" x="3962" y="0" width="438" height="673" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Left0010" x="3962" y="676" width="438" height="673" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Left0011" x="3962" y="676" width="438" height="673" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Left0012" x="3580" y="2085" width="439" height="672" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Left0013" x="3580" y="2085" width="439" height="672" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Left0014" x="3599" y="1352" width="441" height="672" frameX="-1" frameY="-0" frameWidth="442" frameHeight="673"/>
+	<SubTexture name="Rose Right Miss0000" x="1512" y="2570" width="468" height="703" frameX="-203" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0001" x="1983" y="2321" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0002" x="1983" y="2321" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0003" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0004" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0005" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0006" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0007" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0008" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0009" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0010" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0011" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0012" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0013" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0014" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0015" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0016" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0017" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0018" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0019" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0020" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0021" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0022" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0023" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0024" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right Miss0025" x="2776" y="0" width="477" height="702" frameX="-194" frameY="-126" frameWidth="818" frameHeight="851"/>
+	<SubTexture name="Rose Right0000" x="3681" y="2760" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Right0001" x="0" y="4102" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Right0002" x="465" y="4097" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Right0003" x="465" y="4097" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Right0004" x="930" y="4096" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Right0005" x="930" y="4096" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Right0006" x="1395" y="4062" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Right0007" x="1395" y="4062" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Right0008" x="1860" y="3960" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Right0009" x="1860" y="3960" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Right0010" x="3681" y="3432" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Right0011" x="3681" y="3432" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Right0012" x="2835" y="3475" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Right0013" x="2835" y="3475" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Right0014" x="2325" y="3710" width="462" height="669" frameX="-1" frameY="-0" frameWidth="464" frameHeight="669"/>
+	<SubTexture name="Rose Up Miss0000" x="2314" y="1586" width="290" height="732" frameX="-55" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0001" x="1380" y="888" width="311" height="735" frameX="-43" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0002" x="1380" y="888" width="311" height="735" frameX="-43" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0003" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0004" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0005" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0006" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0007" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0008" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0009" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0010" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0011" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0012" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0013" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0014" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0015" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0016" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up Miss0017" x="2314" y="848" width="307" height="735" frameX="-45" frameY="-1" frameWidth="398" frameHeight="825"/>
+	<SubTexture name="Rose Up0000" x="405" y="3413" width="402" height="681" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="Rose Up0001" x="810" y="3412" width="402" height="681" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="Rose Up0002" x="1215" y="3378" width="402" height="681" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="Rose Up0003" x="1215" y="3378" width="402" height="681" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="Rose Up0004" x="1620" y="3276" width="402" height="681" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="Rose Up0005" x="1620" y="3276" width="402" height="681" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="Rose Up0006" x="2025" y="3026" width="402" height="681" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="Rose Up0007" x="2025" y="3026" width="402" height="681" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="Rose Up0008" x="2430" y="3026" width="402" height="681" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="Rose Up0009" x="2430" y="3026" width="402" height="681" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="Rose Up0010" x="2835" y="2791" width="402" height="681" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="Rose Up0011" x="2835" y="2791" width="402" height="681" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="Rose Up0012" x="0" y="3413" width="402" height="686" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="Rose Up0013" x="0" y="3413" width="402" height="686" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="Rose Up0014" x="2776" y="705" width="402" height="701" frameX="-1" frameY="-1" frameWidth="404" frameHeight="702"/>
+	<SubTexture name="rose screm0000" x="2349" y="4774" width="452" height="643" frameX="-77" frameY="-289" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0001" x="2349" y="4774" width="452" height="643" frameX="-77" frameY="-289" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0002" x="3730" y="4774" width="488" height="641" frameX="-41" frameY="-291" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0003" x="3730" y="4774" width="488" height="641" frameX="-41" frameY="-291" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0004" x="3730" y="4774" width="488" height="641" frameX="-41" frameY="-291" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0005" x="4043" y="1352" width="344" height="639" frameX="-44" frameY="-293" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0006" x="4043" y="1352" width="344" height="639" frameX="-44" frameY="-293" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0007" x="4043" y="1352" width="344" height="639" frameX="-44" frameY="-293" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0008" x="4221" y="4774" width="348" height="638" frameX="-41" frameY="-294" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0009" x="4820" y="0" width="488" height="636" frameX="-41" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0010" x="4820" y="0" width="488" height="636" frameX="-41" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0011" x="4820" y="1917" width="484" height="635" frameX="-45" frameY="-297" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0012" x="4820" y="1917" width="484" height="635" frameX="-45" frameY="-297" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0013" x="4820" y="1917" width="484" height="635" frameX="-45" frameY="-297" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0014" x="4817" y="2555" width="481" height="635" frameX="-48" frameY="-297" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0015" x="4817" y="2555" width="481" height="635" frameX="-48" frameY="-297" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0016" x="4817" y="2555" width="481" height="635" frameX="-48" frameY="-297" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0017" x="4820" y="639" width="481" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0018" x="4820" y="639" width="481" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0019" x="4820" y="639" width="481" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0020" x="4820" y="639" width="481" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0021" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0022" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0023" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0024" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0025" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0026" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0027" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0028" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0029" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0030" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0031" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0032" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0033" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0034" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0035" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0036" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0037" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0038" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0039" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0040" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0041" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0042" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0043" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0044" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0045" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0046" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0047" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0048" x="4439" y="2013" width="340" height="636" frameX="-48" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0049" x="4817" y="3193" width="481" height="635" frameX="-48" frameY="-297" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0050" x="4817" y="3193" width="481" height="635" frameX="-48" frameY="-297" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0051" x="4817" y="3831" width="481" height="634" frameX="-48" frameY="-298" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0052" x="4817" y="3831" width="481" height="634" frameX="-48" frameY="-298" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0053" x="1881" y="4774" width="465" height="644" frameX="-64" frameY="-288" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0054" x="1881" y="4774" width="465" height="644" frameX="-64" frameY="-288" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0055" x="1881" y="4774" width="465" height="644" frameX="-64" frameY="-288" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0056" x="2804" y="4774" width="461" height="642" frameX="-68" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0057" x="2804" y="4774" width="461" height="642" frameX="-68" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0058" x="2804" y="4774" width="461" height="642" frameX="-68" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0059" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0060" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0061" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0062" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0063" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0064" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0065" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0066" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0067" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0068" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0069" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0070" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0071" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0072" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0073" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0074" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0075" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0076" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0077" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0078" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0079" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0080" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0081" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0082" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0083" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0084" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0085" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0086" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0087" x="3268" y="4774" width="459" height="642" frameX="-70" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0088" x="4820" y="1278" width="462" height="636" frameX="-67" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0089" x="4820" y="1278" width="462" height="636" frameX="-67" frameY="-296" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0090" x="3300" y="3452" width="314" height="642" frameX="-31" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0091" x="3300" y="3452" width="314" height="642" frameX="-31" frameY="-290" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0092" x="0" y="0" width="409" height="919" frameX="-101" frameY="-0" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0093" x="412" y="0" width="474" height="906" frameX="-25" frameY="-12" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0094" x="985" y="901" width="392" height="880" frameX="-100" frameY="-38" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0095" x="922" y="1797" width="487" height="866" frameX="-9" frameY="-52" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0096" x="889" y="0" width="438" height="898" frameX="-60" frameY="-20" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0097" x="0" y="922" width="489" height="893" frameX="-7" frameY="-25" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0098" x="2314" y="0" width="459" height="845" frameX="-34" frameY="-73" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0099" x="1823" y="0" width="488" height="858" frameX="-5" frameY="-60" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0100" x="461" y="1818" width="458" height="876" frameX="-35" frameY="-42" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0101" x="492" y="909" width="490" height="885" frameX="-3" frameY="-33" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0102" x="1412" y="1721" width="459" height="846" frameX="-31" frameY="-73" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0103" x="1823" y="861" width="488" height="857" frameX="-2" frameY="-61" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0104" x="0" y="1818" width="458" height="877" frameX="-32" frameY="-42" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0105" x="1330" y="0" width="490" height="885" frameX="-0" frameY="-33" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0106" x="1412" y="1721" width="459" height="846" frameX="-31" frameY="-73" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0107" x="1823" y="861" width="488" height="857" frameX="-2" frameY="-61" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0108" x="0" y="1818" width="458" height="877" frameX="-32" frameY="-42" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0109" x="1330" y="0" width="490" height="885" frameX="-0" frameY="-33" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0110" x="1412" y="1721" width="459" height="846" frameX="-31" frameY="-73" frameWidth="529" frameHeight="932"/>
+	<SubTexture name="rose screm0111" x="1823" y="861" width="488" height="857" frameX="-2" frameY="-61" frameWidth="529" frameHeight="932"/>
+</TextureAtlas>

@@ -19,9 +19,7 @@ var cur_light:int = 0
 @onready var train_sound: AudioStreamPlayer = $train_sound
 func beat_hit(beat:int):
 	if beat %4 == 0:
-		var rand := RandomNumberGenerator.new()
-		rand.seed = (Conductor.time * 1000) - game.score
-		var rand_num = rand.randi_range(0,light_colors.size()-1)
+		var rand_num = randi_range(0,light_colors.size()-1)
 		var c = light_colors.get(rand_num)
 		win.modulate = c
 		win.modulate.a = 1
