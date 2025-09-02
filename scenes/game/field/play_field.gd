@@ -14,8 +14,10 @@ var note_style:NoteStyle = NoteStyle.new()
 var directions = ["left","down","up","right"]
 
 var note_field:NoteField = null
-var notes:Array = []
+var notes:Array[Chart.NoteData] = []
 var strums:Array[Receptor] = []
+var _note_scripts:Dictionary[StringName,Script] = {}
+var _note_styles:Dictionary[StringName,NoteStyle] = {}
 
 var pressed:Array[bool] = [false,false,false,false]
 var actions:Array[String] = ["4k_left","4k_down","4k_up","4k_right"]
@@ -42,6 +44,22 @@ func _ready() -> void:
 	note_field.scroll_speed = sc
 	note_field.down_scroll = Save.json.down_scroll
 	add_child(note_field)
+func preload_note_scripts():
+	for n in notes:
+		if n.type != "default":
+			var notes_folder:StringName = "res://scripts/game/notes/"
+			var note_scripts:PackedStringArray = ResourceLoader.list_directory(notes_folder)
+			if note_scripts.has(n.type + ".gd"):
+				if not _note_scripts.has(n.type):
+					var nsciprt:Script = load(notes_folder + n.type + ".gd")
+					_note_scripts.set(n.type,nsciprt)
+					var temp:Note = nsciprt.new()
+					temp.play_field = self
+					_note_styles.set(n.type,temp.get_style(temp))
+					temp.queue_free()
+				print("Note Of Type: %s"%n.type)
+				
+			pass
 func find_action_index(ev: InputEvent) -> int:
 	for i in actions.size():
 		if ev.is_action(actions[i]):

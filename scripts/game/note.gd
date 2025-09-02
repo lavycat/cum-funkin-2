@@ -1,3 +1,4 @@
+## NOTE do not use _init when making a notetype it may break because of the implmention of preloading note styles on them
 class_name Note extends FunkinScript
 var type:String
 var column:int
@@ -25,7 +26,7 @@ var hit_range = 0.180
 var was_hit:bool = false
 var missed:bool = false
 var sprite:AnimatedSprite2D
-## returns the name of the notestyle for the note script defaults to empty string
+## returns the style resource of the note
 static func get_style(note:Note) -> NoteStyle:
 	return note.play_field.note_style
 func _enter_tree() -> void:

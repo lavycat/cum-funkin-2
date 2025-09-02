@@ -53,7 +53,7 @@ func _enter_tree() -> void:
 		song_name = level_songs[level_index]
 		chart = ChartParser.load_chart(level_songs[level_index],song_difficulty)
 		Global.chart = chart
-		
+
 	instance = self
 	var p = "res://scenes/game/stages/%s.tscn"%chart.stage
 	if not ResourceLoader.exists(p):
@@ -107,6 +107,7 @@ func _ready() -> void:
 		i.position.x += hud.size.x * 0.5 * i.id
 		var n = chart.notes.filter(func(a): return a.field_id == i.id)
 		i.notes = n
+		i.preload_note_scripts()
 
 	add_child(stage)
 	camera = stage.cam
