@@ -122,6 +122,7 @@ func _ready() -> void:
 	game.gf.modulate.a = 0
 	await RenderingServer.frame_post_draw
 	game.hud.modulate.a = 0
+	game.hud.is_dark = true
 	#game.dad_field.rotation_degrees = 90
 
 	
@@ -163,8 +164,6 @@ func add_trail(note:Note,time_sec:float = 0.4,use_dir:bool = false):
 		pos = p.position + dir_map[note.column]
 	t.tween_property(p,"position",pos,time_sec).set_trans(Tween.TRANS_CUBIC)
 	t.tween_property(p,"modulate:a",0,time_sec*1.5).set_trans(Tween.TRANS_EXPO)
-	
-	print("p")
 func note_hit(note:Note):
 	var step = floor(Conductor.step)
 	if step > 820 and step < 920:
@@ -193,6 +192,7 @@ func step_hit(step:int):
 			darkness_alt.visible = false
 			darkness_red.visible = true
 			game.gf.modulate = Color.WHITE
+			game.hud.is_dark = false
 			
 			create_tween().tween_property(game.hud,"modulate:a",0,Conductor.beat_length*2)
 			normal.visible = true

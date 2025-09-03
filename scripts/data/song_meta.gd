@@ -5,6 +5,7 @@ class_name SongMeta extends Resource
 @export_color_no_alpha var color:Color = Color.WHITE
 @export var difficulties:PackedStringArray = ["easy","normal","hard"]
 @export_category("ui")
+@export var hud_scene:PackedScene = preload("res://scenes/game/huds/funkin.tscn")
 @export_subgroup("player")
 @export var player_strum_style:StrumStyle
 @export var player_note_style:NoteStyle

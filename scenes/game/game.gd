@@ -158,7 +158,10 @@ func _ready() -> void:
 		loaded_events[event_data.name].register(event_data.time, event_data.values)
 	events.event_data = chart.events
 	hud.queue_free()
-	hud = load("res://scenes/game/huds/funkin.tscn").instantiate()
+	if is_instance_valid(meta.hud_scene):
+		hud = meta.hud_scene.instantiate()
+	else:
+		hud = load("res://scenes/game/huds/funkin.tscn").instantiate()
 	ui.add_child(hud)
 	playfields.reparent(hud,false)
 	

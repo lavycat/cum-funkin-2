@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="SongMeta" load_steps=8 format=3 uid="uid://cux44lpmhaxgq"]
+[gd_resource type="Resource" script_class="SongMeta" load_steps=9 format=3 uid="uid://cux44lpmhaxgq"]
 
 [ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="1_wds8e"]
 [ext_resource type="SpriteFrames" uid="uid://i53jdmdl0vn4" path="res://assets/ui/irida/default.res" id="2_bu8tn"]
 [ext_resource type="Script" uid="uid://0wvgw6kj6j2f" path="res://scripts/data/song_meta.gd" id="2_qh55t"]
 [ext_resource type="Script" uid="uid://7h4ov0y0q7nj" path="res://scripts/game/data/note_style.gd" id="3_o175l"]
 [ext_resource type="Script" uid="uid://d2g48im643vyh" path="res://scripts/game/data/strum_style.gd" id="4_h1b1r"]
+[ext_resource type="PackedScene" uid="uid://e7m3ddxx6sp3" path="res://scenes/game/huds/irida.tscn" id="4_o175l"]
 
 [sub_resource type="Resource" id="Resource_12wfl"]
 script = ExtResource("3_o175l")
@@ -26,6 +27,7 @@ icon = ExtResource("1_wds8e")
 icon_frames = 2
 color = Color(0.966667, 1, 0, 1)
 difficulties = ["easy", "normal", "hard"]
+hud_scene = ExtResource("4_o175l")
 player_strum_style = SubResource("Resource_6wbni")
 player_note_style = SubResource("Resource_12wfl")
 cpu_strum_style = SubResource("Resource_6wbni")
