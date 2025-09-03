@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://b5al6ab04txkk"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_63ivm"]
-[ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_b5ls5"]
+[ext_resource type="Texture2D" uid="uid://bibb0fss571rd" path="res://assets/images/game/icons/dbtg.png" id="2_b5ls5"]
 [ext_resource type="Script" uid="uid://bmbfirbywm1e3" path="res://scripts/animation_importer.gd" id="3_gr8du"]
 [ext_resource type="Script" uid="uid://diqmdngjb60u2" path="res://addons/gdanimate/animate_symbol.gd" id="4_lc0vv"]
 [ext_resource type="PackedScene" uid="uid://dqtfel7p4ebex" path="res://scenes/game/characters/dbtg.tscn" id="5_b5ls5"]
@@ -116,7 +116,7 @@ script = ExtResource("1_63ivm")
 player = NodePath("player")
 camera_position = NodePath("camera_position")
 sing_length = 6.1
-icon_color = Color(0.686275, 0.4, 0.807843, 1)
+icon_color = Color(0.745098, 0.368627, 0.168627, 1)
 icon = ExtResource("2_b5ls5")
 
 [node name="player" type="AnimationPlayer" parent="."]

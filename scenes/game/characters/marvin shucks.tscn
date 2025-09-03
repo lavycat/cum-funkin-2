@@ -1,7 +1,7 @@
 [gd_scene load_steps=879 format=3 uid="uid://y5hfg2vv3es"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_hcd63"]
-[ext_resource type="Texture2D" uid="uid://b577e36txrjaw" path="res://assets/images/game/icons/icon-bf.png" id="2_810fk"]
+[ext_resource type="Texture2D" uid="uid://cdvurcr15vkyw" path="res://assets/images/game/icons/marvin shucks.png" id="2_810fk"]
 [ext_resource type="Script" uid="uid://bmbfirbywm1e3" path="res://scripts/animation_importer.gd" id="3_810fk"]
 [ext_resource type="Texture2D" uid="uid://cfe5ky48h1l35" path="res://assets/images/game/characters/shucks/ultimate-marvin.png" id="4_810fk"]
 [ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="4_b4ml4"]
@@ -7472,7 +7472,7 @@ animations = [{
 script = ExtResource("1_hcd63")
 player = NodePath("player")
 camera_position = NodePath("camera_position")
-icon_color = Color(0.192157, 0.690196, 0.819608, 1)
+icon_color = Color(0.686275, 0.121569, 0.0941176, 1)
 icon = ExtResource("2_810fk")
 
 [node name="player" type="AnimationPlayer" parent="." node_paths=PackedStringArray("sprite")]

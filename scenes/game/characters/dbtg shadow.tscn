@@ -1,7 +1,7 @@
 [gd_scene load_steps=77 format=3 uid="uid://c048fq3rjehm3"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_8nocn"]
-[ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_e5jpk"]
+[ext_resource type="Texture2D" uid="uid://i6rbhhh7tlrb" path="res://assets/images/game/icons/shadow dbtg.png" id="2_8nocn"]
 [ext_resource type="Script" uid="uid://bmbfirbywm1e3" path="res://scripts/animation_importer.gd" id="3_8nocn"]
 [ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="4_cuf3j"]
 [ext_resource type="Texture2D" uid="uid://ok11l8pd867g" path="res://assets/images/game/characters/shucks/dbtgshdownhead.png" id="6_e5jpk"]
@@ -760,21 +760,19 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="dad" type="Node2D" node_paths=PackedStringArray("player", "sprite", "camera_position")]
+[node name="dad" type="Node2D" node_paths=PackedStringArray("player", "camera_position")]
 script = ExtResource("1_8nocn")
 player = NodePath("player")
-sprite = NodePath("")
 camera_position = NodePath("camera_position")
 sing_length = 6.1
-icon_color = Color(0.686275, 0.4, 0.807843, 1)
-icon = ExtResource("2_e5jpk")
+icon_color = Color(0.745098, 0.368627, 0.168627, 1)
+icon = ExtResource("2_8nocn")
 
-[node name="player" type="AnimationPlayer" parent="." node_paths=PackedStringArray("sprite")]
+[node name="player" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_icjsi")
 }
 script = ExtResource("3_8nocn")
-sprite = NodePath("")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-19, -7)

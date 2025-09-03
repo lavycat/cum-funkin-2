@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dmdp6187vgvao"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_ko8ol"]
-[ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_i3ude"]
+[ext_resource type="Texture2D" uid="uid://cdvurcr15vkyw" path="res://assets/images/game/icons/marvin shucks.png" id="2_ko8ol"]
 [ext_resource type="Script" uid="uid://bmbfirbywm1e3" path="res://scripts/animation_importer.gd" id="3_qdejp"]
 [ext_resource type="Script" uid="uid://diqmdngjb60u2" path="res://addons/gdanimate/animate_symbol.gd" id="4_qck5s"]
 
@@ -92,8 +92,8 @@ script = ExtResource("1_ko8ol")
 player = NodePath("player")
 camera_position = NodePath("camera_position")
 sing_length = 9000.0
-icon_color = Color(0.686275, 0.4, 0.807843, 1)
-icon = ExtResource("2_i3ude")
+icon_color = Color(0.686275, 0.121569, 0.0941176, 1)
+icon = ExtResource("2_ko8ol")
 
 [node name="player" type="AnimationPlayer" parent="."]
 libraries = {

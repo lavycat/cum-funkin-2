@@ -1,7 +1,7 @@
 [gd_scene load_steps=104 format=3 uid="uid://cnokjhfhqyhmj"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_ohq31"]
-[ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_4jylg"]
+[ext_resource type="Texture2D" uid="uid://bibb0fss571rd" path="res://assets/images/game/icons/dbtg.png" id="2_o4tv3"]
 [ext_resource type="Script" uid="uid://bmbfirbywm1e3" path="res://scripts/animation_importer.gd" id="3_8mfft"]
 [ext_resource type="SpriteFrames" uid="uid://bms34yski2nra" path="res://assets/images/game/characters/shucks/ultimate-detg.res" id="4_o4tv3"]
 [ext_resource type="Texture2D" uid="uid://dtmyql3j3764r" path="res://assets/images/game/characters/shucks/chairsaw.png" id="4_ohq31"]
@@ -1168,8 +1168,8 @@ player = NodePath("player")
 sprite = NodePath("sprite/saw")
 camera_position = NodePath("camera_position")
 sing_length = 6.1
-icon_color = Color(0.686275, 0.4, 0.807843, 1)
-icon = ExtResource("2_4jylg")
+icon_color = Color(0.745098, 0.368627, 0.168627, 1)
+icon = ExtResource("2_o4tv3")
 
 [node name="player" type="AnimationPlayer" parent="." node_paths=PackedStringArray("sprite")]
 libraries = {

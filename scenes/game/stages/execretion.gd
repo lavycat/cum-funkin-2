@@ -100,7 +100,6 @@ func step_hit(step:int):
 		2398:
 			poop_2.queue_free()
 			flash_game(Color.GOLD)
-			game.dad.anim_suffix = "big"
 			game.default_camera_zoom = Vector2(0.4,0.4)
 		2656:
 			
@@ -164,7 +163,6 @@ func step_hit(step:int):
 			flash_game(Color.RED)
 			castle.show()
 			game.dad = pw_final
-			game.dad.anim_suffix = "big"
 			game.dad.dance()
 			game.bf.queue_free()
 			game.bf = rose_final

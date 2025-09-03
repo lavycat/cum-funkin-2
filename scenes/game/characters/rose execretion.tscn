@@ -1,7 +1,7 @@
 [gd_scene load_steps=371 format=3 uid="uid://ca1gbupm46bxv"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_260av"]
-[ext_resource type="Texture2D" uid="uid://b577e36txrjaw" path="res://assets/images/game/icons/icon-bf.png" id="2_ot8ri"]
+[ext_resource type="Texture2D" uid="uid://cn0404jiwctam" path="res://assets/images/game/icons/rose.png" id="2_ot8ri"]
 [ext_resource type="Script" uid="uid://bmbfirbywm1e3" path="res://scripts/animation_importer.gd" id="3_ot8ri"]
 [ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="4_imdyp"]
 [ext_resource type="Texture2D" uid="uid://baclf0ahnw4qs" path="res://assets/images/game/characters/execretion/ultimate-rose.png" id="4_wm2pn"]
@@ -3601,7 +3601,7 @@ animations = [{
 script = ExtResource("1_260av")
 player = NodePath("player")
 camera_position = NodePath("camera_position")
-icon_color = Color(0.192157, 0.690196, 0.819608, 1)
+icon_color = Color(0.462745, 0.737255, 0.803922, 1)
 icon = ExtResource("2_ot8ri")
 
 [node name="player" type="AnimationPlayer" parent="." node_paths=PackedStringArray("sprite")]

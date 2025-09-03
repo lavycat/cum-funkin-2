@@ -1,7 +1,7 @@
 [gd_scene load_steps=33 format=3 uid="uid://b0cofr546wcux"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_noo22"]
-[ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_osjmt"]
+[ext_resource type="Texture2D" uid="uid://bibb0fss571rd" path="res://assets/images/game/icons/dbtg.png" id="2_4s361"]
 [ext_resource type="Texture2D" uid="uid://y35s8wmk0yae" path="res://assets/images/game/stages/shucks/detgrunlegs.png" id="3_noo22"]
 [ext_resource type="Texture2D" uid="uid://00gowoq0the8" path="res://assets/images/game/characters/shucks/detgrunbody.png" id="3_oa0rh"]
 [ext_resource type="Script" uid="uid://bmbfirbywm1e3" path="res://scripts/animation_importer.gd" id="3_osjmt"]
@@ -434,8 +434,8 @@ player = NodePath("player")
 sprite = NodePath("sprite")
 camera_position = NodePath("camera_position")
 sing_length = 6.1
-icon_color = Color(0.686275, 0.4, 0.807843, 1)
-icon = ExtResource("2_osjmt")
+icon_color = Color(0.745098, 0.368627, 0.168627, 1)
+icon = ExtResource("2_4s361")
 
 [node name="player" type="AnimationPlayer" parent="." node_paths=PackedStringArray("sprite")]
 libraries = {
@@ -455,7 +455,7 @@ script = ExtResource("4_4ruyf")
 tex = ExtResource("3_noo22")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-209, -765)
+position = Vector2(-209, -749)
 sprite_frames = ExtResource("6_4s361")
 animation = &"IDLE DETG"
 autoplay = "IDLE DETG"
