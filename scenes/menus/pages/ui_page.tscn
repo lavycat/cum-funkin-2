@@ -1,0 +1,295 @@
+[gd_scene load_steps=28 format=3 uid="uid://dxgmaw8g4ri8k"]
+
+[ext_resource type="Script" uid="uid://bh7cv80jwpxh4" path="res://scenes/menus/pages/page.gd" id="1_15ae1"]
+[ext_resource type="Script" uid="uid://cpea6yx3lqb3n" path="res://scenes/menus/pages/options_page_item.gd" id="2_mnoo2"]
+[ext_resource type="FontFile" uid="uid://bnkl77r32hsc5" path="res://assets/fonts/funkin.ttf" id="3_8rfvt"]
+[ext_resource type="Texture2D" uid="uid://rpyrtfsdegmg" path="res://assets/images/ui/checkboxanim.png" id="4_0numf"]
+[ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="5_5vy0p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjkej"]
+atlas = ExtResource("4_0numf")
+region = Rect2(4, 4, 111, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmqs1"]
+atlas = ExtResource("4_0numf")
+region = Rect2(119, 4, 183, 142)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntw8c"]
+atlas = ExtResource("4_0numf")
+region = Rect2(119, 4, 183, 142)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dinx1"]
+atlas = ExtResource("4_0numf")
+region = Rect2(306, 4, 183, 142)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xse5t"]
+atlas = ExtResource("4_0numf")
+region = Rect2(306, 4, 183, 142)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi66k"]
+atlas = ExtResource("4_0numf")
+region = Rect2(493, 4, 183, 142)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvtk5"]
+atlas = ExtResource("4_0numf")
+region = Rect2(493, 4, 183, 142)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuqi0"]
+atlas = ExtResource("4_0numf")
+region = Rect2(680, 4, 183, 142)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a03lr"]
+atlas = ExtResource("4_0numf")
+region = Rect2(680, 4, 183, 142)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86hvo"]
+atlas = ExtResource("4_0numf")
+region = Rect2(4, 150, 183, 142)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm0tr"]
+atlas = ExtResource("4_0numf")
+region = Rect2(4, 150, 183, 142)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klq1w"]
+atlas = ExtResource("4_0numf")
+region = Rect2(4, 321, 137, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7k32"]
+atlas = ExtResource("4_0numf")
+region = Rect2(191, 150, 178, 167)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1ola"]
+atlas = ExtResource("4_0numf")
+region = Rect2(191, 150, 178, 167)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dysg"]
+atlas = ExtResource("4_0numf")
+region = Rect2(373, 150, 178, 167)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmna4"]
+atlas = ExtResource("4_0numf")
+region = Rect2(373, 150, 178, 167)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8k4l"]
+atlas = ExtResource("4_0numf")
+region = Rect2(555, 150, 178, 167)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0bd5"]
+atlas = ExtResource("4_0numf")
+region = Rect2(555, 150, 178, 167)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dikul"]
+atlas = ExtResource("4_0numf")
+region = Rect2(737, 150, 178, 167)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mckax"]
+atlas = ExtResource("4_0numf")
+region = Rect2(737, 150, 178, 167)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n1u5k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjkej")
+}],
+"loop": false,
+"name": &"checkbox",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmqs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntw8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dinx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xse5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi66k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvtk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuqi0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a03lr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86hvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mm0tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klq1w")
+}],
+"loop": false,
+"name": &"checkbox anim",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7k32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1ola")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dysg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmna4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8k4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0bd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dikul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mckax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjkej")
+}],
+"loop": false,
+"name": &"checkbox anim reverse",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klq1w")
+}],
+"loop": false,
+"name": &"checkbox finish",
+"speed": 24.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_updg8"]
+font = ExtResource("3_8rfvt")
+font_size = 72
+outline_size = 24
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PerformancePage" type="Node2D"]
+script = ExtResource("1_15ae1")
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="options" type="Node2D" parent="."]
+
+[node name="time bar" type="Node2D" parent="options"]
+script = ExtResource("2_mnoo2")
+option_type = "check_box"
+option = "show_timebar"
+
+[node name="check_box" type="AnimatedSprite2D" parent="options/time bar"]
+position = Vector2(592, 50)
+sprite_frames = SubResource("SpriteFrames_n1u5k")
+animation = &"checkbox anim reverse"
+script = ExtResource("5_5vy0p")
+tex = ExtResource("4_0numf")
+metadata/_custom_type_script = "uid://nqu72cn7ch25"
+
+[node name="text" type="Label" parent="options/time bar"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "checkbox"
+label_settings = SubResource("LabelSettings_updg8")
+uppercase = true
+
+[node name="camera bump" type="Node2D" parent="options"]
+position = Vector2(0, 120)
+script = ExtResource("2_mnoo2")
+option_type = "check_box"
+option = "cam_bumps"
+
+[node name="check_box" type="AnimatedSprite2D" parent="options/camera bump"]
+position = Vector2(592, 50)
+sprite_frames = SubResource("SpriteFrames_n1u5k")
+animation = &"checkbox anim reverse"
+script = ExtResource("5_5vy0p")
+tex = ExtResource("4_0numf")
+metadata/_custom_type_script = "uid://nqu72cn7ch25"
+
+[node name="text" type="Label" parent="options/camera bump"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "checkbox"
+label_settings = SubResource("LabelSettings_updg8")
+uppercase = true
+
+[node name="health bar opacity" type="Node2D" parent="options"]
+position = Vector2(0, 240)
+script = ExtResource("2_mnoo2")
+option = "health_bar_opacity"
+
+[node name="text" type="Label" parent="options/health bar opacity"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "range"
+label_settings = SubResource("LabelSettings_updg8")
+uppercase = true
+
+[node name="templates" type="Node2D" parent="."]
+position = Vector2(-1280, 0)
+
+[node name="check_box" type="Node2D" parent="templates"]
+script = ExtResource("2_mnoo2")
+option_type = "check_box"
+
+[node name="check_box" type="AnimatedSprite2D" parent="templates/check_box"]
+position = Vector2(592, 50)
+sprite_frames = SubResource("SpriteFrames_n1u5k")
+animation = &"checkbox anim reverse"
+script = ExtResource("5_5vy0p")
+tex = ExtResource("4_0numf")
+metadata/_custom_type_script = "uid://nqu72cn7ch25"
+
+[node name="text" type="Label" parent="templates/check_box"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "checkbox"
+label_settings = SubResource("LabelSettings_updg8")
+uppercase = true
+
+[node name="enum" type="Node2D" parent="templates"]
+position = Vector2(0, 120)
+script = ExtResource("2_mnoo2")
+option_type = "enum"
+
+[node name="text" type="Label" parent="templates/enum"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "enum"
+label_settings = SubResource("LabelSettings_updg8")
+uppercase = true
+
+[node name="range" type="Node2D" parent="templates"]
+position = Vector2(0, 240)
+script = ExtResource("2_mnoo2")
+
+[node name="text" type="Label" parent="templates/range"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "range"
+label_settings = SubResource("LabelSettings_updg8")
+uppercase = true

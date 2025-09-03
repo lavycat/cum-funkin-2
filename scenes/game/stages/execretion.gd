@@ -143,6 +143,7 @@ func step_hit(step:int):
 			flash_game(Color.BLACK)
 			moses.hide()
 			dark.show()
+			
 			game.dad = dark_pw
 			for i in game.play_fields:
 				i.reset_characters()
@@ -162,6 +163,7 @@ func step_hit(step:int):
 		4292:
 			flash_game(Color.RED)
 			castle.show()
+			game.dad.queue_free()
 			game.dad = pw_final
 			game.dad.dance()
 			game.bf.queue_free()

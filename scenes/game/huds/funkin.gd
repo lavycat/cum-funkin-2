@@ -38,6 +38,10 @@ func time_convert(time_in_sec:int) -> String:
 	#returns a string with the format "HH:MM:SS"
 	return "%01d:%02d" % [minutes, seconds]
 func _process(delta: float) -> void:
+	var opacity = Save.json.get("health_bar_opacity",1.0)
+	healthbar.modulate.a = opacity
+	healthbarbg.modulate.a = opacity
+	icons.modulate.a = opacity
 	timebar.value = (Conductor.time / Conductor.player.stream.get_length()) * 100.0
 	lerped_health = lerpf(lerped_health, game.health, 1.0 - exp(-15.0 * delta))
 	healthbar.value = lerped_health

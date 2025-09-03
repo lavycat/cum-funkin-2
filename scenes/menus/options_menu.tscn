@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bygrvve2uo80d"]
+[gd_scene load_steps=12 format=3 uid="uid://bygrvve2uo80d"]
 
 [ext_resource type="Script" uid="uid://djgniku7qmhyy" path="res://scenes/menus/options_menu.gd" id="1_7rumi"]
 [ext_resource type="Texture2D" uid="uid://b7k04rhmeotrs" path="res://assets/images/menus/menuDesat_Invert.png" id="1_bp0ux"]
 [ext_resource type="PackedScene" uid="uid://b2o3068kf47k" path="res://scenes/menus/pages/performance_page.tscn" id="2_3aff8"]
 [ext_resource type="PackedScene" uid="uid://c0yxyjiwx4a44" path="res://scenes/menus/pages/gameplay_page.tscn" id="2_7rumi"]
+[ext_resource type="PackedScene" uid="uid://dxgmaw8g4ri8k" path="res://scenes/menus/pages/ui_page.tscn" id="4_dwjoh"]
 [ext_resource type="FontFile" uid="uid://bnkl77r32hsc5" path="res://assets/fonts/funkin.ttf" id="8_tiokm"]
 
 [sub_resource type="Shader" id="Shader_bp0ux"]
@@ -46,7 +47,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="OptionsMenu" type="Node2D"]
 script = ExtResource("1_7rumi")
-page_scenes = Array[PackedScene]([ExtResource("2_7rumi"), ExtResource("2_3aff8"), null])
+page_scenes = Array[PackedScene]([ExtResource("2_7rumi"), ExtResource("2_3aff8"), ExtResource("4_dwjoh")])
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
@@ -76,7 +77,7 @@ horizontal_alignment = 1
 
 [node name="User Interface" type="Label" parent="pages"]
 layout_mode = 2
-text = "User Interface (NOT AVALIBLE YET)"
+text = "User Interface"
 label_settings = SubResource("LabelSettings_tiokm")
 horizontal_alignment = 1
 

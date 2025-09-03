@@ -22,7 +22,7 @@ anti_aliasing = false
 
 [sub_resource type="LabelSettings" id="LabelSettings_fiajd"]
 font = ExtResource("4_aelfd")
-font_size = 20
+font_size = 24
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
@@ -125,7 +125,8 @@ hframes = 2
 
 [node name="scoretxt" type="Label" parent="bar"]
 layout_mode = 0
-offset_right = 601.0
+offset_left = -340.0
+offset_right = 940.0
 offset_bottom = 48.0
 text = "Score - 0 | Accuracy - N/A | Misses - 0"
 label_settings = SubResource("LabelSettings_fiajd")

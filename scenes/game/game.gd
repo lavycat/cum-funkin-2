@@ -23,6 +23,9 @@ var dad:Character
 var gf:Character
 var bf:Character
 
+var camera_bumps:bool = true
+var game_bump:Vector2 = Vector2(0.015,0.015)
+var hud_bump:Vector2 = Vector2(0.03,0.03)
 
 var game_modifiers:GameModifiers = GameModifiers.new()
 var opponent_mode:bool = false
@@ -268,8 +271,9 @@ func _input(event: InputEvent) -> void:
 				player_field.auto_play = not player_field.auto_play
 func measure_hit(measure:int):
 	if measure > 0:
-		hud.scale += Vector2(0.03,0.03)
-		camera.zoom += Vector2(0.015,0.015)
+		if camera_bumps and Save.json.get("cam_bumps",false):
+			hud.scale += hud_bump
+			camera.zoom += game_bump
 func return_to_menu():
 	Conductor.rate = 1
 	MobileControls.controls_shown = MobileControls.CONTROLS_SHOWN_MENU

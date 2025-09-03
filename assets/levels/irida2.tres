@@ -7,5 +7,5 @@
 script = ExtResource("2_brqkm")
 name = &"leaking leaking leaking"
 level_image = ExtResource("1_eg7kg")
-songs = Array[StringName]([&"irida", &"shucks"])
+songs = Array[StringName]([&"irida", &"shucks", &"execretion"])
 metadata/_custom_type_script = "uid://candpblad8chk"
