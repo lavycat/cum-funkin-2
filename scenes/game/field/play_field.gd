@@ -9,7 +9,7 @@ class_name PlayField extends Node2D
 
 var stats:Stats = Stats.new()
 var strum_style:StrumStyle = StrumStyle.new()
-var note_style:NoteStyle = NoteStyle.new()
+var note_style:NoteStyle = load("res://assets/images/game/notestyles/funkin/style.tres")
 
 var directions = ["left","down","up","right"]
 
@@ -268,7 +268,6 @@ func spawn_data(n:Chart.NoteData):
 		var notes_folder:StringName = "res://scripts/game/notes/"
 		if ResourceLoader.exists("%s%s.gd"%[notes_folder,n.type]):
 			var note_script = load("%s%s.gd"%[notes_folder,n.type])
-			print(note_script)
 			note.set_script(note_script)
 	note.time = n.time
 	note.column = n.column

@@ -8,4 +8,5 @@ script = ExtResource("2_4lc0i")
 note_scale = 0.7
 note_frames = ExtResource("1_uc8jq")
 sustain_width = 50.0
+rendering_method = "stretch"
 metadata/_custom_type_script = "uid://7h4ov0y0q7nj"

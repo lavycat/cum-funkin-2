@@ -25,6 +25,7 @@ func reload_icons():
 
 
 func _ready() -> void:
+	
 	health_bar_style_bg = healthbar.get_theme_stylebox("background")
 	health_bar_style_fill = healthbar.get_theme_stylebox("fill")
 	health_bar_style_bg.bg_color = Color.WHITE
@@ -48,7 +49,10 @@ func _process(delta: float) -> void:
 	var opacity = Save.json.get("health_bar_opacity",1.0)
 	var is_down_scroll = Save.json.get("down_scroll")
 	healthbarbg.flip_v = is_down_scroll
-	healthbar.position.y = -16
+	if is_down_scroll:
+		healthbar.position.y = -16
+	else:
+		healthbar.position.y = 0
 	healthbar.modulate.a = opacity
 	healthbarbg.modulate.a = opacity
 	icons.modulate.a = opacity

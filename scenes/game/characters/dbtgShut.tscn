@@ -105,6 +105,7 @@ script = ExtResource("3_gyo0p")
 position = Vector2(599, 494)
 
 [node name="AnimateSymbol" type="Node2D" parent="."]
+position = Vector2(-16, 8)
 scale = Vector2(1.1, 1.1)
 script = ExtResource("4_honr0")
 atlas = "res://assets/images/game/characters/shucks/detgShut"

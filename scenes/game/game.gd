@@ -97,6 +97,9 @@ func _ready() -> void:
 	MobileControls.controls_shown = MobileControls.CONTROLS_SHOWN_GAME
 	Conductor.follow_player = true
 	Conductor.measure_hit.connect(measure_hit)
+	Conductor.beat_hit.connect(beat_hit)
+	Conductor.step_hit.connect(step_hit)
+	
 	Conductor.time = -Conductor.beat_length*5.0
 	Conductor.offset = Save.json.offset
 	play_fields = [dad_field,player_field]
@@ -273,10 +276,17 @@ func _input(event: InputEvent) -> void:
 			else:
 				player_field.auto_play = not player_field.auto_play
 func measure_hit(measure:int):
+	get_tree().call_group("funkin_script","measure_hit",measure)
 	if measure > 0:
 		if camera_bumps and Save.json.get("cam_bumps",false):
 			hud.scale += hud_bump
 			camera.zoom += game_bump
+func beat_hit(beat:int):
+	get_tree().call_group("funkin_script","beat_hit",beat)
+func step_hit(step:int):
+	get_tree().call_group("funkin_script","step_hit",step)
+	
+	
 func return_to_menu():
 	Conductor.rate = 1
 	MobileControls.controls_shown = MobileControls.CONTROLS_SHOWN_MENU

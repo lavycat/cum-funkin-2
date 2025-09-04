@@ -37,6 +37,7 @@ grow_vertical = 2
 pivot_offset = Vector2(640, 360)
 mouse_filter = 1
 script = ExtResource("1_uijyr")
+metadata/_edit_lock_ = true
 
 [node name="timebar" type="TextureProgressBar" parent="."]
 texture_filter = 4
@@ -123,7 +124,7 @@ flip_h = true
 hframes = 2
 
 [node name="dad" type="Sprite2D" parent="bar/icons"]
-position = Vector2(-390, 0)
+position = Vector2(-390, -16)
 texture = ExtResource("5_5bagr")
 hframes = 2
 

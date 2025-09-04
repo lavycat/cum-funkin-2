@@ -7,9 +7,10 @@ var game: Game:
 		return Game.instance
 
 func _enter_tree() -> void:
-	Conductor.beat_hit.connect(beat_hit)
-	Conductor.step_hit.connect(step_hit)
-	Conductor.measure_hit.connect(measure_hit)
+	add_to_group("funkin_script")
+	#Conductor.beat_hit.connect(beat_hit)
+	#Conductor.step_hit.connect(step_hit)
+	#Conductor.measure_hit.connect(measure_hit)
 	if connect_notes:
 		for i: PlayField in game.play_fields:
 			i.note_hit.connect(note_hit)
