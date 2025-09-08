@@ -1,7 +1,9 @@
 extends Stage
 #@onready var light: Sprite2D = $Light
+@onready var light: Sprite2D = $normal/Light
 #func _process(delta: float) -> void:
 	#light.rotation_degrees = sin(Conductor.time*4.0)*15.0
+
 @onready var chair_dstg: Character = $chair/chair_dstg
 @onready var shucks_logo: Sprite2D = $CanvasLayer/Shucks_logo
 
@@ -146,7 +148,7 @@ func add_trail(note:Note,time_sec:float = 0.4,use_dir:bool = false):
 		return
 	var p:Character = game.dad.duplicate()
 	p.z_as_relative = false
-	game.add_child(p)
+	game.stage.add_child(p)
 	p.sing_timer = 0
 	p.sing(note.column)
 	p.player.seek(0)
@@ -177,18 +179,25 @@ func step_hit(step:int):
 		74:
 			game.bf.can_dance = false
 			game.bf.play_anim("nightmare",true)
+		75:
+			game.bf.modulate.a = 0
+			game.dad.modulate.a = 0
+			
+			create_tween().tween_property(game.bf,"modulate:a",1,5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+		144:
+			create_tween().tween_property(game.dad,"modulate:a",1,3).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+			
 		158:
 
 			
 			var t = create_tween().set_parallel()
 			game.gf.modulate = Color.AQUA
 			game.gf.modulate.a = 0
-			t.tween_property(game.gf,"modulate:a",0.99,Conductor.beat_length).set_delay(Conductor.step_length*2)
 			
 			t.tween_property(game.hud,"modulate:a",1,Conductor.beat_length).set_delay(Conductor.step_length*2)
 			game.bf.can_dance = true
 			
-		434:
+		435:
 			darkness_alt.visible = false
 			darkness_red.visible = true
 			game.gf.modulate = Color.WHITE
@@ -197,6 +206,7 @@ func step_hit(step:int):
 			create_tween().tween_property(game.hud,"modulate:a",0,Conductor.beat_length*2)
 			normal.visible = true
 			game.gf.visible = true
+			
 		508:
 			create_tween().tween_property(game.hud,"modulate:a",1,Conductor.beat_length)
 		764:
@@ -213,6 +223,7 @@ func step_hit(step:int):
 			create_tween().tween_property(game.hud,"modulate:a",1,Conductor.beat_length)
 			
 		3136:
+			gf_notes.clear()
 			cut.modulate.a = 0
 			cut.play()
 			var t := create_tween().set_parallel()

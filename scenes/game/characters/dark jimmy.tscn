@@ -1,12 +1,13 @@
 [gd_scene load_steps=122 format=3 uid="uid://blje233yduebl"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_075u5"]
-[ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_71u3i"]
+[ext_resource type="Texture2D" uid="uid://iuccepwbv17e" path="res://assets/images/game/icons/jimmy real.png" id="2_ujm7k"]
 [ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="4_0fvlf"]
 [ext_resource type="Texture2D" uid="uid://djbr4l4qpf4b8" path="res://assets/images/game/characters/irida/irida.png" id="4_ujm7k"]
 
 [sub_resource type="Animation" id="Animation_jya82"]
 length = 1.08333
+loop_mode = 1
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1018,8 +1019,8 @@ player = NodePath("player")
 sprite = NodePath("sprite")
 camera_position = NodePath("camera_position")
 sing_length = 10.0
-icon_color = Color(0.686275, 0.4, 0.807843, 1)
-icon = ExtResource("2_71u3i")
+icon_color = Color(0.854902, 0.623529, 0.164706, 1)
+icon = ExtResource("2_ujm7k")
 
 [node name="player" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1029,9 +1030,9 @@ libraries = {
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-288, -766)
 sprite_frames = SubResource("SpriteFrames_3u7eg")
-animation = &"up"
+animation = &"idle"
+frame = 6
 centered = false
-offset = Vector2(39.54, -102.175)
 script = ExtResource("4_0fvlf")
 tex = ExtResource("4_ujm7k")
 

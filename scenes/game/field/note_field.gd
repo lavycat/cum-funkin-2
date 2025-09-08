@@ -4,8 +4,6 @@ var scroll_speed:float = 1.0:
 	get:
 		return scroll_speed / Conductor.rate
 var down_scroll:bool
-## used as a default note style for all notes
-var common_note_style:NoteStyle = load("res://assets/images/game/notestyles/funkin/style.tres")
 func _process(delta: float) -> void:
 	if not visible:
 		return

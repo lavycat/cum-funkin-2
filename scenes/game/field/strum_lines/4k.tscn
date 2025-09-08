@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://krk3cgc1h8vw"]
+[gd_scene load_steps=5 format=3 uid="uid://krk3cgc1h8vw"]
 
-[ext_resource type="SpriteFrames" uid="uid://bl42m0qtlpluu" path="res://assets/ui/funkin/strums.res" id="1_5t0ju"]
+[ext_resource type="SpriteFrames" uid="uid://bl42m0qtlpluu" path="res://assets/ui/funkin/strums/strums.res" id="1_5t0ju"]
 [ext_resource type="Script" uid="uid://dx4nabxjsogar" path="res://scenes/game/field/strum_arrow.gd" id="2_5t0ju"]
+[ext_resource type="SpriteFrames" uid="uid://bn8e5ocb3ltm3" path="res://assets/ui/funkin/noteSplashes.res" id="3_yt3om"]
+[ext_resource type="Script" uid="uid://bobj0fv421v43" path="res://scenes/game/field/strum_lines/note_splash.gd" id="4_kww6c"]
 
 [node name="4k" type="Node2D"]
 
@@ -12,26 +14,55 @@ sprite_frames = ExtResource("1_5t0ju")
 animation = &"left static"
 script = ExtResource("2_5t0ju")
 
+[node name="splash" type="AnimatedSprite2D" parent="Left"]
+visible = false
+sprite_frames = ExtResource("3_yt3om")
+animation = &"splash up"
+frame = 3
+frame_progress = 1.0
+script = ExtResource("4_kww6c")
+
 [node name="Down" type="AnimatedSprite2D" parent="."]
 position = Vector2(-56, 0)
 scale = Vector2(0.7, 0.7)
 sprite_frames = ExtResource("1_5t0ju")
 animation = &"down static"
+frame_progress = 1.0
 script = ExtResource("2_5t0ju")
 direction = "down"
+
+[node name="splash" type="AnimatedSprite2D" parent="Down"]
+visible = false
+sprite_frames = ExtResource("3_yt3om")
+animation = &"splash down"
+script = ExtResource("4_kww6c")
 
 [node name="Up" type="AnimatedSprite2D" parent="."]
 position = Vector2(56, 0)
 scale = Vector2(0.7, 0.7)
 sprite_frames = ExtResource("1_5t0ju")
 animation = &"up static"
+frame_progress = 1.0
 script = ExtResource("2_5t0ju")
 direction = "up"
+
+[node name="splash" type="AnimatedSprite2D" parent="Up"]
+visible = false
+sprite_frames = ExtResource("3_yt3om")
+animation = &"splash down"
+script = ExtResource("4_kww6c")
 
 [node name="Right" type="AnimatedSprite2D" parent="."]
 position = Vector2(168, 0)
 scale = Vector2(0.7, 0.7)
 sprite_frames = ExtResource("1_5t0ju")
 animation = &"right static"
+frame_progress = 1.0
 script = ExtResource("2_5t0ju")
 direction = "right"
+
+[node name="splash" type="AnimatedSprite2D" parent="Right"]
+visible = false
+sprite_frames = ExtResource("3_yt3om")
+animation = &"splash down"
+script = ExtResource("4_kww6c")

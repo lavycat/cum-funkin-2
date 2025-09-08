@@ -22,6 +22,8 @@ func _enter_tree() -> void:
 	rendering_method = note.get_style(note).rendering_method
 	
 func texture_tile_hack(tex:Texture2D):
+	if not tex:
+		return
 	if not tex is AtlasTexture or rendering_method != "tile":
 		return
 	var ci = get_canvas_item()
@@ -31,6 +33,8 @@ func texture_tile_hack(tex:Texture2D):
 	var tx_src:Rect2 = texture.region
 	var its:int = size.y / tx_size.y
 	for s in its:
+		if s > 0:
+			tx_src.size.y *= -1
 		var size := tx_size
 		RenderingServer.canvas_item_add_texture_rect_region(ci,Rect2(Vector2(0,tx_size.y*s),tx_size),texture.get_rid(),tx_src)
 		pass
@@ -38,7 +42,6 @@ func texture_tile_hack(tex:Texture2D):
 func _process(delta: float) -> void:
 	var length_px = (((450.0 * note.note_field.scroll_speed) * length) / note.scale.y)
 	var length_px_true = (((450.0 * note.note_field.scroll_speed) * note.length) / note.scale.y)
-	flip_h = true
 	var tail_height = tail.texture.get_height() * tail.scale.y
 	stretch_mode = TextureRect.STRETCH_TILE
 	texture_repeat = CanvasItem.TEXTURE_REPEAT_MIRROR
@@ -47,10 +50,10 @@ func _process(delta: float) -> void:
 	size.y = length_px_true - tail_height
 	tail.position.y = -tail_height
 	tail.flip_v = true
-	if dirty:
-		texture_tile_hack(texture)
 	
 
 
 
 	modulate.a = max(1.0 - (released_timer / Conductor.step_length*0.5),0.6)
+func _draw() -> void:
+	texture_tile_hack(texture)

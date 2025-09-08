@@ -461,6 +461,7 @@ position = Vector2(821, 176)
 scroll_scale = Vector2(0.1, 0.1)
 
 [node name="nbg" type="Sprite2D" parent="normal/_Parallax2D_2"]
+texture_filter = 3
 position = Vector2(-1351, -631)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_xwcvw")

@@ -121,9 +121,9 @@ func _ready() -> void:
 	default_camera_zoom = camera.zoom
 	camera.make_current()
 	camera.position = camera_lerp_position
-	add_child(gf)
-	add_child(dad)
-	add_child(bf)
+	stage.add_child(gf)
+	stage.add_child(dad)
+	stage.add_child(bf)
 	bf.position = stage.bf_position.position
 	dad.position = stage.dad_position.position
 	gf.position = stage.gf_position.position

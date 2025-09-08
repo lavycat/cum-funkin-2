@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StrumStyle" load_steps=3 format=3 uid="uid://i0eunyaj1mvs"]
+
+[ext_resource type="SpriteFrames" uid="uid://bl42m0qtlpluu" path="res://assets/ui/funkin/strums/strums.res" id="1_qaiji"]
+[ext_resource type="Script" uid="uid://d2g48im643vyh" path="res://scripts/game/data/strum_style.gd" id="1_vtee4"]
+
+[resource]
+script = ExtResource("1_vtee4")
+scale = Vector2(0.7, 0.7)
+frames = ExtResource("1_qaiji")
+splash_scale = Vector2(1, 1)
+metadata/_custom_type_script = "uid://d2g48im643vyh"

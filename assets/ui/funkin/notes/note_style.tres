@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NoteStyle" load_steps=3 format=3 uid="uid://dmr1jhsl6jsvr"]
+
+[ext_resource type="SpriteFrames" uid="uid://bfqsvmhr2k32a" path="res://assets/ui/funkin/notes/notes.res" id="1_mpugo"]
+[ext_resource type="Script" uid="uid://7h4ov0y0q7nj" path="res://scripts/game/data/note_style.gd" id="2_eyjn0"]
+
+[resource]
+script = ExtResource("2_eyjn0")
+note_scale = 0.7
+note_frames = ExtResource("1_mpugo")
+sustain_width = 50.0
+rendering_method = "tile"
+metadata/_custom_type_script = "uid://7h4ov0y0q7nj"

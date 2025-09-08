@@ -23,6 +23,7 @@ func _ready() -> void:
 	dance()
 	if is_player:
 		scale.x *= -1
+
 func play_anim(anim:String,force:bool = false):
 	if anim_suffix.is_empty():
 		cur_anim = anim

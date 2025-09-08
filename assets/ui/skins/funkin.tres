@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c2ofcjdd4jll2" path="res://assets/ui/funkin/countdown/images/ready.png" id="5_84m6u"]
 [ext_resource type="Texture2D" uid="uid://bpnj74e7wy0a0" path="res://assets/ui/funkin/countdown/images/set.png" id="6_ba1vb"]
 [ext_resource type="Texture2D" uid="uid://bpg6s16fa1r0v" path="res://assets/ui/funkin/countdown/images/go.png" id="7_utacy"]
-[ext_resource type="SpriteFrames" uid="uid://ddtvamobj6n66" path="res://assets/ui/funkin/strums.xml" id="8_ba1vb"]
-[ext_resource type="SpriteFrames" uid="uid://cisxlxf3asfbj" path="res://assets/images/game/notestyles/funkin/notes.xml" id="9_lkjl3"]
+[ext_resource type="SpriteFrames" uid="uid://ddtvamobj6n66" path="res://assets/ui/funkin/strums/strums.xml" id="8_ba1vb"]
+[ext_resource type="SpriteFrames" uid="uid://cisxlxf3asfbj" path="res://assets/ui/funkin/notes/notes.xml" id="9_lkjl3"]
 [ext_resource type="Script" uid="uid://7h4ov0y0q7nj" path="res://scripts/game/data/note_style.gd" id="10_b2bmt"]
 
 [sub_resource type="Resource" id="Resource_i8s44"]

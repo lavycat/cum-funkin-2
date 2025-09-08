@@ -11,7 +11,8 @@ func update_ui():
 	peak_mem = max(total_memory,peak_mem)
 	ram.text = "mem: %s / %s"%[to_hum(total_memory),to_hum(peak_mem)]
 func _physics_process(delta: float) -> void:
-	update_ui()
+	if visible:
+		update_ui()
 
 func _input(event: InputEvent) -> void:
 	if not event is InputEventKey:

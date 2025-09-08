@@ -12,6 +12,7 @@ script = ExtResource("2_e75ce")
 note_scale = 0.7
 note_frames = ExtResource("1_12p5k")
 sustain_width = 50.0
+rendering_method = "tile"
 metadata/_custom_type_script = "uid://7h4ov0y0q7nj"
 
 [sub_resource type="Resource" id="Resource_n3mvd"]

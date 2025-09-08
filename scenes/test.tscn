@@ -1,33 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://clv68g0cuv5nn"]
+[gd_scene load_steps=2 format=3 uid="uid://clv68g0cuv5nn"]
 
 [ext_resource type="Script" uid="uid://jwc0lapsbpj0" path="res://scenes/test.gd" id="1_errlg"]
-[ext_resource type="Script" uid="uid://7h4ov0y0q7nj" path="res://scripts/game/data/note_style.gd" id="2_iyx0m"]
-[ext_resource type="SpriteFrames" uid="uid://bfqsvmhr2k32a" path="res://assets/images/game/notestyles/funkin/notes.res" id="3_74lek"]
-[ext_resource type="SpriteFrames" uid="uid://i53jdmdl0vn4" path="res://assets/ui/irida/default.res" id="4_74lek"]
-[ext_resource type="Texture2D" uid="uid://fyc488dkteix" path="res://assets/images/sustain_irida.png" id="5_j5jx5"]
-
-[sub_resource type="Resource" id="Resource_j5jx5"]
-script = ExtResource("2_iyx0m")
-note_scale = 0.7
-note_frames = ExtResource("3_74lek")
-sustain_width = 50.0
-metadata/_custom_type_script = "uid://7h4ov0y0q7nj"
-
-[sub_resource type="Resource" id="Resource_lpvoh"]
-script = ExtResource("2_iyx0m")
-note_scale = 0.7
-note_frames = ExtResource("4_74lek")
-sustain_width = 50.0
-metadata/_custom_type_script = "uid://7h4ov0y0q7nj"
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_errlg")
-styles = Array[ExtResource("2_iyx0m")]([SubResource("Resource_j5jx5"), SubResource("Resource_lpvoh")])
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 93.0
-offset_top = -174.0
-offset_right = 143.0
-offset_bottom = 4826.0
-texture = ExtResource("5_j5jx5")
-stretch_mode = 1

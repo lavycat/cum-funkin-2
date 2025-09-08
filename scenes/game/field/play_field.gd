@@ -3,13 +3,13 @@ class_name PlayField extends Node2D
 @export_enum("4k:4","5K:5","6K:6","7K:7") var key_count:int = 4
 @export_enum("dad","player") var id:int = 0
 
-@export var show_splash:bool = false
+@export var show_splashs:bool = false
 @export var display_rating:bool = false
 @export var auto_play:bool = false
 
 var stats:Stats = Stats.new()
-var strum_style:StrumStyle = StrumStyle.new()
-var note_style:NoteStyle = load("res://assets/images/game/notestyles/funkin/style.tres")
+var strum_style:StrumStyle = load("res://assets/ui/funkin/strums/strum_style.tres")
+var note_style:NoteStyle = load("res://assets/ui/funkin/notes/note_style.tres")
 
 var directions = ["left","down","up","right"]
 
@@ -73,9 +73,13 @@ func note_input(note:Note):
 	stats.score += r.score
 	stats.ratings.set(r.name,stats.ratings.get(r.name,0))
 	stats.combo += 1
-	if display_rating and not note.was_hit:
-		show_combo(stats.combo)
-		pop_up_score(r)
+	if not note.was_hit:
+		if show_splashs:
+			if r.shows_splash:
+				strums[note.column].splash.play_anim("splash")
+		if display_rating:
+			show_combo(stats.combo)
+			pop_up_score(r)
 	note.was_hit = true
 	note.length = (note.time + note.length) - Conductor.time
 	strums[note.column].play_anim("confirm",true)
@@ -190,10 +194,14 @@ func note_update(delta:float):
 			stats.notes_hit += 1
 			stats.ratings.set(r.name,stats.ratings.get(r.name,0))
 			stats.combo += 1
-			if display_rating:
-				pop_up_score(r)
-				show_combo(stats.combo)
-			note.was_hit = true
+			if not note.was_hit:
+				if show_splashs:
+					if r.shows_splash:
+						strums[note.column].splash.play_anim("splash")
+				if display_rating:
+					show_combo(stats.combo)
+					pop_up_score(r)
+				note.was_hit = true
 		if Conductor.time - note.time > note.hit_range * max(1.0, Conductor.rate):
 
 			if note.sustain and note.was_hit:
