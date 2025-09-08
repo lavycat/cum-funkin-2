@@ -1,7 +1,15 @@
-[gd_resource type="Resource" script_class="NoteStyle" load_steps=3 format=3 uid="uid://x0iuhovqrqlp"]
+[gd_resource type="Resource" script_class="NoteStyle" load_steps=6 format=3 uid="uid://x0iuhovqrqlp"]
 
 [ext_resource type="SpriteFrames" uid="uid://i53jdmdl0vn4" path="res://assets/ui/irida/default.res" id="1_pya7u"]
 [ext_resource type="Script" uid="uid://7h4ov0y0q7nj" path="res://scripts/game/data/note_style.gd" id="2_cvu8a"]
+[ext_resource type="Script" uid="uid://cm50dhcydve4a" path="res://scripts/game/data/splash_style.gd" id="3_rs30s"]
+[ext_resource type="SpriteFrames" uid="uid://bn8e5ocb3ltm3" path="res://assets/ui/funkin/noteSplashes.res" id="4_ww1op"]
+
+[sub_resource type="Resource" id="Resource_tnbfk"]
+script = ExtResource("3_rs30s")
+splash_scale = 0.7
+splash_frames = ExtResource("4_ww1op")
+metadata/_custom_type_script = "uid://cm50dhcydve4a"
 
 [resource]
 script = ExtResource("2_cvu8a")
@@ -9,4 +17,5 @@ note_scale = 0.7
 note_frames = ExtResource("1_pya7u")
 sustain_width = 50.0
 rendering_method = "tile"
+splash_style = SubResource("Resource_tnbfk")
 metadata/_custom_type_script = "uid://7h4ov0y0q7nj"

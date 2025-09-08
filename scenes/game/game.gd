@@ -73,8 +73,12 @@ func apply_game_mods():
 	if opponent_mode:
 		player_field.auto_play = true
 		player_field.display_rating = false
+		player_field.show_splashs = false
+		
 		dad_field.auto_play = mods.bot_play
 		dad_field.display_rating = true
+		dad_field.show_splashs = true
+		
 	else:
 		player_field.auto_play = mods.bot_play
 		

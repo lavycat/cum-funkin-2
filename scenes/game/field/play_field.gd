@@ -66,7 +66,7 @@ func find_action_index(ev: InputEvent) -> int:
 			return i
 
 	return -1
-func note_input(note:Note):
+func do_note_hit(note:Note):
 	var r = Rating.rate_note(note,note.play_field.auto_play)
 	stats.notes_hit += 1
 	stats.accuracy_points += r.acc
@@ -76,17 +76,20 @@ func note_input(note:Note):
 	if not note.was_hit:
 		if show_splashs:
 			if r.shows_splash:
+				strums[note.column].splash.style = note.style.splash_style
 				strums[note.column].splash.play_anim("splash")
 		if display_rating:
 			show_combo(stats.combo)
 			pop_up_score(r)
-	note.was_hit = true
-	note.length = (note.time + note.length) - Conductor.time
 	strums[note.column].play_anim("confirm",true)
 	for i in characters:
 		i.sing(note.column)
 	note_hit.emit(note)
 	note.note_hit(note)
+	note.was_hit = true
+func note_input(note:Note):
+	do_note_hit(note)
+	note.length = (note.time + note.length) - Conductor.time
 	
 
 func pop_up_score(rating:Rating):
@@ -183,25 +186,7 @@ func note_update(delta:float):
 		if (note.time - Conductor.time) < 0.0 and not note.was_hit and auto_play:
 			pressed[note.column] = true
 			strum.play_anim("confirm",true)
-			for i in characters:
-				if i:
-					i.sing(note.column)
-			note_hit.emit(note)
-			note.note_hit(note)
-			var r = Rating.rate_note(note,note.play_field.auto_play)
-			stats.score += r.score
-			stats.accuracy_points += r.acc
-			stats.notes_hit += 1
-			stats.ratings.set(r.name,stats.ratings.get(r.name,0))
-			stats.combo += 1
-			if not note.was_hit:
-				if show_splashs:
-					if r.shows_splash:
-						strums[note.column].splash.play_anim("splash")
-				if display_rating:
-					show_combo(stats.combo)
-					pop_up_score(r)
-				note.was_hit = true
+			do_note_hit(note)
 		if Conductor.time - note.time > note.hit_range * max(1.0, Conductor.rate):
 
 			if note.sustain and note.was_hit:

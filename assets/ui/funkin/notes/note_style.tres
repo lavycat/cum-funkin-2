@@ -1,7 +1,15 @@
-[gd_resource type="Resource" script_class="NoteStyle" load_steps=3 format=3 uid="uid://dmr1jhsl6jsvr"]
+[gd_resource type="Resource" script_class="NoteStyle" load_steps=6 format=3 uid="uid://dmr1jhsl6jsvr"]
 
 [ext_resource type="SpriteFrames" uid="uid://bfqsvmhr2k32a" path="res://assets/ui/funkin/notes/notes.res" id="1_mpugo"]
 [ext_resource type="Script" uid="uid://7h4ov0y0q7nj" path="res://scripts/game/data/note_style.gd" id="2_eyjn0"]
+[ext_resource type="Script" uid="uid://cm50dhcydve4a" path="res://scripts/game/data/splash_style.gd" id="3_iqvtx"]
+[ext_resource type="SpriteFrames" uid="uid://bn8e5ocb3ltm3" path="res://assets/ui/funkin/noteSplashes.res" id="4_6msdn"]
+
+[sub_resource type="Resource" id="Resource_dgqdm"]
+script = ExtResource("3_iqvtx")
+splash_scale = 0.7
+splash_frames = ExtResource("4_6msdn")
+metadata/_custom_type_script = "uid://cm50dhcydve4a"
 
 [resource]
 script = ExtResource("2_eyjn0")
@@ -9,4 +17,5 @@ note_scale = 0.7
 note_frames = ExtResource("1_mpugo")
 sustain_width = 50.0
 rendering_method = "tile"
+splash_style = SubResource("Resource_dgqdm")
 metadata/_custom_type_script = "uid://7h4ov0y0q7nj"

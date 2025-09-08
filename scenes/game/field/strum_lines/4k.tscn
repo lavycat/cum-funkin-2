@@ -14,14 +14,6 @@ sprite_frames = ExtResource("1_5t0ju")
 animation = &"left static"
 script = ExtResource("2_5t0ju")
 
-[node name="splash" type="AnimatedSprite2D" parent="Left"]
-visible = false
-sprite_frames = ExtResource("3_yt3om")
-animation = &"splash up"
-frame = 3
-frame_progress = 1.0
-script = ExtResource("4_kww6c")
-
 [node name="Down" type="AnimatedSprite2D" parent="."]
 position = Vector2(-56, 0)
 scale = Vector2(0.7, 0.7)
@@ -30,12 +22,6 @@ animation = &"down static"
 frame_progress = 1.0
 script = ExtResource("2_5t0ju")
 direction = "down"
-
-[node name="splash" type="AnimatedSprite2D" parent="Down"]
-visible = false
-sprite_frames = ExtResource("3_yt3om")
-animation = &"splash down"
-script = ExtResource("4_kww6c")
 
 [node name="Up" type="AnimatedSprite2D" parent="."]
 position = Vector2(56, 0)
@@ -46,12 +32,6 @@ frame_progress = 1.0
 script = ExtResource("2_5t0ju")
 direction = "up"
 
-[node name="splash" type="AnimatedSprite2D" parent="Up"]
-visible = false
-sprite_frames = ExtResource("3_yt3om")
-animation = &"splash down"
-script = ExtResource("4_kww6c")
-
 [node name="Right" type="AnimatedSprite2D" parent="."]
 position = Vector2(168, 0)
 scale = Vector2(0.7, 0.7)
@@ -61,8 +41,34 @@ frame_progress = 1.0
 script = ExtResource("2_5t0ju")
 direction = "right"
 
-[node name="splash" type="AnimatedSprite2D" parent="Right"]
+[node name="splashes" type="Node2D" parent="."]
+
+[node name="left" type="AnimatedSprite2D" parent="splashes"]
 visible = false
+position = Vector2(-168, 0)
+sprite_frames = ExtResource("3_yt3om")
+animation = &"splash up"
+frame = 3
+frame_progress = 1.0
+script = ExtResource("4_kww6c")
+
+[node name="down" type="AnimatedSprite2D" parent="splashes"]
+visible = false
+position = Vector2(-56, 0)
 sprite_frames = ExtResource("3_yt3om")
 animation = &"splash down"
+script = ExtResource("4_kww6c")
+
+[node name="up" type="AnimatedSprite2D" parent="splashes"]
+visible = false
+position = Vector2(56, 0)
+sprite_frames = ExtResource("3_yt3om")
+animation = &"splash down"
+script = ExtResource("4_kww6c")
+
+[node name="right" type="AnimatedSprite2D" parent="splashes"]
+visible = false
+position = Vector2(168, 0)
+sprite_frames = ExtResource("3_yt3om")
+animation = &"splash up"
 script = ExtResource("4_kww6c")
