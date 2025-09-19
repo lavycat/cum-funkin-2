@@ -1,8 +1,7 @@
 [gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://cyojqdty1xt7r"]
 
-[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_j3pel"]
-resource_name = "Compressor"
-sidechain = &"Master"
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_j3pel"]
+resource_name = "HardLimiter"
 
 [sub_resource type="AudioEffectFilter" id="AudioEffectFilter_j3pel"]
 resource_name = "Filter"
@@ -12,7 +11,7 @@ resonance = 1.0
 resource_name = "SpectrumAnalyzer"
 
 [resource]
-bus/0/effect/0/effect = SubResource("AudioEffectCompressor_j3pel")
+bus/0/effect/0/effect = SubResource("AudioEffectHardLimiter_j3pel")
 bus/0/effect/0/enabled = true
 bus/0/effect/1/effect = SubResource("AudioEffectFilter_j3pel")
 bus/0/effect/1/enabled = false
@@ -24,3 +23,9 @@ bus/1/volume_db = 0.0
 bus/1/send = &"Master"
 bus/1/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_j3pel")
 bus/1/effect/0/enabled = true
+bus/2/name = &"voices"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"music"

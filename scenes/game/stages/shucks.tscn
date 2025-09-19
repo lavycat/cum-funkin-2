@@ -1,4 +1,4 @@
-[gd_scene load_steps=152 format=3 uid="uid://o0wpvefcnolg"]
+[gd_scene load_steps=153 format=3 uid="uid://o0wpvefcnolg"]
 
 [ext_resource type="Script" uid="uid://c0hdfh5wadl7k" path="res://scenes/game/stages/shucks.gd" id="1_g6p3p"]
 [ext_resource type="Texture2D" uid="uid://cqj5dkgikp2t0" path="res://assets/images/game/stages/shucks/bg.png" id="2_mgh57"]
@@ -985,6 +985,8 @@ shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(4, 4)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_axive"]
+
 [node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
 script = ExtResource("1_g6p3p")
 cam = NodePath("cam")
@@ -992,7 +994,6 @@ default_cam_zoom = 0.5
 
 [node name="cam" type="Camera2D" parent="."]
 position = Vector2(640, 360)
-offset = Vector2(0.401, 0)
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 editor_draw_limits = true
@@ -1029,6 +1030,25 @@ z_index = 1
 position = Vector2(-1800, -1585)
 texture = ExtResource("9_snlug")
 centered = false
+
+[node name="dad" parent="normal" instance=ExtResource("11_mea5d")]
+position = Vector2(-5593, 1088)
+
+[node name="bf" parent="normal" instance=ExtResource("12_snlug")]
+position = Vector2(-9051, 1348)
+
+[node name="dad2" parent="normal" instance=ExtResource("10_mea5d")]
+position = Vector2(-11192, 1786)
+
+[node name="dad3" parent="normal" instance=ExtResource("11_snlug")]
+position = Vector2(-8960, 1867)
+
+[node name="dad4" parent="normal" instance=ExtResource("12_wytbl")]
+position = Vector2(-10643, 1334)
+
+[node name="dad5" parent="normal" instance=ExtResource("10_mea5d")]
+z_index = 4
+position = Vector2(-9295, 1939)
 
 [node name="chair" type="Node2D" parent="."]
 visible = false
@@ -1098,11 +1118,6 @@ offset_bottom = 40.0
 stream = ExtResource("3_wssmt")
 volume_db = -80.0
 
-[node name="red" type="Sprite2D" parent="CanvasLayer"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("6_j60io")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
 visible = false
 modulate = Color(1, 1, 1, 0.12549)
@@ -1158,21 +1173,9 @@ label_settings = SubResource("LabelSettings_axive")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="dad" parent="." instance=ExtResource("11_mea5d")]
-position = Vector2(-10100, 2020)
-
-[node name="bf" parent="." instance=ExtResource("12_snlug")]
-position = Vector2(-9051, 1348)
-
-[node name="dad2" parent="." instance=ExtResource("10_mea5d")]
-position = Vector2(-11192, 1786)
-
-[node name="dad3" parent="." instance=ExtResource("11_snlug")]
-position = Vector2(-8960, 1867)
-
-[node name="dad4" parent="." instance=ExtResource("12_wytbl")]
-position = Vector2(-10643, 1334)
-
-[node name="dad5" parent="." instance=ExtResource("10_mea5d")]
-z_index = 4
-position = Vector2(-9295, 1939)
+[node name="red" type="Sprite2D" parent="CanvasLayer2"]
+visible = false
+modulate = Color(1, 1, 1, 0.8)
+material = SubResource("CanvasItemMaterial_axive")
+position = Vector2(640, 360)
+texture = ExtResource("6_j60io")

@@ -1,15 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://pkw487a2qtfa"]
 
 [ext_resource type="Script" uid="uid://byx4nxvjlrgg5" path="res://autoload/scenes/debug.gd" id="1_ilaqs"]
-
-[sub_resource type="SystemFont" id="SystemFont_ilaqs"]
-font_names = PackedStringArray("Arial")
-hinting = 2
-subpixel_positioning = 2
-oversampling = 2.0
+[ext_resource type="FontFile" uid="uid://c5chw3mxyist4" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="2_if0q0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3yqj7"]
-font = SubResource("SystemFont_ilaqs")
+font = ExtResource("2_if0q0")
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
@@ -24,12 +19,6 @@ offset_right = 168.0
 offset_bottom = 63.0
 
 [node name="fps" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "FPS:60"
-label_settings = SubResource("LabelSettings_3yqj7")
-uppercase = true
-
-[node name="ram" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "FPS:60"
 label_settings = SubResource("LabelSettings_3yqj7")

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/ultimate-marvin.png-32ccc6b8ee6e0aff9d29b58d2
 
 [params]
 
-compress/mode=4
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

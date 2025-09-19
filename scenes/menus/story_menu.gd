@@ -6,12 +6,15 @@ extends Node2D
 const levels_folder:StringName = &"res://assets/levels/"
 var levels:Array[Level] = []
 var cur_level:int = 0
-var week_score:int = 0
-var week_score_lerped:int = 0
 var cur_diff:int = 1
 var difficulties:Array[StringName] = ["easy","normal","hard"]
+var level_score:int = 0
+var level_score_lerped:int = 0
+@onready var tw:Tween
 @onready var difficulty: TextureRect = $difficulty
 @onready var tracks: Label = $tracks
+@onready var props: Node2D = $props
+var level_stage:Node2D = null
 var y_pos:float
 
 func _ready() -> void:
@@ -43,6 +46,10 @@ func select_level(i:int):
 	pass
 func _process(delta: float) -> void:
 	level_titles.position.y = lerpf(level_titles.position.y,-cur_level*120,1.0 - exp(-6.0 * delta))
+	level_score_lerped = lerpf(level_score_lerped,level_score,1.0 - exp(-15.0 * delta))
+	score.text = "WEEK SCORE: %d"%level_score_lerped
+	if abs(level_score - level_score_lerped) < 100:
+		level_score_lerped = level_score
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		SceneManager.change_scene(load("res://scenes/menus/main_menu.tscn"))
@@ -57,7 +64,27 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		select_level(cur_level)
 func change_level(i:int = 0):
+	for c in props.get_children():
+		c.free()
 	cur_level = wrap(cur_level + i,0,levels.size())
+	var chars:Array[PackedScene] = [levels[cur_level].dad,levels[cur_level].bf]
+	var char_x:int = 240
+	var char_y:int = 420
+	if levels[cur_level].level_stage:
+		var sp := Sprite2D.new()
+		sp.texture = levels[cur_level].level_stage
+		props.add_child(sp)
+		sp.position = Vector2(640,160)
+	for s:PackedScene in chars:
+		if is_instance_valid(s):
+			print(s.resource_path)
+			var real:StoryMenuCharacter = s.instantiate()
+			props.add_child(real)
+			real.position.x = char_x
+			real.position.y = char_y
+			char_x += 700
+			
+	level_score = HighScore.get_level_score(levels[cur_level].name,difficulties[cur_diff])
 	week.text = levels[cur_level].name
 	tracks.text = "TRACKS\n\n"
 	for s in levels[cur_level].songs:
@@ -65,10 +92,12 @@ func change_level(i:int = 0):
 func change_diff(p:int = 0):
 	cur_diff = wrap(cur_diff + p,0,difficulties.size())
 	difficulty.texture = load("res://assets/images/menus/difficulties/%s.png"%difficulties[cur_diff])
-	difficulty.position.y += 60
+	difficulty.position.y = y_pos + 25
 	difficulty.modulate.a = 0
+	level_score = HighScore.get_level_score(levels[cur_level].name,difficulties[cur_diff])
 	
-	var tw = create_tween().set_parallel()
-	tw.tween_property(difficulty,"position:y",y_pos,0.3).set_trans(Tween.TRANS_EXPO)
+	if tw:
+		tw.kill()
+	tw = create_tween().set_parallel()
+	tw.tween_property(difficulty,"position:y",y_pos,0.3).set_trans(Tween.TRANS_BACK)
 	tw.tween_property(difficulty,"modulate:a",1,0.15)
-	pass

@@ -17,3 +17,10 @@ func _input(event: InputEvent) -> void:
 		get_mod(cur_mod).change_mod(-1)
 func _process(delta: float) -> void:
 	mods.position.y = lerpf(mods.position.y,-get_mod(cur_mod).position.y + 360,1.0 - exp(-delta*5))
+	var m = get_mod(cur_mod)
+	for i in mods.get_children():
+		if i != m:
+			i.modulate.a = lerpf(i.modulate.a,0.6,delta*9)
+		else:
+			i.modulate.a = lerpf(i.modulate.a,1,delta*9)
+			

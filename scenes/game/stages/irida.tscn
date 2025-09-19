@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bmajhrge22s3t"]
+[gd_scene load_steps=25 format=3 uid="uid://bmajhrge22s3t"]
 
 [ext_resource type="Script" uid="uid://wj7kctekw5f5" path="res://scenes/game/stages/irida.gd" id="1_s5a7a"]
 [ext_resource type="Texture2D" uid="uid://4yryskgfwjpl" path="res://assets/images/game/stages/jimmy/plush/cat_pino.png" id="2_ma5ww"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://7gky6rh7pbfd" path="res://assets/images/game/stages/jimmy/real/dark purple.png" id="10_f4svc"]
 [ext_resource type="Texture2D" uid="uid://bvkf1lua2ejt5" path="res://assets/images/game/stages/jimmy/real/darkness.png" id="11_uy7yc"]
 [ext_resource type="Texture2D" uid="uid://b35kk6ey64di0" path="res://assets/images/game/stages/jimmy/real/dead rose.png" id="12_jxxj6"]
+[ext_resource type="VideoStream" uid="uid://dfqgfr8jy7lcm" path="res://assets/videos/vortex new.ogv" id="13_f4svc"]
 [ext_resource type="Shader" uid="uid://cip2hwd2hy7ms" path="res://scenes/game/stages/irida.gdshader" id="13_s5a7a"]
 [ext_resource type="Texture2D" uid="uid://ccn0c24dgmnx4" path="res://assets/images/game/stages/jimmy/real/fg.png" id="13_x8e3g"]
 [ext_resource type="Texture2D" uid="uid://dngq1w3ulsryt" path="res://assets/images/game/stages/jimmy/real/flare.png" id="14_84knh"]
@@ -91,13 +92,25 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Bg" type="TextureRect" parent="real/0X1"]
-texture_filter = 1
+material = SubResource("ShaderMaterial_s5a7a")
 offset_left = -1800.0
-offset_top = -2440.0
+offset_top = -2488.0
 offset_right = 2808.0
-offset_bottom = 2168.0
+offset_bottom = 342.0
 texture = ExtResource("8_7eqa1")
 expand_mode = 1
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="real/0X1"]
+visible = false
+offset_left = -1800.0
+offset_top = -1553.0
+offset_right = 760.0
+offset_bottom = -113.0
+scale = Vector2(1.8, 1.8)
+stream = ExtResource("13_f4svc")
+autoplay = true
+loop = true
+buffering_msec = 1000
 
 [node name="Path" type="Sprite2D" parent="real/0X1"]
 position = Vector2(526, 484)

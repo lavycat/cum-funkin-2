@@ -10,6 +10,8 @@ func register(event_time: float, event_values: Array) -> void:
 	if not ResourceLoader.exists(char_path):
 		char_path = "res://scenes/game/characters/dad.tscn"
 	var char := char_path.get_file().get_basename()
+	if not game.cache.has(char_path):
+		game.cache.set(char_path,load(char_path))
 	preloaded_characters[char] = load(char_path)
 
 

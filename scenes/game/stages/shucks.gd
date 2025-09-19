@@ -17,7 +17,7 @@ extends Stage
 
 @onready var darkness_alt: Sprite2D = $CanvasLayer/DarknessAlt
 @onready var darkness_red: Sprite2D = $CanvasLayer/DarknessRed
-@onready var red: Sprite2D = $CanvasLayer/red
+@onready var red: Sprite2D = $CanvasLayer2/red
 @onready var running: Node2D = $running
 
 @onready var run_detg: Character = $"running/run detg"
@@ -217,10 +217,22 @@ func step_hit(step:int):
 			pt.set_trans(Tween.TRANS_BACK).tween_property(shucks_logo,"position:x",1920,1.5).set_delay(0.1)
 			
 			
-		2300,2560:
+		2300:
 			create_tween().tween_property(game.hud,"modulate:a",0,Conductor.beat_length*2)
 		2425,2814:
 			create_tween().tween_property(game.hud,"modulate:a",1,Conductor.beat_length)
+		2560:
+			var rect := ColorRect.new()
+			rect.size = Vector2(1280,720)
+			rect.color = Color.RED
+			game.hud.add_child(rect)
+			var t := create_tween().set_parallel()
+			t.tween_property(rect,"color:a",0,0.6)
+			t.tween_property(red,"modulate:a",0,1.2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+			
+			t.tween_callback(rect.queue_free)
+			create_tween().tween_property(game.hud,"modulate:a",0,Conductor.beat_length*2)
+			red.show()
 			
 		3136:
 			gf_notes.clear()
@@ -234,8 +246,8 @@ func step_hit(step:int):
 			t.tween_property(cut,"modulate:a",1,0.8).set_delay(2.7)
 			await t.finished
 			
-			for i:Node in tas:
-				i.queue_free()
+			#for i:Node in tas:
+				#i.queue_free()
 			game.bf.queue_free()
 			game.bf = chair_marbin
 			game.dad.queue_free()
@@ -253,8 +265,6 @@ func step_hit(step:int):
 			game.default_camera_zoom = Vector2(2,2)
 			var tt := create_tween()
 			tt.tween_property(game,"default_camera_zoom",Vector2(0.4,0.4),1.5).set_delay(0.7).set_trans(Tween.TRANS_EXPO)
-			
-			
 			game.camera.reset_smoothing()
 		
 		3458:

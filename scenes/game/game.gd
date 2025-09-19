@@ -16,7 +16,7 @@ var song_started:bool = false
 @onready var events: EventManager = $events
 var camera_lerp_position:Vector2 = Vector2.ZERO
 var default_camera_zoom:Vector2 = Vector2.ONE
-static var cache:Dictionary = {}
+static var cache:Dictionary[String,PackedScene] = {}
 var camera:Camera2D = null
 var stage:Stage
 var dad:Character
@@ -47,7 +47,11 @@ var pause_menu:PackedScene = load("res://scenes/game/pause_menu.tscn")
 var pause_ui:CanvasLayer = null
 func load_character(p:String,fb:String):
 	if ResourceLoader.exists("res://scenes/game/characters/%s.tscn"%p):
-		return ResourceLoader.load("res://scenes/game/characters/%s.tscn"%p,"").instantiate()
+		if cache.has(p):
+			return cache.get(p).instantiate()
+		else:
+			cache.set(p,ResourceLoader.load("res://scenes/game/characters/%s.tscn"%p,"",ResourceLoader.CACHE_MODE_REPLACE))
+			return ResourceLoader.load("res://scenes/game/characters/%s.tscn"%p,"").instantiate()
 	else:
 		return load("res://scenes/game/characters/%s.tscn"%fb).instantiate()
 func _enter_tree() -> void:
@@ -62,10 +66,15 @@ func _enter_tree() -> void:
 	if not ResourceLoader.exists(p):
 		print("stage not found loading default")
 		p = "res://scenes/game/stages/stage.tscn"
-	stage = load(p).instantiate()
+	if not cache.has(p):
+		cache.set(p,ResourceLoader.load(p,"",ResourceLoader.CACHE_MODE_REPLACE))
+		stage = load(p).instantiate()
+	else:
+		stage = cache.get(p).instantiate()
 	gf = load_character(chart.gf,"gf")
 	dad = load_character(chart.dad,"dad")
 	bf = load_character(chart.bf,"bf")
+	print(cache)
 func apply_game_mods():
 	var mods = game_modifiers
 	opponent_mode = mods.opponent_mode
@@ -280,18 +289,18 @@ func _input(event: InputEvent) -> void:
 			else:
 				player_field.auto_play = not player_field.auto_play
 func measure_hit(measure:int):
-	get_tree().call_group("funkin_script","measure_hit",measure)
 	if measure > 0:
 		if camera_bumps and Save.json.get("cam_bumps",false):
 			hud.scale += hud_bump
 			camera.zoom += game_bump
 func beat_hit(beat:int):
-	get_tree().call_group("funkin_script","beat_hit",beat)
+	pass
 func step_hit(step:int):
-	get_tree().call_group("funkin_script","step_hit",step)
+	pass
 	
 	
 func return_to_menu():
+	cache.clear()
 	Conductor.rate = 1
 	MobileControls.controls_shown = MobileControls.CONTROLS_SHOWN_MENU
 	AudioServer.set_bus_effect_enabled(0,1,false)

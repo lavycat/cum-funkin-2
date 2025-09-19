@@ -62,6 +62,8 @@ func select_option(o:int):
 		"restart song":
 			Engine.time_scale = Conductor.rate
 			Conductor.player.pitch_scale = Conductor.rate
+			if Input.is_key_pressed(KEY_SHIFT):
+				Game.cache.clear()
 			get_tree().reload_current_scene()
 		"exit":
 			Engine.time_scale = Conductor.rate

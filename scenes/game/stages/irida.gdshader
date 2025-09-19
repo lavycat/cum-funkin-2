@@ -71,8 +71,8 @@ void fragment()
 {
 	vec2 iResolution = 1.0 / SCREEN_PIXEL_SIZE;
 	//get coords and direction
-	vec2 uv=FRAGCOORD.xy/iResolution.xy-.5;
-    vec2 uv2=FRAGCOORD.xy/iResolution.xy-.5;
+	vec2 uv=FRAGCOORD.xy/iResolution-.5;
+    vec2 uv2=FRAGCOORD.xy/iResolution-.5;
 	uv.y*=iResolution.y/iResolution.x;
 	vec3 dir=vec3(uv*zoom,1.);
     float t2 = TIME * .1 + ((.25 + .05 * sin(TIME * .1))/(length(uv.xy) + .07)) * 2.2;

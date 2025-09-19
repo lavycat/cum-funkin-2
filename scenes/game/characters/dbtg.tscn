@@ -1,10 +1,25 @@
-[gd_scene load_steps=325 format=3 uid="uid://dqtfel7p4ebex"]
+[gd_scene load_steps=327 format=3 uid="uid://dqtfel7p4ebex"]
 
 [ext_resource type="Script" uid="uid://dd0l4o2k1ahjn" path="res://scenes/game/characters/character.gd" id="1_cq5hf"]
 [ext_resource type="Texture2D" uid="uid://bibb0fss571rd" path="res://assets/images/game/icons/dbtg.png" id="2_cq5hf"]
 [ext_resource type="Script" uid="uid://bmbfirbywm1e3" path="res://scripts/animation_importer.gd" id="3_ww8fm"]
 [ext_resource type="Texture2D" uid="uid://dfbng8jhva4y2" path="res://assets/images/game/characters/shucks/ultimate-detg.png" id="4_cq5hf"]
 [ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="5_alx2v"]
+
+[sub_resource type="Animation" id="Animation_4pqry"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_cq5hf"]
 length = 1.16667
@@ -208,6 +223,7 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4pqry"]
 _data = {
+&"RESET": SubResource("Animation_4pqry"),
 &"idle": SubResource("Animation_cq5hf"),
 &"sing_down": SubResource("Animation_ny2fu"),
 &"sing_left": SubResource("Animation_ww8fm"),
@@ -2819,6 +2835,8 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ww8fm"]
+
 [node name="dad" type="Node2D" node_paths=PackedStringArray("player", "sprite", "camera_position")]
 script = ExtResource("1_cq5hf")
 player = NodePath("player")
@@ -2839,11 +2857,12 @@ sprite = NodePath("../sprite")
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_iner1")
 animation = &"Detg_Idle instance 1"
-frame = 27
-frame_progress = 1.0
 centered = false
 script = ExtResource("5_alx2v")
 tex = ExtResource("4_cq5hf")
 
 [node name="camera_position" type="Marker2D" parent="."]
 position = Vector2(599, 494)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ww8fm")

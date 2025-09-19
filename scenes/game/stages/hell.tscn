@@ -1,4 +1,4 @@
-[gd_scene load_steps=322 format=3 uid="uid://ncyqm3rcnby2"]
+[gd_scene load_steps=326 format=3 uid="uid://ncyqm3rcnby2"]
 
 [ext_resource type="Script" uid="uid://yunuykgjdb6j" path="res://scenes/game/stages/hell.gd" id="1_6ov0t"]
 [ext_resource type="Texture2D" uid="uid://cm0jmi3ulitur" path="res://assets/images/game/stages/hell/statid.png" id="2_7ksym"]
@@ -344,6 +344,9 @@ animations = [{
 "name": &"chop",
 "speed": 24.0
 }]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q32iq"]
+blend_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6ov0t"]
 blend_mode = 1
@@ -2327,6 +2330,69 @@ font_color = Color(1, 0, 0, 1)
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Shader" id="Shader_q32iq"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_toon, specular_disabled, unshaded;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable,hint_screen_texture;
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1escs"]
+render_priority = 0
+shader = SubResource("Shader_q32iq")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture_size = Vector2i(1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_q32iq"]
+material = SubResource("ShaderMaterial_1escs")
+flip_faces = true
+
 [node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
 script = ExtResource("1_6ov0t")
 cam = NodePath("cam")
@@ -2406,6 +2472,7 @@ texture = ExtResource("12_15i10")
 centered = false
 
 [node name="Clouds" type="Sprite2D" parent="hell2"]
+material = SubResource("CanvasItemMaterial_q32iq")
 texture = ExtResource("13_84p45")
 centered = false
 
@@ -2519,6 +2586,36 @@ offset_bottom = 720.0
 label_settings = SubResource("LabelSettings_1escs")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="overlay/CanvasLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0.282)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="overlay/CanvasLayer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1280, 710)
+render_target_update_mode = 0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="overlay/CanvasLayer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.275047, 2.08773)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="overlay/CanvasLayer/SubViewportContainer/SubViewport"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -2.81563)
+mesh = SubResource("SphereMesh_q32iq")
+
+[node name="Camera3D" type="Camera3D" parent="overlay/CanvasLayer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.356007)
+fov = 90.0
+
+[node name="game_render" type="SubViewport" parent="overlay/CanvasLayer"]
+size = Vector2i(1280, 720)
 
 [node name="cam" type="Camera2D" parent="."]
 position = Vector2(640, 360)

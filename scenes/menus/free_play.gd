@@ -28,14 +28,14 @@ func _ready() -> void:
 		var t := Label.new()
 		t.text = s.to_upper()
 		t.label_settings = LabelSettings.new()
-		t.label_settings.font = load("res://assets/fonts/funkin.ttf")
+		t.label_settings.font = load("res://assets/fonts/impact.ttf")
 		t.label_settings.font_size = 72
 		t.label_settings.outline_size = 24
 		t.label_settings.outline_color = Color.BLACK
 		
 		
-		t.position.x += (15 * i) + 90
-		t.position.y += (160 * i) - t.size.y/2
+		t.position.x += (20*i) + 90
+		t.position.y += (120 * i) + 30 + pow(346,1.5)
 		var icon := Sprite2D.new()
 		var meta = get_song_meta(i)
 		icon.texture = meta.icon
@@ -102,11 +102,11 @@ func change_selected(p:int):
 	update_label()
 func update_label():
 	label.text = "%s\nHighScore -> %d\n < %s >"%[cur_song,HighScore.get_song_score(cur_song,cur_diff),cur_diff]
-	pass
 func update_color():
 	cur_color = get_song_meta(cur_selected).color
 func _process(delta: float) -> void:
 	bg.modulate = lerp(bg.modulate,cur_color,1.0 - exp(-delta*9.0))
 func update_camera():
+	camera.reset_smoothing()
 	camera.position.y = songs.get_child(cur_selected).position.y + songs.get_child(cur_selected).size.y / 2
-	pass
+	camera.position.x = songs.get_child(cur_selected).position.x + 600

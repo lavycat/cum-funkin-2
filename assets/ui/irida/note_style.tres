@@ -8,14 +8,10 @@
 [sub_resource type="Resource" id="Resource_tnbfk"]
 script = ExtResource("3_rs30s")
 splash_scale = 0.7
-splash_frames = ExtResource("4_ww1op")
 metadata/_custom_type_script = "uid://cm50dhcydve4a"
 
 [resource]
 script = ExtResource("2_cvu8a")
-note_scale = 0.7
 note_frames = ExtResource("1_pya7u")
-sustain_width = 50.0
-rendering_method = "tile"
 splash_style = SubResource("Resource_tnbfk")
 metadata/_custom_type_script = "uid://7h4ov0y0q7nj"

@@ -71,6 +71,8 @@ func _process(delta: float) -> void:
 		else:
 			subtitle.text = ""
 func _ready() -> void:
+			
+	#$overlay/CanvasLayer/SubViewportContainer/SubViewport/MeshInstance3D.mesh.material.albedo_texture = get_window().get_viewport().get_texture()
 	lyric(320,354,"JERRY: ARE YOU FUCKING HIGH!!")
 	lyric(1424,1436,"JERRY: I")
 	lyric(1440,1448,"JERRY: HATE")
@@ -161,7 +163,6 @@ func beat_hit(beat:int):
 			for i in game.play_fields:
 				i.reset_characters()
 			
-			Conductor.rate = 1
 		597:
 			cut.queue_free()
 			create_tween().tween_property(jeff,"position:y",720,1.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)

@@ -19,8 +19,13 @@ func play_sfx(type:int):
 			cancel.play()
 func play_global_music(stream:AudioStream = load("uid://dcigb5llb235d"),time:float = 0):
 	global_music.stream = stream
+	Conductor.player = global_music
+	Conductor.follow_player = true
 	global_music.play(time)
 func fade_out_global_music(t:float = 0.33):
-	create_tween().tween_property(global_music,"volume_linear",0,t)
+	create_tween().tween_property(global_music,"volume_linear",0,t).finished.connect(global_music.stop)
 func fade_in_global_music(t:float = 0.33):
+	if not global_music.playing:
+		global_music.play()
 	create_tween().tween_property(global_music,"volume_linear",1,t)
+		

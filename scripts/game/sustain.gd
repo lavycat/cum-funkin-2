@@ -37,7 +37,6 @@ func texture_tile_hack(tex:Texture2D):
 			tx_src.size.y *= -1
 		var size := tx_size
 		RenderingServer.canvas_item_add_texture_rect_region(ci,Rect2(Vector2(0,tx_size.y*s),tx_size),texture.get_rid(),tx_src)
-		pass
 
 func _process(delta: float) -> void:
 	var length_px = (((450.0 * note.note_field.scroll_speed) * length) / note.scale.y)
@@ -50,10 +49,6 @@ func _process(delta: float) -> void:
 	size.y = length_px_true - tail_height
 	tail.position.y = -tail_height
 	tail.flip_v = true
-	
-
-
-
 	modulate.a = max(1.0 - (released_timer / Conductor.step_length*0.5),0.6)
 func _draw() -> void:
 	texture_tile_hack(texture)

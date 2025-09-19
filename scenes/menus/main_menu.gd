@@ -12,8 +12,7 @@ func _ready() -> void:
 	option_sprs = options.get_children()
 	Engine.time_scale = 1
 	AudioManager.fade_in_global_music()
-	if not AudioManager.global_music.playing:
-		AudioManager.play_global_music()
+	AudioManager.play_global_music()
 	update_camera()
 	camera.reset_smoothing()
 	change_selceted(0)

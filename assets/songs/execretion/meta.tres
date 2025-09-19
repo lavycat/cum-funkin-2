@@ -11,15 +11,11 @@
 script = ExtResource("1_5b3c7")
 scale = Vector2(0.7, 0.7)
 frames = ExtResource("1_k5keu")
-splash_scale = Vector2(1, 1)
 metadata/_custom_type_script = "uid://d2g48im643vyh"
 
 [resource]
 script = ExtResource("2_5b3c7")
-icon = ExtResource("1_mfhty")
-icon_frames = 2
 color = Color(0.85707, 0.931993, 3.08037e-05, 1)
-difficulties = ["easy", "normal", "hard"]
 hud_scene = ExtResource("4_qjcq4")
 player_strum_style = SubResource("Resource_k5keu")
 player_note_style = ExtResource("6_23jtf")

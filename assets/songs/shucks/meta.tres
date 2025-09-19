@@ -9,15 +9,11 @@
 
 [sub_resource type="Resource" id="Resource_n3mvd"]
 script = ExtResource("3_x35v5")
-scale = Vector2(1, 1)
 frames = ExtResource("1_12p5k")
-splash_scale = Vector2(1, 1)
 metadata/_custom_type_script = "uid://d2g48im643vyh"
 
 [resource]
 script = ExtResource("2_fhjod")
-icon = ExtResource("1_p6rof")
-icon_frames = 2
 color = Color(0.999307, 0.607513, 3.85046e-07, 1)
 difficulties = ["hard"]
 hud_scene = ExtResource("4_e75ce")

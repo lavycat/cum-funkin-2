@@ -12,7 +12,7 @@ config_version=5
 
 config/name="cum funkin 2"
 run/main_scene="uid://cvk4hy2jbxbec"
-config/features=PackedStringArray("4.4", "Mobile")
+config/features=PackedStringArray("4.5", "Mobile")
 run/delta_smoothing=false
 config/icon="res://icon.svg"
 boot_splash/minimum_display_time=500
@@ -49,9 +49,9 @@ project/assembly_name="cum funkin 2"
 
 [editor]
 
-movie_writer/mjpeg_quality=0.01
 movie_writer/movie_file="C:/Users/lavender/Documents/cum-funkin-2/movie/movie.avi"
 movie_writer/fps=30
+movie_writer/mjpeg_quality=0.33
 
 [editor_plugins]
 

@@ -47,7 +47,6 @@ text = "open modifiers"
 [node name="songs" type="Node2D" parent="."]
 
 [node name="camera" type="Camera2D" parent="."]
-position = Vector2(640, 0)
 position_smoothing_enabled = true
 position_smoothing_speed = 9.0
 
