@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Level" load_steps=5 format=3 uid="uid://cv11ab332ogb1"]
+
+[ext_resource type="Texture2D" uid="uid://csfpjv3p7wgmg" path="res://assets/images/menus/weeks/week1.png" id="1_4i86q"]
+[ext_resource type="Script" uid="uid://candpblad8chk" path="res://scripts/resource/level.gd" id="1_aapu1"]
+[ext_resource type="PackedScene" uid="uid://dllfwu41unyk5" path="res://scenes/menus/story_characters/bf.tscn" id="1_kqoq2"]
+[ext_resource type="Texture2D" uid="uid://cbtmhh6c3qb71" path="res://assets/images/menus/level_stages/menu_stage.png" id="2_a1dua"]
+
+[resource]
+script = ExtResource("1_aapu1")
+name = &"daddy time!"
+songs = Array[StringName]([&"bopeebo", &"fresh", &"dadbattle"])
+level_image = ExtResource("1_4i86q")
+level_stage = ExtResource("2_a1dua")
+bf = ExtResource("1_kqoq2")
+metadata/_custom_type_script = "uid://candpblad8chk"

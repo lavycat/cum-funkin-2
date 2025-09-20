@@ -301,6 +301,7 @@ func step_hit(step:int):
 	
 func return_to_menu():
 	cache.clear()
+	tracks.player.stop()
 	Conductor.rate = 1
 	MobileControls.controls_shown = MobileControls.CONTROLS_SHOWN_MENU
 	AudioServer.set_bus_effect_enabled(0,1,false)

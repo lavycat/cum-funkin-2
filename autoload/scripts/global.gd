@@ -17,6 +17,7 @@ func _enter_tree() -> void:
 	Input.use_accumulated_input = false
 	root = get_tree().get_root()
 	RenderingServer.set_default_clear_color(Color.BLACK)
+	preload_all_characters()
 	print("Audio Driver -> %s" % AudioServer.get_driver_name())
 	print("Rendering Driver -> %s"%RenderingServer.get_current_rendering_driver_name())
 func _notification(what: int) -> void:

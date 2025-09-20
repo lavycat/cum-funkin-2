@@ -11,10 +11,16 @@ var cur_song:String = ""
 var diffculties:PackedStringArray = []
 var cur_diff:String = "hard"
 var song_metas:Array[SongMeta] = []
-var cur_selected:int = 0
+var song_score:int = 0
+var song_score_lerped:int = 0
+
+static var cur_selected:int = 0
 var cur_color:Color = Color.WHITE
 var game_mods_open:bool = false
 func get_song_meta(i:int) -> SongMeta:
+	if song_metas.size() > i:
+		return song_metas[i]
+	print("w")
 	const songs_folder = "res://assets/songs/"
 	var meta_path:String = songs_folder + list[i] + "/meta.tres"
 	if ResourceLoader.exists(meta_path):
@@ -28,7 +34,7 @@ func _ready() -> void:
 		var t := Label.new()
 		t.text = s.to_upper()
 		t.label_settings = LabelSettings.new()
-		t.label_settings.font = load("res://assets/fonts/impact.ttf")
+		t.label_settings.font = load("res://assets/fonts/funkin.ttf")
 		t.label_settings.font_size = 72
 		t.label_settings.outline_size = 24
 		t.label_settings.outline_color = Color.BLACK
@@ -101,12 +107,16 @@ func change_selected(p:int):
 	update_color()
 	update_label()
 func update_label():
-	label.text = "%s\nHighScore -> %d\n < %s >"%[cur_song,HighScore.get_song_score(cur_song,cur_diff),cur_diff]
+	song_score = HighScore.get_song_score(cur_song,cur_diff)
+	label.text = "%s\nHighScore -> %d\n < %s >"%[cur_song,song_score_lerped,cur_diff]
 func update_color():
 	cur_color = get_song_meta(cur_selected).color
 func _process(delta: float) -> void:
+	update_label()
+	if abs(song_score_lerped - song_score) < 100:
+		song_score_lerped = song_score
+	song_score_lerped = lerpf(song_score_lerped,song_score,1.0 - exp(-15.0 * delta))
 	bg.modulate = lerp(bg.modulate,cur_color,1.0 - exp(-delta*9.0))
 func update_camera():
-	camera.reset_smoothing()
 	camera.position.y = songs.get_child(cur_selected).position.y + songs.get_child(cur_selected).size.y / 2
 	camera.position.x = songs.get_child(cur_selected).position.x + 600

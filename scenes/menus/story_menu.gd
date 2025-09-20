@@ -74,15 +74,14 @@ func change_level(i:int = 0):
 		var sp := Sprite2D.new()
 		sp.texture = levels[cur_level].level_stage
 		props.add_child(sp)
-		sp.position = Vector2(640,160)
+		sp.position = Vector2(640,260)
 	for s:PackedScene in chars:
 		if is_instance_valid(s):
-			print(s.resource_path)
 			var real:StoryMenuCharacter = s.instantiate()
 			props.add_child(real)
 			real.position.x = char_x
 			real.position.y = char_y
-			char_x += 700
+		char_x += 700
 			
 	level_score = HighScore.get_level_score(levels[cur_level].name,difficulties[cur_diff])
 	week.text = levels[cur_level].name

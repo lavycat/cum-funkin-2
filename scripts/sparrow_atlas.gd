@@ -11,6 +11,7 @@ func parse_xml():
 	var parser := XMLParser.new()
 	parser.open(xml)
 	sprite_frames = SpriteFrames.new()
+	sprite_frames.remove_animation("default")
 	while parser.read() == OK:
 		var node_type = parser.get_node_type()
 		if node_type == XMLParser.NODE_ELEMENT:
@@ -43,8 +44,7 @@ func parse_xml():
 					sprite_frames.add_animation(name)
 					sprite_frames.set_animation_loop(name,loop)
 					sprite_frames.set_animation_speed(name,fps)
-				if sprite_frames.get_frame_count(name) > frame - 1:
-					sprite_frames.add_frame(name,atlas_tex,1.0,frame)
+				sprite_frames.add_frame(name,atlas_tex,1.0,frame)
 
 func parse_button() -> void:
 	parse_xml()

@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c06pc442r215b"
-path="res://.godot/imported/bardark.png-6ac32db1ef81673a4947e12335f3d480.ctex"
+uid="uid://dl0a6kigswlpw"
+path="res://.godot/imported/icon-spooky.png-5d67c83d8683a49d1fbe9b5fbc621b64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/game/ui/irida/bardark.png"
-dest_files=["res://.godot/imported/bardark.png-6ac32db1ef81673a4947e12335f3d480.ctex"]
+source_file="res://assets/images/game/icons/icon-spooky.png"
+dest_files=["res://.godot/imported/icon-spooky.png-5d67c83d8683a49d1fbe9b5fbc621b64.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

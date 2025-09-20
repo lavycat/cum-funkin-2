@@ -1,0 +1,227 @@
+[gd_scene load_steps=28 format=3 uid="uid://ctwujk7d4l8el"]
+
+[ext_resource type="Script" uid="uid://bku46g8d38pqw" path="res://scenes/game/stages/stage.gd" id="1_e5wwi"]
+[ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="2_fxf7k"]
+[ext_resource type="Texture2D" uid="uid://co3dprd6628sf" path="res://assets/images/game/stages/spooky/halloween_bg.png" id="3_e5wwi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp3mu"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(0, 0, 2114, 1075)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ditv4"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(2124, 0, 2114, 1075)
+margin = Rect2(0, 0, 0, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ss35"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(4248, 0, 2114, 1000)
+margin = Rect2(0, 0, 0, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nncqh"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(0, 1085, 2114, 1090)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d3d8"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(2124, 1085, 2114, 1081)
+margin = Rect2(0, 0, 0, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_603gl"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(4248, 1085, 2114, 1081)
+margin = Rect2(0, 0, 0, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qltk"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(4248, 1085, 2114, 1081)
+margin = Rect2(0, 0, 0, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3i8d"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(0, 2185, 2114, 1081)
+margin = Rect2(0, 0, 0, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g474s"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(2124, 2185, 2114, 1081)
+margin = Rect2(0, 0, 0, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccud3"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(4248, 2185, 2114, 1080)
+margin = Rect2(0, 0, 0, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqmbt"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(0, 3276, 2114, 1080)
+margin = Rect2(0, 0, 0, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b2y1"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(2124, 3276, 2114, 1080)
+margin = Rect2(0, 0, 0, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay4oh"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(4248, 3276, 2114, 1080)
+margin = Rect2(0, 0, 0, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg5y3"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(0, 4366, 2114, 1080)
+margin = Rect2(0, 0, 0, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hurx2"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(2124, 4366, 2114, 1080)
+margin = Rect2(0, 0, 0, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yre8g"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(4248, 4366, 2114, 1080)
+margin = Rect2(0, 0, 0, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mjdc"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(0, 5456, 2114, 1079)
+margin = Rect2(0, 0, 0, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw2rf"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(2124, 5456, 2114, 1079)
+margin = Rect2(0, 0, 0, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkwof"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(4248, 5456, 2114, 1079)
+margin = Rect2(0, 0, 0, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5bgf"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(0, 6545, 2114, 1079)
+margin = Rect2(0, 0, 0, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4ira"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(2124, 6545, 2114, 1078)
+margin = Rect2(0, 0, 0, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7je8"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(4248, 6545, 2114, 1078)
+margin = Rect2(0, 0, 0, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eujl"]
+atlas = ExtResource("3_e5wwi")
+region = Rect2(0, 0, 2114, 1075)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70h4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp3mu")
+}],
+"loop": false,
+"name": &"halloweem bg",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ditv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ss35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nncqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d3d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_603gl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qltk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3i8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g474s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccud3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqmbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b2y1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ay4oh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg5y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hurx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yre8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mjdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw2rf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkwof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5bgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4ira")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7je8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eujl")
+}],
+"loop": false,
+"name": &"halloweem bg lightning strike",
+"speed": 24.0
+}]
+
+[node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
+script = ExtResource("1_e5wwi")
+cam = NodePath("cam")
+default_cam_zoom = 0.9
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="dad_position" type="Marker2D" parent="."]
+position = Vector2(314, 776)
+
+[node name="gf_position" type="Marker2D" parent="."]
+position = Vector2(646, 760)
+
+[node name="bf_position" type="Marker2D" parent="."]
+position = Vector2(1069, 776)
+
+[node name="SparrowAtlas" type="AnimatedSprite2D" parent="."]
+position = Vector2(-200, -100)
+sprite_frames = SubResource("SpriteFrames_70h4u")
+animation = &"halloweem bg"
+centered = false
+script = ExtResource("2_fxf7k")
+tex = ExtResource("3_e5wwi")
+metadata/_custom_type_script = "uid://nqu72cn7ch25"

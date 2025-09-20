@@ -93,10 +93,15 @@ static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
 		var n:String
 		var v:Array = []
 		if i.e == "FocusCamera":
+			
 			n = "camera_pan"
-			for q in i.v.values():
-				q = int(!q)
-				v.append(q)
+			if i.v is float:
+				v.append(!int(i.v) as int)
+			else:
+				for q in i.v.values():
+					print(i.v.values().size())
+					q = int(!q)
+					v.append(q)
 		else:
 			v = i.get("v",{}).values()
 			n = i.e.to_snake_case()
