@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://2wc0a80nn6mi"]
+
+[ext_resource type="Texture2D" uid="uid://bwwf62gbgyunj" path="res://assets/images/menus/weeks/week4.png" id="1_ak03i"]
+[ext_resource type="Script" uid="uid://candpblad8chk" path="res://scripts/resource/level.gd" id="1_m06po"]
+
+[resource]
+script = ExtResource("1_m06po")
+name = &"Mommy Must Murder!!!"
+songs = Array[StringName]([&"satin-panties", &"high", &"milf"])
+level_image = ExtResource("1_ak03i")
+metadata/_custom_type_script = "uid://candpblad8chk"

@@ -68,7 +68,7 @@ animations = [{
 
 [node name="StoryMenu" type="Node2D"]
 script = ExtResource("1_3fasx")
-weeks = Array[StringName]([&"week1", &"week2", &"week3"])
+weeks = Array[StringName]([&"week1", &"week2", &"week3", &"week4"])
 metadata/_edit_horizontal_guides_ = [-332.0]
 
 [node name="bottom" type="ColorRect" parent="."]

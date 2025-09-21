@@ -1,18 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://qvpd1n7acunr"]
+[gd_scene load_steps=5 format=3 uid="uid://qvpd1n7acunr"]
 
 [ext_resource type="Script" uid="uid://bkt2kx7lyad8" path="res://scenes/menus/free_play.gd" id="1_8le71"]
 [ext_resource type="Texture2D" uid="uid://00q6vqo4ygeq" path="res://assets/images/menus/menuDesat.png" id="1_y8dq1"]
 [ext_resource type="FontFile" uid="uid://c5chw3mxyist4" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="3_kbhff"]
-[ext_resource type="Texture2D" uid="uid://b64380nlyb51s" path="res://assets/images/th-3339884062.jpg" id="4_bfb2o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bfb2o"]
 font = ExtResource("3_kbhff")
 font_size = 24
-outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 4)
 
 [node name="FreePlay" type="Node2D"]
 script = ExtResource("1_8le71")
-list = Array[String](["bopeebo", "fresh", "dadbattle", "spookeez", "south", "pico", "philly-nice", "blammed", "high", "2hot"])
+list = Array[String](["bopeebo", "fresh", "dadbattle", "spookeez", "south", "pico", "philly-nice", "blammed", "satin-panties", "high", "milf"])
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0, 0)
@@ -50,9 +51,5 @@ text = "open modifiers"
 [node name="camera" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 9.0
-
-[node name="Th3339884062" type="Sprite2D" parent="."]
-position = Vector2(373, 263)
-texture = ExtResource("4_bfb2o")
 
 [connection signal="button_down" from="Parallax2D/Button" to="." method="open_game_mods_menu"]

@@ -28,6 +28,7 @@ AudioManager="*res://autoload/scenes/audio_manager.tscn"
 HighScore="*res://autoload/scripts/high_score.gd"
 SceneManager="*res://autoload/scenes/scene_manager.tscn"
 MobileControls="*res://autoload/scenes/mobile_controls.tscn"
+DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 
 [debug]
 
@@ -55,7 +56,7 @@ movie_writer/mjpeg_quality=0.33
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdanimate/plugin.cfg")
+enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg", "res://addons/gdanimate/plugin.cfg")
 
 [global_group]
 

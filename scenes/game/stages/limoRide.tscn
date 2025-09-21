@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://p6fj4hvha64x"]
+[gd_scene load_steps=20 format=3 uid="uid://p6fj4hvha64x"]
 
 [ext_resource type="Script" uid="uid://bku46g8d38pqw" path="res://scenes/game/stages/stage.gd" id="1_mv7ua"]
 [ext_resource type="Texture2D" uid="uid://c7rs2y0id5dhf" path="res://assets/images/game/stages/limo/limoSunset.png" id="3_yh617"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://syeytp2fsl6i" path="res://assets/images/game/stages/limo/bgLimo.png" id="6_ho4wk"]
 [ext_resource type="Script" uid="uid://bc7k17q8b3voj" path="res://scenes/game/stages/men.gd" id="6_xspah"]
 [ext_resource type="Texture2D" uid="uid://drt130oc6hwns" path="res://assets/images/game/stages/limo/limoDrive.png" id="6_y7fng"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xspah"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ydhl"]
 atlas = ExtResource("6_ho4wk")
@@ -108,6 +110,7 @@ position = Vector2(1217, 592)
 scroll_scale = Vector2(0.1, 0.1)
 
 [node name="LimoSunset" type="Sprite2D" parent="Parallax2D2"]
+material = SubResource("CanvasItemMaterial_xspah")
 position = Vector2(-120, -50)
 texture = ExtResource("3_yh617")
 centered = false

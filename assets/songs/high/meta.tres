@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SongMeta" load_steps=4 format=3 uid="uid://dadvagv53evow"]
+
+[ext_resource type="PackedScene" uid="uid://brcc3ta5oahnp" path="res://scenes/game/huds/funkin.tscn" id="1_qj45g"]
+[ext_resource type="Texture2D" uid="uid://o6n6r1edyc0x" path="res://assets/images/game/icons/icon-mom.png" id="2_30xje"]
+[ext_resource type="Script" uid="uid://0wvgw6kj6j2f" path="res://scripts/data/song_meta.gd" id="3_qjwci"]
+
+[resource]
+script = ExtResource("3_qjwci")
+icon = ExtResource("2_30xje")
+color = Color(0.84705883, 0.33333334, 0.5568628, 1)
+metadata/_custom_type_script = "uid://0wvgw6kj6j2f"

@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_s5e3w")
-name = &"daddy time!"
+name = &"spooky time!"
 songs = Array[StringName]([&"spookeez", &"south"])
 level_image = ExtResource("1_yco01")
 level_stage = ExtResource("2_47tj5")

@@ -17,9 +17,14 @@ func _enter_tree() -> void:
 	Input.use_accumulated_input = false
 	root = get_tree().get_root()
 	RenderingServer.set_default_clear_color(Color.BLACK)
-	preload_all_characters()
 	print("Audio Driver -> %s" % AudioServer.get_driver_name())
 	print("Rendering Driver -> %s"%RenderingServer.get_current_rendering_driver_name())
+
+func _ready() -> void:
+	await RenderingServer.frame_post_draw
+	DiscordRPC.app_id = 1419266924252106847
+	DiscordRPC.refresh()
+	print("DISCORD RPC WORKING: %s"%DiscordRPC.get_is_discord_working())
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_APPLICATION_FOCUS_OUT:
