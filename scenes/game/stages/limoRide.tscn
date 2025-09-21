@@ -1,0 +1,179 @@
+[gd_scene load_steps=19 format=3 uid="uid://p6fj4hvha64x"]
+
+[ext_resource type="Script" uid="uid://bku46g8d38pqw" path="res://scenes/game/stages/stage.gd" id="1_mv7ua"]
+[ext_resource type="Texture2D" uid="uid://c7rs2y0id5dhf" path="res://assets/images/game/stages/limo/limoSunset.png" id="3_yh617"]
+[ext_resource type="Texture2D" uid="uid://cpluukecl4tg2" path="res://assets/images/game/stages/limo/fastCarLol.png" id="4_y7fng"]
+[ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="5_y7fng"]
+[ext_resource type="SpriteFrames" uid="uid://bbpwddocyxghh" path="res://assets/images/game/stages/limo/henchmen.res" id="6_emr3m"]
+[ext_resource type="Texture2D" uid="uid://syeytp2fsl6i" path="res://assets/images/game/stages/limo/bgLimo.png" id="6_ho4wk"]
+[ext_resource type="Script" uid="uid://bc7k17q8b3voj" path="res://scenes/game/stages/men.gd" id="6_xspah"]
+[ext_resource type="Texture2D" uid="uid://drt130oc6hwns" path="res://assets/images/game/stages/limo/limoDrive.png" id="6_y7fng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ydhl"]
+atlas = ExtResource("6_ho4wk")
+region = Rect2(0, 0, 2199, 379)
+margin = Rect2(19, 5, 19, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8r53"]
+atlas = ExtResource("6_ho4wk")
+region = Rect2(0, 389, 2218, 380)
+margin = Rect2(0, 4, 0, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ye6v"]
+atlas = ExtResource("6_ho4wk")
+region = Rect2(0, 779, 2199, 384)
+margin = Rect2(19, 0, 19, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hq5k"]
+atlas = ExtResource("6_ho4wk")
+region = Rect2(0, 1173, 2199, 384)
+margin = Rect2(19, 0, 19, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_op2hq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ydhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8r53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ye6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hq5k")
+}],
+"loop": true,
+"name": &"background limo pink",
+"speed": 24.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut4je"]
+atlas = ExtResource("6_y7fng")
+region = Rect2(0, 0, 2048, 646)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wvqt"]
+atlas = ExtResource("6_y7fng")
+region = Rect2(0, 656, 2048, 646)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kawbt"]
+atlas = ExtResource("6_y7fng")
+region = Rect2(0, 1312, 2048, 646)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5bjs"]
+atlas = ExtResource("6_y7fng")
+region = Rect2(0, 0, 2048, 646)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r37cf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ut4je")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wvqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kawbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5bjs")
+}],
+"loop": false,
+"name": &"Limo stage",
+"speed": 24.0
+}]
+
+[node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
+script = ExtResource("1_mv7ua")
+cam = NodePath("cam")
+default_cam_zoom = 0.9
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="dad_position" type="Marker2D" parent="."]
+position = Vector2(330, 880)
+
+[node name="gf_position" type="Marker2D" parent="."]
+position = Vector2(787, 779)
+
+[node name="bf_position" type="Marker2D" parent="."]
+position = Vector2(1217, 592)
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="LimoSunset" type="Sprite2D" parent="Parallax2D2"]
+position = Vector2(-120, -50)
+texture = ExtResource("3_yh617")
+centered = false
+
+[node name="fast_car" type="Sprite2D" parent="."]
+position = Vector2(-2862, 955)
+texture = ExtResource("4_y7fng")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.4, 0.4)
+
+[node name="car" type="AnimatedSprite2D" parent="Parallax2D"]
+position = Vector2(-200, 480)
+sprite_frames = SubResource("SpriteFrames_op2hq")
+animation = &"background limo pink"
+autoplay = "background limo pink"
+frame_progress = 0.6639372
+centered = false
+script = ExtResource("5_y7fng")
+tex = ExtResource("6_ho4wk")
+metadata/_custom_type_script = "uid://nqu72cn7ch25"
+
+[node name="men" type="Node2D" parent="Parallax2D"]
+script = ExtResource("6_xspah")
+
+[node name="1" type="AnimatedSprite2D" parent="Parallax2D/men"]
+position = Vector2(100, 100)
+sprite_frames = ExtResource("6_emr3m")
+animation = &"dance_left"
+centered = false
+metadata/_custom_type_script = "uid://nqu72cn7ch25"
+
+[node name="2" type="AnimatedSprite2D" parent="Parallax2D/men"]
+position = Vector2(400, 100)
+sprite_frames = ExtResource("6_emr3m")
+animation = &"dance_left"
+centered = false
+metadata/_custom_type_script = "uid://nqu72cn7ch25"
+
+[node name="3" type="AnimatedSprite2D" parent="Parallax2D/men"]
+position = Vector2(700, 100)
+sprite_frames = ExtResource("6_emr3m")
+animation = &"dance_left"
+centered = false
+metadata/_custom_type_script = "uid://nqu72cn7ch25"
+
+[node name="4" type="AnimatedSprite2D" parent="Parallax2D/men"]
+position = Vector2(1000, 100)
+sprite_frames = ExtResource("6_emr3m")
+animation = &"dance_left"
+centered = false
+metadata/_custom_type_script = "uid://nqu72cn7ch25"
+
+[node name="5" type="AnimatedSprite2D" parent="Parallax2D/men"]
+position = Vector2(1300, 100)
+sprite_frames = ExtResource("6_emr3m")
+animation = &"dance_left"
+centered = false
+metadata/_custom_type_script = "uid://nqu72cn7ch25"
+
+[node name="SparrowAtlas" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(-120, 550)
+sprite_frames = SubResource("SpriteFrames_r37cf")
+animation = &"Limo stage"
+centered = false
+script = ExtResource("5_y7fng")
+tex = ExtResource("6_y7fng")
+metadata/_custom_type_script = "uid://nqu72cn7ch25"

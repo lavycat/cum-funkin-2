@@ -2855,6 +2855,6 @@ position = Vector2(-119, -304)
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -185)
 sprite_frames = SubResource("SpriteFrames_kugbj")
-animation = &"BF idle dance"
+animation = &"BF HEY!!"
 script = ExtResource("4_gwoct")
 tex = ExtResource("3_ki3j3")

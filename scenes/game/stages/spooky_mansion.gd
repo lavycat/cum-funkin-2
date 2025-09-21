@@ -9,6 +9,7 @@ func lightning_strike(play_sound:bool,beat:int):
 		thunder.play()
 	bg.play("halloweem bg lightning strike")
 	lightning_strike_beat = beat
+	randomize()
 	lightning_strike_offset = randi_range(8,24)
 	game.bf.play_anim("scared",true)
 	game.gf.play_anim("scared",true)

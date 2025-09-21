@@ -1195,7 +1195,7 @@ script = ExtResource("3_rttwv")
 sprite = NodePath("../sprite")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-289, -549)
+position = Vector2(-247, -549)
 sprite_frames = SubResource("SpriteFrames_bfm6w")
 animation = &"Idle"
 centered = false
