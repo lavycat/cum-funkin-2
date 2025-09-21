@@ -2850,7 +2850,7 @@ libraries = {
 }
 
 [node name="camera_position" type="Marker2D" parent="."]
-position = Vector2(-183, -275)
+position = Vector2(-119, -304)
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -185)

@@ -85,7 +85,7 @@ offset_bottom = -0.0800018
 mouse_filter = 2
 
 [node name="healthbar" type="ProgressBar" parent="bar"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 6.0
 offset_top = 4.0
 offset_right = 594.0
@@ -100,7 +100,7 @@ metadata/_edit_lock_ = true
 
 [node name="healthbarbg" type="ColorRect" parent="bar"]
 show_behind_parent = true
-layout_mode = 2
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2

@@ -1,8 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://ctwujk7d4l8el"]
+[gd_scene load_steps=31 format=3 uid="uid://ctwujk7d4l8el"]
 
-[ext_resource type="Script" uid="uid://bku46g8d38pqw" path="res://scenes/game/stages/stage.gd" id="1_e5wwi"]
+[ext_resource type="Script" uid="uid://dgo36rburyvif" path="res://scenes/game/stages/spooky_mansion.gd" id="1_fxf7k"]
 [ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="2_fxf7k"]
 [ext_resource type="Texture2D" uid="uid://co3dprd6628sf" path="res://assets/images/game/stages/spooky/halloween_bg.png" id="3_e5wwi"]
+[ext_resource type="AudioStream" uid="uid://lb3e8sn6bcu7" path="res://assets/sounds/thunder_1.ogg" id="4_0idl5"]
+[ext_resource type="AudioStream" uid="uid://bdelthjxw5sgd" path="res://assets/sounds/thunder_2.ogg" id="5_3enm3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qp3mu"]
 atlas = ExtResource("3_e5wwi")
@@ -198,26 +200,23 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dslus"]
+playback_mode = 1
+streams_count = 2
+stream_0/stream = ExtResource("4_0idl5")
+stream_1/stream = ExtResource("5_3enm3")
+
 [node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
-script = ExtResource("1_e5wwi")
+script = ExtResource("1_fxf7k")
 cam = NodePath("cam")
-default_cam_zoom = 0.9
+default_cam_zoom = 1.0
 
 [node name="cam" type="Camera2D" parent="."]
 position = Vector2(640, 360)
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
-[node name="dad_position" type="Marker2D" parent="."]
-position = Vector2(314, 776)
-
-[node name="gf_position" type="Marker2D" parent="."]
-position = Vector2(646, 760)
-
-[node name="bf_position" type="Marker2D" parent="."]
-position = Vector2(1069, 776)
-
-[node name="SparrowAtlas" type="AnimatedSprite2D" parent="."]
+[node name="bg" type="AnimatedSprite2D" parent="."]
 position = Vector2(-200, -100)
 sprite_frames = SubResource("SpriteFrames_70h4u")
 animation = &"halloweem bg"
@@ -225,3 +224,15 @@ centered = false
 script = ExtResource("2_fxf7k")
 tex = ExtResource("3_e5wwi")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
+
+[node name="dad_position" type="Marker2D" parent="."]
+position = Vector2(384, 831)
+
+[node name="gf_position" type="Marker2D" parent="."]
+position = Vector2(752, 787)
+
+[node name="bf_position" type="Marker2D" parent="."]
+position = Vector2(990, 885)
+
+[node name="thunder" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_dslus")

@@ -36,3 +36,6 @@ func _input(event: InputEvent) -> void:
 			root.mode = Window.MODE_WINDOWED
 		else:
 			root.mode = Window.MODE_FULLSCREEN
+func rand_bool(chance:int = 50) -> bool:
+	randomize()
+	return randf_range(0,1) < chance/100.0
