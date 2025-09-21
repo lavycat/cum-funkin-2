@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://p6fj4hvha64x"]
 
-[ext_resource type="Script" uid="uid://bku46g8d38pqw" path="res://scenes/game/stages/stage.gd" id="1_mv7ua"]
+[ext_resource type="Script" uid="uid://b13bj83fhbebe" path="res://scenes/game/stages/limo_ride.gd" id="1_xspah"]
 [ext_resource type="Texture2D" uid="uid://c7rs2y0id5dhf" path="res://assets/images/game/stages/limo/limoSunset.png" id="3_yh617"]
 [ext_resource type="Texture2D" uid="uid://cpluukecl4tg2" path="res://assets/images/game/stages/limo/fastCarLol.png" id="4_y7fng"]
 [ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="5_y7fng"]
@@ -88,7 +88,7 @@ animations = [{
 }]
 
 [node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
-script = ExtResource("1_mv7ua")
+script = ExtResource("1_xspah")
 cam = NodePath("cam")
 default_cam_zoom = 0.9
 

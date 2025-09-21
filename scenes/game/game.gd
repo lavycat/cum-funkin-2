@@ -202,6 +202,8 @@ func _ready() -> void:
 	
 
 	Conductor.time = -Conductor.beat_length*3.0
+
+	
 var filter_audio:AudioEffectFilter = AudioServer.get_bus_effect(0,1) as AudioEffectFilter
 func note_miss(note:Note):
 	filter_audio.resonance = 1
@@ -236,6 +238,9 @@ func _process(delta: float) -> void:
 	queue_redraw()
 	if is_equal_approx(health,0):
 		get_tree().reload_current_scene()
+	if song_started:
+		DiscordRPC.details = "Playing: %s -> %s/%s"%[song_name.to_pascal_case(),Global.time_convert(Conductor.time),Global.time_convert(Conductor.player.stream.get_length())]
+		DiscordRPC.refresh()
 	if Conductor.player.get_playback_position() == 0 and song_started:
 		var save_stats = player_field.stats
 		if opponent_mode:
@@ -300,6 +305,8 @@ func step_hit(step:int):
 	
 	
 func return_to_menu():
+	DiscordRPC.details = "In Menus"
+	DiscordRPC.refresh()
 	cache.clear()
 	tracks.player.stop()
 	Conductor.rate = 1

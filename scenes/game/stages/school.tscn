@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://d032xb8jcsofg"]
+
+[ext_resource type="Script" uid="uid://bku46g8d38pqw" path="res://scenes/game/stages/stage.gd" id="1_jimvn"]
+[ext_resource type="Texture2D" uid="uid://w775q48u3nvj" path="res://assets/images/game/stages/school/weebSky.png" id="4_jimvn"]
+[ext_resource type="Texture2D" uid="uid://ddicdnr4ayifo" path="res://assets/images/game/stages/school/weebBackTrees.png" id="4_uxjsy"]
+[ext_resource type="Texture2D" uid="uid://dux1f43ffnibd" path="res://assets/images/game/stages/school/weebStreet.png" id="5_pryxg"]
+[ext_resource type="Texture2D" uid="uid://dv22y23sm4muk" path="res://assets/images/game/stages/school/weebSchool.png" id="5_uxjsy"]
+[ext_resource type="Texture2D" uid="uid://beysj8whxt3qs" path="res://assets/images/game/stages/school/weebTreesBack.png" id="6_pryxg"]
+[ext_resource type="SpriteFrames" uid="uid://cqjo2fvhl3sjt" path="res://assets/images/game/stages/school/bgFreaks.res" id="7_c2s20"]
+
+[node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
+script = ExtResource("1_jimvn")
+cam = NodePath("cam")
+default_cam_zoom = 1.0
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="dad_position" type="Marker2D" parent="."]
+position = Vector2(306, 960)
+
+[node name="gf_position" type="Marker2D" parent="."]
+position = Vector2(724, 823)
+
+[node name="bf_position" type="Marker2D" parent="."]
+position = Vector2(1168, 900)
+
+[node name="bg" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="Parallax2D" type="Parallax2D" parent="bg"]
+scale = Vector2(6, 6)
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="WeebSky" type="Sprite2D" parent="bg/Parallax2D"]
+texture = ExtResource("4_jimvn")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="bg"]
+scroll_scale = Vector2(0.75, 0.75)
+
+[node name="WeebSchool" type="Sprite2D" parent="bg/Parallax2D2"]
+position = Vector2(-816, -38)
+scale = Vector2(6, 6)
+texture = ExtResource("5_uxjsy")
+centered = false
+
+[node name="Parallax2D3" type="Parallax2D" parent="bg"]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="WeebTreesBack" type="Sprite2D" parent="bg/Parallax2D3"]
+position = Vector2(-816, -38)
+scale = Vector2(6, 6)
+texture = ExtResource("4_uxjsy")
+centered = false
+
+[node name="WeebStreet" type="Sprite2D" parent="bg"]
+position = Vector2(-662, -80)
+scale = Vector2(6, 6)
+texture = ExtResource("5_pryxg")
+centered = false
+
+[node name="WeebTreesBack" type="Sprite2D" parent="bg"]
+position = Vector2(-500, 6)
+scale = Vector2(6, 6)
+texture = ExtResource("6_pryxg")
+centered = false
+
+[node name="girls" type="AnimatedSprite2D" parent="bg"]
+position = Vector2(-646, 222)
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("7_c2s20")
+animation = &"BG girls group"
+frame = 29
+frame_progress = 1.0
+centered = false

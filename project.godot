@@ -14,7 +14,7 @@ config/name="cum funkin 2"
 run/main_scene="uid://cvk4hy2jbxbec"
 config/features=PackedStringArray("4.5", "Mobile")
 run/delta_smoothing=false
-config/icon="res://icon.svg"
+config/icon="uid://b4dbwyammpitt"
 boot_splash/minimum_display_time=500
 
 [autoload]
@@ -56,7 +56,7 @@ movie_writer/mjpeg_quality=0.33
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg", "res://addons/gdanimate/plugin.cfg")
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/discord-rpc-gd/plugin.cfg", "res://addons/gdanimate/plugin.cfg")
 
 [global_group]
 
@@ -181,11 +181,6 @@ ui_open_gamemods={
 [internationalization]
 
 rendering/text_driver="ICU / HarfBuzz / Graphite (Built-in)"
-
-[physics]
-
-2d/physics_engine="Dummy"
-3d/physics_engine="Dummy"
 
 [rendering]
 

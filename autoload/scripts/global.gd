@@ -19,10 +19,14 @@ func _enter_tree() -> void:
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	print("Audio Driver -> %s" % AudioServer.get_driver_name())
 	print("Rendering Driver -> %s"%RenderingServer.get_current_rendering_driver_name())
-
+func time_convert(time_in_sec:int) -> String:
+	var seconds = time_in_sec%60
+	var minutes = (time_in_sec/60)%60
+	#returns a string with the format "HH:MM:SS"
+	return "%01d:%02d" % [minutes, seconds]
 func _ready() -> void:
-	await RenderingServer.frame_post_draw
 	DiscordRPC.app_id = 1419266924252106847
+	DiscordRPC.large_image = "default"
 	DiscordRPC.refresh()
 	print("DISCORD RPC WORKING: %s"%DiscordRPC.get_is_discord_working())
 func _notification(what: int) -> void:
