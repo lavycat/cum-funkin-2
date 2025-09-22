@@ -35,11 +35,12 @@ scale = Vector2(6, 6)
 scroll_scale = Vector2(0.2, 0.2)
 
 [node name="WeebSky" type="Sprite2D" parent="bg/Parallax2D"]
+position = Vector2(-100, 0)
 texture = ExtResource("4_jimvn")
 centered = false
 
 [node name="Parallax2D2" type="Parallax2D" parent="bg"]
-scroll_scale = Vector2(0.75, 0.75)
+scroll_scale = Vector2(0.75, 0.9)
 
 [node name="WeebSchool" type="Sprite2D" parent="bg/Parallax2D2"]
 position = Vector2(-816, -38)
@@ -48,16 +49,17 @@ texture = ExtResource("5_uxjsy")
 centered = false
 
 [node name="Parallax2D3" type="Parallax2D" parent="bg"]
+visible = false
 scroll_scale = Vector2(0.5, 0.5)
 
 [node name="WeebTreesBack" type="Sprite2D" parent="bg/Parallax2D3"]
-position = Vector2(-816, -38)
+position = Vector2(-816, -86)
 scale = Vector2(6, 6)
 texture = ExtResource("4_uxjsy")
 centered = false
 
 [node name="WeebStreet" type="Sprite2D" parent="bg"]
-position = Vector2(-662, -80)
+position = Vector2(-662, -56)
 scale = Vector2(6, 6)
 texture = ExtResource("5_pryxg")
 centered = false
@@ -69,10 +71,10 @@ texture = ExtResource("6_pryxg")
 centered = false
 
 [node name="girls" type="AnimatedSprite2D" parent="bg"]
-position = Vector2(-646, 222)
+position = Vector2(-646, 160)
 scale = Vector2(6, 6)
 sprite_frames = ExtResource("7_c2s20")
-animation = &"BG girls group"
-frame = 29
-frame_progress = 1.0
+animation = &"BG fangirls dissuaded"
+autoplay = "BG fangirls dissuaded"
+frame_progress = 0.70849276
 centered = false

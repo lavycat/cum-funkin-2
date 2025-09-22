@@ -47,7 +47,7 @@ centered = false
 
 [node name="WeebStreet" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-662, 6)
+position = Vector2(-662, 4)
 scale = Vector2(6, 6)
 texture = ExtResource("4_khy1w")
 centered = false
