@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxiw3vm18gk8f"]
+
+[ext_resource type="Script" uid="uid://bku46g8d38pqw" path="res://scenes/game/stages/stage.gd" id="1_43l4e"]
+[ext_resource type="Texture2D" uid="uid://cw6fbvnh8lhef" path="res://assets/images/game/stages/school_evil/weebBackTrees.png" id="2_navv4"]
+[ext_resource type="Texture2D" uid="uid://lb6upr7ltcl2" path="res://assets/images/game/stages/school_evil/weebSchool.png" id="3_d0wrr"]
+[ext_resource type="Texture2D" uid="uid://qrm5mf57c3sc" path="res://assets/images/game/stages/school_evil/weebStreet.png" id="4_khy1w"]
+[ext_resource type="Texture2D" uid="uid://3p56t8hxl4u5" path="res://assets/images/game/stages/school_evil/weebTrees.png" id="5_sad5q"]
+
+[node name="Stage" type="Node2D" node_paths=PackedStringArray("cam")]
+script = ExtResource("1_43l4e")
+cam = NodePath("cam")
+default_cam_zoom = 1.0
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="dad_position" type="Marker2D" parent="."]
+position = Vector2(0, 648)
+
+[node name="gf_position" type="Marker2D" parent="."]
+position = Vector2(724, 823)
+
+[node name="bf_position" type="Marker2D" parent="."]
+position = Vector2(1168, 900)
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="WeebBackTrees" type="Sprite2D" parent="Parallax2D2"]
+texture_filter = 1
+position = Vector2(-842, -80)
+scale = Vector2(6, 6)
+texture = ExtResource("2_navv4")
+centered = false
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.75, 0.75)
+
+[node name="WeebSchool" type="Sprite2D" parent="Parallax2D"]
+texture_filter = 1
+position = Vector2(-816, -38)
+scale = Vector2(6, 6)
+texture = ExtResource("3_d0wrr")
+centered = false
+
+[node name="WeebStreet" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-662, 6)
+scale = Vector2(6, 6)
+texture = ExtResource("4_khy1w")
+centered = false
+
+[node name="WeebTrees" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-662, 6)
+scale = Vector2(6, 6)
+texture = ExtResource("5_sad5q")
+centered = false

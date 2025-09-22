@@ -14,7 +14,7 @@ config/name="cum funkin 2"
 run/main_scene="uid://cvk4hy2jbxbec"
 config/features=PackedStringArray("4.5", "Mobile")
 run/delta_smoothing=false
-config/icon="uid://b4dbwyammpitt"
+config/icon="uid://b80ij6y2v26ln"
 boot_splash/minimum_display_time=500
 
 [autoload]
