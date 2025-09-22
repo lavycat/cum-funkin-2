@@ -184,5 +184,5 @@ rendering/text_driver="ICU / HarfBuzz / Graphite (Built-in)"
 
 [rendering]
 
-renderer/rendering_method="mobile"
+rendering_device/driver.windows="d3d12"
 textures/vram_compression/import_etc2_astc=true
