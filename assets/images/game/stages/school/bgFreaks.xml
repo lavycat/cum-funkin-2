@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="bgFreaks.png">
 	<SubTexture name="BG fangirls dissuaded0000" x="0" y="0" width="451" height="96" />
 	<SubTexture name="BG fangirls dissuaded0001" x="0" y="0" width="451" height="96" />

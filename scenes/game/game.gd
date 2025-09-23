@@ -18,6 +18,7 @@ var camera_lerp_position:Vector2 = Vector2.ZERO
 var default_camera_zoom:Vector2 = Vector2.ONE
 static var cache:Dictionary[String,PackedScene] = {}
 var camera:Camera2D = null
+var camera_bump_modulo:int = 4
 var stage:Stage
 var dad:Character
 var gf:Character
@@ -294,11 +295,12 @@ func _input(event: InputEvent) -> void:
 			else:
 				player_field.auto_play = not player_field.auto_play
 func measure_hit(measure:int):
-	if measure > 0:
-		if camera_bumps and Save.json.get("cam_bumps",false):
+	pass
+func beat_hit(beat:int):
+	if camera_bumps and Save.json.get("cam_bumps",false):
+		if beat % camera_bump_modulo == 0:
 			hud.scale += hud_bump
 			camera.zoom += game_bump
-func beat_hit(beat:int):
 	pass
 func step_hit(step:int):
 	pass
