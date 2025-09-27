@@ -97,17 +97,20 @@ static func load_vslice(meta:Dictionary,json:Dictionary,diff:String):
 			n = "camera_pan"
 			if i.v is float:
 				v.append(!int(i.v) as int)
-			else:
+			if i.v is Dictionary:
 				for q in i.v.values():
-					print(i.v.values().size())
-					q = int(!q)
-					v.append(q)
+					var pos = Vector2(i.v.get("x",0),i.v.get("x",0))
+					var dur:float = i.v.get("duration",4.0)
+					var char:int = i.v.char < 1
+					var ease_str:String = i.v.get("ease","CLASSIC")
+					if ease_str == "CLASSIC":
+						v.append(char)
 		else:
 			v = i.get("v",{}).values()
 			n = i.e.to_snake_case()
 		add_event(c,i.t/1000.0,n,v)
 	var notes = json.notes.get(diff)
-	var scrollspeed = json.scrollSpeed.get(diff)
+	var scrollspeed = json.scrollSpeed.get(diff,1.0)
 	c.scroll_speed = scrollspeed
 	for i in notes:
 		

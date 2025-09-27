@@ -10,7 +10,6 @@ func trigger(event_time: float, event_values: Array) -> void:
 
 	for i: Character in chars:
 		i.camera_focus = false
-
 	if vals[0] > chars.size() - 1:
 		return
 

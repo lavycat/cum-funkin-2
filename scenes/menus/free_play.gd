@@ -20,7 +20,6 @@ var game_mods_open:bool = false
 func get_song_meta(i:int) -> SongMeta:
 	if song_metas.size() > i:
 		return song_metas[i]
-	print("w")
 	const songs_folder = "res://assets/songs/"
 	var meta_path:String = songs_folder + list[i] + "/meta.tres"
 	if ResourceLoader.exists(meta_path):

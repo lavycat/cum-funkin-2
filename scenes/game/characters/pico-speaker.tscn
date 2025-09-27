@@ -1,0 +1,197 @@
+[gd_scene load_steps=11 format=3 uid="uid://bjeog7vjxw4qs"]
+
+[ext_resource type="Script" uid="uid://bmu10p3etp6ca" path="res://scenes/game/characters/pico_speaker.gd" id="1_njpwr"]
+[ext_resource type="Script" uid="uid://bmbfirbywm1e3" path="res://scripts/animation_importer.gd" id="3_yx2om"]
+[ext_resource type="SpriteFrames" uid="uid://bhqqmcybmv4e6" path="res://assets/images/game/characters/pico/picoSpeaker.res" id="4_u3lew"]
+[ext_resource type="Script" uid="uid://nqu72cn7ch25" path="res://scripts/sparrow_atlas.gd" id="5_v81vs"]
+[ext_resource type="Texture2D" uid="uid://chqaubffaykxb" path="res://assets/images/game/characters/gf/gfCar.png" id="6_wqs2i"]
+
+[sub_resource type="Animation" id="Animation_iglk5"]
+length = 2.5
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"Pico shoot 2"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 59]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(48.41, 63.91)]
+}
+
+[sub_resource type="Animation" id="Animation_u3lew"]
+length = 1.0833334
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"Pico shoot 1"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.0833334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 25]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tgu07"]
+length = 2.2083333
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"Pico shoot 4"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.2083333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 52]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-456, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_yx2om"]
+length = 2.2083333
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [&"Pico shoot 3"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.2083333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 52]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-445, 31)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v81vs"]
+_data = {
+&"sing_down": SubResource("Animation_iglk5"),
+&"sing_left": SubResource("Animation_u3lew"),
+&"sing_right": SubResource("Animation_tgu07"),
+&"sing_up": SubResource("Animation_yx2om")
+}
+
+[node name="pico-speaker" type="Node2D" node_paths=PackedStringArray("player")]
+z_as_relative = false
+script = ExtResource("1_njpwr")
+player = NodePath("player")
+dance_steps = Array[String]([])
+
+[node name="player" type="AnimationPlayer" parent="." node_paths=PackedStringArray("sprite")]
+libraries = {
+&"": SubResource("AnimationLibrary_v81vs")
+}
+script = ExtResource("3_yx2om")
+sprite = NodePath("../sprite")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(226, -396)
+sprite_frames = ExtResource("4_u3lew")
+animation = &"Pico shoot 2"
+offset = Vector2(48.41, 63.91)
+script = ExtResource("5_v81vs")
+tex = ExtResource("6_wqs2i")
+metadata/_custom_type_script = "uid://nqu72cn7ch25"

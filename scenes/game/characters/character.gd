@@ -52,7 +52,7 @@ func sing(dir:int,miss:bool = false,alt:bool = false):
 
 	play_anim(anim_to_play,true)
 func dance():
-	if not can_dance:
+	if not can_dance or (dance_steps.is_empty()):
 		return
 	play_anim(dance_steps[dance_step],true)
 	dance_step = wrap(dance_step + 1,0,dance_steps.size())

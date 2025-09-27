@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 	if events.is_empty():
 		return
 
-	while (index < event_data.size() - 1) and event_data[index].time <= Conductor.time:
+	while (index < event_data.size()) and event_data[index].time <= Conductor.time:
 		var event_data: Chart.EventData = event_data[index]
 		var found: bool = false
 		for ev: Event in events:

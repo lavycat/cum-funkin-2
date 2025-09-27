@@ -17,7 +17,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
 [node name="dad_position" type="Marker2D" parent="."]
-position = Vector2(0, 648)
+position = Vector2(250, 800)
 
 [node name="gf_position" type="Marker2D" parent="."]
 position = Vector2(724, 823)
