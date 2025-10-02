@@ -1,6 +1,11 @@
 class_name Stats extends Resource
 # TODO: MAKE ACCURACY TYPES SUCH AS WIFE3
-@export var accuracy_type:int = 0
+enum AccuracyType {
+	SIMPLE,
+	RATING_BASED,
+	WIFE_3,
+}
+@export var accuracy_type:int = AccuracyType.RATING_BASED
 @export var score:int
 @export var notes_hit:int = 0
 @export var misses:int = 0
@@ -13,9 +18,22 @@ class_name Stats extends Resource
 	"bad" = 0,
 	"shit" = 0,
 }
+@export var diffculty:StringName = "hard"
+@export var various:StringName = ""
+
+
 ## returns accuracy as a percent
 func get_accuracy() -> float:
 	if accuracy_points != 0:
-		return (accuracy_points / (notes_hit + misses)) * 100.0
+		match accuracy_type:
+			AccuracyType.SIMPLE:
+				return notes_hit / (notes_hit + misses) * 100.0
+			AccuracyType.RATING_BASED:
+				return (accuracy_points / (notes_hit + misses)) * 100.0
+			AccuracyType.WIFE_3:
+				# NOTE WIFE 3 NOT IMPLEMENTED
+				return NAN
+			_:
+				return 0
 	else:
 		return 0

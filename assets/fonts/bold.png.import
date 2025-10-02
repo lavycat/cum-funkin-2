@@ -20,7 +20,7 @@ image_margin=Rect2i(0, 0, 0, 0)
 character_margin=Rect2i(0, 0, 0, 0)
 ascent=0
 descent=0
-fallbacks=[Object(FontVariation,"resource_local_to_scene":false,"resource_name":"","fallbacks":Array[Font]([]),"base_font":Resource("res://assets/fonts/VCR_OSD_MONO_1.001.ttf"),"variation_opentype":{},"variation_face_index":0,"variation_embolden":0.0,"variation_transform":Transform2D(1.2, 0, 0, 1.2, 0, 0),"opentype_features":{},"spacing_glyph":12,"spacing_space":0,"spacing_top":0,"spacing_bottom":0,"baseline_offset":0.5,"script":null)
+fallbacks=[Object(FontVariation,"resource_local_to_scene":false,"resource_name":"","fallbacks":Array[Font]([]),"base_font":Resource("uid://c5chw3mxyist4", "res://assets/fonts/VCR_OSD_MONO_1.001.ttf"),"variation_opentype":{},"variation_face_index":0,"variation_embolden":0.0,"variation_transform":Transform2D(1.2, 0, 0, 1.2, 0, 0),"opentype_features":{},"spacing_glyph":12,"spacing_space":0,"spacing_top":0,"spacing_bottom":0,"baseline_offset":0.5,"script":null)
 ]
 compress=true
 scaling_mode=0
