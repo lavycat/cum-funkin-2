@@ -191,6 +191,8 @@ func note_update(delta:float):
 
 			if note.sustain and note.was_hit:
 				if note.sustain.released_timer > Conductor.step_length*2:
+					for i in characters:
+						i.sing(note.column,true)
 					note_miss.emit(note)
 					note.note_miss(note)
 					note.missed = true
@@ -200,6 +202,8 @@ func note_update(delta:float):
 					note.queue_free()
 
 			if not note.was_hit:
+				for i in characters:
+					i.sing(note.column,true)
 				note.missed = true
 				stats.misses += 1
 				stats.combo = 0
