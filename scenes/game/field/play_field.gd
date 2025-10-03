@@ -71,8 +71,11 @@ func do_note_hit(note:Note):
 	stats.notes_hit += 1
 	stats.accuracy_points += r.acc
 	stats.score += r.score
-	stats.ratings.set(r.name,stats.ratings.get(r.name,0))
+	stats.ratings.set(r.name,stats.ratings.get(r.name,0) + 1)
 	stats.combo += 1
+	if stats.combo > stats.max_combo:
+		stats.max_combo = stats.combo
+		
 	if not note.was_hit:
 		if show_splashs:
 			if r.shows_splash:

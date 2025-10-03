@@ -1,3 +1,4 @@
+## this class contain data related to stats from a play field used mainly for ui/huds and results screen
 class_name Stats extends Resource
 # TODO: MAKE ACCURACY TYPES SUCH AS WIFE3
 enum AccuracyType {
@@ -12,14 +13,20 @@ enum AccuracyType {
 @export var accuracy_points:float = 0
 
 @export var combo:int = 0
+@export var max_combo:int = 0
 @export var ratings:Dictionary[StringName,int] = {
 	"sick" = 0,
 	"good" = 0,
 	"bad" = 0,
 	"shit" = 0,
+	"miss" = 0,
 }
-@export var diffculty:StringName = "hard"
-@export var various:StringName = ""
+@export var diffculty:StringName = "hard":
+	get:
+		return Game.song_difficulty
+@export var various:StringName = "":
+	get:
+		return Game.song_variation
 
 
 ## returns accuracy as a percent

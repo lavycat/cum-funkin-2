@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6yisn3jjk7nn"
-path="res://.godot/imported/tallieNumber.png-0ae6fa7cf97eb3f38b504727ad049a36.ctex"
+uid="uid://4rmuatrhohdy"
+path="res://.godot/imported/hearts.png-211f49d493e77611e44953fbefd80c8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/menus/result_screen/tallieNumber.png"
-dest_files=["res://.godot/imported/tallieNumber.png-0ae6fa7cf97eb3f38b504727ad049a36.ctex"]
+source_file="res://assets/images/menus/result_screen/bf/resultsPERFECT/hearts.png"
+dest_files=["res://.godot/imported/hearts.png-211f49d493e77611e44953fbefd80c8d.ctex"]
 
 [params]
 

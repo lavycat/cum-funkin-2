@@ -1,6 +1,7 @@
 
 class_name Game extends Node2D
 signal song_start
+signal song_end
 var play_fields:Array[PlayField] = []
 var chart:Chart
 @onready var tracks: Node = %tracks
@@ -13,6 +14,7 @@ var chart:Chart
 @onready var ui: CanvasLayer = %UI
 
 var song_started:bool = false
+var showing_results:bool = false
 @onready var events: EventManager = $events
 var camera_lerp_position:Vector2 = Vector2.ZERO
 var default_camera_zoom:Vector2 = Vector2.ONE
@@ -38,6 +40,8 @@ var max_health:float = 2.0
 static var instance:Game
 static var song_name = "glitcher"
 static var song_difficulty:StringName = "hard"
+static var song_variation:StringName = ""
+
 static var level_songs:Array[StringName] = []
 static var level_index:int = 0
 static var level_name:StringName = ""
@@ -252,12 +256,12 @@ func _process(delta: float) -> void:
 			level_score += player_field.stats.score
 			if level_index == level_songs.size() - 1:
 				HighScore.save_level_score(level_score,level_name,song_difficulty)
-				return_to_menu()
+				return_to_menu(true)
 			else:
 				get_tree().reload_current_scene()
 				level_index += 1
 		else:
-			return_to_menu()
+			return_to_menu(true)
 	hud.scale = lerp(hud.scale,Vector2.ONE,1 - exp(-3.0 * delta))
 	camera.zoom = lerp(camera.zoom,default_camera_zoom,1 - exp(-3.0 * delta))
 	if camera:
@@ -271,8 +275,10 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_pause") and not paused:
+		if showing_results:
+			return
+		process_mode = Node.PROCESS_MODE_DISABLED
 		pause_ui = pause_menu.instantiate()
-		tracks.process_mode = Node.PROCESS_MODE_ALWAYS
 		await RenderingServer.frame_post_draw
 		add_child(pause_ui)
 		paused = true
@@ -294,19 +300,32 @@ func _input(event: InputEvent) -> void:
 				dad_field.auto_play = not dad_field.auto_play
 			else:
 				player_field.auto_play = not player_field.auto_play
-func measure_hit(measure:int):
-	pass
 func beat_hit(beat:int):
 	if camera_bumps and Save.json.get("cam_bumps",false):
 		if beat % camera_bump_modulo == 0:
 			hud.scale += hud_bump
 			camera.zoom += game_bump
 	pass
+func measure_hit(measure:int):
+	pass
 func step_hit(step:int):
 	pass
 	
 	
-func return_to_menu():
+func return_to_menu(open_results:bool = false):
+	if paused:
+		return
+	if open_results:
+		showing_results = true
+		var scene:PackedScene = load("res://scenes/game/results_screen.tscn")
+		var result_screne:Node2D = scene.instantiate()
+		result_screne.stats = dad_field.stats if opponent_mode else player_field.stats
+		
+		add_child(result_screne)
+		set_process(false)
+		await result_screne.exited
+	set_process(true)
+	
 	DiscordRPC.details = "In Menus"
 	DiscordRPC.refresh()
 	cache.clear()

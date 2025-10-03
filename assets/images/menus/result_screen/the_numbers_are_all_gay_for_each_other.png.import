@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://dw6tscary5q4m"
+path="res://.godot/imported/the_numbers_are_all_gay_for_each_other.png-a8ce7a58a5246b5d91a802df57a7d7a6.fontdata"
+
+[deps]
+
+source_file="res://assets/images/menus/result_screen/the_numbers_are_all_gay_for_each_other.png"
+dest_files=["res://.godot/imported/the_numbers_are_all_gay_for_each_other.png-a8ce7a58a5246b5d91a802df57a7d7a6.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\'0\'-\'9\' -16 -8")
+kerning_pairs=PackedStringArray()
+columns=10
+rows=1
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=0

@@ -87,6 +87,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		Game.is_story_mode = false
 		Game.song_name = cur_song
+		Game.song_difficulty = cur_diff
 		Global.chart = null
 		Global.chart = ChartParser.load_chart(cur_song,cur_diff)
 		SceneManager.change_scene(load("res://scenes/game/game.scn"))

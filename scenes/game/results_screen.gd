@@ -1,29 +1,76 @@
 extends Node2D
 @onready var speaker: SparrowAtlas = $CanvasLayer/ui/speaker
 @onready var scoreing_stuff: SparrowAtlas = $"CanvasLayer/ui/speaker/scoreing stuff"
-@onready var scoreing_stuff_2: SparrowAtlas = $"CanvasLayer/ui/speaker/scoreing stuff2"
+@onready var score: SparrowAtlas = $CanvasLayer/ui/speaker/score
 @onready var results: SparrowAtlas = $CanvasLayer/ui/results
 @onready var top_bar_black: Sprite2D = $CanvasLayer/ui/TopBarBlack
 @onready var score_counter: CanvasGroup = $CanvasLayer/ui/speaker/score_counter
+@onready var character: AnimateSymbol = $CanvasLayer/ui/character
+@export var stats:Stats = Stats.new()
+signal exited
+var game:Game = Game.instance
+var scoreing_shit:bool = false
+var rating_shit_started:bool = false
+var cur_scoreing_label:Label = null
+var rating_shit_finished:bool = false
+var score_shit:Dictionary[String,int] = {}
+var lerped_score_shit:PackedInt32Array = [0,0,0,0,0,0,0]
+var input_active:bool = false
+func rating_shit():
+	if rating_shit_started:
+		return
+	var properties:Array[String] = ["notes_hit","max_combo","ratings"]
+	var ratings:Array[String] = ["sick","good","bad","shit","miss"]
+	for i in scoreing_stuff.get_child_count():
+		var c = scoreing_stuff.get_child(i)
+		cur_scoreing_label = c
+		var val:int = 0
+		if i < 2:
+			val = stats.get(properties[i])
+		else:
+			val = stats.ratings.get(ratings[i-2])
+			
+		if c is Label:
+			var cal:Callable = func(value:int):
+				c.text = str(value)
+			var t = create_tween().tween_method(cal,0,val,.3)
+			cur_scoreing_label = c
+			c.text = ""
+			c.show()
+			await t.finished
+			if i == scoreing_stuff.get_child_count()-1:
+				rating_shit_finished = true
 
 func _ready() -> void:
 	top_bar_black.position.x = -1280
-	create_tween().tween_property(top_bar_black,"position:x",0,.5).set_trans(Tween.TRANS_CIRC)
+	create_tween().tween_property(top_bar_black,"position:x",0,.75).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	results.play("results instance 1")
 	speaker.frame = 0
 	scoreing_stuff.frame = 0
-	scoreing_stuff_2.frame = 0
+	score.frame = 0
 	speaker.hide()
-	print("asdasd")
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	score_counter.score = stats.score
 	if results.frame > 3 and speaker.frame < 1:
 		speaker.play("sound system")
 		speaker.show()
 	if speaker.frame > 8 and scoreing_stuff.frame < 1:
 		scoreing_stuff.play("Categories")
 		scoreing_stuff.show()
-	if scoreing_stuff.frame > 14 and scoreing_stuff_2.frame < 1:
-		scoreing_stuff_2.play("tally score")
-		scoreing_stuff_2.show()
-	if scoreing_stuff_2.frame > 3:
+		
+	if scoreing_stuff.frame > 14 and score.frame < 1:
+		rating_shit()
+		rating_shit_started = true
+		if rating_shit_finished:
+			score.play("tally score")
+			score.show()
+		
+	if score.frame > 3:
 		score_counter.show()
+		if not score_counter.displaying:
+			score_counter.update_score()
+			await score_counter.finished
+			input_active = true
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		exited.emit()

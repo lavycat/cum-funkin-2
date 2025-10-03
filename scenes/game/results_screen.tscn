@@ -1,6 +1,7 @@
-[gd_scene load_steps=218 format=3 uid="uid://cyc6k401rqn61"]
+[gd_scene load_steps=259 format=3 uid="uid://cyc6k401rqn61"]
 
 [ext_resource type="Script" uid="uid://co6v7rgfu3d7w" path="res://scenes/game/results_screen.gd" id="1_er4db"]
+[ext_resource type="Script" uid="uid://cbbduidi7thrv" path="res://scripts/resource/stats.gd" id="2_7p6r2"]
 [ext_resource type="FontFile" uid="uid://dvkk43e5n8cef" path="res://assets/images/menus/result_screen/tardlingSpritesheet.png" id="2_53suh"]
 [ext_resource type="Script" uid="uid://diqmdngjb60u2" path="res://addons/gdanimate/animate_symbol.gd" id="3_shqj1"]
 [ext_resource type="Texture2D" uid="uid://c13uqk8ecs7lg" path="res://assets/images/menus/result_screen/topBarBlack.png" id="4_830v3"]
@@ -11,6 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://bpevqql7ju1ni" path="res://assets/images/menus/result_screen/scorePopin.png" id="8_71bn4"]
 [ext_resource type="Texture2D" uid="uid://ssvcqirtut2p" path="res://assets/images/menus/result_screen/results.png" id="8_rlgma"]
 [ext_resource type="Texture2D" uid="uid://c5sqwpcgfdvs8" path="res://assets/images/menus/result_screen/score-digital-numbers.png" id="10_kumwq"]
+[ext_resource type="Texture2D" uid="uid://jv3ovmvetl7c" path="res://assets/images/menus/result_screen/highscoreNew.png" id="11_flspd"]
+[ext_resource type="Script" uid="uid://dhapx3l3n8xb" path="res://scenes/game/results_score_counter.gd" id="12_wl8lj"]
+[ext_resource type="FontFile" uid="uid://dw6tscary5q4m" path="res://assets/images/menus/result_screen/the_numbers_are_all_gay_for_each_other.png" id="15_u2588"]
+
+[sub_resource type="Resource" id="Resource_u2588"]
+script = ExtResource("2_7p6r2")
+metadata/_custom_type_script = "uid://cbbduidi7thrv"
 
 [sub_resource type="LabelSettings" id="LabelSettings_53suh"]
 font = ExtResource("2_53suh")
@@ -683,6 +691,29 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_3fji8"]
+font = ExtResource("15_u2588")
+
+[sub_resource type="LabelSettings" id="LabelSettings_u2588"]
+font = ExtResource("15_u2588")
+font_color = Color(0.1764706, 0.8901961, 0.3372549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3mrdx"]
+font = ExtResource("15_u2588")
+font_color = Color(0.14509805, 0.70980394, 0.92156863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hr7bq"]
+font = ExtResource("15_u2588")
+font_color = Color(0.9019608, 0.7176471, 0.16862746, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_102rf"]
+font = ExtResource("15_u2588")
+font_color = Color(0.8627451, 0.21960784, 0.20392157, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8jw46"]
+font = ExtResource("15_u2588")
+font_color = Color(0.63529414, 0.26666668, 0.8352941, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ksquk"]
 atlas = ExtResource("8_71bn4")
 region = Rect2(0, 0, 420, 50)
@@ -928,6 +959,246 @@ animations = [{
 }],
 "loop": false,
 "name": &"tally score",
+"speed": 24.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn8io"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 0, 592, 29)
+margin = Rect2(0, 25, 252, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa72l"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 34, 433, 86)
+margin = Rect2(382, 1, 411, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7bfw"]
+atlas = ExtResource("11_flspd")
+region = Rect2(438, 34, 479, 99)
+margin = Rect2(365, 0, 365, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6mdh"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 138, 472, 99)
+margin = Rect2(372, 0, 372, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arjof"]
+atlas = ExtResource("11_flspd")
+region = Rect2(477, 138, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdage"]
+atlas = ExtResource("11_flspd")
+region = Rect2(477, 138, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cm3h"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 242, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2syy2"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 242, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3yvg"]
+atlas = ExtResource("11_flspd")
+region = Rect2(380, 242, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqdev"]
+atlas = ExtResource("11_flspd")
+region = Rect2(380, 242, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn71j"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 286, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdi52"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 286, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkrlo"]
+atlas = ExtResource("11_flspd")
+region = Rect2(380, 286, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81vxr"]
+atlas = ExtResource("11_flspd")
+region = Rect2(380, 286, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41ta6"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 330, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjcrp"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 330, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y28ry"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 330, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7sjk"]
+atlas = ExtResource("11_flspd")
+region = Rect2(477, 138, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4568"]
+atlas = ExtResource("11_flspd")
+region = Rect2(477, 138, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wx7h"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 242, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vshi"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 242, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86kqk"]
+atlas = ExtResource("11_flspd")
+region = Rect2(380, 242, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ki30"]
+atlas = ExtResource("11_flspd")
+region = Rect2(380, 242, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpdgy"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 286, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sy4v"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 286, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu6g4"]
+atlas = ExtResource("11_flspd")
+region = Rect2(380, 286, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi2co"]
+atlas = ExtResource("11_flspd")
+region = Rect2(380, 286, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or247"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 330, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o6e3"]
+atlas = ExtResource("11_flspd")
+region = Rect2(0, 330, 375, 39)
+margin = Rect2(372, 24, 469, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1om0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn8io")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa72l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7bfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6mdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arjof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdage")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cm3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2syy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3yvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqdev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn71j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdi52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkrlo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81vxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41ta6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjcrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y28ry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7sjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4568")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wx7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vshi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86kqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ki30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpdgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sy4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu6g4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi2co")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or247")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o6e3")
+}],
+"loop": false,
+"name": &"highscoreAnim",
 "speed": 24.0
 }]
 
@@ -1706,27 +1977,20 @@ animations = [{
 
 [node name="ResultsScreen" type="Node2D"]
 script = ExtResource("1_er4db")
+stats = SubResource("Resource_u2588")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 342.0
-offset_top = 219.0
-offset_right = 570.0
-offset_bottom = 242.0
+offset_left = 345.0
+offset_top = 307.0
+offset_right = 1047.0
+offset_bottom = 389.0
 text = "YOU GOT THE SEX :3"
 label_settings = SubResource("LabelSettings_53suh")
-
-[node name="AnimateSymbol" type="Node2D" parent="."]
-visible = false
-position = Vector2(640, 360)
-script = ExtResource("3_shqj1")
-atlas = "res://assets/images/menus/result_screen/bf/resultsPERFECT/bed"
-frame = 30
-metadata/_custom_type_script = "uid://diqmdngjb60u2"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1277.0
+offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0.99215686, 0.77254903, 0.36078432, 1)
 
@@ -1753,7 +2017,7 @@ offset_bottom = 257.0
 [node name="Parallax2D" type="Parallax2D" parent="CanvasLayer/ui/clip"]
 repeat_size = Vector2(900, 0)
 
-[node name="DiffEasy" type="Sprite2D" parent="CanvasLayer/ui/clip/Parallax2D"]
+[node name="diff" type="Sprite2D" parent="CanvasLayer/ui/clip/Parallax2D"]
 position = Vector2(88, 160)
 texture = ExtResource("5_kqoo6")
 
@@ -1765,7 +2029,14 @@ offset_bottom = 191.0
 text = "{SONG} By {COMPOSER}"
 label_settings = SubResource("LabelSettings_kqoo6")
 
+[node name="character" type="Node2D" parent="CanvasLayer/ui"]
+visible = false
+position = Vector2(1332, 315)
+script = ExtResource("3_shqj1")
+metadata/_custom_type_script = "uid://diqmdngjb60u2"
+
 [node name="speaker" type="AnimatedSprite2D" parent="CanvasLayer/ui"]
+visible = false
 position = Vector2(0, -176)
 sprite_frames = SubResource("SpriteFrames_ok734")
 animation = &"sound system"
@@ -1781,12 +2052,78 @@ position = Vector2(-128, 312)
 sprite_frames = SubResource("SpriteFrames_h25py")
 animation = &"Categories"
 frame = 15
+frame_progress = 1.0
 centered = false
 script = ExtResource("6_s5oji")
 tex = ExtResource("5_5y8l8")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
 
-[node name="scoreing stuff2" type="AnimatedSprite2D" parent="CanvasLayer/ui/speaker"]
+[node name="notes_hit" type="Label" parent="CanvasLayer/ui/speaker/scoreing stuff"]
+visible = false
+offset_left = 455.0
+offset_top = 5.0
+offset_right = 662.0
+offset_bottom = 55.0
+text = "1"
+label_settings = SubResource("LabelSettings_3fji8")
+clip_text = true
+
+[node name="max_combo" type="Label" parent="CanvasLayer/ui/speaker/scoreing stuff"]
+visible = false
+offset_left = 455.0
+offset_top = 61.0
+offset_right = 662.0
+offset_bottom = 111.0
+text = "1"
+label_settings = SubResource("LabelSettings_3fji8")
+clip_text = true
+
+[node name="sick" type="Label" parent="CanvasLayer/ui/speaker/scoreing stuff"]
+visible = false
+offset_left = 330.0
+offset_top = 134.0
+offset_right = 370.0
+offset_bottom = 184.0
+text = "1"
+label_settings = SubResource("LabelSettings_u2588")
+
+[node name="good" type="Label" parent="CanvasLayer/ui/speaker/scoreing stuff"]
+visible = false
+offset_left = 330.0
+offset_top = 191.0
+offset_right = 370.0
+offset_bottom = 241.0
+text = "1"
+label_settings = SubResource("LabelSettings_3mrdx")
+
+[node name="bad" type="Label" parent="CanvasLayer/ui/speaker/scoreing stuff"]
+visible = false
+offset_left = 330.0
+offset_top = 244.0
+offset_right = 370.0
+offset_bottom = 294.0
+text = "1"
+label_settings = SubResource("LabelSettings_hr7bq")
+
+[node name="shit" type="Label" parent="CanvasLayer/ui/speaker/scoreing stuff"]
+visible = false
+offset_left = 330.0
+offset_top = 301.0
+offset_right = 370.0
+offset_bottom = 351.0
+text = "1"
+label_settings = SubResource("LabelSettings_102rf")
+
+[node name="miss" type="Label" parent="CanvasLayer/ui/speaker/scoreing stuff"]
+visible = false
+offset_left = 360.0
+offset_top = 358.0
+offset_right = 400.0
+offset_bottom = 408.0
+text = "1"
+label_settings = SubResource("LabelSettings_8jw46")
+
+[node name="score" type="AnimatedSprite2D" parent="CanvasLayer/ui/speaker"]
 visible = false
 position = Vector2(-167, 691)
 sprite_frames = SubResource("SpriteFrames_cscyt")
@@ -1797,16 +2134,27 @@ script = ExtResource("6_s5oji")
 tex = ExtResource("8_71bn4")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
 
+[node name="new_highscore" type="AnimatedSprite2D" parent="CanvasLayer/ui/speaker"]
+visible = false
+position = Vector2(63, 735)
+sprite_frames = SubResource("SpriteFrames_w1om0")
+animation = &"highscoreAnim"
+frame = 28
+frame_progress = 1.0
+centered = false
+script = ExtResource("6_s5oji")
+tex = ExtResource("11_flspd")
+metadata/_custom_type_script = "uid://nqu72cn7ch25"
+
 [node name="score_counter" type="CanvasGroup" parent="CanvasLayer/ui/speaker"]
 visible = false
 position = Vector2(84, 784)
+script = ExtResource("12_wl8lj")
 
 [node name="num" type="AnimatedSprite2D" parent="CanvasLayer/ui/speaker/score_counter"]
 sprite_frames = SubResource("SpriteFrames_daoy6")
 animation = &"DISABLED"
 centered = false
-script = ExtResource("6_s5oji")
-tex = ExtResource("10_kumwq")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
 
 [node name="num2" type="AnimatedSprite2D" parent="CanvasLayer/ui/speaker/score_counter"]
@@ -1814,8 +2162,6 @@ position = Vector2(64, 0)
 sprite_frames = SubResource("SpriteFrames_daoy6")
 animation = &"DISABLED"
 centered = false
-script = ExtResource("6_s5oji")
-tex = ExtResource("10_kumwq")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
 
 [node name="num3" type="AnimatedSprite2D" parent="CanvasLayer/ui/speaker/score_counter"]
@@ -1823,8 +2169,6 @@ position = Vector2(128, 0)
 sprite_frames = SubResource("SpriteFrames_daoy6")
 animation = &"DISABLED"
 centered = false
-script = ExtResource("6_s5oji")
-tex = ExtResource("10_kumwq")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
 
 [node name="num4" type="AnimatedSprite2D" parent="CanvasLayer/ui/speaker/score_counter"]
@@ -1832,8 +2176,6 @@ position = Vector2(192, 0)
 sprite_frames = SubResource("SpriteFrames_daoy6")
 animation = &"DISABLED"
 centered = false
-script = ExtResource("6_s5oji")
-tex = ExtResource("10_kumwq")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
 
 [node name="num5" type="AnimatedSprite2D" parent="CanvasLayer/ui/speaker/score_counter"]
@@ -1841,8 +2183,6 @@ position = Vector2(256, 0)
 sprite_frames = SubResource("SpriteFrames_daoy6")
 animation = &"DISABLED"
 centered = false
-script = ExtResource("6_s5oji")
-tex = ExtResource("10_kumwq")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
 
 [node name="num6" type="AnimatedSprite2D" parent="CanvasLayer/ui/speaker/score_counter"]
@@ -1850,8 +2190,6 @@ position = Vector2(320, 0)
 sprite_frames = SubResource("SpriteFrames_daoy6")
 animation = &"DISABLED"
 centered = false
-script = ExtResource("6_s5oji")
-tex = ExtResource("10_kumwq")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
 
 [node name="num7" type="AnimatedSprite2D" parent="CanvasLayer/ui/speaker/score_counter"]
@@ -1859,8 +2197,6 @@ position = Vector2(384, 0)
 sprite_frames = SubResource("SpriteFrames_daoy6")
 animation = &"DISABLED"
 centered = false
-script = ExtResource("6_s5oji")
-tex = ExtResource("10_kumwq")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
 
 [node name="num8" type="AnimatedSprite2D" parent="CanvasLayer/ui/speaker/score_counter"]
@@ -1868,8 +2204,6 @@ position = Vector2(448, 0)
 sprite_frames = SubResource("SpriteFrames_daoy6")
 animation = &"DISABLED"
 centered = false
-script = ExtResource("6_s5oji")
-tex = ExtResource("10_kumwq")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
 
 [node name="num9" type="AnimatedSprite2D" parent="CanvasLayer/ui/speaker/score_counter"]
@@ -1877,8 +2211,6 @@ position = Vector2(512, 0)
 sprite_frames = SubResource("SpriteFrames_daoy6")
 animation = &"DISABLED"
 centered = false
-script = ExtResource("6_s5oji")
-tex = ExtResource("10_kumwq")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
 
 [node name="num10" type="AnimatedSprite2D" parent="CanvasLayer/ui/speaker/score_counter"]
@@ -1886,8 +2218,6 @@ position = Vector2(576, 0)
 sprite_frames = SubResource("SpriteFrames_daoy6")
 animation = &"DISABLED"
 centered = false
-script = ExtResource("6_s5oji")
-tex = ExtResource("10_kumwq")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
 
 [node name="results" type="AnimatedSprite2D" parent="CanvasLayer/ui"]
@@ -1898,3 +2228,4 @@ offset = Vector2(-266.195, 0)
 script = ExtResource("6_s5oji")
 tex = ExtResource("8_rlgma")
 metadata/_custom_type_script = "uid://nqu72cn7ch25"
+metadata/_edit_lock_ = true
