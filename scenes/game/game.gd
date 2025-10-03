@@ -313,9 +313,9 @@ func step_hit(step:int):
 	
 	
 func return_to_menu(open_results:bool = false):
-	if paused:
-		return
 	if open_results:
+		if paused:
+			return
 		showing_results = true
 		var scene:PackedScene = load("res://scenes/game/results_screen.tscn")
 		var result_screne:Node2D = scene.instantiate()
