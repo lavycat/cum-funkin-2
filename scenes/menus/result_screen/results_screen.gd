@@ -5,16 +5,14 @@ extends Node2D
 @onready var results: SparrowAtlas = $CanvasLayer/ui/results
 @onready var top_bar_black: Sprite2D = $CanvasLayer/ui/TopBarBlack
 @onready var score_counter: CanvasGroup = $CanvasLayer/ui/speaker/score_counter
-@onready var character: AnimateSymbol = $CanvasLayer/ui/character
+@onready var character: Node2D = $CanvasLayer/ui/character
 @export var stats:Stats = Stats.new()
 signal exited
+var character_folder:String = "bf"
 var game:Game = Game.instance
-var scoreing_shit:bool = false
 var rating_shit_started:bool = false
 var cur_scoreing_label:Label = null
 var rating_shit_finished:bool = false
-var score_shit:Dictionary[String,int] = {}
-var lerped_score_shit:PackedInt32Array = [0,0,0,0,0,0,0]
 var input_active:bool = false
 func rating_shit():
 	if rating_shit_started:
@@ -42,6 +40,7 @@ func rating_shit():
 				rating_shit_finished = true
 
 func _ready() -> void:
+	load_character()
 	top_bar_black.position.x = -1280
 	create_tween().tween_property(top_bar_black,"position:x",0,.75).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	results.play("results instance 1")
@@ -71,6 +70,16 @@ func _process(_delta: float) -> void:
 			score_counter.update_score()
 			await score_counter.finished
 			input_active = true
+			speaker.add_sibling(character)
+			speaker.move_to_front()
+			
+			
+func load_character():
+	character.queue_free()
+	var character_scene:PackedScene = load("res://scenes/menus/result_screen/characters/bf/excellent.tscn")
+	character = character_scene.instantiate()
 func _input(event: InputEvent) -> void:
+	if not input_active:
+		return
 	if Input.is_action_just_pressed("ui_accept"):
 		exited.emit()

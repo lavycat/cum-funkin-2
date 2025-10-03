@@ -1,9 +1,8 @@
-[gd_scene load_steps=259 format=3 uid="uid://cyc6k401rqn61"]
+[gd_scene load_steps=258 format=3 uid="uid://cyc6k401rqn61"]
 
-[ext_resource type="Script" uid="uid://co6v7rgfu3d7w" path="res://scenes/game/results_screen.gd" id="1_er4db"]
+[ext_resource type="Script" uid="uid://co6v7rgfu3d7w" path="res://scenes/menus/result_screen/results_screen.gd" id="1_er4db"]
 [ext_resource type="Script" uid="uid://cbbduidi7thrv" path="res://scripts/resource/stats.gd" id="2_7p6r2"]
 [ext_resource type="FontFile" uid="uid://dvkk43e5n8cef" path="res://assets/images/menus/result_screen/tardlingSpritesheet.png" id="2_53suh"]
-[ext_resource type="Script" uid="uid://diqmdngjb60u2" path="res://addons/gdanimate/animate_symbol.gd" id="3_shqj1"]
 [ext_resource type="Texture2D" uid="uid://c13uqk8ecs7lg" path="res://assets/images/menus/result_screen/topBarBlack.png" id="4_830v3"]
 [ext_resource type="Texture2D" uid="uid://c37c42ge6mteq" path="res://assets/images/menus/result_screen/ratingsPopin.png" id="5_5y8l8"]
 [ext_resource type="Texture2D" uid="uid://cgxmy8ouv5skj" path="res://assets/images/menus/result_screen/diff_hard.png" id="5_kqoo6"]
@@ -13,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ssvcqirtut2p" path="res://assets/images/menus/result_screen/results.png" id="8_rlgma"]
 [ext_resource type="Texture2D" uid="uid://c5sqwpcgfdvs8" path="res://assets/images/menus/result_screen/score-digital-numbers.png" id="10_kumwq"]
 [ext_resource type="Texture2D" uid="uid://jv3ovmvetl7c" path="res://assets/images/menus/result_screen/highscoreNew.png" id="11_flspd"]
-[ext_resource type="Script" uid="uid://dhapx3l3n8xb" path="res://scenes/game/results_score_counter.gd" id="12_wl8lj"]
+[ext_resource type="Script" uid="uid://dhapx3l3n8xb" path="res://scenes/menus/result_screen/results_score_counter.gd" id="12_wl8lj"]
 [ext_resource type="FontFile" uid="uid://dw6tscary5q4m" path="res://assets/images/menus/result_screen/the_numbers_are_all_gay_for_each_other.png" id="15_u2588"]
 
 [sub_resource type="Resource" id="Resource_u2588"]
@@ -2030,10 +2029,6 @@ text = "{SONG} By {COMPOSER}"
 label_settings = SubResource("LabelSettings_kqoo6")
 
 [node name="character" type="Node2D" parent="CanvasLayer/ui"]
-visible = false
-position = Vector2(1332, 315)
-script = ExtResource("3_shqj1")
-metadata/_custom_type_script = "uid://diqmdngjb60u2"
 
 [node name="speaker" type="AnimatedSprite2D" parent="CanvasLayer/ui"]
 visible = false

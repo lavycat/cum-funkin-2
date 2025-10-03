@@ -17,7 +17,6 @@ func update_score():
 		await timer.timeout
 		get_child(i).frame = 0
 		get_child(i).play(DIGITS[score_str[i].to_int()] + " DIGITAL")
-		if i == get_child_count()-1:
-			finished.emit()
+	finished.emit()
 		
 		
