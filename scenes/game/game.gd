@@ -317,7 +317,7 @@ func return_to_menu(open_results:bool = false):
 		if paused:
 			return
 		showing_results = true
-		var scene:PackedScene = load("res://scenes/game/results_screen.tscn")
+		var scene:PackedScene = load("res://scenes/menus/result_screen/results_screen.tscn")
 		var result_screne:Node2D = scene.instantiate()
 		result_screne.stats = dad_field.stats if opponent_mode else player_field.stats
 		
