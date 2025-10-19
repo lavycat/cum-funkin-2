@@ -282,8 +282,9 @@ func _input(event: InputEvent) -> void:
 		await RenderingServer.frame_post_draw
 		add_child(pause_ui)
 		paused = true
-	if event.is_action_pressed("ui_cancel"):
-		return_to_menu()
+	if not showing_results:
+		if event.is_action_pressed("ui_cancel"):
+			return_to_menu()
 	if OS.is_debug_build():
 		if event.is_action_pressed("debug_skip_time"):
 			Conductor.player.seek(Conductor.time + 10.0)
@@ -294,12 +295,12 @@ func _input(event: InputEvent) -> void:
 				p.spawn_notes()
 				for i in p.note_field.get_children():
 					i.free()
-
 		if event.is_action_pressed("debug_bot_toggle"):
 			if opponent_mode:
 				dad_field.auto_play = not dad_field.auto_play
 			else:
 				player_field.auto_play = not player_field.auto_play
+
 func beat_hit(beat:int):
 	if camera_bumps and Save.json.get("cam_bumps",false):
 		if beat % camera_bump_modulo == 0:

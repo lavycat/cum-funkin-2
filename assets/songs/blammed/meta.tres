@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="SongMeta" load_steps=4 format=3 uid="uid://b8v618ovaidy6"]
+[gd_resource type="Resource" script_class="SongMeta" load_steps=5 format=3 uid="uid://b8v618ovaidy6"]
 
 [ext_resource type="PackedScene" uid="uid://brcc3ta5oahnp" path="res://scenes/game/huds/funkin.tscn" id="1_fniln"]
-[ext_resource type="Texture2D" uid="uid://dtxj6prip0iy8" path="res://assets/images/game/icons/icon-pico.png" id="2_p6ij8"]
+[ext_resource type="SpriteFrames" uid="uid://b4asbasj6miry" path="res://scenes/menus/vslice_freeplay/icons/picopixel.res" id="2_0xn73"]
 [ext_resource type="Script" uid="uid://0wvgw6kj6j2f" path="res://scripts/data/song_meta.gd" id="3_dx64i"]
+[ext_resource type="AudioStream" uid="uid://bx7285hcgijus" path="res://assets/songs/blammed/tracks/Inst.ogg" id="3_rph1x"]
 
 [resource]
 script = ExtResource("3_dx64i")
-icon = ExtResource("2_p6ij8")
+preview_track = ExtResource("3_rph1x")
+icon = ExtResource("2_0xn73")
 color = Color(0.7176471, 0.84705883, 0.33333334, 1)
 metadata/_custom_type_script = "uid://0wvgw6kj6j2f"

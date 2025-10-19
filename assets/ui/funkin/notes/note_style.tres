@@ -13,5 +13,6 @@ metadata/_custom_type_script = "uid://cm50dhcydve4a"
 [resource]
 script = ExtResource("2_eyjn0")
 note_frames = ExtResource("1_mpugo")
+rendering_method = "stretch"
 splash_style = SubResource("Resource_dgqdm")
 metadata/_custom_type_script = "uid://7h4ov0y0q7nj"

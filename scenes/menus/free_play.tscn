@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://qvpd1n7acunr"]
+[gd_scene load_steps=6 format=3 uid="uid://qvpd1n7acunr"]
 
 [ext_resource type="Script" uid="uid://bkt2kx7lyad8" path="res://scenes/menus/free_play.gd" id="1_8le71"]
 [ext_resource type="Texture2D" uid="uid://00q6vqo4ygeq" path="res://assets/images/menus/menuDesat.png" id="1_y8dq1"]
 [ext_resource type="FontFile" uid="uid://c5chw3mxyist4" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="3_kbhff"]
+[ext_resource type="PackedScene" uid="uid://c5wf5e0odlkl6" path="res://scenes/menus/vslice_freeplay/djs/bf_dj.tscn" id="4_bfb2o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bfb2o"]
 font = ExtResource("3_kbhff")
@@ -44,10 +45,12 @@ offset_right = 952.0
 offset_bottom = 150.0
 text = "open modifiers"
 
+[node name="dj" parent="." instance=ExtResource("4_bfb2o")]
+
 [node name="songs" type="Node2D" parent="."]
 
 [node name="camera" type="Camera2D" parent="."]
-position = Vector2(640, -360)
+position = Vector2(640, 360)
 position_smoothing_enabled = true
 position_smoothing_speed = 9.0
 

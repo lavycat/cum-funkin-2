@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://pkw487a2qtfa"]
 
 [ext_resource type="Script" uid="uid://byx4nxvjlrgg5" path="res://autoload/scenes/debug.gd" id="1_ilaqs"]
-[ext_resource type="FontFile" uid="uid://c5chw3mxyist4" path="res://assets/fonts/VCR_OSD_MONO_1.001.ttf" id="2_if0q0"]
+[ext_resource type="FontFile" uid="uid://dvlplex6udlwo" path="res://assets/fonts/impact.ttf" id="2_if0q0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3yqj7"]
 font = ExtResource("2_if0q0")

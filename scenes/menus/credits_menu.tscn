@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bec2ic6ui2h6i"]
+
+[ext_resource type="FontFile" uid="uid://fyjm27om0ios" path="res://assets/fonts/5by7.ttf" id="1_due5w"]
+[ext_resource type="Texture2D" uid="uid://b7k04rhmeotrs" path="res://assets/images/menus/menuDesat_Invert.png" id="1_xtkoc"]
+[ext_resource type="Script" uid="uid://c4nc0ybc40bs2" path="res://scripts/menu_items/credits_item.gd" id="2_536xp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_536xp"]
+font = ExtResource("1_due5w")
+font_size = 72
+shadow_offset = Vector2(4, 4)
+stacked_outline_count = 3
+stacked_outline_0/size = 4
+stacked_outline_1/size = 4
+stacked_outline_1/color = Color(1, 1, 1, 1)
+stacked_outline_2/size = 8
+
+[node name="CreditsMenu" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xtkoc")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1280.0
+offset_bottom = 51.0
+text = "LAVY_CAT06"
+label_settings = SubResource("LabelSettings_536xp")
+script = ExtResource("2_536xp")

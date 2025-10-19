@@ -2,17 +2,14 @@ extends Node
 var root:Window = null
 
 var chart:Chart = null
-var preloaded_characters:Dictionary = {}
+var preloaded:Array[Resource] = [preload("res://assets/images/menus/djs/bf/dj.png")]
 var in_menu:bool = false
 # NOTE -> made for freeplay to override them for a gameplay intance use Game class!
 var game_modifiers:GameModifiers = GameModifiers.new()
 var game_meta:SongMeta = SongMeta.new()
 
-func preload_all_characters():
-	const characters_folder:String = "res://scenes/game/characters/"
-	for i in ResourceLoader.list_directory(characters_folder):
-		if i.ends_with("tscn"):
-			preloaded_characters.set(characters_folder + i,load(characters_folder + i))
+
+
 func _enter_tree() -> void:
 	game_modifiers = GameModifiers.new()
 	Input.use_accumulated_input = true

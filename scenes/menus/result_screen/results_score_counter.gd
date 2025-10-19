@@ -1,7 +1,7 @@
 extends CanvasGroup
 signal finished
 var score:int = 99999999999
-const DIGITS:Array[String] = ["ZERO","ONE","TWO","THERE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE"]
+const DIGITS:Array[String] = ["ZERO","ONE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE"]
 var displaying:bool = false
 var score_str:String:
 	get:

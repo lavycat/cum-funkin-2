@@ -14,6 +14,18 @@ var rating_shit_started:bool = false
 var cur_scoreing_label:Label = null
 var rating_shit_finished:bool = false
 var input_active:bool = false
+var rank:String = "perfect"
+func get_rank() -> String:
+	if stats.get_accuracy() == 100.0:
+		return "perfect"
+	if stats.get_accuracy() > 90.0:
+		return "excellent"
+	if stats.get_accuracy() > 80.0:
+		return "great"
+	if stats.get_accuracy() > 70.0:
+		return "good"
+	return "loss"
+	
 func rating_shit():
 	if rating_shit_started:
 		return
@@ -40,7 +52,9 @@ func rating_shit():
 				rating_shit_finished = true
 
 func _ready() -> void:
+	rank = get_rank()
 	load_character()
+	print(rank)
 	top_bar_black.position.x = -1280
 	create_tween().tween_property(top_bar_black,"position:x",0,.75).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	results.play("results instance 1")
@@ -76,7 +90,7 @@ func _process(_delta: float) -> void:
 			
 func load_character():
 	character.queue_free()
-	var character_scene:PackedScene = load("res://scenes/menus/result_screen/characters/bf/excellent.tscn")
+	var character_scene:PackedScene = load("res://scenes/menus/result_screen/characters/bf/%s.tscn"%rank)
 	character = character_scene.instantiate()
 func _input(event: InputEvent) -> void:
 	if not input_active:

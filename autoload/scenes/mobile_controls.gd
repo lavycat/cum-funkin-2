@@ -10,7 +10,7 @@ enum {
 	CONTROLS_SHOWN_GAME,
 	CONTROLS_SHOWN_MENU,
 }
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	match  controls_shown:
 		CONTROLS_SHOWN_NONE:
 			game.visible = false

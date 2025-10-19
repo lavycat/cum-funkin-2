@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SongMeta" load_steps=4 format=3 uid="uid://c87qrcguow5dp"]
 
 [ext_resource type="PackedScene" uid="uid://brcc3ta5oahnp" path="res://scenes/game/huds/funkin.tscn" id="1_iixvv"]
-[ext_resource type="Texture2D" uid="uid://oqwvdi5qdt3r" path="res://assets/images/game/icons/icon-dad.png" id="2_6g1ne"]
+[ext_resource type="SpriteFrames" uid="uid://b7wwm6nweudvl" path="res://scenes/menus/vslice_freeplay/icons/dadpixel.res" id="2_i8til"]
 [ext_resource type="Script" uid="uid://0wvgw6kj6j2f" path="res://scripts/data/song_meta.gd" id="3_4it17"]
 
 [resource]

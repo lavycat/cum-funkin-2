@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="SongMeta" load_steps=4 format=3 uid="uid://b025orix1r1p8"]
+[gd_resource type="Resource" script_class="SongMeta" load_steps=5 format=3 uid="uid://b025orix1r1p8"]
 
 [ext_resource type="PackedScene" uid="uid://brcc3ta5oahnp" path="res://scenes/game/huds/funkin.tscn" id="1_pq6gs"]
 [ext_resource type="Texture2D" uid="uid://dl0a6kigswlpw" path="res://assets/images/game/icons/icon-spooky.png" id="2_b6a2s"]
+[ext_resource type="AudioStream" uid="uid://ci3ckp4umd71f" path="res://assets/songs/south/tracks/Inst.ogg" id="3_05h5v"]
 [ext_resource type="Script" uid="uid://0wvgw6kj6j2f" path="res://scripts/data/song_meta.gd" id="3_hdymi"]
 
 [resource]
 script = ExtResource("3_hdymi")
+preview_track = ExtResource("3_05h5v")
 icon = ExtResource("2_b6a2s")
 color = Color(0.8352941, 0.49411765, 0, 1)
 metadata/_custom_type_script = "uid://0wvgw6kj6j2f"

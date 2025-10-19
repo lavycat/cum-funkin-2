@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 	time_text.text = "%s - %s"%[time_convert(max(Conductor.time,0)),time_convert(Conductor.player.stream.get_length())]
 func update_score_txt(stats:Stats):
 	scoretxt.text = "Score - %d | Accuracy - %0.2f%% | Misses - %d"%[stats.score,stats.get_accuracy(),stats.misses]
-func note_hit(n:Note):
+func note_hit(_n:Note):
 	if game.opponent_mode:
 		update_score_txt(game.dad_field.stats)
 	else:
@@ -66,7 +66,7 @@ func note_hit(n:Note):
 
 func note_miss(n:Note):
 	update_score_txt(n.play_field.stats)
-func beat_hit(b:int):
+func beat_hit(_b:int):
 	icons.scale = Vector2(1.2,1.2)
 
 

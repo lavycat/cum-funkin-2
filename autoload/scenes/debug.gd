@@ -14,7 +14,7 @@ func update_ui():
 	fps.text += "mem: %s / %s\n"%[to_hum(total_memory),to_hum(peak_mem)]
 	fps.text += graphics_info
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if visible:
 		update_ui()
 

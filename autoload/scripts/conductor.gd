@@ -43,18 +43,18 @@ func _process(delta: float) -> void:
 	var last_step = floor(step)
 	var last_beat = floor(beat)
 	var last_measure = floor(measure)
-	step = last_change.step + (time - last_change.time) / step_length
+	step = (last_change.step + (time - last_change.time) / step_length)
 	beat = step / 4.0
 	measure = beat / 4.0
 	if floor(step) > last_step:
 		for i in range(last_step,floor(step)):
-			step_hit.emit(i)
+			step_hit.emit(i - 1)
 	if floor(beat) > last_beat:
 		for i in range(last_beat,floor(beat)):
-			beat_hit.emit(i)
+			beat_hit.emit(i - 1)
 	if floor(measure) > last_measure:
 		for i in range(last_measure,floor(measure)):
-			measure_hit.emit(floor(measure))
+			measure_hit.emit(floor(measure - 1))
 
 
 

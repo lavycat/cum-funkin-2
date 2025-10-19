@@ -2021,9 +2021,9 @@ position = Vector2(88, 160)
 texture = ExtResource("5_kqoo6")
 
 [node name="Label2" type="Label" parent="CanvasLayer/ui/clip/Parallax2D"]
-offset_left = 404.0
+offset_left = 180.0
 offset_top = 129.0
-offset_right = 1038.0
+offset_right = 856.0
 offset_bottom = 191.0
 text = "{SONG} By {COMPOSER}"
 label_settings = SubResource("LabelSettings_kqoo6")
