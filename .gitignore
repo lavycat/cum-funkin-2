@@ -5,3 +5,4 @@
 /android/
 .vscode
 movie/
+**.DS_Store
